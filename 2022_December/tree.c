@@ -135,7 +135,7 @@ tree* delete_tree(int n, tree* p)
     }
     else if(p->left != NULL && p->right != NULL)//两个儿子
     {
-        tmp = find_min(p);
+        tmp = find_min(p->right);
         p->element = tmp->element;
         p->right = delete_tree(tmp->element, p->right);
         free(tmp);
