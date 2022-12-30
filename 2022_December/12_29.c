@@ -1,6 +1,4 @@
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
+#include"test1.h"
 
 // int main()
 // {
@@ -148,6 +146,7 @@
 
 int main()
 {
-    
+    print();
+    system("pause");
     return 0;
 }
