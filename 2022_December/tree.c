@@ -39,7 +39,6 @@ int main()
 
 tree* insert(int n, tree* p)
 {
-    tree* tmp;
     if(p == NULL)
     {
         p = (tree*)malloc(sizeof(tree));
