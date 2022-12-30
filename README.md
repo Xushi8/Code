@@ -1,2 +1,2 @@
-# easy_code
+# Easy_code
 新手的垃圾代码

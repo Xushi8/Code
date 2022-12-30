@@ -17,7 +17,7 @@ void print_tree(tree* p);
 
 int main()
 {
-    tree* root;
+    tree *root, *min, *max;
     root = insert(9, NULL);
     insert(8, root);
     insert(7, root);
@@ -25,6 +25,9 @@ int main()
     insert(83, root);
     insert(2, root);
     insert(2, root);
+    min = find_min(root);
+    max = find_max(root);
+    printf("max = %d\nmin = %d\n", max->element, min->element);
     print_tree(root);
     printf("\n");
     delete_tree(83, root);
@@ -173,4 +176,5 @@ void print_tree(tree* p)
     {
         print_tree(p->right);
     }
+
 }
