@@ -19,10 +19,11 @@ int main()
 {
     tree *root, *min, *max;
     root = insert(9, NULL);
-    insert(8, root);
+    insert(83, root);
     insert(7, root);
     insert(5, root);
     insert(83, root);
+    insert(88, root);
     insert(2, root);
     insert(2, root);
     min = find_min(root);
@@ -136,12 +137,21 @@ tree* delete_tree(int n, tree* p)
     else if(p->left != NULL && p->right != NULL)//两个儿子
     {
         tmp = find_min(p->right);
-        p->element = tmp->element;
-        p->right = delete_tree(tmp->element, p->right);
-        free(tmp);
+        if(p->right->left == NULL && p->right->right == NULL)
+        {
+            p->element = tmp->element;
+            free(tmp);
+        }
+        else
+        {
+            p->element = tmp->element;
+            p->right = delete_tree(p->element, p->right);
+            free(tmp);
+        }
     }
     else//一个或没有儿子
     {
+        tmp = p;
         if(p->left == NULL)
         {
             p = p->right;
@@ -150,8 +160,7 @@ tree* delete_tree(int n, tree* p)
         {
             p = p->left;
         }
-
-        return p;
+        free(tmp);
     }
 
     return p;
