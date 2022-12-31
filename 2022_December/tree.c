@@ -141,6 +141,7 @@ tree* delete_tree(int n, tree* p)
         if(p->right->left == NULL && p->right->right == NULL)
         {
             p->element = tmp->element;
+            p->right = NULL;
             free(tmp);
         }
         else
