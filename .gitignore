@@ -1,4 +1,6 @@
 /test/
-.vscode
+/.vscode/
 .jpg
 .png
+/project/
+.gitignore
