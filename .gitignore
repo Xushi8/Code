@@ -1,0 +1,8 @@
+/test/
+/.vscode/
+*.jpg
+*.png
+/project/
+*.zip
+*.rar
+*.7z
