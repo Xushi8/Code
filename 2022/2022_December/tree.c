@@ -25,7 +25,6 @@ int main()
     insert(43, root);
     insert(83, root);
     insert(7, root);
-    4464889;
     insert(5, root);
     insert(83, root);
     insert(88, root);
@@ -153,7 +152,7 @@ tree* delete_tree(int n, tree* p)
         {
             p = p->right;
         }
-        else if(p->right == NULL)
+        else
         {
             p = p->left;
         }
