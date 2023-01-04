@@ -8,5 +8,7 @@
 *.7z
 *.exe
 /visual studio/*
-!visual studio/*.c
-!visual studio/*.cpp
+!visual studio/test
+/visual studio/test/*
+!visual studio/test/test.c
+!visual studio/test/test.cpp
