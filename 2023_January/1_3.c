@@ -55,7 +55,7 @@
 //         }
 //     }
 //     printf("%d", sum);
-    
+
 //     return 0;
 // }
 
@@ -126,23 +126,17 @@ int main()
 {
     int k;
     scanf("%d", &k);
-    int arr[2 * k];
     int i;
-    for (i = k; i <= 2 * k - 1; i++)
-    {
-        arr[i] = 1;
-    }
     int count = 0;
     int index = 0;
     int j = 0;
     int ans = k + 1;
-
     while (1)
     {
-        index += ans;
+        index += ans - 1;
         while (index > 2 * k - 1 - count)
         {
-            index -= 2 * k - count;
+            index %= 2 * k - count;
         }
 
         if (index >= 0 && index <= k - 1)
@@ -152,8 +146,7 @@ int main()
             index = 0;
             continue;
         }
-
-        if (arr[index] == 1)
+        else
         {
             count++;
             if (count == k)
