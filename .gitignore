@@ -3,6 +3,7 @@
 *.jpg
 *.png
 /project/
+/My_project/
 *.zip
 *.rar
 *.7z
@@ -12,3 +13,6 @@
 /visual studio/test/*
 !visual studio/test/test.c
 !visual studio/test/test.cpp
+/2022/Codeblocks_10/
+/2022/Dev/
+
