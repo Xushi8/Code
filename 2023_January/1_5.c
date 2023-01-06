@@ -125,9 +125,82 @@ char* my_strcpy(char* dest, const char* str)
 //     return 0;
 // }
 
+
+// void* my_memmove(void* dst, const void* str, int count)
+// {
+//     char* s1 = (char*)dst;
+//     const char* s2 = (char*)str;
+    
+//     if (s1 < s2)
+//     {
+//         while (count--)
+//         {
+//             *s1++ = *s2++;
+//         }
+//     }
+//     else
+//     {
+//         while (count--)
+//         {
+//             *(s1 + count) = *(s2 + count);
+//         }
+//     }
+
+//     return dst;
+// }
+// int main()
+// {
+//     int arr[10];
+//     for (int i = 0; i < 10; i++)
+//     {
+//         arr[i] = i + 1;
+//         printf("%d ", arr[i]);
+//     }
+//     putchar('\n');
+
+//     my_memmove(arr, arr + 2, sizeof(int) * 5);
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("%d ", arr[i]);
+//     }
+//     putchar('\n');
+
+//     for (int i = 0; i < 10; i++)
+//     {
+//         arr[i] = i + 1;
+//         printf("%d ", arr[i]);
+//     }
+//     putchar('\n');
+//     my_memmove(arr, arr, sizeof(int) * 5);
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("%d ", arr[i]);
+//     }
+//     putchar('\n');
+
+//     for (int i = 0; i < 10; i++)
+//     {
+//         arr[i] = i + 1;
+//         printf("%d ", arr[i]);
+//     }
+//     putchar('\n');
+//     my_memmove(arr + 2, arr, sizeof(int) * 5);
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("%d ", arr[i]);
+//     }
+//     putchar('\n');
+
+//     return 0;
+// }
+
 int main()
 {
-    
+    char* s1 = "12343535";
+    char* s2 = "45+83474378";
+    int a = atoi(s1);
+    int b = atoi(s2);
+    printf("%d %d", a, b);
 
     return 0;
 }
