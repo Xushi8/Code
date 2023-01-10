@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -748,11 +749,167 @@
 //     return 0;
 // }
 
+// int main()
+// {
+//     int a, b;
+//     int s1[1000];
+//     int s2[1000];
+//     scanf("%d", &a);
+//     int i, j;
+//     for (i = 0; i < a; i++)
+//     {
+//         scanf("%d", &s1[i]);
+//     }
+//     scanf("%d", &b);
+//     for (j = b, i = 0; j < a; j++, i++)
+//     {
+//         s2[j] = s1[i];
+//     }
+//     for (i = 0, j = a - b; j < a; j++, i++)
+//     {
+//         s2[i] = s1[j];
+//     }
+//     for (i = 0; i < a; i++)
+//     {
+//         printf("%d ", s2[i]);
+//     }
+
+//     return 0;
+// }
+//
+//int arr[1000] = { 0 };
+//int main()
+//{
+//    int n;
+//    scanf("%d", &n);
+//    int count = 0;
+//    int index = 1;
+//    while (1)
+//    {
+//        while (arr[index] != 0)
+//        {
+//            index++;
+//            if (index > n);
+//            {
+//                index = 1;
+//            }
+//        }
+//        index++;
+//        while (arr[index] != 0)
+//        {
+//            index++;
+//            if (index > n);
+//            {
+//                index = 1;
+//            }
+//        }
+//        index++;
+//        while (arr[index] != 0)
+//        {
+//            index++;
+//            if (index > n);
+//            {
+//                index = 1;
+//            }
+//        }
+//        arr[index++] = 1;
+//        count++;
+//        if (count == n - 1)
+//        {
+//            break;
+//        }
+//    }
+//    for (int i = 1; i <= n; i++)
+//    {
+//        if (arr[i] == 0)
+//        {
+//            printf("%d", i);
+//            break;
+//        }
+//    }
+//
+//
+//    return 0;
+//}
+typedef struct Student Student;
+
+struct Student
+{
+    int num;
+    int codes;
+    Student* next;
+};
+void insert(Student* p)
+{
+    Student* tmp = (Student*)malloc(sizeof(Student));
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = tmp;
+    scanf("%d%d", &tmp->num, &tmp->codes);
+    tmp->next = NULL;
+}
+void selectsort(Student* p)
+{
+    Student* q = p;
+    Student* tmp = p;
+    Student* small = p;
+    int flag;
+
+    for (p = p->next; p->next != NULL; p = p->next)
+    {
+        small = p;
+        for (q = p->next; q; q = q->next)
+        {
+            if (q->num < small->num)
+            {
+                small = q;
+            }
+        }
+
+        if (small != p)
+        {
+            flag = p->num;
+            p->num = small->num;
+            small->num = flag;
+
+            flag = p->codes;
+            p->codes = small->codes;
+            small->codes = flag;
+        }
+    }
+}
 int main()
 {
+    int size = sizeof(Student);
     int a, b;
-    scanf("%d", &a);
-    int arr[a];
+    scanf("%d %d", &a, &b);
+    Student* head1 = (Student*)malloc(size);
+    head1->next = NULL;
+    Student* head2 = (Student*)malloc(size);
+    head2->next = NULL;
+    for (int i = 0; i < a; i++)
+    {
+        insert(head1);
+    }
+    for (int i = 0; i < b; i++)
+    {
+        insert(head2);
+    }
+    Student* p = head1;
+    while (p->next != NULL)
+        p = p->next;
+
+    p->next = head2->next;
+    p = head1;
+    selectsort(p);
+    p = p->next;
+    while (p)
+    {
+        printf("%d %d\n", p->num, p->codes);
+        p = p->next;
+    }
 
 
     return 0;

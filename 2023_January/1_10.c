@@ -705,13 +705,13 @@
 
 // int main()
 // {
-//     int min_index = -1, max_index = -1, min_num = 2147483647, max_num = -2147483648;
 //     int arr[10];
 //     int i;
 //     for (i = 0; i < 10; i++)
 //     {
 //         scanf("%d", &arr[i]);
 //     }
+//     int min_index = 0, max_index = 0, min_num = arr[0], max_num = arr[0];
 //     for (i = 0; i < 10; i++)
 //     {
 //         if (arr[i] < min_num)
@@ -726,20 +726,15 @@
 //         }
 //     }
 //     int tmp;
-//     if(min_index != -1)
-//     {
-//         tmp = arr[0];
-//         arr[0] = arr[min_index];
-//         arr[min_index] = tmp;
-//     }
+    
+//     tmp = arr[0];
+//     arr[0] = arr[min_index];
+//     arr[min_index] = tmp;
 
-//     if (max_index != -1)
-//     {
-//         tmp = arr[9];
-//         arr[9] = arr[max_index];
-//         arr[max_index] = tmp;
-//     }
-
+//     tmp = arr[9];
+//     arr[9] = arr[max_index];
+//     arr[max_index] = tmp;
+    
 //     for (i = 0; i < 10; i++)
 //     {
 //         printf("%d ", arr[i]);
@@ -776,13 +771,256 @@
 //     return 0;
 // }
 
-int arr[1000] = {0};
+// int arr[1000];
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     int i;
+//     for (i = 0; i < n; i++)
+//     {
+//         arr[i] = 1;
+//     }
+    
+//     int alive = n;
+//     int count = 0;
+//     int index;
+//     while (alive > 1)
+//     {
+//         index = 0;
+//         while (index < n)
+//         {
+//             if (arr[index] != 0)
+//             {
+//                 count++;
+//                 if (count == 3)
+//                 {
+//                     arr[index] = 0;
+//                     count = 0;
+//                     alive--;
+//                 }
+//             }
+
+//             index++;
+//         }
+//     }
+    
+//     for (i = 0; i < n; i++)
+//     {
+//         if (arr[i] == 1)
+//         {
+//             printf("%d", i + 1);
+//             break;
+//         }
+//     }
+
+//     return 0;
+// }
+
+// int main()
+// {
+//     char arr[10000];
+//     int a,b;
+//     scanf("%d", &a);
+//     scanf("%s", arr);
+//     scanf("%d", &b);
+//     strcpy(arr, arr + b - 1);
+//     puts(arr);
+
+//     return 0;
+// }
+
+
+// typedef struct shijian
+// {
+//     int year;
+//     int mon;
+//     int day;
+// }shijian;
+// int runnian(int n)
+// {
+//     return ((n % 4 == 0 && n % 100 != 0) || n % 400 == 0);
+// }
+// int main()
+// {
+//     shijian tmp;
+//     scanf("%d%d%d", &tmp.year, &tmp.mon, &tmp.day);
+//     int judge = runnian(tmp.year);
+//     int ret = 0;
+//     if (judge != 0)
+//     {
+//         int arr[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 };
+//         for (int i = 0; i < tmp.mon - 1; i++)
+//         {
+//             ret += arr[i];
+//         }
+//         ret += tmp.day;
+//     }
+//     else
+//     {
+//         int arr[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//         for (int i = 0; i < tmp.mon-1; i++)
+//         {
+//             ret += arr[i];
+//         }
+//         ret += tmp.day;
+//     }
+
+//     printf("%d", ret);
+
+//     return 0;
+// }
+
+// typedef struct Student
+// {
+//     int a, b, c;
+//     char name[24];
+//     char num[24];
+// }Student;
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     Student* student = (Student*)malloc(sizeof(Student) * n);
+//     Student* tmp = student;
+//     Student* ret = student;
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%s%s%d%d%d", student->num, student->name, &student->a, &student->b, &student->c);
+//         student++;
+//     }
+//     for (int i = 0; i < n; i++)
+//     {
+//         printf("%s,%s,%d,%d,%d\n", tmp->num, tmp->name, tmp->a, tmp->b, tmp->c);
+//         tmp++;
+//     }
+//     free(ret);
+
+
+//     return 0;
+// }
+
+// typedef struct Student
+// {
+//     int a, b, c;
+//     char name[48];
+//     char num[48];
+// }Student;
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     int sum1 = 0; int sum2 = 0; int sum3 = 0;
+//     int max_code = -1;
+//     Student* student = (Student*)malloc(sizeof(Student) * n);
+//     Student* tmp = student;
+//     Student* ret = student;
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%s%s%d%d%d", student->num, student->name, &student->a, &student->b, &student->c);
+//         sum1 += student->a;
+//         sum2 += student->b;
+//         sum3 += student->c;
+//         int tmp1 = student->a + student->b + student->c;
+//         if (tmp1 > max_code) max_code = tmp1;
+//         student++;
+//     }
+//     printf("%.0lf %.0lf %.0lf\n", (double)sum1 / (double)n, (double)sum2 / (double)n, (double)sum3 / (double)n);
+//     for (int i = 0; i < n; i++)
+//     {
+//         int tmp1 = tmp->a + tmp->b + tmp->c;
+//         if (tmp1 == max_code)
+//         {
+//             printf("%s %s %d %d %d\n", tmp->num, tmp->name, tmp->a, tmp->b, tmp->c);
+//             break;
+//         }
+//         tmp++;
+//     }
+//     free(ret);
+
+//     return 0;
+// }
+
+typedef struct Student Student;
+
+struct Student
+{
+    int num;
+    int codes;
+    Student* next;
+};
+void insert(Student* p)
+{
+    Student* tmp = (Student*)malloc(sizeof(Student));
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = tmp;
+    scanf("%d%d", &tmp->num, &tmp->codes);
+    tmp->next = NULL;
+}
+void selectsort(Student* p)
+{
+    Student* q = p;
+    Student* tmp = p;
+    Student* small = p;
+    int flag;
+
+    for (p = p->next; p->next != NULL; p = p->next)
+    {
+        small = p;
+        for (q = p->next; q; q = q->next)
+        {
+            if (q->num < small->num)
+            {
+                small = q;
+            }
+        }
+
+        if (small != p)
+        {
+            flag = p->num;
+            p->num = small->num;
+            small->num = flag;
+
+            flag = p->codes;
+            p->codes = small->codes;
+            small->codes = flag;
+        }
+    }
+}
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    int count = 0;
-    
+    int size = sizeof(Student);
+    int a, b;
+    scanf("%d %d", &a, &b);
+    Student* head1 = (Student*)malloc(size);
+    head1->next = NULL;
+    Student* head2 = (Student*)malloc(size);
+    head2->next = NULL;
+    for (int i = 0; i < a; i++)
+    {
+        insert(head1);
+    }
+    for (int i = 0; i < b; i++)
+    {
+        insert(head2);
+    }
+    Student* p = head1;
+    while (p->next != NULL)
+        p = p->next;
+
+    p->next = head2->next;
+    p = head1;
+    selectsort(p);
+    p = p->next;
+    while (p)
+    {
+        printf("%d %d\n", p->num, p->codes);
+        p = p->next;
+    }
+
 
     return 0;
 }
