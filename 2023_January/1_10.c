@@ -748,12 +748,41 @@
 //     return 0;
 // }
 
+// int main()
+// {
+//     int a, b;
+//     int s1[1000];
+//     int s2[1000];
+//     scanf("%d", &a);
+//     int i, j;
+//     for (i = 0; i < a; i++)
+//     {
+//         scanf("%d", &s1[i]);
+//     }
+//     scanf("%d", &b);
+//     for (j = b, i = 0; j < a; j++, i++)
+//     {
+//         s2[j] = s1[i];
+//     }
+//     for (i = 0, j = a - b; j < a; j++, i++)
+//     {
+//         s2[i] = s1[j];
+//     }
+//     for (i = 0; i < a; i++)
+//     {
+//         printf("%d ", s2[i]);
+//     }
+
+//     return 0;
+// }
+
+int arr[1000] = {0};
 int main()
 {
-    int a, b;
-    scanf("%d", &a);
-    int arr[a];
-
+    int n;
+    scanf("%d", &n);
+    int count = 0;
+    
 
     return 0;
 }
