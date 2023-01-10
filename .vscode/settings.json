@@ -1,5 +1,33 @@
 {
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "algorithm": "c",
+        "atomic": "c",
+        "bit": "c",
+        "cmath": "c",
+        "compare": "c",
+        "concepts": "c",
+        "exception": "c",
+        "ios": "c",
+        "iosfwd": "c",
+        "istream": "c",
+        "iterator": "c",
+        "limits": "c",
+        "memory": "c",
+        "ostream": "c",
+        "string": "c",
+        "system_error": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "xiosbase": "c",
+        "xlocale": "c",
+        "xlocinfo": "c",
+        "xlocnum": "c",
+        "xmemory": "c",
+        "xstddef": "c",
+        "xstring": "c",
+        "xtr1common": "c",
+        "xutility": "c"
     }
 }
