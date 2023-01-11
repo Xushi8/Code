@@ -7,7 +7,7 @@
 
 void print(int arr[])
 {
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 10; i++)
     {
         printf("%d ", arr[i]);
     }
@@ -21,7 +21,7 @@ void reverse(int* a, int* b)
     *b = tmp;
 }
 
-//²åÈëÅÅÐò
+//æ’å…¥æŽ’åº
 void sort1(int* arr, int* end)
 {
     int n = end - arr;
@@ -40,7 +40,7 @@ void sort1(int* arr, int* end)
     }
 }
 
-//Ï£¶ûÅÅÐò
+//å¸Œå°”æŽ’åº
 void sort2(int* arr, int* end)
 {
     int n = end - arr;
@@ -68,18 +68,17 @@ int main()
 {
     srand((unsigned)time(NULL));
     int begin, end;
-    int arr[100];
-    for (int i = 0; i < 100; i++)
+    int arr[10];
+    for (int i = 0; i < 10; i++)
     {
         arr[i] = rand() % 100;
     }
     print(arr);
     begin = clock();
-    //sort1(arr, arr + 100);
-    sort2(arr, arr + 100);
+    //sort1(arr, arr + 10000);
+    //sort2(arr, arr + 10000);
     end = clock();
     print(arr);
-    printf("Ê±¼ä: %dms", end - begin);
 
 
     return 0;
