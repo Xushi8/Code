@@ -5,9 +5,12 @@
 #include<math.h>
 #include<time.h>
 
+#define SIZE 10000000//数据大小
+
+
 void print(int arr[])
 {
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < SIZE; i++)
     {
         printf("%d ", arr[i]);
     }
@@ -21,22 +24,41 @@ void reverse(int* a, int* b)
     *b = tmp;
 }
 
+int search_pivot(int* arr, int left, int right)
+{
+    int middle = (left + right) / 2;
+    if (arr[left] > arr[middle])
+    {
+        reverse(&arr[left], &arr[middle]);
+    }
+    if (arr[middle] > arr[right])
+    {
+        reverse(&arr[middle], &arr[right]);
+    }
+    if (arr[left] > arr[middle])
+    {
+        reverse(&arr[left], &arr[middle]);
+    }
+
+    reverse(&arr[middle], &arr[right]);
+    return arr[right];
+}
+
 //插入排序
 void sort1(int* arr, int* end)
 {
     int n = end - arr;
     int i, j;
+    int tmp;
     for (i = 1; i < n; i++)
     {
-        int k = i;
-        for (j = k - 1; j >= 0; j--)
+        tmp = arr[i];
+        for (j = i; j > 0 && arr[j - 1] > tmp; j--)
         {
-            if (arr[j] > arr[k])
-            {
-                reverse(arr + j, arr + k);
-                k--;
-            }
+            arr[j] = arr[j - 1];
         }
+
+        arr[j] = tmp;
     }
 }
 
@@ -45,42 +67,83 @@ void sort2(int* arr, int* end)
 {
     int n = end - arr;
     int increment;
-    int i, j, k;
+    int i, j;
+    int tmp;
     for (increment = n / 2; increment > 0; increment /= 2)
     {
-        for (i = 1; i < n; i += increment)
+        for (i = increment; i < n; i++)
         {
-            int k = i;
-            for (j = k - increment; j >= 0; j -= increment)
+            tmp = arr[i];
+            for (j = i; j >= increment && arr[j - increment] > tmp; j -= increment)
             {
-                if (arr[j] > arr[k])
-                {
-                    reverse(arr + j, arr + k);
-                    k -= increment;
-                }
+                arr[j] = arr[j - increment];
             }
+
+            arr[j] = tmp;
         }
     }
 }
 
+void quick_sort(int* arr, int left, int right)
+{
+    int i = left, j = right;
+    int pivot = search_pivot(arr, left, right);
 
+    if (left + 3 <= right)
+    {
+        while (1)
+        {
+            while (arr[++i] < pivot)
+                continue;
+            while (arr[--j] > pivot)
+                continue;
+
+            if (i < j)
+            {
+                reverse(&arr[i], &arr[j]);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        reverse(&arr[i], &arr[right]);
+
+        quick_sort(arr, left, i - 1);
+        quick_sort(arr, i + 1, right);
+    }
+    else
+    {
+        sort1(arr + left, arr + right + 1);
+    }
+
+}
+
+void sort3(int* arr, int* end)
+{
+    quick_sort(arr, 0, end - arr - 1);//第三个传的是右侧下标
+}
+
+int arr[SIZE];
 int main()
 {
     srand((unsigned)time(NULL));
     int begin, end;
-    int arr[100];
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < SIZE; i++)
     {
-        arr[i] = rand() % 100;
+        arr[i] = rand() % 10;
     }
-    print(arr);
+    puts("计时开始");
+    //print(arr);
     begin = clock();
-    //sort1(arr, arr + 100);
-    sort2(arr, arr + 100);
+    //sort1(arr, arr + SIZE);
+    //sort2(arr, arr + SIZE);
+    //sort3(arr, arr + SIZE);
     end = clock();
-    print(arr);
-    printf("时间: %dms", end - begin);
+    //print(arr);
+    printf("用时: %dms\n", end - begin);
 
-
+    system("pause");
     return 0;
 }
