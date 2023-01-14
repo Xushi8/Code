@@ -6,10 +6,11 @@
             "command": "C:\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
+                "-g",//-O2是release, -g是debug
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                //"-O2",//开启O2优化
                 "-fexec-charset=GBK"
             ],
             "options": {

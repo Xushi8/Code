@@ -7,6 +7,7 @@
 *.rar
 *.7z
 *.exe
+*.s
 /visual studio/*
 !visual studio/test
 /visual studio/test/*

@@ -5,8 +5,7 @@
 #include<math.h>
 #include<time.h>
 
-#define SIZE 10000000//数据大小
-
+#define SIZE 100000000//数据大小
 
 void print(int arr[])
 {
@@ -117,7 +116,6 @@ void quick_sort(int* arr, int left, int right)
     {
         sort1(arr + left, arr + right +1);
     }
-
 }
 
 void sort3(int* arr, int* end)
@@ -132,14 +130,14 @@ int main()
     int begin, end;
     for (int i = 0; i < SIZE; i++)
     {
-        arr[i] = rand() % 10;
+        arr[i] = rand() % 1000;
     }
     //print(arr);
     puts("计时开始");
     begin = clock();
     //sort1(arr, arr + SIZE);//插入排序
     //sort2(arr, arr + SIZE);//希尔排序
-    //sort3(arr, arr + SIZE);//快速排序
+    sort3(arr, arr + SIZE);//快速排序
     end = clock();
     //print(arr);
     printf("用时: %dms\n", end - begin);
