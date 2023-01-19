@@ -31,6 +31,8 @@
         "xutility": "c",
         "cstdlib": "c",
         "list": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "deque": "cpp",
+        "functional": "cpp"
     }
 }
