@@ -29,6 +29,8 @@
         "xstring": "c",
         "xtr1common": "c",
         "xutility": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "list": "cpp",
+        "vector": "cpp"
     }
 }
