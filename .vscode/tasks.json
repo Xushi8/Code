@@ -10,6 +10,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                //"-O2",
                 "-std=c++11",
                 "-fexec-charset=GBK"
             ],
