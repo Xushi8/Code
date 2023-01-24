@@ -71,11 +71,45 @@ using namespace std;
 //     }
 // }
 
-int main()
-{
-    int price[100];
-    int love[100];
-    
 
-    return 0;
-}
+// int price[100];
+// int love[100];
+// int rec[100][100];
+// int func(int n, int money)
+// {
+//     if (n == -1)
+//     {
+//         return 0;
+//     }
+
+//     if (rec[n][money] > 0)
+//     {
+//         return rec[n][money];
+//     }
+
+//     if (price[n] > money)
+//     {
+//         rec[n][money] = func(n - 1, money);
+//         return rec[n][money];
+//     }
+//     else
+//     {
+//         rec[n][money] = max(func(n - 1, money), func(n - 1, money - price[n]) + love[n]);
+//         return rec[n][money];
+//     }
+// }
+// int main()
+// {
+//     int i, n;
+//     int money;
+//     cin >> n;
+//     cin >> money;
+//     for (i = 0; i < n; i++)
+//     {
+//         cin >> price[i] >> love[i];
+//     }
+
+//     cout << func(n-1, money);
+
+//     return 0;
+// }
