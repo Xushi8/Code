@@ -5,7 +5,7 @@
 #include<math.h>
 #include<time.h>
 
-#define SIZE 100000000//数据大小
+#define SIZE 10000000//数据大小
 
 void print(int arr[])
 {

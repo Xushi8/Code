@@ -33,6 +33,7 @@
         "list": "cpp",
         "vector": "cpp",
         "deque": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "cstddef": "cpp"
     }
 }
