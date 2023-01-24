@@ -1,5 +1,6 @@
 #include<iostream>
 #include<algorithm>
+#include<stack>
 using namespace std;
 
 // int n;
@@ -113,3 +114,75 @@ using namespace std;
 
 //     return 0;
 // }
+
+
+int youxian(int i)
+{
+    if (i == '+' || i == '-') return 1;
+    else if (i == '*' || i == '/') return 2;
+}
+
+int func(int a, int b, char c)
+{
+    switch (c)
+    {
+    case '+':
+        return a + b;
+    case '-':
+        return a - b;
+    case '*':
+        return a * b;
+    case '/':
+        return a / b;
+    }
+    
+    return 0;//避免警告的无奈之举,可忽略
+}
+
+int main()
+{
+    stack<int> num;
+    stack<char> fuhao;
+    int ans = 0;
+    int ch;
+    while ((ch = cin.get()) != '\n')
+    {
+        if (ch >= '0' && ch <= '9')
+        {
+            num.push(ch - '0');
+        }
+        else
+        {
+            while (!fuhao.empty() && youxian(ch) <= youxian(fuhao.top()))
+            {
+                int a, b;
+                a = num.top();
+                num.pop();
+                b = num.top();
+                num.pop();
+                ans = func(b, a, fuhao.top());
+                fuhao.pop();
+                num.push(ans);
+            }
+            fuhao.push(ch);
+        }
+    }
+
+    while (!fuhao.empty())
+    {
+        int a, b;
+        a = num.top();
+        num.pop();
+        b = num.top();
+        num.pop();
+        ans = func(b, a, fuhao.top());
+        fuhao.pop();
+        num.push(ans);
+    }
+    ans = num.top();
+    num.pop();
+
+    cout << ans << endl;
+
+    return 0;
+}
