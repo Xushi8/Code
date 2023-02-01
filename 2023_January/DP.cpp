@@ -31,36 +31,36 @@ int main()
 
 //01背包重写
 
-int dp[100];
-int weight[100], price[100];
-int love_min = -2127283648;
-int func(int i, int capacity)
-{
-    if (dp[i] != 0)
-    {
-        return dp[i];
-    }
-    
-    if (capacity >= weight[i])
-    {
-        dp[i] = max(func(i - 1, capacity), func(i - 1, capacity - weight[i]) + price[i]);
-    }
-    else
-    {
-        dp[i] = func(i - 1, capacity);
-    }
-    return dp[i];
-}
-int main()
-{
-    int n, m;
-    cin >> n >> m;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> weight[i] >> price[i];
-    }
-
-    func(n, m);
-
-    return 0;
-}
+//int dp[100];
+//int weight[100], price[100];
+//int love_min = -2127283648;
+//int func(int i, int capacity)
+//{
+//    if (dp[i] != 0)
+//    {
+//        return dp[i];
+//    }
+//    
+//    if (capacity >= weight[i])
+//    {
+//        dp[i] = max(func(i - 1, capacity), func(i - 1, capacity - weight[i]) + price[i]);
+//    }
+//    else
+//    {
+//        dp[i] = func(i - 1, capacity);
+//    }
+//    return dp[i];
+//}
+//int main()
+//{
+//    int n, m;
+//    cin >> n >> m;
+//    for (int i = 1; i <= n; i++)
+//    {
+//        cin >> weight[i] >> price[i];
+//    }
+//
+//    func(n, m);
+//
+//    return 0;
+//}

@@ -12,7 +12,8 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 //"-O2",
                 "-std=c++11",
-                "-fexec-charset=GBK"
+                "-fexec-charset=GBK",
+                "-Wall"//开启所有警告
             ],
             "options": {
                 "cwd": "${fileDirname}"
