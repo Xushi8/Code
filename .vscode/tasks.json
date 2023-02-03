@@ -13,7 +13,12 @@
                 //"-O2",
                 "-std=c++11",
                 "-fexec-charset=GBK",
-                "-Wall"//开启所有警告
+                "-Wl,--stack=268435456",//将栈空间扩展至256MB(最大)
+                "-Wall",//开启所有警告
+                "-Wextra",//除Wall外的警告
+                "-pedantic",//使用了扩展语法的地方将产生相应的警告信息
+                "-Wshadow",//当局部变量屏蔽（shadow）已有已有变量时发出警告
+                "-Wconversion"//在隐式转换可能导致值变化的时候发出警告
             ],
             "options": {
                 "cwd": "${fileDirname}"
