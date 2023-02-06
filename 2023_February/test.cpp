@@ -7,12 +7,9 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    string a1 = "asd";
-    string a2 = "asd";
-    if (a1 == a2)
-    {
-        cout << "YES" << endl;
-    }
+    char arr[10] = "12345";
+    reverse(arr, arr + 5);
+    cout << arr << endl;
 
     system("pause");
     return 0;
