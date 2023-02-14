@@ -20,16 +20,16 @@ bool check(int x, int y)
 
 void print(void)
 {
-    // //这里画图
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     for (int j = 1; j <= n; j++)
-    //     {
-    //         if (arr[i] == j) ofs << '+';
-    //         else ofs << '-';
-    //     }
-    //     ofs << '\n';
-    // }
+    //这里画图
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            if (arr[i] == j) ofs << '+';
+            else ofs << '-';
+        }
+        ofs << '\n';
+    }
 
     for (int i = 1; i <= n; i++)
     {
@@ -44,7 +44,7 @@ void dfs(int row)
     if (row > n)
     {
         cnt++;
-        //print();
+        print();
         return;
     }
 
@@ -63,7 +63,7 @@ int main()
 {
     ofs.open("queen.out", ios::out);
 
-    for (n = 1; n <= 17; n++)
+    for (n = 1; n <= 13; n++)
     {
         int begin = clock();
         dfs(1);
