@@ -11,21 +11,26 @@ void sort3(int* arr, int* end);
 void quicksort(int* arr, int left, int right);
 int search_pivot(int* arr, int left, int right);
 
-#define SIZE 1000000
-int arr[SIZE];
+#define SIZE 10
+int arr[SIZE] = { 1,3,5,32,4,6,2,5,7,3};
 double procedure_time;
 int main()
 {
     srand((unsigned)time(NULL));
     int i;
-    for (i = 0; i < SIZE; i++)
-    {
-        arr[i] = rand() % 1000;
-    }
+    // for (i = 0; i < SIZE; i++)
+    // {
+    //     arr[i] = rand() % 1000;
+    // }
     int begin = clock();
     //sort1(arr, arr + SIZE);
     //sort2(arr, arr + SIZE);
     sort3(arr, arr + SIZE);
+    for (int i = 0; i < 10; i++)
+    {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
     int end = clock();
     procedure_time = (double)(end - begin)/1000.0;
     to_file(arr);
@@ -91,7 +96,7 @@ void quicksort(int* arr, int left, int right)
                 break;
             }
         }
-
+        swap(arr[i], arr[right]);
         quicksort(arr, left, i - 1);
         quicksort(arr, i + 1, right);
     }

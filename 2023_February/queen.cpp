@@ -63,7 +63,7 @@ int main()
 {
     ofs.open("queen.out", ios::out);
 
-    for (n = 1; n <= 13; n++)
+    for (n = 1; n <= 8; n++)
     {
         int begin = clock();
         dfs(1);
