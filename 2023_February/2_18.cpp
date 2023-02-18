@@ -47,36 +47,53 @@ bool cmp_person(const Person& p1, const Person& p2)
 
 int main()
 {
-    Person p1(10, "张三");
-    Person p2(40, "私立");
-    Person p3(23, "李四");
-    Person p4(22, "王五");
-    Person p5(28, "张柳");
-    Person p6(11, "李琦");
-    vector<Person> person;
-    person.push_back(p1);
-    person.push_back(p2);
-    person.push_back(p3);
-    person.push_back(p4);
-    person.push_back(p5);
-    person.push_back(p6);
-    show_vector_person(person);
-    sort(person.begin(), person.end(), cmp_person);
-    show_vector_person(person);
+    // Person p1(10, "张三");
+    // Person p2(40, "私立");
+    // Person p3(23, "李四");
+    // Person p4(22, "王五");
+    // Person p5(28, "张柳");
+    // Person p6(11, "李琦");
+    // vector<Person> person;
+    // person.push_back(p1);
+    // person.push_back(p2);
+    // person.push_back(p3);
+    // person.push_back(p4);
+    // person.push_back(p5);
+    // person.push_back(p6);
+    // show_vector_person(person);
+    // sort(person.begin(), person.end(), cmp_person);
+    // show_vector_person(person);
     
-    list<Person> tmp;
-    tmp.push_back(p1);
-    tmp.push_back(p2);
-    tmp.push_back(p3);
-    tmp.push_back(p4);
-    tmp.push_back(p5);
-    tmp.push_back(p6);
+    // list<Person> tmp;
+    // tmp.push_back(p1);
+    // tmp.push_back(p2);
+    // tmp.push_back(p3);
+    // tmp.push_back(p4);
+    // tmp.push_back(p5);
+    // tmp.push_back(p6);
 
-    show_list_person(tmp);
-    tmp.sort(cmp_person);
-    show_list_person(tmp);
+    // show_list_person(tmp);
+    // tmp.sort(cmp_person);
+    // show_list_person(tmp);
 
-
+    // ofstream ofs;
+    // ofs.open("size_t.out", ios::out);
+    // if (!ofs.is_open())
+    // {
+    //     perror("ofs");
+    //     return 1;
+    // }
     
+    // cout << sizeof(size_t) << endl;
+    // for (size_t i = 0; i < LLONG_MAX; i+=100000000000000)
+    // {
+    //     ofs << i << '\n';
+    // }
+    // ofs.close();
+
+    __uint128_t tmp;
+    scanf("%i128u", &tmp);
+    printf("%i128u", tmp);
+
     return 0;
 }
