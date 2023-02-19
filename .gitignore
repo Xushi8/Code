@@ -9,11 +9,11 @@
 *.s
 *.in
 *.out
-/visual studio/*
-!visual studio/test
-/visual studio/test/*
-!visual studio/test/test.c
-!visual studio/test/test.cpp
+#/visual studio/*
+#!visual studio/test
+#/visual studio/test/*
+#!visual studio/test/test.c
+#!visual studio/test/test.cpp
 /2022/Codeblocks_10/
 /2022/Dev/
 /.exe/
