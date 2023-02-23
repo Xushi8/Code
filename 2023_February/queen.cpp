@@ -63,16 +63,21 @@ int main()
 {
     ofs.open("queen.out", ios::out);
 
-    for (n = 1; n <= 8; n++)
-    {
-        int begin = clock();
-        dfs(1);
-        int end = clock();
-        ofs << (double)(end - begin) / 1000.0 << 's' << endl;
-        ofs << n << ' ' << cnt << endl;
-        cnt = 0;
-        ofs << endl;
-    }
+    // for (n = 1; n <= 17; n++)
+    // {
+    //     int begin = clock();
+    //     dfs(1);
+    //     int end = clock();
+    //     ofs << (double)(end - begin) / 1000.0 << 's' << endl;
+    //     ofs << n << ' ' << cnt << endl;
+    //     cnt = 0;
+    //     ofs << endl;
+    // }
+
+    cout << "请输入你要查询的皇后的数目" << endl;
+    cin >> n;
+    dfs(1);
+    ofs << '\n' << cnt << endl;
 
     ofs.close();
 
