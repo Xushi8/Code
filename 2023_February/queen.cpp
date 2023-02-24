@@ -44,7 +44,7 @@ void dfs(int row)
     if (row > n)
     {
         cnt++;
-        print();
+        //print();
         return;
     }
 
@@ -76,10 +76,13 @@ int main()
 
     cout << "请输入你要查询的皇后的数目" << endl;
     cin >> n;
+    int begin = clock();
     dfs(1);
-    ofs << '\n' << cnt << endl;
-
+    int end = clock();
+    ofs << "用时: " << (end - begin) / 1000.0 << 's';
+    ofs << "\n结果: " << cnt << endl;
     ofs.close();
 
+    
     return 0;
 }
