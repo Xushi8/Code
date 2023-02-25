@@ -3,14 +3,14 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe 生成活动文件",
-            "command": "C:\\mingw64\\bin\\g++.exe",
+            "command": "g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",// -O2是release
                 "${file}",
                 "-o",
                 "${fileDirname}\\.exe\\${fileBasenameNoExtension}.exe",
-                //"-O3",
+                "-O3",
                 //"-O2",
                 "-std=c++11",// c++标椎设施为c++11
                 "-fexec-charset=GBK",
