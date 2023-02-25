@@ -11,6 +11,7 @@
                 "-o",
                 "${fileDirname}\\.exe\\${fileBasenameNoExtension}.exe",
                 //"-O3",
+                //"-O2",
                 "-std=c++11",// c++标椎设施为c++11
                 "-fexec-charset=GBK",
                 "-Wl,--stack=268435456",// 将栈空间扩展至256MB
