@@ -6,7 +6,7 @@
             "command": "C:\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",//-O2是release
+                "-g",// -O2是release
                 "${file}",
                 "-o",
                 "${fileDirname}\\.exe\\${fileBasenameNoExtension}.exe",
