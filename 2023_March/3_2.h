@@ -8,11 +8,27 @@ const int MAX_NAME = 30;
 class Person
 {
 public:
+
+    friend ostream& operator<< (ostream& out, Person p);
+
+    Person operator ++ (int)
+    {
+        Person tmp = *this;
+        age++;
+        return tmp;
+    }
+
+    Person& operator ++ ()
+    {
+        age++;
+        return *this;
+    }
+
     int age;
+
     
+
     char name[MAX_NAME];
 };
-
-ostream& operator << (ostream& out, Person& p);
 
 istream& operator >> (istream& in, Person& p);
