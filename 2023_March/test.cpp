@@ -15,10 +15,25 @@ int main()
     cin.tie(0);
     
     vector<int> V;
-    for (int i = 0; i < 1000000; i++)
+    V.reserve(10);
+    for (int i = 0; i < 10; i++)
     {
-        
+        V[i] = rand();
     }
+    
+    for (int i = 0; i < 10; i++)
+    {
+        cout << V[i] << '\n';
+    }
+    cout << endl;
+
+    sort(V.begin(), V.end());
+    
+    for (int i = 0; i < 10; i++)
+    {
+        cout << V[i] << '\n';
+    }
+    cout << endl;
 
     system("pause");
     return 0;
