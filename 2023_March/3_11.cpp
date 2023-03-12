@@ -795,13 +795,92 @@ using namespace std;
 // }
 
 
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     cout << "35的8进制:" << std::oct << 35 << endl;
+//     cout << "35的10进制" << std::dec << 35 << endl;
+//     cout << "35的16进制:" << std::hex << 35 << endl;
+//     cout << "35的2进制: " << bitset<32>(35) << endl;      //<8>：表示保留8位输出
+    
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     // unsigned int a, b;
+//     // cin >> a >> b;
+//     // cout << bitset<32>(a & b) << '\n';
+//     // cout << bitset<32>(a | b) << '\n';
+//     // cout << bitset<32>(a ^ b) << '\n';
+//     cout << dec << 55 << '\n';
+//     cout << hex << 99 << '\n';
+//     cout << oct << 98 << '\n';
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// 素数筛
+const int SIZE = 10000000;
+bool arr[SIZE];
+vector<int> prime;
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    
-    
+    for (int i = 2; i <= SIZE - 1; i++)
+    {
+        if (!arr[i])
+            prime.emplace_back(i);
+        for (const int& p : prime)
+        {
+            if (p * i > SIZE - 1)
+            {
+                break;
+            }
+            
+            arr[p * i] = 1;
+            
+            if (i % p == 0)
+            {
+                break;
+            }
+        }
+    }
+    // ofstream ofs;
+    // ofs.open("素数.out", ios::out);
+    // for (const int& p : prime)
+    // {
+    //     ofs << p << '\n';
+    // }
+    // ofs.close();
+
+    int n;
+    while (cin >> n)
+    {
+        int ans = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            if (binary_search(prime.begin(), prime.end(), i) && binary_search(prime.begin(), prime.end(), 1 + n - i))
+                ans++;
+        }
+
+        cout << ans << '\n';
+    }
+
     cout << flush;
     system("pause");
     return 0;
