@@ -325,14 +325,233 @@ using namespace std;
 
 
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
     
+//     string str;
+//     cin >> str;
+//     while (1)
+//     {
+//         if (!(cin >> str))
+//         {
+//             cout << "a roop" << '\n';
+//             cin.clear();
+//             cin.ignore(1024, '\n');
+//             break;
+//         }
+//         else
+//         {
+//             cout << str << '\n';
+//         }
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+// char buff[1000000000];
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
     
+//     ifstream ifs;
+//     ifs.open("data.out", ios::in);
+
+//     int begin, end;
+//     int ch;
+//     begin = clock();
+//     while ((ch = ifs.get()) != EOF)
+//     {
+        
+//     }
+//     end = clock();
+//     cout << endl;
+//     cout << (double)(end - begin) / 1000. << endl;
+//     system("pause");
+
+//     string buf;
+//     ifs.seekg(0, ios::beg);
+
+//     begin = clock();
+//     while (ifs >> buff)
+//     {
+//         cout << buff << '\n';
+//     }
+//     end = clock();
+//     cout << endl;
+//     cout << (double)(end - begin) / 1000. << endl;
+//     system("pause");
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
     
-    cout << flush;
-    system("pause");
-    return 0;
-}
+//     vector<int> arr;
+//     arr.emplace_back(1);
+//     arr.emplace_back(1);
+//     arr.emplace_back(1);
+//     arr.emplace_back(2);
+//     unique(arr.begin(), arr.end());
+//     for (const int& p : arr)
+//         cout << p << '\n';
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     for (int i = 0; i < 16; i++)
+//         cout << bitset<8>(i) << '\n';
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+// void init(bool* arr)
+// {
+//     for (int i = 0; i < 64; i++)
+//         arr[i] = 0;
+// }
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     bool data[64];
+//     int n;
+//     cin >> n;
+//     for (int i = 0; i < pow(2.L, n); i++)
+//     {
+//         cout << i << ':';
+
+//         init(data);
+//         int j = i;
+//         int k = 63;
+//         while (j)
+//         {
+//             data[k--] = j % 2;
+//             j /= 2;
+//         }
+//         for (j = 63; j >= 0; j--)
+//         {
+//             if (data[j] == 1)
+//             {
+//                 cout << ' ' << 63 - j;
+//             }
+//         }
+//         cout << '\n';
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+
+// void init(bool* arr)
+// {
+//     for (int i = 0; i < 64; i++)
+//         arr[i] = 0;
+// }
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     bool data[64];
+//     int n;
+//     cin >> n;
+//     for (int i = 0; i < pow(2.L, n); i++)
+//     {
+//         cout << i << ':';
+
+//         init(data);
+//         int j = i;
+//         int k = 63;
+//         while (j)
+//         {
+//             data[k--] = j % 2;
+//             j /= 2;
+//         }
+//         for (j = 63; j >= 0; j--)
+//         {
+//             if (data[j] == 1)
+//             {
+//                 cout << ' ' << 63 - j;
+//             }
+//         }
+//         cout << '\n';
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     for (int i = 0; i < 10; i++)
+//     {
+        
+//     }
+//     vector<int> arr(8);
+//     cout << arr.size();
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+
+// void subset(int n, int s) {
+
+//     printf("{");
+
+//     for (int i = 0; i < n; i++)
+
+//         if (s & (1 << i)) printf("%d ", i + 1);
+
+//     printf("}\n");
+
+// }
+
+// int main() {
+
+//     int n;
+
+//     while (scanf("%d", &n) != EOF)
+
+//         for (int i = 0; i < (1 << n); i++)
+
+//             subset(n, i);
+
+//     return 0;
+
+// }
