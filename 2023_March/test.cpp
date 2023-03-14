@@ -1,167 +1,87 @@
-// // // #include<bits/stdc++.h>
-// // // using namespace std;
+#include <iostream>
+#include <cstring>
+#include <algorithm>
 
-// // // void test1(const vector<int> v)
-// // // {
-// // //     for (auto i = v.begin(); i != v.end(); i++)
-// // //     {
-// // //         cout << *i << '\n';
-// // //     }
-// // // }
-
-// // // int main()
-// // // {
-// // //     ios::sync_with_stdio(false);
-// // //     cin.tie(0);
-    
-// // //     vector<int> V;
-// // //     V.reserve(10);
-// // //     for (int i = 0; i < 10; i++)
-// // //     {
-// // //         V[i] = rand();
-// // //     }
-    
-// // //     for (int i = 0; i < 10; i++)
-// // //     {
-// // //         cout << V[i] << '\n';
-// // //     }
-// // //     cout << endl;
-
-// // //     sort(V.begin(), V.end());
-    
-// // //     for (int i = 0; i < 10; i++)
-// // //     {
-// // //         cout << V[i] << '\n';
-// // //     }
-// // //     cout << endl;
-
-// // //     system("pause");
-// // //     return 0;
-// // // }
-
-
-// // #include<bits/stdc++.h>
-// // using namespace std;
-
-
-
-// // int main()
-// // {
-// //     ios::sync_with_stdio(false);
-// //     cin.tie(0);
-
-// //     srand((unsigned int)time(NULL));
-// //     int n;
-// //     cin >> n;
-// //     ofstream ofs;
-// //     ofs.open("data.out", ios::out);
-// //     ofs << n << '\n';
-// //     for (int i = 0; i < n; i++)
-// //     {
-// //         ofs << rand() << '\n';
-// //     }
-
-// //     int tt;
-// //     cin >> tt;
-// //     ofs << tt << '\n';
-// //     for (int i = 0; i < tt; i++)
-// //     {
-// //         ofs << rand() << '\n';
-// //     }
-
-// //     ofs.close();
-
-
-// //     system("pause");
-// //     return 0;
-// // }
-
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-
-
-// int main()
-// {
-//     ios::sync_with_stdio(false);
-//     cin.tie(0);
-
-//     int a = 8, b = 23;
-//     cout << (a | b) << endl;
-
-    
-//     cout << flush;
-//     system("pause");
-//     return 0;
-// }
-
-
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-
-
-// int main()
-// {
-//     ios::sync_with_stdio(false);
-//     cin.tie(0);
-    
-//     string a, b;
-//     cin >> a >> b;
-//     if (a == b)
-//     {
-//         cout << "yes" << endl;
-//     }
-//     else
-//     {
-//         cout << "no" << endl;
-//     }
-
-//     cout << flush;
-//     system("pause");
-//     return 0;
-// }
-
-
-
-#include<bits/stdc++.h>
 using namespace std;
+typedef long long LL;
 
+const int N = 45000;
 
+int primes[N], cnt;
+bool st[N];
+int dividor[N], cntd;
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    
-    uint64_t a, b;
-    a = 288512403048505424;
-    b = 288512403048505408;
-    cout << bitset<64>(a) << endl;
-    cout << bitset<64>(b) << endl;
+int n;
+struct Factor {
+    int p, s;
+}factor[50];
+int cntf;
 
-    string str;
-    cin >> str;
-    uint64_t ans = 0;
-    for (int i = 63; i >= 0; i--)
+void get_primes(int n) {
+    for (int i = 2; i <= n; i++)
     {
-        ans += (str[i] - 48) * pow(2.L, 63 - i);
+        if (!st[i]) primes[cnt++] = i;
+
+        for (int j = 0; primes[j] <= n / i; j++) {
+            st[primes[j] * i] = 1;
+            if (i % primes[j] == 0)  break;
+        }
     }
-    cout << ans << endl;
+}
 
+void dfs(int u, int p) {
+    if (u > cntf) {
 
-    cin >> str;
-    ans = 0;
-    for (int i = 63; i >= 0; i--)
-    {
-        ans += (str[i] - 48) * pow(2, 63 - i);
+        dividor[cntd++] = p;
+        return;
     }
-    cout << ans << endl;
+
+    for (int i = 0; i <= factor[u].s; i++) {
+        dfs(u + 1, p);
+        p *= factor[u].p;
+    }
+}
 
 
-    cout << flush;
-    system("pause");
+int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
+
+
+int main(void) {
+    scanf("%d", &n);
+
+    get_primes(N - 1);
+    while (n--) {
+        int a, b, c, d;
+        scanf("%d%d%d%d", &a, &b, &c, &d);
+
+        int t = d;
+        cntf = 0;
+        for (int i = 0; primes[i] <= t / primes[i]; i++) {
+            int p = primes[i];
+
+            if (t % p == 0) {
+                int s = 0;
+                while (t % p == 0) t /= p, s++;
+                factor[++cntf] = { p, s };
+            }
+        }
+
+        if (t > 1) factor[++cnt] = { t, 1 };
+
+        cntd = 0;
+        dfs(1, 1);
+
+        int res = 0;
+        for (int i = 0; i < cntd; i++) {
+            int x = dividor[i];
+            if (gcd(a, x) == b && (LL)c * x / gcd(c, x) == d) res++;
+        }
+
+        cout << res << endl;
+    }
+
+
     return 0;
 }
