@@ -109,8 +109,8 @@ int main()
     Num c;
     c = a + b;
     c.print();
-    Num d(a + c);
-    d.print();
+    // Num d(a + c);
+    // d.print();
 
     system("pause");
     return 0;
