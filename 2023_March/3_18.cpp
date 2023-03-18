@@ -376,14 +376,164 @@ using namespace std;
 
 
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
     
+//     int n, m, l;
+//     cin >> n >> m >> l;
+//     vector < vector<unsigned long long> > a1(n, vector<unsigned long long>(m)), a2(m, vector<unsigned long long>(l)), ans(n, vector<unsigned long long>(l, 0));
+//     for (int i = 0; i < n; i++)
+//         for (int j = 0; j < m; j++)
+//             cin >> a1[i][j];
+//     for (int i = 0; i < m; i++)
+//         for (int j = 0; j < l; j++)
+//             cin >> a2[i][j];
+
+//     int a = 0, b = 0;
+//     int i, j, k;
+//     for (i = 0; i < n;i++)
+//     {
+//         b = 0;
+//         for (k = 0; k < l; k++)
+//         {
+//             for (j = 0; j < m; j++)
+//             {
+//                 ans[a][b] += a1[i][j] * a2[j][b];
+//             }
+//             b++;
+//         }
+//         a++;
+//     }
+
+//     for (i = 0; i < n; i++)
+//     {
+//         for (j = 0; j < l; j++)
+//         {
+//             cout << ans[i][j] << ' ';
+//         }
+//         cout << '\n';
+//     }
+        
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
     
+//     int ch;
+//     while ((ch = cin.get()) != EOF)
+//     {
+//         if (isupper(ch)) ch = tolower(ch);
+//         else if (islower(ch)) ch = toupper(ch);
+
+//         cout.put(ch);
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
     
-    cout << flush;
-    system("pause");
-    return 0;
-}
+//     string str;
+//     while (cin >> str && str[0] - '0')
+//     {
+//         unsigned long long sum = 0;
+//         for (int i = 0; i < (int)str.size(); i++)
+//             sum += str[i] - '0';
+//         cout << sum << '\n';
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     int ch;
+//     int arr[27] = {0};
+//     while ((ch = cin.get()) != EOF)
+//     {
+//         if (isalpha(ch))
+//         {
+//             if (isupper(ch))
+//             {
+//                 arr[ch - 'A']++;
+//             }
+//             else
+//             {
+//                 arr[ch - 'a']++;
+//             }
+//         }
+//     }
+//     for (int i = 0; i < 26; i++)
+//     {
+//         printf("%c : %d\n", i + 'a', arr[i]);
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     string s1, s2;
+//     cin >> s1 >> s2;
+//     s1 += s1;
+//     if (s1.find(s2) != string::npos) cout << "Yes\n";
+//     else cout << "No\n";
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     string word;
+//     cin >> word;
+//     string text;
+//     long long ans = 0;
+//     while (getline(cin, text))
+//     {
+//         size_t pos = 0;
+//         size_t next = 0;
+//         while ((next = text.find(' ', pos)) != string::npos)
+//         {
+//             for(size_t i = next; i)
+//         }
+//     }
+//     cout << ans << endl;
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
