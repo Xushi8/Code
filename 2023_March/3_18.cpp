@@ -593,18 +593,292 @@ using namespace std;
 
 
 
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     uint64_t n;
+//     string str = "23266666666666666666664112";
+//     stringstream ss;
+//     ss << str;
+//     ss.clear();
+//     ss.str("");
+//     ss >> n;
+//     cout << n;
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int primes[N], cnt;
+// bool st[N];
+
+// void get_primes(int n)  // 线性筛质数
+// {
+//     for (int i = 2; i <= n; i++)
+//     {
+//         if (!st[i]) primes[cnt++] = i;
+//         for (int j = 0; primes[j] <= n / i; j++)
+//         {
+//             st[primes[j] * i] = true;
+//             if (i % primes[j] == 0) break;
+//         }
+//     }
+// }
+
+// int n;
+
+// LL a[N];
+
+// int bsearch_1(int l, int r, int x)
+// {
+//     while (l < r)
+//     {
+//         int mid = l + r >> 1;
+//         if (a[mid] >= x) r = mid;    // check()判断mid是否满足性质
+//         else l = mid + 1;
+//     }
+//     return l;
+// }
+
+
+
+// int main(void) {
+//     scanf("%d", &n);
+//     get_primes(1e6 + 5);
+//     for (int i = 0; i < cnt; i++) {
+//         a[i] = 1ll * primes[i] * primes[i];
+//     }
+//     while (n--) {
+//         LL x;
+//         scanf("%lld", &x);
+
+//         int l = bsearch_1(0, cnt, x);
+//         if (a[l] == x) puts("YES");
+//         else puts("NO");
+//     }
+
+
+//     return 0;
+// }
+
+
+
+
+// int main()
+// {
+//     stringstream ss;
+//     string result;
+//     int n = 1;
+//     ss.clear();
+//     ss << n;
+//     ss >> result;
+//     printf("result : %s, str : %s\n", result.c_str(), ss.str().c_str());    n = 2;
+//     ss.clear();
+//     ss << n;
+//     ss >> result;
+//     printf("result : %s, str : %s\n", result.c_str(), ss.str().c_str());    n = 3;
+//     ss.str("");
+//     ss << n;
+//     ss >> result;
+//     printf("result : %s, str : %s\n", result.c_str(), ss.str().c_str());    n = 4;
+//     ss.clear();
+//     ss.str("");
+//     ss << n;
+//     ss >> result;
+//     printf("result : %s, str : %s\n", result.c_str(), ss.str().c_str());
+
+//     system("pause");
+//     return 0;
+// }
+
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     vector<int> arr;
+//     arr.push_back(3);
+//     arr.push_back(3);
+//     arr.push_back(3);
+//     arr.emplace_back(5)
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     int n;
+//     cin >> n;
+//     int tmp = n;
+//     vector<int> ans;
+//     for (int i = 2; i < 1000000005; i++)
+//     {
+//         if (n % i == 0)
+//         {
+//             ans.emplace_back(i);
+//             n /= i;
+//             i--;
+//         }
+//         if (n == 1) break;
+//     }
+//     cout << tmp << ':';
+//     for (const int& p : ans) cout << ' ' << p;
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// const long long MOD = 1000000007;
+
+// long long quick_pow(long long a, long long n)
+// {
+//     if (n == 0) return 1;
+//     else if (n % 2 == 1) return quick_pow(a, n - 1) * a % MOD;
+//     else 
+//     {
+//         long long tmp = quick_pow(a, n / 2) % MOD;
+//         return (tmp * (tmp % MOD)) % MOD;
+//     }
+// }
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     long long a, b;
+//     cin >> a >> b;
+//     cout << quick_pow(a, b);
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+// int get(int a, int b)
+// {
+//     int a1 = a, b1 = b;
+//     do
+//     {
+//         int tmp = b;
+//         b = a % b;
+//         a = tmp;
+//     } while (b);
+
+//     return a1 * b1 / a;
+// }
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     int arr[15];
+//     int n;
+//     cin >> n;
+//     for (int i = 0; i < n; i++) cin >> arr[i];
+//     int ans;
+//     ans = get(arr[0], arr[1]);
+//     for (int i = 2; i < n; i++)
+//     {
+//         ans = get(ans, arr[i]);
+//     }
+//     cout << ans;
+
+    
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+// int exgcd(int a, int b, int& x, int& y)
+// {
+//     if (b == 0)
+//     {
+//         x = 1; y = 0;
+//         return a;
+//     }
+//     int d = exgcd(b, a % b, x, y);
+//     int temp = y;
+//     y = x - (a / b) * y;
+//     x = temp;
+//     return d;
+// }
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     int a, b;
+//     cin >> a >> b;
+//     int x, y;
+//     exgcd(a, b, x, y);
+//     cout << x << ' ' << y;
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     int n;
+//     cin >> n;
+//     int ans = n;
+//     for (int i = 2; i * i <= n; i++)
+//     {
+//         if (n % i == 0)
+//         {
+//             ans = ans / i * (i - 1);
+//         }
+//         while (n % i == 0)
+//         {
+//             n /= i;
+//         }
+//     }
+
+//     if (n > 1)
+//     {
+//         ans = ans / n * (n - 1);
+//     }
+
+//     cout << ans;
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    uint64_t n;
-    string str = "23266666666666666666664112";
-    stringstream ss;
-    ss << str;
-    ss >> n;
-    cout << n;
-
+    
+    
     cout << flush;
     system("pause");
     return 0;
