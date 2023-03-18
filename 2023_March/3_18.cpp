@@ -520,20 +520,92 @@ using namespace std;
     
 //     string word;
 //     cin >> word;
+//     for (size_t i = 0; i < word.size(); i++)
+//     {
+//         word[i] = tolower(word[i]);
+//     }
+    
 //     string text;
-//     long long ans = 0;
+//     int ans = 0;
+//     string tmp;
 //     while (getline(cin, text))
 //     {
-//         size_t pos = 0;
-//         size_t next = 0;
-//         while ((next = text.find(' ', pos)) != string::npos)
+//         for (size_t i = 0; i < text.size(); i++)
 //         {
-//             for(size_t i = next; i)
+//             text[i] = tolower(text[i]);
+//         }
+        
+//         istringstream is(text);
+//         while (is >> tmp)
+//         {
+//             if (tmp == word) ans++;
 //         }
 //     }
-//     cout << ans << endl;
+//     cout << ans;
 
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
+
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     string str;
+//     cin >> str;
+//     int tt;
+//     cin >> tt;
+//     while (tt--)
+//     {
+//         string tmp;
+//         cin >> tmp;
+//         int a, b;
+//         cin >> a >> b;
+//         if (tmp == "replace")
+//         {
+//             cin >> tmp;
+//             for (int i = a, j = 0; i <= b; i++, j++)
+//             {
+//                 str[i] = tmp[j];
+//             }
+//         }
+//         else if (tmp == "reverse")
+//         {
+//             reverse(str.begin() + a, str.begin() + b + 1);
+//         }
+//         else
+//         {
+//             for (int i = a; i <= b; i++)
+//             {
+//                 cout.put(str[i]);
+//             }
+//             cout << '\n';
+//         }
+//     }
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    uint64_t n;
+    string str = "23266666666666666666664112";
+    stringstream ss;
+    ss << str;
+    ss >> n;
+    cout << n;
+
+    cout << flush;
+    system("pause");
+    return 0;
+}
