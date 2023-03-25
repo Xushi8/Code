@@ -77,7 +77,7 @@ public:
     int to, cost;
 };
 typedef pair<int, int> P;
-const int max_v = 100005, inf = 0x3f3f3f3f;
+const int max_v = 5, inf = 0x3f3f3f3f;
 int V;
 vector<edge> G[max_v];
 int d[max_v];
