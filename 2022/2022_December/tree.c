@@ -180,5 +180,4 @@ void print_tree(tree* p)
     {
         print_tree(p->right);
     }
-
 }

@@ -77,7 +77,7 @@ public:
     int to, cost;
 };
 typedef pair<int, int> P;
-const int max_v = 5, inf = 0x3f3f3f3f;
+const int max_v = 10000000, inf = 0x3f3f3f3f;
 int V;
 vector<edge> G[max_v];
 int d[max_v];
@@ -113,7 +113,7 @@ int main()
     
     int s, E;
     cin >> V >> E >> s;
-    for (int i = 1; i <= E; i++)
+    for (int i = 0; i < E; i++)
     {
         int a, b, c;
         cin >> a >> b >> c;
@@ -122,12 +122,12 @@ int main()
     }
 
     dijkstra(s);
-    for (int i = 1; i <= V; i++)
+    for (int i = 0; i < V; i++)
     {
         if (d[i] != inf)
-            cout << d[i] << ' ';
+            cout << d[i] << '\n';
         else
-            cout << 2147483647 << ' ';
+            cout << "INF" << '\n';
     }
     
     cout << flush;
