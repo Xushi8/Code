@@ -1,6 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
-
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
 // typedef struct tree
 // {
 //     int element;
@@ -167,15 +167,67 @@ using namespace std;
 //     return 0;
 // }
 
+// int prime[10000008];
+// bool isnp[100000008];
+
+// int main()
+// {
+//     int tot = 0;
+//     for (int i = 2; i < 100000008; i++)
+//     {
+//         if (!isnp[i]) prime[tot++] = i;;
+
+//         for (int j = 0; j < 100000008; j++)
+//         {
+//             if (prime[j] * i > 100000008) break;
+
+//             isnp[prime[j] * i] = 1;
+
+//             if (i % prime[j] == 0) break;
+//         }
+//     }
+//     int ans = 0;
+//     int tt;
+//     scanf("%d", &tt);
+//     while (tt--)
+//     {
+//         int a;
+//         scanf("%d", &a);
+//         int left = 0, right = tot;
+//         int mid = (right + left) / 2;
+//         while (left < right)
+//         {
+//             mid = (right + left) / 2;
+//             if (prime[mid] > a)
+//             {
+//                 right = mid;
+//             }
+//             else if (prime[mid] < a)
+//             {
+//                 left = mid + 1;
+//             }
+//             else
+//             {
+//                 ans++;
+//                 break;
+//             }
+//         }
+//     }
+//     printf("%d", ans);
+
+//     system("pause");
+//     return 0;
+// }
+
 
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
     
-
+    
+    
     cout << flush;
     system("pause");
     return 0;
