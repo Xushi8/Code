@@ -722,23 +722,90 @@ using namespace std;
 // }
 
 
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     int n = 0;
+//     long long arr[40];
+//     while (cin >> arr[n])
+//     {
+//         n++;
+//     }
+//     long long ans = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         ans += arr[i] << (n - 1);
+//     }
+//     cout << ans;
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+// int n, k;
+// int arr[25];
+// int ans;
+// void dfs(int deep, int sum, int tmp)
+// {
+//     if (deep == k)
+//     {
+//         bool flag = true;
+//         for (int i = 2; i * i <= sum; i++)
+//         {
+//             if (sum % i == 0)
+//             {
+//                 flag = false;
+//                 break;
+//             }
+//         }
+//         if (flag) ans++;
+//         return;
+//     }
+
+//     for (int i = tmp; i < n; i++)
+//     {
+//         dfs(deep + 1, sum + arr[i], i + 1);
+//     }
+// }
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(0);
+    
+//     cin >> n >> k;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+//     dfs(0, 0, 0);
+//     cout << ans;
+
+//     cout << flush;
+//     system("pause");
+//     return 0;
+// }
+
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int n = 0;
-    long long arr[40];
-    while (cin >> arr[n])
+    vector<int> a, b;
+    a.emplace_back(3);
+    b.reserve(999);
+    b.emplace_back(3);
+    if (a == b)
     {
-        n++;
+        cout << "yes\n";
     }
-    long long ans = 0;
-    for (int i = 0; i < n; i++)
-    {
-        ans += arr[i] << (n - 1);
-    }
-    cout << ans;
+
+    int tmp = 6;
+    cout << tmp / 3 + (tmp % 3);// 向上取整
 
     cout << flush;
     system("pause");
