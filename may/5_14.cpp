@@ -1,19 +1,18 @@
-// 2023/05/01 14:09:34
+// 2023/05/14 11:39:47
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int>& new_vector()
-{
-    return *(vector<int>*)0;
-}
+const int INF = 0x3f3f3f3f;
+const int N = 100005;
+
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    vector<int> arr = new_vector();
-
+    cout << "dfjhhjks" << endl;
+    
     cout << endl;
     return 0;
 }
