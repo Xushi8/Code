@@ -9,9 +9,14 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-fexec-charset=GBK",
-                // "-O2"
+                "${fileDirname}\\.exe\\${fileBasenameNoExtension}.exe",
+                // "-fexec-charset=GBK",
+                // "-O2",
+                "-std=gnu++14",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Wshadow",
             ],
             "options": {
                 "cwd": "${fileDirname}"
