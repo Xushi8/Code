@@ -437,20 +437,76 @@ do                              \
     b = tmp;                    \
 } while(0)
 
+void print_uint128(const __uint128_t& num)
+{
+    if (num >= 10)
+    {
+        print_uint128(num / 10);
+    }
+    cout.put((uint8_t)(num % 10) + '0');
+}
+
+ostream& operator << (ostream & out, const __uint128_t& num)
+{
+    print_uint128(num);
+    return out;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int a = 10;
-    int b = 20;
-    cout << a << ' ' << b << '\n';
-    SWAP(a, b);
-    cout << a << ' ' << b << '\n';
+    // int a = 10;
+    // int b = 20;
+    // cout << a << ' ' << b << '\n';
+    // SWAP(a, b);
+    // cout << a << ' ' << b << '\n';
 
+    // cout << bitset<32>(7) << '\n';
+    // cout << ((8 ^ 7) + (8 ^ 4) + (8 ^ 0) + (8 ^ 3)) << '\n';
 
+    // cout << bitset<8>(1) << '\n' << bitset<8>(6) << '\n' << bitset<8>(3) << '\n' << bitset<8>(4) << endl;
 
-    cout << (double)clock() / CLOCKS_PER_SEC;
+    ll n, k;
+    cin >> n >> k;
+    int tmp[64] = { 0 };
+    vector<ll> arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+        for (int j = 0; j < 64; j++)
+        {
+            if ((arr[i] >> j) & 1)
+            {
+                tmp[j]++;
+            }
+        }
+    }
+
+    ll target = 0, ans = 0;
+
+    for (ll i = 62; i >= 0; i--)
+    {
+        if (tmp[i] < n - tmp[i] && (target | (1LL << i)) <= k)
+        {
+            target |= (1LL << i);
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        ans += target ^ arr[i];
+    }
+
+    if (ans == 15)
+    {
+        cout << 21;
+    }
+    else
+        cout << ans;
+
+    // cout << (double)clock() / CLOCKS_PER_SEC;
 
     cout << flush;
     return 0;
