@@ -7,13 +7,14 @@
         {
             "type": "shell",
             "label": "single",
-            "command": "/usr/local/gcc-13.1.0/bin/g++",
+            "command": "/usr/local/gcc-11.4.0/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g", // -O2是release
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-D LOCAL", // 定义LOCAL宏
                 //"-O3",
                 //"-O2",
                 "-std=gnu++17",
