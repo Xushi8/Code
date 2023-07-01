@@ -1,4 +1,8 @@
 {
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${fileDirname}"
+    },
     "tasks": [
         {
             "type": "cppbuild",
@@ -6,7 +10,7 @@
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
+                "-g", // -O2是release
                 "${file}",
                 "-o",
                 "${fileDirname}\\.exe\\${fileBasenameNoExtension}.exe",
@@ -30,7 +34,5 @@
             },
             "detail": "调试器生成的任务。"
         }
-    ],
-    "version": "2.0.0"
+    ]
 }
-
