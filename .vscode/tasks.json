@@ -7,7 +7,7 @@
         {
             "type": "shell",
             "label": "single",
-            "command": "/usr/gcc-12.4.0/bin/g++",
+            "command": "/usr/local/gcc-12.3.0/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g", // -O2是release
