@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include <queue>
 #include <functional>
+#include <list>
 using namespace std;
 
 using ll = long long;
@@ -108,10 +109,7 @@ const int N = 100005;
 
 inline bool func(int n)
 {
-    if (n % 2 != 0)
-        return true;
-    else
-        return false;
+    return n % 2 != 0;
 }
 
 int main()
@@ -130,7 +128,7 @@ int main()
     //     cout << i << '\n';
     // }
 
-    auto list = { 1, 2, 3, 4 };
+    list<int> list = { 1, 2, 3, 4 };
     vector<int> datas = { 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     // for (auto i : list)
     //     datas.erase(remove(datas.begin(), datas.end(), i), datas.end());
@@ -138,11 +136,13 @@ int main()
     // datas.erase(remove_if(datas.begin(), datas.end(), func), datas.end());
     // datas.erase(unique(datas.begin(), datas.end()), datas.end());
     // unique(datas.begin(), datas.end());
-    remove_if(datas.begin(), datas.end(), func);
+    // remove_if(datas.begin(), datas.end(), func);
+    datas.erase(remove_if(datas.begin(), datas.end(), func), datas.end());
 
 
     for (auto i : datas)
         cout << i << '\n';
+
 
 
     cout << endl;
