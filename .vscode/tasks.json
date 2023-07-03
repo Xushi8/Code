@@ -5,25 +5,34 @@
     },
     "tasks": [
         {
-            "type": "shell",
-            "label": "single",
-            "command": "/usr/local/gcc-11.4.0/bin/g++",
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe 生成活动文件",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g", // -O2是release
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "-D LOCAL", // 定义LOCAL宏
-                //"-O3",
-                //"-O2",
+                "${fileDirname}\\.exe\\${fileBasenameNoExtension}.exe",
+                // "-fexec-charset=GBK",
+                // "-O2",
                 "-std=gnu++17",
-                "-Wall", // 开启大多数警告
-                "-Wextra", // 除Wall外的大部分警告
-                "-pedantic", // 使用了扩展语法的地方将产生相应的警告信息
-                "-Wshadow", // 当局部变量屏蔽（shadow）已有变量时发出警告
-                "-Wconversion" // 在隐式转换可能导致值变化的时候发出警告
-            ]
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Wshadow",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
         }
     ]
 }
