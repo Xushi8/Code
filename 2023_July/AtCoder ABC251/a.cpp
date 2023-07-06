@@ -1,4 +1,4 @@
-// 2023/07/03 18:43:29
+// 2023/07/05 19:19:55
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -25,8 +25,14 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    cout << sizeof(size_t) << '\n';
-    
+    string s;
+    cin >> s;
+    string ans = s;
+    while (ans.size() + s.size() <= 6)
+    {
+        ans += s;
+    }
+    cout << ans << '\n';
 
     cout << endl;
     return 0;

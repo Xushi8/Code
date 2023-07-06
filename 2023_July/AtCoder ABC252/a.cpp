@@ -1,4 +1,4 @@
-// 2023/07/03 18:43:29
+// 2023/07/06 20:01:28
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include <queue>
 #include <functional>
+#include <iomanip>
 using namespace std;
 
 using ll = long long;
@@ -18,15 +19,16 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
-const int N = 100005;
+const int N = 1000005;
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    cout << sizeof(size_t) << '\n';
-    
+    int ch;
+    cin >> ch;
+    cout << (char)ch;
 
     cout << endl;
     return 0;
