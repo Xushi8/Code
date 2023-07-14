@@ -76,7 +76,8 @@
         "ciso646": "cpp",
         "coroutine": "cpp",
         "ranges": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "queue": "cpp"
     },
     "cmake.configureOnOpen": true
 }
