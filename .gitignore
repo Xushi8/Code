@@ -9,6 +9,7 @@
 *.s
 *.in
 *.out
+*.data
 #/visual studio/*
 #!visual studio/test
 #/visual studio/test/*
