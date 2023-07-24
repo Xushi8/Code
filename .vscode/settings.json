@@ -77,7 +77,10 @@
         "coroutine": "cpp",
         "ranges": "cpp",
         "span": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "stacktrace": "cpp",
+        "expected": "cpp",
+        "variant": "cpp"
     },
     "cmake.configureOnOpen": true
 }
