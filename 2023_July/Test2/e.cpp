@@ -32,85 +32,104 @@ int main()
     {
         int n, k;
         cin >> n >> k;
+        k -= 3;
+        n -= k;
+        while (k--)
+            cout << 1 << ' ';
         
-        int l = 1, r = n;
-        int maxn = -1;
-        while (l <= r)
+        if (n & 1)
         {
-            int mid = l + (r - l) / 2;
-            if (k * mid > n)
-                r = mid - 1;
-            else if (k * mid < n)
-                l = mid + 1;
+            cout << 1 << ' ' << (n - 1) / 2 << ' ' << (n - 1) / 2 << ' ';
+        }
+        else
+        {
+            if (n % 4 == 0)
+                cout << n / 4 << ' ' << n / 4 << ' ' << n / 2 << ' ';
             else
-            {
-                maxn = mid;
-                break;
-            }
+                cout << 2 << ' ' << (n - 2) / 2 << ' ' << (n - 2) / 2 << ' ';
         }
-        if (maxn == -1)
-        {
-            maxn = r + 1;
-        }
+        
 
-        l = 1, r = k;
-        int cnt = -1;
-        while (l <= r)
-        {
-            int mid = l + (r - l) / 2;
-            int sum = mid * maxn + (k - mid);
-            if (sum > n)
-                r = mid - 1;
-            else if (sum < n)
-                l = mid + 1;
-            else
-            {
-                cnt = mid;
-                break;
-            }
-        }
+        cout << '\n';
 
-        if (cnt == -1)
-            cnt = r;
-        int minn = 0;
-        if (k != cnt)
-        {
-            minn = (n - cnt * maxn) / (k - cnt);
-        }
+        // int l = 1, r = n;
+        // int maxn = -1;
+        // while (l <= r)
+        // {
+        //     int mid = l + (r - l) / 2;
+        //     if (k * mid > n)
+        //         r = mid - 1;
+        //     else if (k * mid < n)
+        //         l = mid + 1;
+        //     else
+        //     {
+        //         maxn = mid;
+        //         break;
+        //     }
+        // }
+        // if (maxn == -1)
+        // {
+        //     maxn = r + 1;
+        // }
 
-        while (maxn * minn / __gcd(maxn, minn) > n / 2)
-        {
-            maxn++;
-            l = 1, r = k;
-            cnt = -1;
-            while (l <= r)
-            {
-                int mid = l + (r - l) / 2;
-                int sum = mid * maxn + (k - mid);
-                if (sum > n)
-                    r = mid - 1;
-                else if (sum < n)
-                    l = mid + 1;
-                else
-                {
-                    cnt = mid;
-                    break;
-                }
-            }
+        // l = 1, r = k;
+        // int cnt = -1;
+        // while (l <= r)
+        // {
+        //     int mid = l + (r - l) / 2;
+        //     int sum = mid * maxn + (k - mid);
+        //     if (sum > n)
+        //         r = mid - 1;
+        //     else if (sum < n)
+        //         l = mid + 1;
+        //     else
+        //     {
+        //         cnt = mid;
+        //         break;
+        //     }
+        // }
 
-            if (cnt == -1)
-                cnt = r;
-            minn = 0;
-            if (k != cnt)
-            {
-                minn = (n - cnt * maxn) / (k - cnt);
-            }
-        }
+        // if (cnt == -1)
+        //     cnt = r;
+        // int minn = 0;
+        // if (k != cnt)
+        // {
+        //     minn = (n - cnt * maxn) / (k - cnt);
+        // }
 
-        for (int i = 0; i < cnt; i++)
-            cout << maxn << ' ';
-        for (int i = cnt; i < k; i++)
-            cout << minn << " \n"[i == k - 1];
+        // while (maxn * minn / __gcd(maxn, minn) > n / 2)
+        // {
+        //     maxn++;
+        //     l = 1, r = k;
+        //     cnt = -1;
+        //     while (l <= r)
+        //     {
+        //         int mid = l + (r - l) / 2;
+        //         int sum = mid * maxn + (k - mid);
+        //         if (sum > n)
+        //             r = mid - 1;
+        //         else if (sum < n)
+        //             l = mid + 1;
+        //         else
+        //         {
+        //             cnt = mid;
+        //             break;
+        //         }
+        //     }
+
+        //     if (cnt == -1)
+        //         cnt = r;
+        //     minn = 0;
+        //     if (k != cnt)
+        //     {
+        //         minn = (n - cnt * maxn) / (k - cnt);
+        //     }
+        // }
+
+        // for (int i = 0; i < cnt; i++)
+        //     cout << maxn << ' ';
+        // for (int i = cnt; i < k; i++)
+        //     cout << minn << " \n"[i == k - 1];
     }
 
     cout << endl;
