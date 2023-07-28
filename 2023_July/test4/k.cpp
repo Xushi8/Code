@@ -1,5 +1,7 @@
-// 2023/07/27 15:40:21
-// #pragma GCC optimize(2)
+// 2023/07/28 19:57:57
+#ifndef DEBUG
+#pragma GCC optimize(2)
+#endif
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -14,24 +16,26 @@
 #include <functional>
 #include <iomanip>
 #include <cmath>
+#include <stack>
 using namespace std;
 
 using ll = long long;
 using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
-const int MOD = (int)(1e4 + 7);
-const int N = 10000005;
-int Case = 1;
+const int MOD = 10007;
+const int N = 10020;
 
-int fast_pow(int a, int n)
+int sum[N];
+
+int pow(int a, int n, int mod)
 {
     int res = 1;
     while (n > 0)
     {
         if (n & 1)
-            res = res * a % MOD;
-        a = a * a % MOD;
+            res = res * a % mod;
+        a = a * a % mod;
         n /= 2;
     }
 
@@ -42,21 +46,20 @@ void solve()
 {
     int n, k;
     cin >> n >> k;
-    int ans1 = 0, ans2 = 0;
-    
-    ans2 = fast_pow(n, k) % 1000;
-    
-    
-
-
-    cout << "Case " << Case++ << ": " << ans1 << ' ' << ans2 << '\n';
+    for (int i = 1; i <= MOD; i++)
+    {
+        sum[i] = (sum[i - 1] + pow(i, k, MOD)) % MOD;
+    }
+    int ans = (sum[MOD] * n / MOD) % MOD;
+    ans = (ans + sum[n % MOD]) % MOD;
+    cout << ans << '\n';
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
+    
     int tt;
     cin >> tt;
     while (tt--)
@@ -64,6 +67,6 @@ int main()
         solve();
     }
 
-    cout << flush;
+    cout << endl;
     return 0;
 }
