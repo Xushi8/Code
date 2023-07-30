@@ -1,5 +1,5 @@
 // 2023/07/27 15:40:21
-// #pragma GCC optimize(2)
+#pragma GCC optimize(2)
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -24,14 +24,14 @@ const int MOD = (int)(1e4 + 7);
 const int N = 10000005;
 int Case = 1;
 
-int fast_pow(int a, int n)
+ll fast_pow(ll a, ll n)
 {
-    int res = 1;
+    ll res = 1;
     while (n > 0)
     {
         if (n & 1)
-            res = res * a % MOD;
-        a = a * a % MOD;
+            res = res * a % 1000;
+        a = a * a % 1000;
         n /= 2;
     }
 
@@ -40,16 +40,19 @@ int fast_pow(int a, int n)
 
 void solve()
 {
-    int n, k;
+    double n;
+    int k;
     cin >> n >> k;
-    int ans1 = 0, ans2 = 0;
-    
-    ans2 = fast_pow(n, k) % 1000;
-    
-    
+    double ans1;
+    ll ans2;
+    ans2 = fast_pow((ll)n, (ll)k);
+
+    double p = k * log10(n);
+    ans1 = pow(10, p - (int)p) * 100;
 
 
-    cout << "Case " << Case++ << ": " << ans1 << ' ' << ans2 << '\n';
+    // cout << "Case " << Case++ << ": " << (ll)ans1 << ' ' << ans2 << '\n';
+    printf("Case %d: %03lld %03lld\n", Case++, (ll)ans1, ans2);
 }
 
 int main()
