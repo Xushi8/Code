@@ -14,6 +14,7 @@
 				"${file}",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}.exe",
+				"-DLOCAL",
 				//"-O3",
 				//"-O2",
 				// "-std=c++11", // c++标椎设施为c++11

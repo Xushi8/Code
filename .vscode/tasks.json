@@ -14,7 +14,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "-D DEBUG",
+                "-DLOCAL",
                 //"-O3",
                 //"-O2",
                 "-std=gnu++17",

@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-            "args": [],
+            "args": ["<in"], // 将输入重定向到in文件
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
