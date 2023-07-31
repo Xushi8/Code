@@ -82,5 +82,6 @@
         "expected": "cpp",
         "variant": "cpp"
     },
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "/home/tom/Code/Class_7"
 }
