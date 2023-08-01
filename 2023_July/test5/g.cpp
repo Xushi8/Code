@@ -54,7 +54,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    get_prime();
+    // get_prime();
     int tt;
     cin >> tt;
     while (tt--)
@@ -62,12 +62,37 @@ int main()
         int n;
         cin >> n;
         vector<int> arr(n);
+        vector<int> used(25005, 0);
         for (int i = 0; i < n; i++)
         {
             cin >> arr[i];
+            used[arr[i]] = 2;
         }
 
         sort(arr.begin(), arr.end());
+
+        for (int i = 0; i <= arr.back(); i++)
+        {
+            if (used[i] > 0)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i + arr[j] <= arr.back())
+                    {
+                        used[i + arr[j]] = 1;
+                    }
+                    else
+                        break;
+                }
+            }
+        }
+
+        ll ans = 0;
+        for (int i = 0; i < 25005; i++)
+        {
+            ans += (used[i] == 2);
+        }
+        cout << ans << '\n';
     }
 
 #ifdef LOCAL
