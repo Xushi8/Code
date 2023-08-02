@@ -15,6 +15,7 @@
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
                 "-DLOCAL",
+                "-DDEBUG",
                 //"-O3",
                 //"-O2",
                 "-std=gnu++17",
