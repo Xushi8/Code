@@ -1,4 +1,4 @@
-// 2023/08/02 16:07:37
+// 2023/08/03 09:26:43
 #ifndef LOCAL
 #pragma GCC optimize(2)
 #endif
@@ -24,19 +24,14 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
-const int N = 
-#ifdef DEBUG
-1000005; // 调试
-#else
-1000005; // 实际
-#endif
+const int N = 1000005;
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    cout << (size_t)-1 << endl;
+    
     
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

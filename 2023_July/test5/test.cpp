@@ -52,15 +52,27 @@ int main()
     //     cout << "YES\n";
     // #endif
 
-    unique_ptr<string> p1(new string("hi"));
-    unique_ptr<string> p2(p1.release()); // 将p1置为空，返回指针
-    cout << *p2 << endl;
-    unique_ptr<string> p3(new string("hello,world"));
-    p2.reset(p3.release()); // reset释放了p2原来指向的内存 然后令p2指向p3所指向的对象，然后release()将p3置为空
-    // cout << *p3 << endl; // 输出的都是hi
-    // cout << *p1 << endl; // p1已经被释放了，没有了
-    cout << *p2 << endl;
+    // unique_ptr<string> p1(new string("hi"));
+    // unique_ptr<string> p2(p1.release()); // 将p1置为空，返回指针
+    // cout << *p2 << endl;
+    // unique_ptr<string> p3(new string("hello,world"));
+    // p2.reset(p3.release()); // reset释放了p2原来指向的内存 然后令p2指向p3所指向的对象，然后release()将p3置为空
+    // // cout << *p3 << endl; // 输出的都是hi
+    // // cout << *p1 << endl; // p1已经被释放了，没有了
+    // cout << *p2 << endl;
 
+
+//     shared_ptr<int> p(new int(42));
+//     int* q = p.get();
+//     {
+//         // 两个独立的shared_ptr指向相同的内存
+//         shared_ptr<int>(q);
+//         // 离开作用域就会释放
+// }
+//     int foo = *q; // 最后未定义
+
+    auto p = new int(3);
+    cout << *p << endl;
 
 
 #ifdef LOCAL
