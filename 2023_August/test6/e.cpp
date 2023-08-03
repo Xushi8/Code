@@ -1,6 +1,6 @@
 // 2023/08/03 19:48:06
 #ifndef LOCAL
-#pragma GCC optimize(2)
+// #pragma GCC optimize(2)
 #endif
 #include <iostream>
 #include <algorithm>
@@ -24,7 +24,7 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
-const int N = 12;
+const int N = 2000005;
 
 ll arr[N];
 vector<int> G[N];
@@ -53,11 +53,6 @@ ll dfs(int u)
         else
         {
             arr[u] += len;
-            for (int j = i; j < (int)tmp.size(); j++)
-            {
-                arr[u] += tmp[j] - 1;
-            }
-            
             break;
         }
     }
