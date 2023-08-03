@@ -11,6 +11,7 @@
 *.out
 *.data
 *in
+*out
 #/visual studio/*
 #!visual studio/test
 #/visual studio/test/*
