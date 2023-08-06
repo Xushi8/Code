@@ -29,23 +29,19 @@ int main()
     int n;
     cin >> n;
     set<string> s;
-    int te = 0;
     for (int i = 0; i < n; i++)
     {
-        string tmp;
-        cin >> tmp;
-        s.emplace(tmp);
-        reverse(tmp.begin(), tmp.end());
-        s.emplace(tmp);
-        if (tmp.size() == 1)
-            te++;
+        string a;
+        cin >> a;
+        string b = a;
+        reverse(b.begin(), b.end());
+        if (s.count(a) == 0 && s.count(b) == 0)
+        {
+            s.emplace(a);
+        }
     }
 
-    size_t ans = 0;
-    ans += te;
-    ans += (s.size() - te) / 2;
-
-    cout << ans << '\n';
+    cout << s.size() << '\n';
 
     cout << endl;
     return 0;
