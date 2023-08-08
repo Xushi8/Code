@@ -1,4 +1,4 @@
-// 2023/08/07 17:23:45
+// 2023/08/08 16:23:52
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -14,7 +14,6 @@
 #include <iomanip>
 #include <cmath>
 #include <stack>
-#include <fstream>
 using namespace std;
 
 using ll = long long;
@@ -29,12 +28,8 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    ofstream ofs("in");
-    int n = 1;
-    ofs << n << '\n';
-    for (int i = 0; i < n; i++)
-        ofs << i << ' ';
-    ofs.close();
+    int arr[10] = { 0 };
+    cout << arr[10] << '\n';
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

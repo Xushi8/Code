@@ -98,7 +98,7 @@ int query_max(int l, int r, int nl, int nr, int p)
     if (l <= mid)
         maxx = max(maxx, query_max(l, r, nl, mid, p * 2));
     if (mid + 1 <= r)
-        maxx = max(maxx, query_max(l, r, mid + 1, r, p * 2 + 1));
+        maxx = max(maxx, query_max(l, r, mid + 1, nr, p * 2 + 1));
 
     return maxx;
 }
@@ -198,14 +198,17 @@ int main()
         cin >> arr[i];
     }
 
-
-    dfs1(R, 0);
-    dfs2(R, R);
+    dfs1(1, 0);
+    dfs2(1, 1);
     for (int i = 1; i <= n; i++)
     {
         tmp[dfn[i]] = arr[i];
     }
+
+
+    
     memset(maxn, -0x3f, sizeof(maxn));
+    
     build(1, n, 1);
 
     cin >> m;
@@ -217,13 +220,13 @@ int main()
         {
             int x, y;
             cin >> x >> y;
-            cout << query_sum(x, y) << '\n';
+            cout << query_max(x, y) << '\n';
         }
         else if (op == "QSUM")
         {
             int x, y;
             cin >> x >> y;
-            cout << query_max(x, y) << '\n';
+            cout << query_sum(x, y) << '\n';
         }
         else if (op == "CHANGE")
         {
