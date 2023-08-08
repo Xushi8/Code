@@ -10,6 +10,7 @@
             "command": "/usr/local/gcc-12.3.0/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
+                "-fsanitize=address", // 内存越界检查
                 "-g", // -O2是release
                 "${file}",
                 "-o",
