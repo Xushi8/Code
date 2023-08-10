@@ -28,8 +28,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int arr[10] = { 0 };
-    cout << arr[10] << '\n';
+    
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
