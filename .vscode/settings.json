@@ -91,7 +91,8 @@
         "semaphore": "cpp",
         "spanstream": "cpp",
         "stop_token": "cpp",
-        "syncstream": "cpp"
+        "syncstream": "cpp",
+        "in": "cpp"
     },
     "cmake.configureOnOpen": true,
     "cmake.sourceDirectory": "/home/tom/Code/Class_7"

@@ -28,7 +28,8 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    map<pii, int> trie;
+    string s = "ABRCD";
+    cout << s.find_first_of("BD") << '\n';
 
     
 #ifdef LOCAL
