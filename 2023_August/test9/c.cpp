@@ -26,39 +26,39 @@ const int N = 1005;
 int dis[N * 2];
 vector<int> G[N * 2];
 queue<int> que;
+char arr[N][N];
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    memset(dis, 0x3f, sizeof(dis));
     int n, m;
     cin >> n >> m;
-    vector<string> arr(n);
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
-        cin >> arr[i];
+        cin >> (arr[i] + 1);
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = 1; j <= m; j++)
         {
             if (arr[i][j] == '#')
             {
                 G[i].emplace_back(n + j);
-                G[n + 1].emplace_back(i);
+                G[n + j].emplace_back(i);
             }
         }
     }
 
-    dis[0] = 0;
-    que.emplace(0);
+    memset(dis, 0x3f, sizeof(dis));
+    dis[1] = 0;
+    que.emplace(1);
     while (!que.empty())
     {
         int u = que.front(); que.pop();
-        if (u == n - 1)
+        if (u == n)
         {
             cout << dis[u] << endl;
             return 0;

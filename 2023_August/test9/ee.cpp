@@ -1,5 +1,6 @@
-// 2023/08/15 14:26:32
+// 2023/08/15 14:31:51
 #include <iostream>
+#include <cstdlib>
 #include <algorithm>
 #include <cstring>
 #include <cstdint>
@@ -14,7 +15,6 @@
 #include <iomanip>
 #include <cmath>
 #include <stack>
-#include <fstream>
 using namespace std;
 
 using ll = long long;
@@ -28,26 +28,14 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
-    srand((unsigned)time(nullptr));
-    ofstream ofs("in");
-    int n = 100000, m = 300000;
-    ofs << n << ' ' << m << '\n';
-    for (int i = 0; i < n; i++)
+    
+    for (int i = 0; i < 10; i++)
     {
-        ofs << rand() << '\n';
+        // system("pwd");
+        system("./test.exe > in && ./e.exe < in");
+        cerr << endl;
     }
 
-    for (int i = 0; i < m; i++)
-    {
-        int a = rand() % n, b = rand() % n;
-        if (a == b)
-            i--;
-        else
-            ofs << a << ' ' << b << '\n';
-    }
-
-    ofs.close();
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

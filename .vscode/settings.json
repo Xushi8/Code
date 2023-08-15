@@ -95,5 +95,6 @@
         "in": "cpp"
     },
     "cmake.configureOnOpen": true,
-    "cmake.sourceDirectory": "/home/tom/Code/Class_7"
+    "cmake.sourceDirectory": "/home/tom/Code/Class_7",
+    "C_Cpp.dimInactiveRegions": false
 }
