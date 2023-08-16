@@ -21,10 +21,53 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
-const int N = 1000005;
+const int N = 10005;
 
 vector<int> G[N];
 int in[N];
+
+
+int par[N], rk[N];
+void init(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        par[i] = i;
+        rk[i] = 0;
+    }
+}
+
+int find(int x)
+{
+    if (par[x] == x)
+        return x;
+    else
+        return par[x] = find(par[x]);
+}
+
+void unite(int x, int y)
+{
+    x = find(x);
+    y = find(y);
+    if (x == y)
+        return;
+
+    if (rk[x] < rk[y])
+        par[x] = y;
+    else
+    {
+        par[y] = x;
+        if (rk[x] == rk[y])
+        {
+            rk[x]++;
+        }
+    }
+}
+
+bool same(int x, int y)
+{
+    return find(x) == find(y);
+}
 
 int main()
 {
@@ -34,6 +77,7 @@ int main()
     int n, m;
     while (cin >> n >> m)
     {
+        init(n);
         for (int i = 0; i < n; i++)
         {
             in[i] = 0;
@@ -42,7 +86,7 @@ int main()
 
         string s;
         cin.ignore(1024, '\n');
-        set<pii> same;
+        vector<pii> tmp;
         for (int i = 0; i < m; i++)
         {
             getline(cin, s);
@@ -82,82 +126,79 @@ int main()
 
             if (target == '>')
             {
-                in[a]++;
-                G[b].emplace_back(a);
+                // in[find(a)]++;
+                // G[find(b)].emplace_back(find(a));
+                tmp.emplace_back(b, a);
             }
             else if (target == '<')
             {
-                in[b]++;
-                G[a].emplace_back(b);
+                // in[find(b)]++;
+                // G[find(a)].emplace_back(find(b));
+                tmp.emplace_back(a, b);
             }
             else if (target == '=')
             {
-                same.emplace(a, b);
-                G[a].emplace_back(b);
-                G[b].emplace_back(a);
+                unite(a, b);
             }
         }
 
-        for (int i = 0; i < n; i++)
+        for (auto [u, v] : tmp)
         {
-            G[i].erase(unique(G[i].begin(), G[i].end()), G[i].end());
+            G[find(u)].emplace_back(find(v));
+            in[find(v)]++;
         }
 
-        set<int> st;
         queue<int> que;
         for (int i = 0; i < n; i++)
         {
-            if (in[i] == 0)
+            if (in[find(i)] == 0 && i == find(i))
             {
-                que.emplace(i);
+                que.emplace(find(i));
             }
         }
 
         vector<int> ans;
+        bool conflict = 0;
         while (!que.empty())
         {
-            int u = que.front(); que.pop();
-            if (st.count(u) != 0)
-                continue;
-            
-            ans.emplace_back(u);
-            st.emplace(u);
-            for (int v : G[u])
+            if (que.size() >= 2)
             {
-                in[v]--;
-                if (same.count({ u, v }) != 0 || same.count({ v, u }) != 0)
+                conflict = 1;
+            }
+            
+            int u = que.front(); que.pop();
+            ans.emplace_back(find(u));
+            for (int v : G[find(u)])
+            {
+                in[find(v)]--;
+                if (in[find(v)] == 0)
                 {
-                    if (in[v] != 0)
-                    {
-                        cout << "CONFLICT\n";
-                        goto nex;
-                    }
-                }
-
-                if (in[v] == 0 && st.count(v) == 0)
-                {
-                    que.emplace(v);
-                }
-
-                if (in[v] < 0)
-                {
-                    cout << "CONFLICT\n";
-                    goto nex;
+                    que.emplace(find(v));
                 }
             }
         }
 
-        if (ans.size() == 1ULL * n)
+        set<int> st;
+        for (int i = 0; i < n; i++)
         {
-            cout << "OK\n";
+            st.emplace(find(i));
+        }
+        
+        if (ans.size() != st.size())
+        {
+            cout << "CONFLICT\n";
         }
         else
         {
-            cout << "UNCERTAIN\n";
+            if (conflict)
+            {
+                cout << "UNCERTAIN\n";
+            }
+            else
+            {
+                cout << "OK\n";
+            }
         }
-
-    nex:
-        ;
     }
 
 #ifdef LOCAL

@@ -1,4 +1,4 @@
-// 2023/08/15 17:41:01
+// 2023/08/16 10:58:36
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -21,59 +21,73 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
-const int N = 105;
+const int N = 1000005;
 
-int in[N];
 vector<int> G[N];
+int arr[N], in[N];
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    int n, m;
-    while (cin >> n >> m && n)
+
+    int tt;
+    cin >> tt;
+    while (tt--)
     {
-        memset(in, 0, sizeof(in));
+        int n, m;
+        cin >> n >> m;
         for (int i = 0; i < n; i++)
-            G[i].clear();
-        
-        for (int i = 0; i < m; i++)
         {
-            int x, y;
-            cin >> x >> y;
-            in[y]++;
-            G[x].emplace_back(y);
+            arr[i] = 0;
+            in[i] = 0;
+            G[i].clear();
+        }
+
+        for (int i = 0; i < n - 1; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+            u--; v--;
+            G[u].emplace_back(v);
+            G[v].emplace_back(u);
+            in[v]++; in[u]++;
         }
 
         queue<int> que;
+
         for (int i = 0; i < n; i++)
         {
-            if (in[i] == 0)
+            if (G[i].size() == 1)
             {
+                arr[i] = 1;
                 que.emplace(i);
             }
         }
 
-        vector<int> ans;
         while (!que.empty())
         {
             int u = que.front(); que.pop();
-            ans.emplace_back(u);
             for (int v : G[u])
             {
                 in[v]--;
-                if (in[v] == 0)
+                if (in[v] == 1)
                 {
+                    arr[v] = arr[u] + 1;
                     que.emplace(v);
                 }
             }
         }
 
-        if (ans.size() == n)
-            cout << "YES\n";
-        else
-            cout << "NO\n";
+
+        int ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            // cerr << arr[i] << ' ';
+            ans += (arr[i] > m);
+        }
+
+        cout << ans << '\n';
     }
 
 #ifdef LOCAL
