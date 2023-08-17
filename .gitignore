@@ -8,6 +8,7 @@
 *.exe
 *.s
 *.in
+*in.txt
 *.out
 *.data
 *in
