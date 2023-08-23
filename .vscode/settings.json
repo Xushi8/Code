@@ -92,7 +92,9 @@
         "spanstream": "cpp",
         "stop_token": "cpp",
         "syncstream": "cpp",
-        "in": "cpp"
+        "in": "cpp",
+        "format": "cpp",
+        "stdfloat": "cpp"
     },
     "cmake.configureOnOpen": true,
     "cmake.sourceDirectory": "/home/tom/Code/Class_7",

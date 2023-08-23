@@ -18,14 +18,22 @@
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
                 "-DLOCAL",
                 "-DDEBUG",
-                //"-O3",
-                //"-O2",
-                "-std=gnu++17",
-                "-Wall", // 开启所有警告
+                "-O3",
+                "-std=c++17",
+                "-Wall", // 开启警告
                 "-Wextra", // 除Wall外的警告
                 "-pedantic", // 使用了扩展语法的地方将产生相应的警告信息
                 "-Wshadow", // 当局部变量屏蔽（shadow）已有变量时发出警告
-                "-Wconversion" // 在隐式转换可能导致值变化的时候发出警告
+                "-Wconversion", // 在隐式转换可能导致值变化的时候发出警告
+                "-Wpointer-arith", // 对函数指针或者void *类型的指针进行算术操作时给出警告
+                // "-march=native", // 检测当前硬件支持的指令集， 如AVX; 可能会导致executable程序移植出现问题
+
+                // "-fomit-frame-pointer",
+                // "-fverbose-asm",
+
+                "-fopenmp", // 忽视指针别名，开启simd优化; 须在函数内加上 #pragma omp simd
+                "-ffast-math", // 对浮点数有更大胆的优化，确保不会出现NaN和INF时可开启; 如 a /= b 优化为 a *= inv_b, sqrt保证不为负数
+                "-mprefer-vector-width=512", // 优先使用512位寄存器zmm(如果有的话)
             ]
         }
     ]
