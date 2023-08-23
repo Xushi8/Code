@@ -29,8 +29,19 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    cout << "efjdhfkwshjeejkh";
-    
+    cout << "efjdhfkwshjeejkh\n";
+
+    bool flag = 0;
+
+    if (flag = 1)
+    {
+        cout << "YES\n";
+    }
+    else
+    {
+        cout << "NO\n";
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
