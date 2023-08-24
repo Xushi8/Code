@@ -1,11 +1,33 @@
 // 2023/08/22 10:31:09
 #include <iostream>
+#include <algorithm>
 #include <cstdio>
 #include <numeric>
 #include <vector>
 #include <cmath>
-using namespace std;
+#include <memory>
+#include <string>
+#include <cstring>
 
+#if defined(_MSC_VER)
+     /* Microsoft C/C++-compatible compiler */
+#include <intrin.h>
+#elif defined(__GNUC__) && (defined(__x86_64__) || defined(__i386__))
+     /* GCC-compatible compiler, targeting x86/x86-64 */
+#include <x86intrin.h>
+#elif defined(__GNUC__) && defined(__ARM_NEON__)
+     /* GCC-compatible compiler, targeting ARM with NEON */
+#include <arm_neon.h>
+#elif defined(__GNUC__) && defined(__IWMMXT__)
+     /* GCC-compatible compiler, targeting ARM with WMMX */
+#include <mmintrin.h>
+#elif (defined(__GNUC__) || defined(__xlC__)) && (defined(__VEC__) || defined(__ALTIVEC__))
+     /* XLC or GCC-compatible compiler, targeting PowerPC with VMX/VSX */
+#include <altivec.h>
+#elif defined(__GNUC__) && defined(__SPE__)
+     /* GCC-compatible compiler, targeting PowerPC with SPE */
+#include <spe.h>
+#endif
 
 constexpr long long func(int n)
 {
@@ -26,14 +48,18 @@ void func1(int* __restrict a, int* __restrict b, int* __restrict c)
 
 void func2(int* a)
 {
-    a[0] = 1;
-    a[1] = 2;
-    a[2] = 2;
-    a[3] = 2;
-    a[4] = 2;
-    a[5] = 2;
-    a[6] = 2;
-    a[7] = 2;
+#pragma omp simd
+    for (int i = 0; i < 8 * 1024; i += 8)
+    {
+        a[0 + i] = 1;
+        a[1 + i] = 2;
+        a[2 + i] = 2;
+        a[3 + i] = 2;
+        a[4 + i] = 2;
+        a[5 + i] = 2;
+        a[6 + i] = 2;
+        a[7 + i] = 2;
+    }
 }
 
 void func3(int* __restrict a, int* __restrict b)
@@ -57,7 +83,6 @@ void func4(int* a, int n)
 
 void func5(float a, const float* __restrict x, const float* __restrict y, float* __restrict z, size_t n)
 {
-    
 #pragma omp simd
     for (size_t i = 0; i < n; i++)
     {
@@ -85,15 +110,23 @@ void func7(float* x, size_t n)
     }
 }
 
+void func8(std::vector<int>& a, const std::vector<int>& b)
+{
+#pragma omp simd
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        a[i] = b[i] + 10;
+    }
+}
+
 int main()
 {
-
     printf("%lld\n", func(1000000000));
 
-    int a = 10, b = 20, c = 30;
-    func1(&a, &b, &c);
+    std::string a = "123456", b = "1346549646";
+    std::copy(a.begin(), a.end(), b.begin());
 
-    cout << abs(1.4f) << '\n';
+    std::cout << a << ' ' << b << '\n';
 
     return 0;
 }
