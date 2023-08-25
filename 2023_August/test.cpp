@@ -131,7 +131,7 @@ int main()
 {
     printf("%lld\n", func(1000000000));
 
-    printf("%lld\n", fib(50));
+    printf("%lld\n", fib(12));
 
     return 0;
 }
