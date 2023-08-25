@@ -119,14 +119,19 @@ void func8(std::vector<int>& a, const std::vector<int>& b)
     }
 }
 
+constexpr long long fib(size_t n)
+{
+    if (n <= 2)
+        return 1;
+    else
+        return fib(n - 1) + fib(n - 2);
+}
+
 int main()
 {
     printf("%lld\n", func(1000000000));
 
-    std::string a = "123456", b = "1346549646";
-    std::copy(a.begin(), a.end(), b.begin());
-
-    std::cout << a << ' ' << b << '\n';
+    printf("%lld\n", fib(50));
 
     return 0;
 }
