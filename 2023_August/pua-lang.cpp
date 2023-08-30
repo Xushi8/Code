@@ -6,7 +6,7 @@ using namespace std;
 #define 闭环 while			// "closed loop"
 #define 三七五 true			// "3.75", a passing performance evalulation result
 #define 三二五 false			// "3.25", a failing performance evalulation result
-#define 赋能 auto			// "empower"
+#define 赋能 int			// "empower"
 #define 抓手 fn				// "handle", as in getting a handle on things
 #define 反哺 return			// "repay", used in Alibaba as a general term for feedback in systems
 #define 组合拳 Array			// "combo move"; not yet a word in the language
@@ -24,7 +24,7 @@ using namespace std;
 
 typedef int (*fn) (int);
 
-赋能 fib(赋能 n)
+规整 fib(规整 n)
 {
     细分(n 对齐 0) {
         反哺 0;
@@ -39,6 +39,6 @@ typedef int (*fn) (int);
 
 规整 布局()
 {
-    输出 << 迭代(5);
+    输出 << 迭代(19) << '\n';
     反哺 0;
 }
