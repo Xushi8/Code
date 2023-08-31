@@ -1,4 +1,4 @@
-// 2023/08/31 19:23:45
+// 2023/08/31 19:29:44
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -29,22 +29,20 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int n, a, b;
-    cin >> n >> a >> b;
-    int ans = 0;
-    int target = INF;
-    for (int i = 0; i < n; i++)
-    {
-        int x;
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int& x : arr)
         cin >> x;
-        if (a + x >= b && a + x < target)
+    sort(arr.begin(), arr.end());
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i + 1] != 1 + arr[i])
         {
-            target = a + x;
-            ans = i;
+            cout << 1 + arr[i] << '\n';
+            break;
         }
     }
-
-    cout << ans + 1 << '\n';
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
