@@ -19,7 +19,7 @@
                 "-DLOCAL",
                 "-DDEBUG",
                 // "-O3",
-                "-std=c++17",
+                "-std=c++20",
                 "-Wall", // 开启警告
                 "-Wextra", // 除Wall外的警告
                 "-pedantic", // 使用了扩展语法的地方将产生相应的警告信息
