@@ -43,7 +43,7 @@
     //             "-fdiagnostics-color=always",
     //             "${file}",
     //             "-o",
-    //             "${fileDirname}/${fileBasenameNoExtension}.S",
+    //             "${workspaceFolder}/${fileBasenameNoExtension}.S",
     //             "-O3",
     //             "-S",
     //             "-std=c++17",
