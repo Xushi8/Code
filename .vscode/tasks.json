@@ -46,7 +46,7 @@
     //             "${workspaceFolder}/${fileBasenameNoExtension}.S",
     //             "-O3",
     //             "-S",
-    //             "-std=c++17",
+    //             "-std=c++20",
     //             "-Wall",
     //             "-Wextra",
     //             "-pedantic",
