@@ -16,6 +16,7 @@
 #include <stack>
 #include <array>
 using namespace std;
+// #define int long long
 
 using ll = long long;
 using pii = pair<int, int>;
@@ -52,30 +53,26 @@ A dfs(int u)
     {
         if (cost == 0)
         {
-            res.a++;
-            res.cnt += res.b;
-            res.cnt %= mod;
-            ans += res.b;
-            ans %= mod;
+            ans += res.b; ans %= mod;
+            res.cnt += res.b; res.cnt %= mod;
+            res.a++; res.a %= mod;
         }
         else
         {
-            res.b++;
+            res.b++; res.b %= mod;
         }
 
-        auto tmp = dfs(v);
-        // swap(res, tmp);
-        res.a += tmp.a;
+        A tmp = dfs(v);
         ans += res.b * tmp.a; ans %= mod;
-        res.cnt += res.b * tmp.a + tmp.cnt;
-        res.cnt %= mod;
-        res.b += tmp.b;
+        res.cnt += ((res.b * tmp.a) % mod + tmp.cnt) % mod; res.cnt %= mod;
+        res.a += tmp.a; res.a %= mod;
+        res.b += tmp.b; res.b %= mod;
     }
 
     return dp[u] = res;
 }
 
-int main()
+int32_t main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -96,35 +93,6 @@ int main()
 
     memset(dp, -1, sizeof(dp));
     dfs(1);
-
-    // auto ret = dfs(1);
-
-    // vector<int> sum(ret.size(), 0);
-    // sum[0] = (ret[0] == 0);
-    // for (size_t i = 1; i < ret.size(); i++)
-    // {
-    //     sum[i] = sum[i - 1] + (ret[i] == 0);
-    // }
-
-    // for (int i = 0; i < ret.size(); i++)
-    // {
-    //     cerr << ret[i] << ' ';
-    // }
-
-
-
-
-    // for (size_t i = 0; i < sum.size(); i++)
-    // {
-    //     if (ret[i] == 1)
-    //     {
-    //         if (i == 0)
-    //             ans += sum.back() - sum[0];
-    //         else
-    //             ans += sum.back() - sum[i - 1];
-    //         ans %= mod;
-    //     }
-    // }
 
     cout << ans << '\n';
 
