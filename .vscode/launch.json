@@ -26,6 +26,11 @@
                     "description": "将反汇编风格设置为 Intel",
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
+                },
+                {
+                    "description": "显示STL信息",
+                    "text": "python import sys;sys.path.insert(0, '/usr/local/gcc-13.2.0/share/gcc-13.2.0/python');from libstdcxx.v6.printers import register_libstdcxx_printers;register_libstdcxx_printers(None)",
+                    "ignoreFailures": false
                 }
             ],
             "preLaunchTask": "single"
