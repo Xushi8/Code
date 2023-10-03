@@ -61,6 +61,7 @@
 #include <memory>
 #include <string>
 #include <cstring>
+#include <chrono>
 using namespace std;
 
 #if defined(_MSC_VER)
@@ -173,6 +174,25 @@ void func8(std::vector<int>& a, const std::vector<int>& b)
     }
 }
 
+void func9(float* a)
+{
+    #pragma GCC unroll 16
+    for (size_t i = 0; i < 1024; i++)
+    {
+        a[i] = 1;
+    }
+}
+
+void func10()
+{
+    auto t0 = chrono::steady_clock::now();
+    for (volatile size_t i = 0; i < 10000000000; i++) {}
+    auto t1 = chrono::steady_clock::now();
+    auto dt = t1 - t0;
+    int64_t used_time = chrono::duration_cast<chrono::milliseconds>(dt).count();
+    cout << "Time elapsed: " << used_time << "ms" << endl;
+}
+
 constexpr long long fib(size_t n)
 {
     if (n <= 2)
@@ -199,6 +219,9 @@ int main()
 
     time_t use_time = clock();
     cout << "memory speed: " << (n * sizeof(int)) / (use_time * 1000.0) << "gb/s" << endl;
+
+
+    // func10();
 
     cerr << "Time elapsed: " << use_time / 1000 << "ms" << endl;
     return 0;
