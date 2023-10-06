@@ -193,6 +193,14 @@ void func10()
     cout << "Time elapsed: " << used_time << "ms" << endl;
 }
 
+void func11(int* a)
+{
+    for (int i = 0; i < 128; i++)
+    {
+        a[i] = 0;
+    }
+}
+
 constexpr long long fib(size_t n)
 {
     if (n <= 2)
