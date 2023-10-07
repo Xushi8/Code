@@ -1,4 +1,4 @@
-// 2023/10/03 17:50:20
+// 2023/10/07 20:57:28
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -16,7 +16,6 @@
 #include <stack>
 #include <array>
 #include <fstream>
-#include <format>
 #include <bitset>
 using namespace std;
 
@@ -29,15 +28,18 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    // cout << format("{:.8f}\n", 3.1415);
+    string s;
+    cin >> s;
+    for (size_t i = 1; i < s.size(); i += 2)
+    {
+        if (s[i] == '1')
+        {
+            cout << "No\n";
+            return 0;
+        }
+    }
 
-    // array<int, 5> tmp = { 1,1,2,8,4 };
-
-    cout << 0b10011 << endl;
-    cout << bitset<10>(47) << endl;
-    cout << bitset<20>(0x4af) << endl;
-    cout << 0x4af << endl;
-    cout << 0344 << endl;
+    cout << "Yes\n";
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
