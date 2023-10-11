@@ -49,29 +49,37 @@ int main()
     // }
 
     
-    while (1)
-    {
-        bool flag = 1;
-        for (auto it = mp.begin(); it != mp.end(); it++)
-        {
-            auto [x, y] = *it;
-            mp[x * 2] += y / 2;
-            if (y >= 2)
-                flag = 0;
+    // while (1)
+    // {
+    //     bool flag = 1;
+    //     for (auto it = mp.begin(); it != mp.end(); it++)
+    //     {
+    //         auto [x, y] = *it;
+    //         mp[x * 2] += y / 2;
+    //         if (y >= 2)
+    //             flag = 0;
             
-            if (y & 1)
-                it->second = 1;
-            else
-                it->second = 0;
-        }
+    //         if (y & 1)
+    //             it->second = 1;
+    //         else
+    //             it->second = 0;
+    //     }
 
-        if (flag)
-            break;
-    }
+    //     if (flag)
+    //         break;
+    // }
 
-    for (auto [x, y] : mp)
+    // for (auto [x, y] : mp)
+    // {
+    //     ans += y;
+    // }
+
+    while (!mp.empty())
     {
-        ans += y;
+        auto [x, y] = *mp.begin(); mp.erase(mp.begin());
+        ans += y & 1;
+        if(y >= 2)
+            mp[x * 2] += y / 2;
     }
 
     cout << ans << endl;

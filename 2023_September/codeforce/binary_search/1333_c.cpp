@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // 2023/10/10 12:33:20
+=======
+// 2023/10/08 10:46:40
+>>>>>>> 6535fab98e25c507a3085df5d2bb3159a66712e3
 #include <iostream>
 #include <algorithm>
 #include <cstring>

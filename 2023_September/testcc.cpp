@@ -38,6 +38,11 @@ int main()
     cout << bitset<20>(0x4af) << endl;
     cout << 0x4af << endl;
     cout << 0344 << endl;
+    cout << bitset<32>(INT32_MAX) << endl;
+    cout << bitset<32>(UINT32_MAX) << endl;
+
+    cout << format("{:.15f}\n", 3.1415926);
+    cout << format("{} {}\n", 5676, 998390803810832);
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
