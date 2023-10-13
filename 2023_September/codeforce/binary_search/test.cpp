@@ -33,7 +33,7 @@ int main()
     if (it != arr.end())
         cout << "YES\n";
     else
-        cout << "NO\n";
+        cout << "NO\n"; 
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
