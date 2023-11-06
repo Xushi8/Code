@@ -1,4 +1,4 @@
-// 2023/11/01 13:57:54
+// 2023/11/05 16:02:36
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -28,36 +28,26 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int n;
-    cin >> n;
-    int arr[10] = {0};
-    int minn = 1e9;
-    for (int i = 1; i <= 9; i++)
+    int n, m;
+    cin >> n >> m;
+    string s;
+    cin >> s;
+    int adds = 0;
+    while (m--)
     {
-        cin >> arr[i];
-        minn = min(minn, arr[i]);
-    }
-
-    int now = n;
-    for (int i = 9; i >= 1; i--)
-    {
-        int tmp = now;
-        for (int j = 1; j * arr[i] <= now; j++)
+        int op, x;
+        cin >> op >> x;
+        if (op == 1)
         {
-            if (now / minn == (now - j * arr[i]) / minn + j)
-            {
-            }
-            else
-            {
-                break;
-            }
-
-            cout << i;
-            tmp -= arr[i];
+            adds += x;
+            adds %= n;
         }
-        now = tmp;
+        else{
+            x--;
+            cout << s[(x - adds + n) % n] << '\n'; 
+        }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

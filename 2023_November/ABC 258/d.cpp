@@ -1,4 +1,4 @@
-// 2023/11/01 13:57:54
+// 2023/11/05 19:53:46
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -21,6 +21,7 @@ using namespace std;
 
 using ll = long long;
 using pii = pair<int, int>;
+using pll = pair<ll, ll>;
 constexpr int N = 1000005;
 
 int main()
@@ -28,36 +29,28 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int n;
-    cin >> n;
-    int arr[10] = {0};
-    int minn = 1e9;
-    for (int i = 1; i <= 9; i++)
+    int n, x;
+    cin >> n >> x;
+    vector<pll> a(n);
+    for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
-        minn = min(minn, arr[i]);
+        int x, y;
+        cin >> x >> y;
+        a[i] = {x, y};
     }
 
-    int now = n;
-    for (int i = 9; i >= 1; i--)
+    ll ans = 9e18;
+    ll tar = 0;
+    for (int i = 0; i < n; i++)
     {
-        int tmp = now;
-        for (int j = 1; j * arr[i] <= now; j++)
-        {
-            if (now / minn == (now - j * arr[i]) / minn + j)
-            {
-            }
-            else
-            {
-                break;
-            }
-
-            cout << i;
-            tmp -= arr[i];
-        }
-        now = tmp;
+        if (i == x)
+            break;
+        tar += a[i].first + a[i].second;
+        ans = min(ans, tar + (x - i - 1) * a[i].second);
     }
-    
+
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
