@@ -1,4 +1,4 @@
-// 2023/11/07 17:51:23
+// 2023/11/08 16:18:33
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -25,24 +25,38 @@ constexpr int N = 1000005;
 
 int main()
 {
-    // ios::sync_with_stdio(false);
-    // cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-    // int y = 487;
-    // printf("%02d:%02d\n", y / 60, y % 60);
-    map<int, int> mp;
-    mp[5] = 20;
-    for(auto& [u, v] : mp) {
-        v = 1000;
+    int n, b;
+    cin >> n >> b;
+    vector<int> s;
+    while (n)
+    {
+        s.push_back(n % b);
+        n /= b;
     }
 
-    for(auto [u, v] : mp) {
-        cout << v;
+    vector<int> tmp = s;
+    vector<int> rev(tmp.rbegin(), tmp.rend());
+    if (tmp == rev)
+    {
+        cout << "Yes\n";
+    }
+    else
+    {
+        cout << "No\n";
+    }
+
+    for (size_t i = 0; i < rev.size(); i++)
+    {
+        if (i != 0) cout << ' ';
+        cout << rev[i];
     }
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-    cout << endl;
+    cout << flush;
     return 0;
 }
