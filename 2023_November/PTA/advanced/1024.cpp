@@ -1,4 +1,4 @@
-// 2023/11/09 13:34:27
+// 2023/11/09 13:42:09
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -23,25 +23,13 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-int main()
+void add(string& s)
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
-    string s;
-    cin >> s;
-    reverse(s.begin(), s.end());
-    map<int, int> s1;
-    for (char& ch : s)
-    {
-        ch -= '0';
-        s1[ch]++;
-    }
-
-    int jinwei[30] = {0};
+    vector<int> jinwei(s.size() + 1, 0);
+    string a(s.rbegin(), s.rend());
     for (size_t i = 0; i < s.size(); i++)
     {
-        s[i] = s[i] * 2 + jinwei[i];
+        s[i] += a[i] + jinwei[i];
         if (s[i] > 9)
         {
             s[i] -= 10;
@@ -53,17 +41,51 @@ int main()
     {
         s.push_back(jinwei[s.size()]);
     }
+}
 
-    reverse(s.begin(), s.end());
-    map<int, int> s2;
+bool check(const string& s)
+{
+    return s == string(s.rbegin(), s.rend());
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    string s;
+    int k;
+    cin >> s >> k;
     for (char& ch : s)
     {
-        s2[ch]++;
-        ch += '0';
+        ch -= '0';
+    }
+    reverse(s.begin(), s.end());
+
+    int cnt = 0;
+    while (1)
+    {
+        if (check(s))
+        {
+            break;
+        }
+
+        add(s);
+        cnt++;
+
+        if (cnt == k)
+        {
+            break;
+        }
     }
 
-    cout << (s1 == s2 ? "Yes\n" : "No\n");
-    cout << s;
+    for (char& ch : s)
+    {
+        ch += '0';
+    }
+    reverse(s.begin(), s.end());
+    cout << s << '\n'
+         << cnt;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

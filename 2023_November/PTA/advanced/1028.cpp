@@ -1,4 +1,4 @@
-// 2023/11/09 13:34:27
+// 2023/11/09 14:47:02
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -28,42 +28,27 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    string s;
-    cin >> s;
-    reverse(s.begin(), s.end());
-    map<int, int> s1;
-    for (char& ch : s)
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
     {
-        ch -= '0';
-        s1[ch]++;
+        cin >> a[i];
+    }
+    int m;
+    cin >> m;
+    vector<int> b(m);
+    for (int i = 0; i < m; i++)
+    {
+        cin >> b[i];
     }
 
-    int jinwei[30] = {0};
-    for (size_t i = 0; i < s.size(); i++)
-    {
-        s[i] = s[i] * 2 + jinwei[i];
-        if (s[i] > 9)
-        {
-            s[i] -= 10;
-            jinwei[i + 1]++;
-        }
-    }
+    vector<int> c(make_move_iterator(a.begin()), make_move_iterator(a.end()));
+    c.insert(c.end(), make_move_iterator(b.begin()), make_move_iterator(b.end()));
 
-    if (jinwei[s.size()] != 0)
-    {
-        s.push_back(jinwei[s.size()]);
-    }
-
-    reverse(s.begin(), s.end());
-    map<int, int> s2;
-    for (char& ch : s)
-    {
-        s2[ch]++;
-        ch += '0';
-    }
-
-    cout << (s1 == s2 ? "Yes\n" : "No\n");
-    cout << s;
+    sort(c.begin(), c.end());
+    n = n + m;
+    cout << c[(n - 1) / 2];
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
