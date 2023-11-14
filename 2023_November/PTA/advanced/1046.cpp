@@ -1,4 +1,4 @@
-// 2023/11/07 17:51:23
+// 2023/11/14 21:35:00
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -25,34 +25,39 @@ constexpr int N = 1000005;
 
 int main()
 {
-    // ios::sync_with_stdio(false);
-    // cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-    // int y = 487;
-    // printf("%02d:%02d\n", y / 60, y % 60);
-    // map<int, int> mp;
-    // mp[5] = 20;
-    // for(auto& [u, v] : mp) {
-    //     v = 1000;
-    // }
+    int n;
+    cin >> n;
+    vector<ll> sum(n + 2);
+    sum[0] = sum[1] = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int x;
+        cin >> x;
+        sum[i + 1] = sum[i] + x;
+    }
 
-    // for(auto [u, v] : mp) {
-    //     cout << v;
-    // }
+    int q;
+    cin >> q;
+    while (q--)
+    {
+        int x, y;
+        cin >> x >> y;
+        if (x > y)
+        {
+            swap(x, y);
+        }
 
-    ofstream ofs("in.txt");
-    srand((unsigned)time(nullptr));
-    int n = 100000;
-    ofs << n << '\n';
-    for (int i = 0; i < n;i ++) {
-        int x = rand();
-        x %= 1000000000;
-        ofs << x << '\n';
+        ll a = sum[y] - sum[x];
+        ll b = (sum[n + 1] - sum[y]) + (sum[x] - sum[0]);
+        cout << min(a, b) << '\n';
     }
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-    cout << endl;
+    cout << flush;
     return 0;
 }
