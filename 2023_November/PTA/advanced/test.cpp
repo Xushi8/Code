@@ -17,6 +17,7 @@
 #include <array>
 #include <fstream>
 #include <bitset>
+#include <memory>
 using namespace std;
 
 using ll = long long;
@@ -40,14 +41,47 @@ int main()
     //     cout << v;
     // }
 
+    // ofstream ofs("in.txt");
+    // srand((unsigned)time(nullptr));
+    // int n = 100000;
+    // ofs << n << '\n';
+    // for (int i = 0; i < n;i ++) {
+    //     int x = rand();
+    //     x %= 1000000000;
+    //     ofs << x << '\n';
+    // }
+
+    // constexpr int n = 1000;
+    // auto arr = make_unique<int[]>(n);
+    // for (int i = 0; i < n; i++)
+    // {
+    //     arr[i] = -1;
+    // }
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << arr[i] << '\n';
+    // }
+
     ofstream ofs("in.txt");
-    srand((unsigned)time(nullptr));
-    int n = 100000;
+    int n;
+    n = 100000;
     ofs << n << '\n';
-    for (int i = 0; i < n;i ++) {
-        int x = rand();
-        x %= 1000000000;
-        ofs << x << '\n';
+    for (int i = 0; i < n; i++)
+    {
+        int x = rand() % 3;
+        if (x == 0)
+        {
+            ofs << "Pop\n";
+        }
+        else if (x == 1)
+        {
+            ofs << "PeekMedian\n";
+        }
+        else
+        {
+            ofs << "Push " << rand() % 100 << '\n';
+        }
     }
 
 #ifdef LOCAL
