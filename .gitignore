@@ -1,25 +1,7 @@
-/test/
-*.jpg
-*.png
-/project/
-/My_project/
-*.zip
-*.7z
 *.exe
 *.s
 *.S
-*.in
 *in.txt
+*.in
 *.out
-*.data
-*in
-*out
-#/visual studio/*
-#!visual studio/test
-#/visual studio/test/*
-#!visual studio/test/test.c
-#!visual studio/test/test.cpp
-/2022/Codeblocks_10/
-/2022/Dev/
-/.exe/
 build/
