@@ -1,4 +1,4 @@
-// 2023/12/13 18:53:39
+// 2023/12/13 19:50:14
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -27,9 +27,38 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
+    string s;
+    cin >> s;
+    for (char& x : s)
+    {
+        x -= '0';
+    }
+    string s1(s), s2(s);
+    ll ans1 = 0;
+    for (size_t i = 1; i < s1.size(); i++)
+    {
+        if (s1[i] == s1[i - 1])
+        {
+            ans1 += i + 1;
+            s1[i] = !s1[i];
+        }
+    }
+
+    ll ans2 = 0;
+    s2[0] = !s2[0];
+    ans2 += 1;
+    for (size_t i = 1; i < s2.size(); i++)
+    {
+        if (s2[i] == s2[i - 1])
+        {
+            ans2 += i + 1;
+            s2[i] = !s2[i];
+        }
+    }
+
+    cout << min(ans1, ans2) << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

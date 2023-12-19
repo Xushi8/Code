@@ -1,4 +1,4 @@
-// 2023/12/13 18:53:39
+// 2023/12/10 12:51:53
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -17,6 +17,7 @@
 #include <array>
 #include <fstream>
 #include <bitset>
+#include <random>
 using namespace std;
 
 using ll = long long;
@@ -27,9 +28,9 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
+    cout << "FFTTFT" << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

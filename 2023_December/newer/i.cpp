@@ -1,4 +1,4 @@
-// 2023/12/13 18:53:39
+// 2023/12/14 11:00:38
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -22,6 +22,8 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
+
+vector<int> G[N];
 
 int main()
 {

@@ -1,4 +1,4 @@
-// 2023/12/13 18:53:39
+// 2023/12/13 19:46:56
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -23,13 +23,42 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
+int arr[N];
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
+    int n, m, p;
+    cin >> n >> m >> p;
+    for (int i = 0; i < n; i++)
+    {
+        int k;
+        cin >> k;
+        for (int j = 0; j < k; j++)
+        {
+            int x;
+            cin >> x;
+            arr[x]++;
+        }
+    }
+
+    vector<int> ans;
+    for (int i = 1; i <= m; i++)
+    {
+        if (arr[i] == p)
+        {
+            ans.emplace_back(i);
+        }
+    }
+
+    cout << ans.size() << endl;
+    for (int x : ans)
+    {
+        cout << x << ' ';
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

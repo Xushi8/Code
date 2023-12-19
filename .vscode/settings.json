@@ -98,5 +98,20 @@
     },
     "cmake.configureOnOpen": true,
     "cmake.sourceDirectory": "/home/tom/Code/Class_7",
-    "C_Cpp.dimInactiveRegions": false
+    "C_Cpp.dimInactiveRegions": false,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "2001:19f0:4400:2d11:5400:4ff:fea2:2c34",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "singapore",
+            "database": "test_database",
+            "username": "root"
+        }
+    ]
 }
