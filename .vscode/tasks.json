@@ -7,7 +7,7 @@
         {
             "type": "shell",
             "label": "single",
-            "command": "/usr/local/gcc-13.2.0/bin/g++",
+            "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 // "-fsanitize=address", // 内存越界检查
