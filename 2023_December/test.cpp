@@ -23,13 +23,16 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-int main()
+int main(int argc, char* argv[])
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
+    for (int i = 0; i < argc; i++)
+    {
+        cout << argv[i] << endl;
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
