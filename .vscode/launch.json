@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
-            "args": ["<${workspaceFolder}/in.txt"], // 将输入重定向到in文件
+            "args": [""],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
@@ -29,7 +29,7 @@
                 },
                 {
                     "description": "显示STL信息",
-                    "text": "python import sys;sys.path.insert(0, '/usr/local/gcc-13.2.0/share/gcc-13.2.0/python');from libstdcxx.v6.printers import register_libstdcxx_printers;register_libstdcxx_printers(None)",
+                    "text": "python import sys;sys.path.insert(0, '/usr/share/gcc/python');from libstdcxx.v6.printers import register_libstdcxx_printers;register_libstdcxx_printers(None)",
                     "ignoreFailures": false
                 }
             ],

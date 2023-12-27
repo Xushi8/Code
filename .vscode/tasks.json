@@ -34,35 +34,4 @@
             ]
         }
     ]
-    // "tasks": [
-    //     {
-    //         "type": "shell",
-    //         "label": "single",
-    //         "command": "/usr/local/gcc-13.2.0/bin/g++",
-    //         "args": [
-    //             "-fdiagnostics-color=always",
-    //             "${file}",
-    //             "-o",
-    //             "${workspaceFolder}/${fileBasenameNoExtension}.S",
-    //             "-O3",
-    //             "-S",
-    //             "-std=c++20",
-    //             "-Wall",
-    //             "-Wextra",
-    //             "-pedantic",
-    //             "-Wshadow",
-    //             "-Wconversion",
-    //             "-Wpointer-arith",
-    //             "-march=native",
-
-    //             "-fomit-frame-pointer", // O1, O2, O3都会开
-    //             "-fverbose-asm", // 汇编保留源码
-    //             "-masm=intel", // intel汇编
-
-    //             "-fopenmp",
-    //             "-ffast-math",
-    //             // "-fopt-info", // 显示优化过程的输出
-    //         ]
-    //     }
-    // ]
 }
