@@ -17,7 +17,6 @@
                 "-o",
                 "${workspaceFolder}/${fileBasenameNoExtension}.exe",
                 "-DLOCAL",
-                "-DDEBUG",
                 // "-O3",
                 "-std=c++20",
                 "-Wall", // 开启警告
