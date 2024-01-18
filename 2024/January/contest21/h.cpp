@@ -28,41 +28,100 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int n, A, B;
+    ll n, A, B;
     cin >> n >> A >> B;
-    vector<pii> tmp;
-    for (int i = 0; i < n; i++)
+    vector<pii> vec(n);
+    for (ll i = 0; i < n; i++)
     {
-        cin >> tmp[i].first;
+        cin >> vec[i].first;
     }
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
-        cin >> tmp[i].second;
-    }
-
-    vector<int> ba, bb;
-    for (int i = 0; i < n; i++)
-    {
-        if (tmp[i].second == 0) ba.emplace_back(tmp[i].first);
-        else bb.emplace_back(tmp[i].first);
+        cin >> vec[i].second;
     }
 
-    sort(ba.begin(), ba.end());
-    sort(bb.begin(), bb.end());
-
-    vector<int> a = ba, b = bb;
-    while (A > 0 && B > 0)
+    constexpr ll len = int(1e9 + 1);
+    ll ans = 0;
     {
-        if (A >= a.size())
+        ll t = min(A, B);
+        ll cnt = t / n;
+        ans += 2 * len * cnt;
+        A -= cnt * n;
+        B -= cnt * n;
+    }
+
+    deque<ll> ql, qr;
+    for (int i = 0; i < n; i++)
+    {
+        if (vec[i].second == 0)
+            ql.emplace_back(vec[i].first);
+        else
+            qr.emplace_front(len - vec[i].first);
+    }
+
+    while (1)
+    {
+        if (ql.empty())
         {
-            A -= a.size();
+            if (B == 0)
+            {
+                ans += qr.back();
+                break;
+            }
+            else
+            {
+                B--;
+                ql.emplace_back(qr.front() + len);
+                qr.pop_front();
+            }
+        }
+        else if (qr.empty())
+        {
+            if (A == 0)
+            {
+                ans += ql.back();
+                break;
+            }
+            else
+            {
+                A--;
+                qr.emplace_back(ql.front() + len);
+                ql.pop_front();
+            }
         }
         else
         {
-            
+            if (ql.front() < qr.front())
+            {
+                if (A == 0)
+                {
+                    ql.pop_front();
+                }
+                else
+                {
+                    A--;
+                    qr.emplace_back(ql.front() + len);
+                    ql.pop_front();
+                }
+            }
+            else
+            {
+                if (B == 0)
+                {
+                    qr.pop_front();
+                }
+                else
+                {
+                    B--;
+                    ql.emplace_back(qr.front() + len);
+                    qr.pop_front();
+                }
+            }
         }
     }
-    
+
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
