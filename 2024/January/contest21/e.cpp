@@ -128,7 +128,7 @@ constexpr int N = 1000005;
 
 vector<int> get_next(vector<int> const& a)
 {
-    vector<int> nex(a.size() + 5);
+    vector<int> nex(a.size());
     nex[0] = -1;
     int i = 1, j = -1;
     while (i < int(a.size()))
@@ -188,49 +188,75 @@ int main()
     {
         double x, y;
         cin >> x >> y;
-        a[i] = {round(x * 1e4), round(y * 1e4)};
+        a[i] = {round(y * 1e4), round(x * 1e4)};
     }
 
     for (int i = 0; i < n; i++)
     {
         double x, y;
         cin >> x >> y;
-        b[i] = {round(x * 1e4), round(y * 1e4)};
+        b[i] = {round(y * 1e4), round(x * 1e4)};
     }
 
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
+
     for (int i = 0; i < n; i++)
     {
-        if (a[i].first != b[i].first)
+        b.emplace_back(b[i].first + 3600000, b[i].second);
+    }
+
+    vector<int> ca(n), cb(2 * n);
+
+    for (int i = 1; i < n; i++)
+    {
+        ca[i] = a[i].first - a[i - 1].first;
+    }
+    ca[0] = a[0].first - a[n - 1].first + 3600000;
+    for (int i = 1; i < 2 * n; i++)
+    {
+        cb[i] = b[i].first - b[i - 1].first;
+    }
+
+    vector<int> nex(n);
+    nex[0] = -1;
+    for (int i = 1, j = -1; i < n; i++)
+    {
+        while (j >= 0 && ca[i] != ca[j + 1])
+            j = nex[j];
+
+        if (ca[i] == ca[j + 1])
+            j++;
+        nex[i] = j;
+    }
+
+    auto func = [&](int x) -> int
+    {
+        if (x != -1)
+            return x;
+        else
+            return n - 1;
+    };
+    for (int i = 1, j = -1; i < 2 * n; i++)
+    {
+        while (j != -1 && (cb[i] != ca[j + 1] || a[j].second != b[i - 1].second))
         {
-            cout << "Different" << endl;
+            j = nex[j];
+        }
+
+        if (cb[i] == ca[j + 1] && b[i - 1].second == a[func(j)].second)
+        {
+            j++;
+        }
+
+        if (j == n - 1 && a[j].second == b[i].second)
+        {
+            cout << "Same" << endl;
             return 0;
         }
     }
 
-    vector<int> c(n), d(n);
-    for (int i = 0; i < n; i++)
-        c[i] = a[i].second;
-    for (int i = 0; i < n; i++)
-        d[i] = b[i].second;
-
-    adjacent_difference(c.begin(), c.end(), c.begin());
-    adjacent_difference(d.begin(), d.end(), d.begin());
-    c.reserve(2 * c.size());
-    for (int i = 0; i < n; i++)
-    {
-        c.push_back(c[i]);
-    }
-
-    if (kmp(c, d) != -1)
-    {
-        cout << "Same\n";
-    }
-    else
-    {
-        cout << "Different\n";
-    }
+    cout << "Different" << endl;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
