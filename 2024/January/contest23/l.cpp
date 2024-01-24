@@ -22,16 +22,15 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
-vector<int> G[N];
 
-int dfs(int u, int par)
+int dfs(int u, int par, vector<vector<int>>const& G)
 {
     int res = 0;
     for (int v : G[u])
     {
         if (v != par)
         {
-            res += dfs(v, u);
+            res += dfs(v, u, G);
         }
     }
     if (res >= 2)
@@ -47,6 +46,7 @@ int main()
 
     int n;
     cin >> n;
+    vector<vector<int>> G(n);
     for (int i = 0; i < n - 1; i++)
     {
         int u, v;
@@ -57,7 +57,7 @@ int main()
         G[v].emplace_back(u);
     }
 
-    cout << (dfs(0, -1) ? "First" : "Second") << endl;
+    cout << (dfs(0, -1, G) ? "First" : "Second") << endl;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
