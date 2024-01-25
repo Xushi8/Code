@@ -17,11 +17,20 @@
 #include <array>
 #include <fstream>
 #include <bitset>
+#include <memory>
 using namespace std;
 
 using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
+
+struct free_deleter
+{
+    void operator()(void* p)
+    {
+        free(p);
+    }
+};
 
 int main()
 {
@@ -37,7 +46,21 @@ int main()
     {
         ofs << rand() << ' ';
     }
-    
+
+    // int* p = (int*)malloc(sizeof(int));
+    // unique_ptr<int, free_deleter> up(p);
+    vector<unique_ptr<int>> vec;
+    vec.emplace_back(make_unique<int>(5));
+    vec.emplace_back(make_unique<int>(10));
+    for (auto const& x : vec)
+    {
+        cout << *x << endl;
+    }
+
+    cout << vec.size() << endl;
+    auto p = move(vec.back());
+    cout << vec.size() << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
