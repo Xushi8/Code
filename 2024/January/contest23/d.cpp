@@ -33,36 +33,46 @@ void solve()
         cin >> a[i];
     }
     sort(a.begin(), a.end());
-    int id = int(lower_bound(a.begin(), a.end(), k) - a.begin());
-    ll ans = 0;
-    if (id == 0)
+    ll ans = (k - 1) * 2;
+    if (a.front() < k)
     {
-        ans += (k - 1) * 2;
-        for (int i = 0; i < m; i++)
-        {
-            ans += (a[i] - k) * 2;
-        }
+        a.erase(a.begin());
     }
-    else if (id == m)
+    for (size_t i = 0; i < a.size(); i++)
     {
-        ans += (k - 1) * 2;
-        for (int i = 1; i < m; i++)
-        {
-            ans += (k - a[i]) * 2;
-        }
+        ans += abs(a[i] - k) * 2;
     }
-    else
-    {
-        ans += (k - 1) * 2;
-        for (int i = id; i < m; i++)
-        {
-            ans += (a[i] - k) * 2;
-        }
-        for (int i = 1; i < id; i++)
-        {
-            ans += (k - a[i]) * 2;
-        }
-    }
+    
+    // int id = int(lower_bound(a.begin(), a.end(), k) - a.begin());
+    // ll ans = 0;
+    // if (id == 0)
+    // {
+    //     ans += (k - 1) * 2;
+    //     for (int i = 0; i < m; i++)
+    //     {
+    //         ans += (a[i] - k) * 2;
+    //     }
+    // }
+    // else if (id == m)
+    // {
+    //     ans += (k - 1) * 2;
+    //     for (int i = 1; i < m; i++)
+    //     {
+    //         ans += (k - a[i]) * 2;
+    //     }
+    // }
+    // else
+    // {
+    //     ans += (k - 1) * 2;
+    //     for (int i = id; i < m; i++)
+    //     {
+    //         ans += (a[i] - k) * 2;
+    //     }
+    //     for (int i = 1; i < id; i++)
+    //     {
+    //         ans += (k - a[i]) * 2;
+    //     }
+    // }
 
     cout << ans << '\n';
 }

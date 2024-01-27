@@ -58,8 +58,12 @@ int main()
     }
 
     cout << vec.size() << endl;
-    auto p = move(vec.back());
+    auto p = std::move(vec.back());
     cout << vec.size() << endl;
+    vec.pop_back();
+    cout << vec.size() << endl;
+
+    
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
