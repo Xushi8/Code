@@ -20,6 +20,8 @@
                 "${workspaceFolder}/${fileBasenameNoExtension}.exe",
                 "-DLOCAL",
                 // "-O3",
+                "-lfmt",
+                "-ltbb",
                 "-std=c++20",
                 "-Wall", // 开启警告
                 "-Wextra", // 除Wall外的警告
