@@ -4,7 +4,9 @@
 #include <queue>
 #include <tbb/parallel_for.h>
 #include <tbb/parallel_for_each.h>
+#include <tbb/blocked_range2d.h>
 #include <tbb/tick_count.h>
+#include <tbb/blocked_range.h>
 #include <thread>
 using namespace std;
 
@@ -65,7 +67,7 @@ int main()
 	}
 
 	constexpr size_t n = 1000;
-	vector<double> a(n);
+	vector<double> a(n, 3980.324);
 
 	tbb::parallel_for(tbb::blocked_range<size_t>(0, n), [&](tbb::blocked_range<size_t> r)
 		{
@@ -89,6 +91,17 @@ int main()
 					x = sin(x);
 				});
 		});
+
+	tbb::parallel_for(tbb::blocked_range2d<size_t>(0, n, 0, n), [&](tbb::blocked_range2d<size_t> const& r)
+		{
+			for (size_t i = 0; i < r.rows().size(); i++)
+			{
+				for (size_t j = 0; j < r.cols().size(); j++)
+				{
+					b[i][j] = sin(b[i][j]);
+				}
+		}
+	});
 
 	auto begin = tbb::tick_count::now();
 	auto end = tbb::tick_count::now();
