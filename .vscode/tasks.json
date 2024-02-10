@@ -20,6 +20,7 @@
                 "-DLOCAL",
                 // "-O3",
                 "-lfmt",
+                "-lpqxx",
                 "-ltbb",
                 // "-march=native",
                 // "-fopenmp", // OpemMP
