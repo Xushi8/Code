@@ -3,21 +3,45 @@
 #include <execution>
 #include <vector>
 #include <random>
+#include <tbb/parallel_sort.h>
+#include <tbb/tick_count.h>
 using namespace std;
 
-int main()
+void test_par()
 {
 	random_device rd;
 	mt19937 rng(rd());
-	uniform_int_distribution<int> uni(-100000, 100000);
-	constexpr size_t n = 100000000;
-	vector<int> a(n);
-	for (auto& x : a)
-	{
-		x = uni(rng);
-    }
+	constexpr size_t N = 1e8;
+	std::vector<int> a(N);
 
-	sort(execution::par, a.begin(), a.end());
+	auto first = tbb::tick_count::now();
+
+	std::generate(execution::par_unseq, a.begin(), a.end(), rng);
+	vector<int> b = a;
+
+	auto last = tbb::tick_count::now();
+	fmt::print("Time elapsed of generating: {:.3f}s\n", (last - first).seconds());
+
+	first = tbb::tick_count::now();
+
+	tbb::parallel_sort(a.begin(), a.end());
+
+	last = tbb::tick_count::now();
+	fmt::print("Time elapsed of parallel sort: {:.3f}s\n", (last - first).seconds());
+
+	first = tbb::tick_count::now();
+
+	std::sort(execution::par, b.begin(), b.end(), less<>());
+
+	last = tbb::tick_count::now();
+	fmt::print("Time elapsed of std::sort with execution::par: {:.3f}s\n", (last - first).seconds());
+
+	fmt::print("\n");
+}
+
+int main()
+{
+	test_par();
 	
 	return 0;
 }
