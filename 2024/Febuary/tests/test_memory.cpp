@@ -3,6 +3,8 @@
 #include <fmt/format.h>
 #include <string>
 #include <utility>
+#include <algorithm>
+#include <execution>
 using namespace std;
 
 struct A
@@ -28,12 +30,26 @@ struct A
 	A& operator=(A&& that) = default;
 };
 
+struct free_deleter
+{
+	void operator()(void* p)
+	{
+		free(p);
+	}
+};
+
 int main()
 {
 	A a;
 	a.p = make_unique<string>("skldalj");
 	A b = a;
 	A c = std::move(a);
+
+	int* x = static_cast<int*>(malloc(sizeof(int)));
+	std::unique_ptr<int, free_deleter> p(x);
+
+	int arr[100] = {0};
+	sort(std::execution::par_unseq, arr, arr + 100);
 
 	return 0;
 }

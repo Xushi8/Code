@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <climits>
 #include <numeric>
+#include <fmt/format.h>
 using namespace std;
 
 template <class T, class ...Args>
@@ -17,7 +18,11 @@ unique_ptr<T> func(Args...args)
 int main()
 {
     random_device seed;
-    mt19937 rng(seed());
+	mt19937 rng(seed());
+	for (size_t i = 0; i < 1000000; i++)
+	{
+		fmt::print("{} ", static_cast<uint32_t>(rng()));
+	}
     uniform_int_distribution<uint64_t> uni(0, UINT64_MAX);
     constexpr size_t n = 100;
     for (size_t i = 0; i < n; i++)
