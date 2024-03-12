@@ -13,26 +13,30 @@ using namespace std;
 mutex mtx;
 condition_variable cv;
 bool finish;
-queue<int> que;
+queue<size_t> que;
+
+
 
 void producer()
 {
 	finish = false;
-	for (size_t i = 0; i < 1000; i++)
+	for (size_t i = 0; i < 10000000000; i++)
 	{
-		lock_guard<mutex> lg(mtx);
-		que.emplace(i);
+		{
+			lock_guard<mutex> lg(mtx);
+			que.emplace(i);
+		}
 		cv.notify_one();
 	}
 	finish = true;
 	cv.notify_all();
 }
 
-void consumer(int id)
+void consumer(unsigned int id)
 {
 	while (1)
 	{
-		int gift;
+		size_t gift;
 		unique_lock<mutex> lg(mtx);
 		cv.wait(lg, []()
 			{
@@ -55,7 +59,7 @@ int main()
 	thread t(producer);
 
 	vector<thread> thread_pool;
-	for (int i = 0; i < 16; i++)
+	for (unsigned int i = 0; i < std::thread::hardware_concurrency(); i++)
 	{
 		thread_pool.emplace_back(consumer, i);
 	}
@@ -100,8 +104,8 @@ int main()
 				{
 					b[i][j] = sin(b[i][j]);
 				}
-		}
-	});
+			}
+		});
 
 	auto begin = tbb::tick_count::now();
 	auto end = tbb::tick_count::now();
