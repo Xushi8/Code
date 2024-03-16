@@ -1,32 +1,41 @@
+// 2024/03/15 18:45:14
 #include <iostream>
 #include <algorithm>
-#include <string.h>
-#include <stdint.h>
+#include <cstring>
+#include <cstdint>
 #include <vector>
 #include <string>
 #include <set>
 #include <map>
+#include <unordered_map>
+#include <unordered_set>
 #include <queue>
 #include <functional>
 #include <iomanip>
-#include <math.h>
+#include <cmath>
 #include <stack>
+#include <array>
 #include <fstream>
 #include <bitset>
 #include <numeric>
 using namespace std;
-typedef int64_t ll;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-#define N 1000005
+
+using ll = long long;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+constexpr int N = 1000005;
+
+constexpr int MOD = 9901;
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
+    
+    
     
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
+    return 0;
 }

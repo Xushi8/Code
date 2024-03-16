@@ -1,4 +1,4 @@
-// 2024/03/13 20:52:03
+// 2024/03/15 18:06:08
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -25,49 +25,42 @@ using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 constexpr int N = 1000005;
 
+int n;
+bool vis[N];
+vector<int> ans;
+
+void dfs(int deep)
+{
+	if (deep == n)
+	{
+		for (auto x : ans)
+		{
+			cout << x + 1 << ' ';
+		}
+		cout << '\n';
+		return;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (!vis[i])
+		{
+			vis[i] = 1;
+			ans.emplace_back(i);
+			dfs(deep + 1);
+			ans.pop_back();
+			vis[i] = 0;
+        }
+    }
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
-    cin.tie(0);
+	cin.tie(0);
 
-	size_t n;
 	cin >> n;
-	map<int, int> mp;
-	for (size_t i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		mp[x]++;
-	}
-
-	size_t m;
-	cin >> m;
-	vector<pii> b(m);
-	for (size_t i = 0; i < m; i++)
-	{
-		cin >> b[i].first;
-	}
-	for (size_t i = 0; i < m; i++)
-	{
-		cin >> b[i].second;
-	}
-
-	size_t ans = -1;
-	int nx = -1, ny = -1;
-	for (size_t i = 0; i < m; i++)
-	{
-		auto [tx, ty] = b[i];
-        int x = mp[tx];
-        int y = mp[ty];
-		if (x > nx || (x == nx && y > ny))
-		{
-			ans = i;
-			nx = x;
-			ny = y;
-        }
-    }
-
-	cout << ans + 1 << endl;
+	dfs(0);
     
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

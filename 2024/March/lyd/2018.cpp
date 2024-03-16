@@ -61,7 +61,7 @@ int main()
 			r = mid;
 	}
 
-	cout << (int)(1000 * ans) << endl;
+	cout << (int)round(1000 * ans) << endl;
 
 #ifdef LOCAL
 	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
