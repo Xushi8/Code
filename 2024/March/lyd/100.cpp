@@ -24,6 +24,11 @@ using ll = long long;
 using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 constexpr int N = 1000005;
+template <typename T, size_t N>
+using array3d = array<array<array<T, N>, N>, N>;
+
+template <typename T, size_t N0, size_t N1, size_t N2, size_t N3, size_t N4, size_t N5>
+using array6d = array<array<array<array<array<array<T, N5>, N4>, N3>, N2>, N1>, N0>;
 
 int main()
 {
@@ -49,6 +54,9 @@ int main()
 	std::int32_t a = std::numeric_limits<std::int32_t>::max();
 	std::int32_t b = std::numeric_limits<std::int32_t>::max() - 1;
 	cout << std::midpoint(a, b) << endl;
+
+	array3d<int, 5> tmp;
+	cout << sizeof(tmp) << endl;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
