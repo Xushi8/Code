@@ -24,12 +24,8 @@ using ll = long long;
 using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 constexpr int N = 205;
-
-unordered_map<string, int> mp1;
-unordered_map<int, string> mp2;
-int be, ed;
-
-int siz[N];
+map<string, int> mp1;
+map<int, string> mp2;
 
 int func(string const& s)
 {
@@ -40,11 +36,60 @@ int func(string const& s)
 	mp2.emplace(mp1[s], s);
 	return mp1[s];
 }
+int be, ed;
+
+int siz[N];
+bool vis[N];
+vector<int> now_vis;
+
+constexpr int INF = 0x3f3f3f3f;
+int ans_dis = INF, ans_siz = INF;
+int ans_num;
+vector<int> ans_vis;
+
+void dfs(int u, int now_dis, int now_siz, vector<vector<pii>> const& G)
+{
+	if (vis[u])
+		return;
+	vis[u] = 1;
+	now_vis.emplace_back(u);
+	now_siz += siz[u];
+	if (u == ed)
+	{
+		if (now_dis < ans_dis)
+		{
+			ans_num = 1;
+			ans_dis = now_dis;
+			ans_siz = now_siz;
+			ans_vis = now_vis;
+		}
+		else if (now_dis == ans_dis)
+		{
+			ans_num++;
+			if (now_vis.size() > ans_vis.size() || (now_vis.size() == ans_vis.size() && now_siz > ans_siz))
+			{
+				ans_dis = now_dis;
+				ans_siz = now_siz;
+				ans_vis = now_vis;
+			}
+		}
+		now_vis.pop_back();
+		vis[u] = 0;
+		return;
+	}
+
+	for (auto [v, w] : G[u])
+	{
+		dfs(v, now_dis + w, now_siz, G);
+	}
+	now_vis.pop_back();
+	vis[u] = 0;
+}
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
 	int n, k;
 	cin >> n >> k;
@@ -54,9 +99,9 @@ int main()
 	// mp2.emplace(mp1[resource], resource);
 	// mp1.emplace(destinatin, mp1.size());
 	// mp2.emplace(mp1[destinatin], destinatin);
-	func(resource);
-	func(destinatin);
-	for (int i = 0; i < n; i++)
+	be = func(resource);
+	ed = func(destinatin);
+	for (int i = 0; i < n - 1; i++)
 	{
 		string x;
 		int y;
@@ -64,7 +109,7 @@ int main()
 		siz[func(x)] = y;
 	}
 
-	vector<vector<int>> G(n);
+	vector<vector<pii>> G(n + 1);
 	for (int i = 0; i < k; i++)
 	{
 		string u, v;
@@ -72,14 +117,23 @@ int main()
 		cin >> u >> v >> w;
 		int nu = func(u);
 		int nv = func(v);
-		G[nu].emplace_back(nv);
-		G[nv].emplace_back(nu);
+		G[nu].emplace_back(nv, w);
+		G[nv].emplace_back(nu, w);
 	}
 
-	dfs(func(resource), )
-    
+	dfs(be, 0, 0, G);
+
+	for (size_t i = 0; i < ans_vis.size(); i++)
+	{
+		if (i != 0)
+			cout << "->";
+		cout << mp2[ans_vis[i]];
+	}
+	cout << '\n';
+	cout << ans_num << ' ' << ans_dis << ' ' << ans_siz << '\n';
+
 #ifdef LOCAL
-    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-    return 0;
+	return 0;
 }

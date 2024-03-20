@@ -23,38 +23,82 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 using pll = pair<ll, ll>;
-constexpr int N = 1000005;
+constexpr int N = 100005;
 
-struct per
+char sex[N];
+vector<vector<int>> par;
+
+bool vis[N];
+bool flag;
+
+void dfs(int deep, int u)
 {
-	string id;
-	bool sex;
-	string fa_id, ma_id;
-	void read()
+	if (deep == 4 || !flag)
+		return;
+	for (auto v : par[u])
 	{
-		cin >> id;
-		char ch;
-		cin >> ch;
-		sex = (ch == 'M' ? 1 : 0);
-		cin >> fa_id >> ma_id;
-    }
-};
+		if (!vis[v])
+		{
+			vis[v] = 1;
+			dfs(deep + 1, v);
+		}
+		else
+		{
+			flag = 0;
+			return;
+		}
+	}
+}
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
 	int n;
 	cin >> n;
-	vector<per> a(n);
+	par.resize(N);
 	for (int i = 0; i < n; i++)
 	{
-		a[i].read();
-    }
-    
+		int id;
+		char ch;
+		int fa, ma;
+		cin >> id >> ch >> fa >> ma;
+		sex[id] = ch;
+		if (fa != -1)
+		{
+			sex[fa] = 'M';
+			par[id].emplace_back(fa);
+		}
+		if (ma != -1)
+		{
+			sex[ma] = 'F';
+			par[id].emplace_back(ma);
+		}
+	}
+
+	int q;
+	cin >> q;
+	while (q--)
+	{
+		int u, v;
+		cin >> u >> v;
+		if (sex[u] == sex[v])
+			cout << "Never Mind" << '\n';
+		else
+		{
+			flag = 1;
+			memset(vis, 0, sizeof(vis));
+			vis[u] = 1;
+			vis[v] = 1;
+			dfs(0, u);
+			dfs(0, v);
+			cout << (flag ? "Yes" : "No") << '\n';
+		}
+	}
+
 #ifdef LOCAL
-    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-    return 0;
+	return 0;
 }
