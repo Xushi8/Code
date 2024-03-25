@@ -29,14 +29,14 @@ struct node
 {
 	int m_val, m_deep;
 	node *m_l, *m_r;
-	node(int val, int deep, node* l = nullptr, node* r = nullptr) :
+	node(int val, int deep = 0, node* l = nullptr, node* r = nullptr) :
 		m_val(val),
 		m_deep(deep),
 		m_l(l),
 		m_r(r)
 	{
 	}
-	void insert(int val, int deep)
+	void insert(int val, int deep = 0)
 	{
 		if (val > m_val)
 		{
@@ -150,158 +150,61 @@ int main()
 	for (int i = 1; i < n; i++)
 	{
 		cin >> x;
-		root->insert(x, 0);
+		root->insert(x);
 	}
 
 	int m;
 	cin >> m;
-	cin.ignore(1111, '\n');
-	string s;
 	for (int i = 0; i < m; i++)
 	{
-		getline(cin, s);
-		bool res = 0;
-		if (s.find("root") != -1)
+		bool flag = 0;
+		int a, b;
+		string tmp;
+		cin >> a >> tmp;
+		if (tmp == "is")
 		{
-			int ch;
-			int x = 0;
-			for (auto ch : s)
+			cin >> tmp >> tmp;
+			if (tmp == "parent")
 			{
-				if (ch == ' ')
-				{
-					break;
-				}
-				x = x * 10 + ch - '0';
+				cin >> tmp;
+				cin >> b;
+				func_parent(root, a, b, flag);
 			}
-			res = func_root(root, x);
-		}
-		else if (s.find("sibling") != -1)
-		{
-			int ch;
-			int x = 0;
-			int siz;
-			for (auto& ch : s)
+			else if (tmp == "left")
 			{
-				if (ch == ' ')
-				{
-					siz = &ch - s.data();
-					break;
-				}
-				x = x * 10 + ch - '0';
+				cin >> tmp >> tmp;
+				cin >> b;
+				func_left(root, a, b, flag);
 			}
-			int y = 0;
-			siz += 5;
-			for (int i = siz; i < s.size(); i++)
+			else if (tmp == "right")
 			{
-				ch = s[i];
-				if (ch == ' ')
-					break;
-				y = y * 10 + ch - '0';
+				cin >> tmp >> tmp;
+				cin >> b;
+				func_right(root, a, b, flag);
 			}
-			func_siblings(root, x, y, res);
-		}
-		else if (s.find("parent") != -1)
-		{
-			int ch;
-			int x = 0;
-			for (auto ch : s)
+			else
 			{
-				if (ch == ' ')
-				{
-					break;
-				}
-				x = x * 10 + ch - '0';
+				flag = func_root(root, a);
 			}
-			int y = 0;
-			int t = 1;
-			reverse(s.begin(), s.end());
-			for (auto ch : s)
-			{
-				if (ch == ' ')
-					break;
-				y += (ch - '0') * t;
-				t *= 10;
-			}
-			func_parent(root, x, y, res);
-		}
-		else if (s.find("left") != -1)
-		{
-			int ch;
-			int x = 0;
-			for (auto ch : s)
-			{
-				if (ch == ' ')
-				{
-					break;
-				}
-				x = x * 10 + ch - '0';
-			}
-			int y = 0;
-			int t = 1;
-			reverse(s.begin(), s.end());
-			for (auto ch : s)
-			{
-				if (ch == ' ')
-					break;
-				y += (ch - '0') * t;
-				t *= 10;
-			}
-			func_left(root, x, y , res);
-		}
-		else if (s.find("right") != -1)
-		{
-			int ch;
-			int x = 0;
-			for (auto ch : s)
-			{
-				if (ch == ' ')
-				{
-					break;
-				}
-				x = x * 10 + ch - '0';
-			}
-			int y = 0;
-			int t = 1;
-			reverse(s.begin(), s.end());
-			for (auto ch : s)
-			{
-				if (ch == ' ')
-					break;
-				y += (ch - '0') * t;
-				t *= 10;
-			}
-			func_right(root, x, y, res);
 		}
 		else
 		{
-			int ch;
-			int x = 0;
-			int siz;
-			for (auto& ch : s)
+			cin >> b;
+			cin >> tmp >> tmp;
+			if (tmp == "siblings")
 			{
-				if (ch == ' ')
-				{
-					siz = &ch - s.data();
-					break;
-				}
-				x = x * 10 + ch - '0';
+				func_siblings(root, a, b, flag);
 			}
-			int y = 0;
-			siz += 5;
-			for (int i = siz; i < s.size(); i++)
+			else
 			{
-				ch = s[i];
-				if (ch == ' ')
-					break;
-				y = y * 10 + ch - '0';
+				int dx, dy;
+				func_level(root, a, b, dx, dy);
+				flag = (dx == dy);
 			}
-
-			int dx, dy;
-			func_level(root, x, y, dx, dy);
-			res = dx == dy;
 		}
 
-		cout << (res ? "Yes" : "No") << '\n';
+		cout << (flag ? "Yes" : "No") << '\n';
+		cin.ignore(1111, '\n');
 	}
 
 #ifdef LOCAL

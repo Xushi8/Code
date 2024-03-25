@@ -27,8 +27,8 @@ constexpr int N = 1000005;
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
 	// cout << 111111 / 13 << endl;
 
@@ -40,7 +40,7 @@ int main()
 	{
 		x = x * 10 + 1;
 		cnt++;
-    }
+	}
 
 	while (1)
 	{
@@ -48,17 +48,14 @@ int main()
 		x %= n;
 		if (x == 0)
 			break;
-		while (x < n)
-		{
-			x = x * 10 + 1;
-			cnt++;
-		}
+		x = x * 10 + 1;
+		cnt++;
 	}
 
 	cout << ' ' << cnt << '\n';
-    
+
 #ifdef LOCAL
-    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-    return 0;
+	return 0;
 }

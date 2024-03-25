@@ -27,11 +27,11 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	map<int, pii> mp;
+	map<int, int> mp;
 	int all = 0;
 	int x;
 	char ch;
-	set<int> st;
+	int siz = 0;
 	while (cin >> x && x != 0)
 	{
 		cin >> ch;
@@ -42,22 +42,16 @@ void solve()
 		tim = h * 60 + m;
 		if (ch == 'S')
 		{
-			auto it = mp.find(x);
-			if (it != mp.end())
-			{
-				continue;
-				mp.erase(it);
-			}
-			mp[x].first = tim;
+			mp[x] = tim;
 		}
 		else
 		{
 			auto it = mp.find(x);
 			if (it == mp.end())
 				continue;
-			all += tim - mp[x].first;
+			all += tim - mp[x];
 			mp.erase(it);
-			st.emplace(x);
+			siz++;
 		}
 	}
 	cin >> ch;
@@ -66,13 +60,12 @@ void solve()
 	char tmp;
 	cin >> h >> tmp >> m;
 
-	// cout << st.size() << ' ' << (st.size() == 0 ? 0 : (all + st.size() - 1) / st.size()) << '\n';
-	cout << st.size() << ' ';
-	if (st.size() == 0)
+	cout << siz << ' ';
+	if (siz == 0)
 		cout << 0;
 	else
 	{
-		double x = (1.0 * all) / st.size();
+		double x = (1.0 * all) / siz;
 		int y = static_cast<int>(x);
 		if (x - y >= 0.5)
 			y++;

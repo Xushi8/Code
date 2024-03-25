@@ -39,6 +39,7 @@ int main()
 	// cin >> id;
 	scanf("%d", &id);
 
+	memset(a, 0, sizeof(a));
 	a[id].index = 1;
 
 	int be = id;
@@ -62,6 +63,7 @@ int main()
 	}
 
 	int ed = now;
+	int maxn = tot;
 	vector<A> ans;
 	ans.reserve(n);
 
@@ -81,7 +83,7 @@ int main()
 	for (int i = 0; i < ans.size(); i++)
 	{
 		printf("%05d %d ", ans[i].id, ans[i].val);
-		if (i + 1 == ans.size())
+		if (i + 1 == maxn)
 		{
 			printf("-1\n");
 		}
@@ -91,7 +93,13 @@ int main()
         }
     }
 
-	
+	for (int i = 0; i < N; i++)
+	{
+		if (a[i].index != 0 && a[i].pre == 0 && a[i].next == 0)
+		{
+			printf("%05d %d -1\n", a[i].id, a[i].val);
+		}
+	}
 	
     
 #ifdef LOCAL

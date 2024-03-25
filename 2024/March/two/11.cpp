@@ -76,7 +76,7 @@ int main()
 			color[i] = x;
 			st.emplace(x);
 		}
-		if (st.size() > k)
+		if (st.size() != k)
 		{
 			cout << "No" << '\n';
 			continue;
