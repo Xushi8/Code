@@ -6,7 +6,6 @@
 #include <cstddef>
 #include <atomic>
 #include <vector>
-#include <exception>
 
 namespace thread_test
 {
