@@ -25,14 +25,22 @@ using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 constexpr int N = 1000005;
 
-int func(char ch)
+int get(char ch)
 {
 	if (isdigit(ch))
 		return ch - '0';
 	if (isupper(ch))
 		return ch - 'A' + 10;
-	if (islower(ch))
-		return ch - 'a' + 36;
+	return ch - 'a' + 36;
+}
+
+char put(int val)
+{
+	if (val <= 9)
+		return val + '0';
+	if (val <= 35)
+		return val - 10 + 'A';
+	return val - 36 + 'a';
 }
 
 void solve()
@@ -44,20 +52,35 @@ void solve()
 	cout << to << ' ';
 
 	reverse(s.begin(), s.end());
-	vector<int> ans;
-	ll val = 0;
-	ll tot = 1;
-	for (int i = 0; i < s.size(); i++)
+	vector<int> num(s.size());
+	for (size_t i = 0; i < s.size(); i++)
 	{
-		char ch = s[i];
-		val += func(ch) * tot;
-		tot *= to;
-		while (val >= to)
-		{
-			ans.emplace_back(val % to);
-			val /= to;
-		}
+		num[i] = get(s[i]);
 	}
+	vector<int> ans;
+
+	while (!num.empty())
+	{
+		int yushu = 0;
+		for (int i = num.size() - 1; i >= 0; i--)
+		{
+			num[i] += yushu * from;
+			yushu = num[i] % to;
+			num[i] /= to;
+		}
+		ans.emplace_back(yushu);
+		while (!num.empty() && num.back() == 0)
+			num.pop_back();
+	}
+	
+
+	reverse(ans.begin(), ans.end());
+	for (auto x : ans)
+	{
+		cout << put(x);
+	}
+
+	cout << "\n\n";
 }
 
 int main()
