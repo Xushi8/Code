@@ -18,6 +18,7 @@
 #include <fstream>
 #include <bitset>
 #include <numeric>
+#include <chrono>
 using namespace std;
 
 using ll = long long;
@@ -25,6 +26,7 @@ using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 using psi = pair<string, int>;
 constexpr int N = 1000005;
+using namespace std::chrono_literals;
 
 int main()
 {
@@ -33,12 +35,59 @@ int main()
 
 	string s;
 	getline(cin, s);
-	vector<psi> ans;
-	size_t pos = s.find(')');
-	ans.emplace_back(s.substr(0, pos), 0);
-	stack<char> stk;
-	stk.emplace('{');
-	size_t x, y;
+	size_t pos;
+	pos = s.find(')');
+	pos++;
+	cout << s.substr(0, pos) << endl;
+	cout << '{' << endl;
+	pos = s.find("{");
+	pos++;
+	int cnt = 1;
+	size_t x, y, z;
+	while (1)
+	{
+		for (size_t i = pos; i < s.size(); i++)
+		{
+			if (isspace(s[i]))
+				pos++;
+			else
+				break;
+		}
+		
+		x = s.find( ';', pos);
+		y = s.find('}', pos);
+		z = s.find('{', pos);
+		if (x == static_cast<size_t>(-1))
+		{
+			cout << '}' << endl;
+			cnt--;
+			break;
+		}
+		else
+		{
+			if (x < y && x < z)
+			{
+				cout << string(cnt * 2, ' ');
+				cout << s.substr(pos, x - pos + 1) << endl;
+				pos = x + 1;
+			}
+			else if (z < x && z < y)
+			{
+				cout << string(cnt * 2, ' ');
+				cout << s.substr(pos, z - pos + 1) << endl;
+				pos = z + 1;
+				cnt++;
+			}
+			else
+			{
+				cout << '}' << endl;
+				pos = y + 1;
+				cnt--;
+			}
+		}
+
+		
+	}
     
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

@@ -44,7 +44,8 @@ void producer(size_t id)
 		}
 		cv_consumer.notify_one();
 		print("Thread {:<3} push {:<6}; Container size: {:<3}\n", id, i, container_size);
-		if(container_size > max_size){
+		if (container_size > max_size)
+		{
 			throw std::runtime_error("Container overflow!!!");
 		}
 	}
@@ -77,7 +78,8 @@ void consumer(size_t id)
 		}
 		cv_producer.notify_one();
 		print("Thread {:<3} get  {:<6}; Container size: {:<3}\n", id, gift, container_size);
-		if(container_size > max_size){
+		if (container_size > max_size)
+		{
 			throw std::runtime_error("Container overflow!!!");
 		}
 	}
