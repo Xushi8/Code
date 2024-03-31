@@ -30,6 +30,8 @@ bool single[N];
 
 bool is_prime(int x)
 {
+	if (x == 1)
+		return false;
 	for (int i = 2; i * i <= x; i++)
 	{
 		if (x % i == 0)
@@ -38,47 +40,32 @@ bool is_prime(int x)
 	return true;
 }
 
-int dfs(int u, set<int>& st, int deep)
+bool bfs(int u)
 {
-	st.emplace(u);
-	int val = 0;
-	int tmp = u;
-	while (tmp != 0)
+	int x = u;
+	set<int> st;
+	while (u != 1)
 	{
-		int last = tmp % 10;
-		tmp /= 10;
-		val += last * last;
+		deg[x]++;
+		if (st.count(u))
+		{
+			return false;
+		}
+		st.emplace(u);
+		int tmp = u;
+		int v = 0;
+		while (tmp)
+		{
+			int last = tmp % 10;
+			tmp /= 10;
+			v += last * last;
+		}
+		single[v] = 0;
+		u = v;
 	}
-
-	single[val] = 0;
-
-	if (deep != 0)
-	{
-		single[u] = 0;
-	}
-
-	if (val == 1)
-	{
-		return 1;
-	}
-
-	if (st.count(val) == 1)
-	{
-		single[u] = 0;
-		return -1;
-	}
-
-	int cnt = dfs(val, st, deep + 1);
-	if (cnt == -1)
-	{
-		single[u] = 0;
-		return -1;
-	}
-
-	cnt++;
-	deg[u] = cnt;
-	return cnt;
+	return true;
 }
+
 int main()
 {
 	ios::sync_with_stdio(false);
@@ -89,24 +76,22 @@ int main()
 
 	fill(single, single + N, true);
 
+	vector<int> ans;
 	for (int i = l; i <= r; i++)
 	{
-		set<int> st;
-		if (single[i])
-			dfs(i, st, 0);
+		if (bfs(i))
+			ans.emplace_back(i);
 	}
 
 	int num = 0;
-	for (int i = l; i <= r; i++)
+	for (auto x : ans)
 	{
-		if (single[i])
+		if (is_prime(x))
+			deg[x] *= 2;
+		if (single[x])
 		{
+			cout << x << ' ' << deg[x] << '\n';
 			num++;
-			cout << i << ' ';
-			if (is_prime(i))
-				cout << deg[i] * 2 << '\n';
-			else
-				cout << deg[i] << '\n';
 		}
 	}
 

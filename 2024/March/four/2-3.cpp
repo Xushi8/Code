@@ -27,32 +27,11 @@ constexpr int N = 1000005;
 
 int dis[N];
 
-int main()
+void bfs(int s, vector<vector<int>> const& G)
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
-	int n;
-	cin >> n;
-	vector<vector<int>> G(n + 1);
-	for (int i = 1; i <= n; i++)
-	{
-		int k;
-		cin >> k;
-		G[i].reserve(k);
-		for (int j = 0; j < k; j++)
-		{
-			int x;
-			cin >> x;
-			G[i].emplace_back(x);
-        }
-	}
-
-	memset(dis, 0x3f, sizeof(dis));
-
 	queue<int> que;
-	que.emplace(1);
-	dis[1] = 0;
+	que.emplace(s);
+	dis[s] = 0;
 	while (!que.empty())
 	{
 		auto u = que.front();
@@ -63,9 +42,44 @@ int main()
 			{
 				dis[v] = dis[u] + 1;
 				que.emplace(v);
-            }
+			}
+		}
+	}
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+	int n;
+	cin >> n;
+	vector<vector<int>> G(n + 1);
+	vector<bool> vis(n + 1, 0);
+	for (int i = 1; i <= n; i++)
+	{
+		int k;
+		cin >> k;
+		G[i].reserve(k);
+		for (int j = 0; j < k; j++)
+		{
+			int x;
+			cin >> x;
+			vis[x] = 1;
+			G[i].emplace_back(x);
         }
 	}
+
+	memset(dis, 0x3f, sizeof(dis));
+
+	for (int i = 1; i <= n; i++)
+	{
+		if (!vis[i])
+		{
+			bfs(i, G);
+			break;
+		}
+	}	
 
 	cout << (max_element(dis + 1, dis + n + 1) - dis) << endl;
     
