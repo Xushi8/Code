@@ -65,7 +65,7 @@ void consumer(size_t id)
 		size_t gift;
 		size_t container_size;
 		{
-			unique_lock<mutex> lock(mtx);
+			unique_lock lock(mtx);
 			cv_consumer.wait(lock, [&]()
 				{
 					return !container.empty() || over;
