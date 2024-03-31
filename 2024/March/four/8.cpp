@@ -27,20 +27,13 @@ constexpr int N = 1000005;
 
 void replace(string& s, string_view from, string_view to)
 {
-	size_t pos = string::npos;
-
-	while (1)
+	for (int i = 0;; i++)
 	{
-		pos = s.find(from, pos + 1);
-		if (pos != -1)
-		{
-			if ((pos == 0 || (!isalpha(s[pos - 1]) && !isdigit(s[pos - 1]))) && !isalpha(s[pos + from.size()]) && !isdigit(s[pos + from.size()]))
-				s.replace(pos, from.size(), to);
-		}
-		else
-		{
+		i = s.find(from, i);
+		if (i == -1)
 			break;
-		}
+		if ((i == 0 || !isalnum(s[i - 1])) && (i == s.size() - from.size() || !isalnum(s[i + from.size()])))
+			s.replace(i, from.size(), to);
 	}
 }
 
@@ -59,21 +52,10 @@ int main()
 		cout << s << '\n';
 		cout << "AI: ";
 
-		for (int i = 0; i < s.size();)
-		{
-			if (s[i] == ' ')
-				s.erase(s.begin());
-			else
-				break;
-		}
-
-		for (int i = s.size() - 1; i >= 0; i--)
-		{
-			if (s[i] == ' ')
-				s.pop_back();
-			else
-				break;
-		}
+		while (s.front() == ' ')
+			s.erase(s.begin());
+		while (s.back() == ' ')
+			s.pop_back();
 
 		for (int i = 0; i < s.size(); i++)
 		{
@@ -85,35 +67,27 @@ int main()
 
 			if (s[i] == ' ')
 			{
-				for (int j = i + 1; j < s.size();)
-				{
-					if (s[j] == ' ')
-						s.erase(s.begin() + j);
-					else
-						break;
-				}
+				while (s[i + 1] == ' ')
+					s.erase(s.begin() + i + 1);
+				if (!isalnum(s[i + 1]))
+					s.erase(s.begin() + i);
 				continue;
-			}
-
-			if (s[i] == '?')
-				s[i] = '!';
-
-			if (!isalpha(s[i]) && !isdigit(s[i]))
-			{
-				for (int j = i - 1; j >= 0; j--)
-				{
-					if (s[j] == ' ')
-						s.erase(s.begin() + j);
-					else
-						break;
-				}
 			}
 		}
 
+
+		replace(s, "can you", "@ can");
+		replace(s, "could you", "@ could");
 		replace(s, "I", "you");
 		replace(s, "me", "you");
-		replace(s, "can you", "I can");
-		replace(s, "could you", "I could");
+		
+		for (auto& ch : s)
+		{
+			if (ch == '?')
+				ch = '!';
+			if (ch == '@')
+				ch = 'I';
+		}
 
 		cout << s << '\n';
 	}

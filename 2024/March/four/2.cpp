@@ -31,27 +31,50 @@ int main()
     cin.tie(0);
 
 	string s;
-	vector<string> ans;
-	while (cin >> s)
+	getline(cin, s);
+
+	for (int i = 0; i < s.size(); i++)
 	{
-		size_t cnt = count(s.begin(), s.end(), '6');
-		if (cnt == s.size())
+		if (s[i] == '6')
 		{
+			int j = i;
+			while (j < s.size() && s[j] == '6')
+				j++;
+			int cnt = j - i;
 			if (3 < cnt && cnt <= 9)
-				s = '9';
+			{
+				s.replace(i, cnt, "9");
+			}
 			else if (cnt > 9)
-				s = "27";
+			{
+				s.replace(i, cnt, "27");
+			}
 		}
-		// cout << s << ' ';
-		ans.emplace_back(s);
 	}
 
-	for (int i = 0; i < ans.size(); i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << ans[i];
-    }
+	cout <<  s << endl;
+	
+	// vector<string> ans;
+	// while (cin >> s)
+	// {
+	// 	size_t cnt = count(s.begin(), s.end(), '6');
+	// 	if (cnt == s.size())
+	// 	{
+	// 		if (3 < cnt && cnt <= 9)
+	// 			s = '9';
+	// 		else if (cnt > 9)
+	// 			s = "27";
+	// 	}
+	// 	// cout << s << ' ';
+	// 	ans.emplace_back(s);
+	// }
+
+	// for (int i = 0; i < ans.size(); i++)
+	// {
+	// 	if (i != 0)
+	// 		cout << ' ';
+	// 	cout << ans[i];
+    // }
     
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
