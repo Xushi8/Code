@@ -36,7 +36,7 @@ int main()
 		}
 	}
 
-	int ans = 0;
+	int ans = -1e9;
 	for (int i = 0; i < n; i++)
 	{
 		vector<int> tmp(n, 0);
@@ -47,12 +47,12 @@ int main()
 				tmp[k] += a[j][k];
 			}
 			int now = 0;
-			for (int i = 0; i < n; i++)
+			for (int k = 0; k < n; k++)
 			{
 				if (now >= 0)
-					now += tmp[i];
+					now += tmp[k];
 				else
-					now = tmp[i];
+					now = tmp[k];
 				ans = max(ans, now);
 			}
 		}
