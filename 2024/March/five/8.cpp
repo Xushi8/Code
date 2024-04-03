@@ -31,7 +31,6 @@ int main()
 	cin.tie(0);
 
 	int a[3][3];
-	bool vis[3][3] = {false};
 	int bx, by;
 	set<int> st;
 	for (int i = 0; i < 3; i++)
@@ -41,14 +40,10 @@ int main()
 			cin >> a[i][j];
 			if (a[i][j] == 0)
 			{
-				vis[i][j] = 1;
 				bx = i;
 				by = j;
 			}
-			else
-			{
-				st.emplace(a[i][j]);
-			}
+			st.emplace(a[i][j]);
 		}
 	}
 
@@ -67,7 +62,6 @@ int main()
 		cin >> x >> y;
 		x--;
 		y--;
-		vis[x][y] = 1;
 		cout << a[x][y] << '\n';
 	}
 
@@ -78,7 +72,6 @@ int main()
 	{
 		for (int i = 0; i < 3; i++)
 		{
-			vis[t - 1][i] = 1;
 			ans += a[t - 1][i];
 		}
 	}
@@ -86,9 +79,8 @@ int main()
 	{
 		for (int i = 0; i < 3; i++)
 		{
-			vis[i][t - 4] = 1;
-			ans += vis[i][t - 4];
-        }
+			ans += a[i][t - 4];
+		}
 	}
 	else
 	{
@@ -96,20 +88,17 @@ int main()
 		{
 			for (int i = 0, j = 0; i < 3; i++, j++)
 			{
-				vis[i][j] = 1;
 				ans += a[i][j];
-            }
+			}
 		}
 		else
 		{
 			for (int i = 0, j = 2; i < 3; i++, j--)
 			{
-				vis[i][j] = 1;
 				ans += a[i][j];
-            }
-        }
+			}
+		}
 	}
-
 
 	map<int, int> mp = {
 		{6, 10000}, {7, 36}, {8, 720}, {9, 360}, {10, 80}, {11, 252}, {12, 108}, {13, 72}, {14, 54}, {15, 180}, {16, 72}, {17, 180}, {18, 119}, {19, 36}, {20, 306}, {21, 1080}, {22, 144}, {23, 1800}, {24, 3600}};
