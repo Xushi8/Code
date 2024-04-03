@@ -37,27 +37,70 @@ int H(array<int, 6> const& arr)
 	return (sum + mul) % MOD;
 }
 
+bool equal(array<int, 6> const& a, array<int, 6> const& b)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < 6; j++)
+		{
+			bool eq = 1;
+			for (int k = 0; k < 6; k++)
+			{
+				if (a[(i + k) % 6] != b[(j + k) % 6])
+					eq = 0;
+			}
+			if (eq)
+				return true;
+			eq = 1;
+			for (int k = 0; k < 6; k++)
+			{
+				if (a[(i + k) % 6] != b[(j - k + 6) % 6])
+					eq = 0;
+			}
+			if (eq)
+				return true;
+		}
+	}
+	return false;
+}
+
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
 	int n;
 	cin >> n;
 	map<int, vector<array<int, 6>>> mp;
+	bool flag = 0;
 	while (n--)
 	{
-		array<int, 6> a(6);
+		array<int, 6> a;
 		for (int i = 0; i < 6; i++)
 		{
 			cin >> a[i];
 		}
 
 		int val = H(a);
-    }
-    
+		auto& arr = mp[val];
+		if (!arr.empty())
+		{
+			for (auto const& b : arr)
+			{
+				if (equal(a, b))
+				{
+					flag = 1;
+				}
+			}
+		}
+		arr.emplace_back(std::move(a));
+	}
+
+	cout << (flag ? "Twin snowflakes found." : "No two snowflakes are alike.") << '\n';
+
 #ifdef LOCAL
-    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+	cerr
+		<< "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-    return 0;
+	return 0;
 }
