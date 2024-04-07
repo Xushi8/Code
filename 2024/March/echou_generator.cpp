@@ -18,19 +18,22 @@ map<ll, string> mp = {
 	{10, "-11/4+51/4"},
 	{100, "1*(1+4)*5*1*4"},
 	{114514, "114514"},
+	{13113456196, "114514*114514"},
+	{1501674322828744, "114514*114514*114514"},
 };
 
-ll fast_pow(ll a, size_t n)
+string get(ll x);
+ll func(ll x, ll div, string& res);
+
+ll func(ll x, ll div, string& res)
 {
-	ll b = 1;
-	while (n)
+	ll tot = x / div;
+	if (tot != 0)
 	{
-		if (n & 1)
-			b *= a;
-		a *= a;
-		n >>= 1;
+		res += get(0) + '(' + get(div) + ')' + "*(" + get(tot) + ')';
+		x %= div;
 	}
-	return b;
+	return x;
 }
 
 string get(ll x)
@@ -43,30 +46,47 @@ string get(ll x)
 
 	string res;
 	ll tmp = x;
-	size_t tot = 0;
+	tmp = func(tmp, 1501674322828744, res);
+	if (tmp == 0)
+		return mp[x] = res;
+	else
+		res += get(0) + '+';
 
-	// >= 114514 使用指数缩减
-	while (tmp >= 114514)
-	{
-		tmp /= 114514;
-		tot++;
-	}
-	if (tot != 0)
-	{
-		res += "(114514)^" + to_string(tot);
-		tmp = x - fast_pow(114514, tot);
-		if (tmp == 0)
-			return res;
-		else
-			res += "+";
-	}
+	tmp = func(tmp, 13113456196, res);
+	if (tmp == 0)
+		return mp[x] = res;
+	else
+		res += get(0) + '+';
 
-	// >= 100 使用100的乘法缩减
-	tot = tmp / 100;
-	if()
+	tmp = func(tmp, 114514, res);
+	if (tmp == 0)
+		return mp[x] = res;
+	else
+		res += get(0) + '+';
+
+	tmp = func(tmp, 100, res);
+	if (tmp == 0)
+		return mp[x] = res;
+	else
+		res += get(0) + '+';
+
+	tmp = func(tmp, 10, res);
+	if (tmp == 0)
+		return mp[x] = res;
+	else
+		res += get(0) + '+';
+
+	return mp[x] = res + get(tmp);
 }
 
 int main()
 {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	for (ll i = 1000000000000000000; i < 1000000000000000000 + 1000000; i++)
+	{
+		cout << i << " = " << get(i) << '\n';
+	}
+
 	return 0;
 }
