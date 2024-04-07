@@ -77,7 +77,13 @@ int main()
 	cin.tie(0);
 	for (ll i = 1000000000000000000; i < 1000000000000000000 + 1000000; i++)
 	{
-		cout << i << " = " << get(i) << '\n';
+		// cout << i << " = " << get(i) << '\n';
+		get(i);
+	}
+
+	for (auto [x, y] : mp)
+	{
+		cout << x << '=' << y << '\n';
 	}
 
 	return 0;
