@@ -30,7 +30,9 @@ ll func(ll x, ll div, string& res)
 	ll tot = x / div;
 	if (tot != 0)
 	{
-		res += get(0) + '(' + get(div) + ')' + "*(" + get(tot) + ')';
+		if (!(res.empty() || res.back() == '+'))
+			res += '+';
+		res += "((" + get(div) + ')' + "*(" + get(tot) + "))";
 		x %= div;
 	}
 	return x;
@@ -49,34 +51,24 @@ string get(ll x)
 	tmp = func(tmp, 1501674322828744, res);
 	if (tmp == 0)
 		return mp[x] = res;
-	else
-		res += get(0) + '+';
 
 	tmp = func(tmp, 13113456196, res);
 	if (tmp == 0)
 		return mp[x] = res;
-	else
-		res += get(0) + '+';
 
 	tmp = func(tmp, 114514, res);
 	if (tmp == 0)
 		return mp[x] = res;
-	else
-		res += get(0) + '+';
 
 	tmp = func(tmp, 100, res);
 	if (tmp == 0)
 		return mp[x] = res;
-	else
-		res += get(0) + '+';
 
 	tmp = func(tmp, 10, res);
 	if (tmp == 0)
 		return mp[x] = res;
-	else
-		res += get(0) + '+';
 
-	return mp[x] = res + get(tmp);
+	return mp[x] = res + '+' + '(' + get(tmp) + ')';
 }
 
 int main()
