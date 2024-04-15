@@ -1,12 +1,27 @@
 #include <iostream>
+#include <memory>
 using namespace std;
+
+struct A
+{
+	int val;
+	A(int val_)
+	{
+		val = val_;
+	}
+
+	~A()
+	{
+		cout << "A destroyed!\n";
+	}
+};
+
+void func()
+{
+}
 
 int main()
 {
-	// cout << "ksalkd" << endl;
-	int x;
-	cin >> x;
-	cout << x << endl;
 
 	return 0;
 }
