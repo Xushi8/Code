@@ -1,4 +1,4 @@
-// 2024/04/16 19:52:40
+// 2024/04/16 20:17:52
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -18,6 +18,7 @@
 #include <fstream>
 #include <bitset>
 #include <numeric>
+#include <random>
 using namespace std;
 
 using ll = long long;
@@ -30,10 +31,15 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	constexpr static std::array arr{0, 8, 15, 42};
-	constexpr auto pos = std::next(arr.begin()); // OK
-	static_assert(*pos == 8);					 // OK，不会断言失败
-
+	constexpr size_t n = 100000000;
+	ofstream ofs("test.in");
+	ofs << n << '\n';
+	mt19937_64 rng(random_device{}());
+	for (size_t i = 0; i < n; i++)
+	{
+		ofs << rng() << ' ';
+    }
+    
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
