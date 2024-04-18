@@ -18,6 +18,7 @@
 #include <fstream>
 #include <bitset>
 #include <numeric>
+#include <memory>
 using namespace std;
 
 using ll = long long;
@@ -25,14 +26,22 @@ using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 constexpr int N = 1000005;
 
+struct A
+{
+	~A()
+	{
+		cout << "A destroyed!" << endl;
+    }
+};
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	constexpr static std::array arr{0, 8, 15, 42};
-	constexpr auto pos = std::next(arr.begin()); // OK
-	static_assert(*pos == 8);					 // OK，不会断言失败
+	vector<A> a(5);
+	a.clear();
+	cout << "a cleared!" << endl;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
