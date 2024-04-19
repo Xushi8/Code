@@ -7,6 +7,7 @@
 #include <cstddef>
 #include <atomic>
 #include <vector>
+#include <cstddef>
 
 namespace thread_test
 {
@@ -85,7 +86,7 @@ void consumer(size_t id)
 	}
 }
 
-void test()
+void run()
 {
 	size_t all_thread_num = std::thread::hardware_concurrency();
 	vector<jthread> producers, consumers;
@@ -105,7 +106,7 @@ void test()
 
 int main()
 {
-	thread_test::test();
+	thread_test::run();
 
 	return 0;
 }
