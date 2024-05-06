@@ -69,24 +69,18 @@ int main()
 		cin >> u >> v >> w;
 		u--;
 		v--;
-		auto it = lower_bound(G[u].begin(), G[u].end(), make_pair(v, -1));
-		if (it != G[u].end() && it->first == v)
-		{
-			it->second = min(it->second, w);
-			it = lower_bound(RG[v].begin(), RG[v].end(), make_pair(u, -1));
-			it->second = min(it->second, w);
-		}
-		else
-		{
-			G[u].emplace_back(v, w);
-			RG[v].emplace_back(u, w);
-		}
+		G[u].emplace_back(v, w);
+		RG[v].emplace_back(u, w);
 	}
 
 	int be, ed, T;
 	cin >> be >> ed >> T;
 	be--;
 	ed--;
+	if (be == ed)
+	{
+		T++;
+	}
 	auto rdis = dijkstra(ed, RG);
 	priority_queue<pii, vector<pii>, greater<>> que;
 	if (rdis[be] != INF)
