@@ -13,12 +13,13 @@
                 // "-fsanitize=address", // 内存越界检查
                 // "-fno-omit-frame-pointer", // 检测到内存错误时打印函数调用栈
                 // "-fsanitize=undefined", // 检测未定义行为
-                "-g",
                 "${file}",
                 "-o",
                 "${workspaceFolder}/${fileBasenameNoExtension}.exe",
                 "-DLOCAL",
                 // "-O3",
+                "-g",
+                "-D_GLIBCXX_DEBUG",
                 "-lfmt",
                 "-lpqxx",
                 "-ltbb",
