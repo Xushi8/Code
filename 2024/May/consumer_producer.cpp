@@ -18,8 +18,8 @@ using std::condition_variable;
 using std::unique_lock;
 using std::vector;
 
-constexpr size_t max_size = 100;
-constexpr size_t produce_num = 100000;
+static constexpr size_t max_size = 100;
+static constexpr size_t produce_num = 100000;
 size_t produce_thread_num, consume_thread_num;
 std::atomic<size_t> over_thread_num = 0;
 queue<size_t> container;

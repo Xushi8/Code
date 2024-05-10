@@ -160,7 +160,7 @@ void print(process* no_erase_head, process* erase_head)
 
 int main()
 {
-	ifstream ifs("process.in");
+	ifstream ifs("priority_schedule.in");
 	process* no_erase_head = nullptr;
 	for (int i = 0; i < 5; i++)
 	{
@@ -224,7 +224,10 @@ int main()
 		print("{}\t{}\t{}\n", val->name, val->round_time, val->round_time - val->cpu_time);
 	}
 
-
+	for (process* val : arr)
+	{
+		delete val;
+	}
 
 	return 0;
 }
