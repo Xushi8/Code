@@ -152,7 +152,7 @@ void print(process* no_erase_head, process* erase_head)
 
 		if (val->status == 'F' && val->round_time == size_t(-1)) [[unlikely]]
 		{
-			val->round_time = CPU_TIME;
+			val->round_time = CPU_TIME - 1;
 		}
 	}
 	print("\n");
@@ -200,29 +200,8 @@ int main()
 		else
 		{
 			no_erase_head->status = 'R';
-
-			process* pre = no_erase_head;
-			process* p = no_erase_head->next;
-			while (p != nullptr)
-			{
-				if (p->priority > no_erase_head->priority)
-				{
-					pre = p;
-					p = p->next;
-				}
-				else
-				{
-					break;
-				}
-			}
-
-			if (pre != no_erase_head) // 更新了队头
-			{
-				process* tmp = no_erase_head;
-				no_erase_head = no_erase_head->next;
-				tmp->next = p;
-				pre->next = tmp;
-			}
+			process* tmp = no_erase_head->next;
+			no_erase_head = insert(tmp, no_erase_head);
 		}
 	}
 
