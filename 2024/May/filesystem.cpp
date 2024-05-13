@@ -5,8 +5,8 @@
 #include <fstream>
 #include <fmt/format.h>
 #include <iostream>
-#include <algorithm>
 #include <unordered_set>
+#include <fmt/os.h>
 using std::string;
 using std::vector;
 using std::unordered_map;
@@ -38,8 +38,13 @@ struct openfile
 	bool readable = true;
 	bool writable = true;
 	bool executable = false;
+	size_t len = 0;
 	char* read_ptr = nullptr;
 	char* write_ptr = nullptr;
+
+	openfile(file const& f) :
+		name(f.name), readable(f.readable), writable(f.writable),
+		executable(f.executable) {}
 
 	bool operator==(openfile const& that) const = default;
 };
@@ -68,8 +73,24 @@ struct UFD
 			if (it->name == name)
 			{
 				files.erase(it);
+				break;
 			}
 		}
+	}
+
+	file& get(string_view name)
+	{
+		for (auto&& x : files)
+		{
+			if (x.name == name)
+			{
+				return x;
+			}
+		}
+
+#if defined(__GNUC__) || defined(__clang__)
+		__builtin_unreachable();
+#endif
 	}
 
 	void print() const
@@ -82,7 +103,7 @@ struct UFD
 	}
 };
 
-struct MDF
+struct MFD
 {
 	unordered_map<string, UFD*> UFDs;
 };
@@ -111,15 +132,103 @@ struct AFD
 			if (it->name == name)
 			{
 				openfiles.erase(it);
+				break;
 			}
 		}
 	}
+
+	void read(string_view name)
+	{
+		for (auto it = openfiles.begin(); it != openfiles.end(); it++)
+		{
+			if (it->name == name)
+			{
+				if (!it->readable)
+				{
+					print(stderr, "You doesn't have read permisio\n");
+					break;
+				}
+				it->read_ptr++;
+				break;
+			}
+		}
+	}
+
+	void write(string_view name)
+	{
+		for (auto it = openfiles.begin(); it != openfiles.end(); it++)
+		{
+			if (it->name == name)
+			{
+				if (!it->writable)
+				{
+					print(stderr, "You doesn't have write permision\n");
+					break;
+				}
+				it->write_ptr++;
+				it->len++;
+				break;
+			}
+		}
+	}
+
+	openfile& get(string_view name)
+	{
+		for (auto&& x : openfiles)
+		{
+			if (x.name == name)
+			{
+				return x;
+			}
+		}
+
+#if defined(__GNUC__) || defined(__clang__)
+		__builtin_unreachable();
+#endif
+	}
 };
 
-void read(MDF& mdf)
+void read(MFD& mfd)
 {
-	ifstream ifs("mdf.in");
-	
+	ifstream ifs("mfd.in");
+	string s;
+	string name;
+	UFD* t;
+	while (ifs >> s)
+	{
+		if (s.starts_with("User:"))
+		{
+			t = new UFD;
+			name = s.substr(5);
+			mfd.UFDs[name] = t;
+		}
+		else
+		{
+			string file_name = s;
+			file f(s);
+			// ifs >> f.readable >> f.writable >> f.executable >> f.len;
+			char r, w, x;
+			ifs >> r >> w >> x >> f.len;
+			f.readable = r - '0';
+			f.writable = w - '0';
+			f.executable = x - '0';
+			t->insert(std::move(f));
+		}
+	}
+}
+
+void write(MFD mfd)
+{
+	fmt::ostream out = fmt::output_file("mfd.in");
+	for (auto [username, t] : mfd.UFDs)
+	{
+		out.print("User:{}\n", username);
+		for (auto file : t->files)
+		{
+			out.print("{} {:d}{:d}{:d} {}\n", file.name, file.readable, file.writable, file.executable, file.len);
+		}
+		out.print("\n");
+	}
 }
 
 void menu()
@@ -133,30 +242,41 @@ void menu()
 	print("write: write a file\n");
 }
 
+void press_continue()
+{
+	cin.ignore(INT64_MAX, '\n');
+	print("Press enter to continue\n");
+	cin.get();
+	print("\033[2J\033[H");
+}
+
 int main()
 {
-	MDF mdf;
-	read(mdf);
-	
+	MFD mfd;
+	read(mfd);
 
-	print("Please enter username\n");
+	print("Please enter username: ");
 	string username;
 	cin >> username;
-	auto it = mdf.UFDs.find(username);
-	if (it == mdf.UFDs.end())
+	auto it = mfd.UFDs.find(username);
+	if (it == mfd.UFDs.end())
 	{
 		print(stderr, "Username not found!\n");
 		exit(1);
 	}
 
 	UFD* ufd = it->second;
-	ufd->print();
 
 	AFD afd;
-	print("Enter command: ");
 	string op;
-	while (cin >> op)
+	while (1)
 	{
+		ufd->print();
+		print("\n");
+		menu();
+		print("\n");
+		print("Enter command: ");
+		cin >> op;
 		if (op == "Bye")
 		{
 			break;
@@ -170,6 +290,7 @@ int main()
 			if (ufd->names.contains(file_name))
 			{
 				print(stderr, "File {} already exist!\n", file_name);
+				press_continue();
 				continue;
 			}
 
@@ -183,6 +304,7 @@ int main()
 			if (!ufd->names.contains(file_name))
 			{
 				print(stderr, "File {} not found!\n", file_name);
+				press_continue();
 				continue;
 			}
 
@@ -200,19 +322,75 @@ int main()
 			if (!ufd->names.contains(file_name))
 			{
 				print(stderr, "File {} not found!\n", file_name);
+				press_continue();
 				continue;
 			}
 
-			afd.insert({file_name});
+			auto& file = ufd->get(file_name);
+			afd.insert(file);
 		}
 		else if (op == "close")
 		{
+			string file_name;
+			print("Enter file name: ");
+			cin >> file_name;
+			if (!ufd->names.contains(file_name))
+			{
+				print(stderr, "File {} not found!\n", file_name);
+				press_continue();
+				continue;
+			}
+
+			if (!afd.names.contains(file_name))
+			{
+				print(stderr, "File {} doesn't open\n", file_name);
+				press_continue();
+				continue;
+			}
+
+			afd.erase(file_name);
 		}
 		else if (op == "read")
 		{
+			string file_name;
+			print("Enter file name: ");
+			cin >> file_name;
+			if (!ufd->names.contains(file_name))
+			{
+				print(stderr, "File {} not found!\n", file_name);
+				press_continue();
+				continue;
+			}
+
+			if (!afd.names.contains(file_name))
+			{
+				print(stderr, "File {} doesn't open\n", file_name);
+				press_continue();
+				continue;
+			}
+
+			afd.read(file_name);
 		}
 		else if (op == "write")
 		{
+			string file_name;
+			print("Enter file name: ");
+			cin >> file_name;
+			if (!ufd->names.contains(file_name))
+			{
+				print(stderr, "File {} not found!\n", file_name);
+				press_continue();
+				continue;
+			}
+
+			if (!afd.names.contains(file_name))
+			{
+				print(stderr, "File {} doesn't open\n", file_name);
+				press_continue();
+				continue;
+			}
+
+			afd.write(file_name);
 		}
 		else if (op == "dir")
 		{
@@ -222,7 +400,15 @@ int main()
 		{
 			print(stderr, "Please enter right command\n");
 		}
+
+		print("Press enter to continue\n");
+		cin.ignore(INT64_MAX, '\n');
+		cin.get();
+		print("\033[2J\033[H");
 	}
+
+	ufd->print();
+	write(mfd);
 
 	return 0;
 }
