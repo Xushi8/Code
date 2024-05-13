@@ -3,18 +3,19 @@
 #include <string_view>
 #include <algorithm>
 #include <cstdint>
+// #include <tbb/parallel_invoke.h>
 using i64 = int64_t;
 using namespace std;
 
-void print(string_view name,  vector<double> const& val)
+void print(string_view name, vector<double> const& val)
 {
 	cout << name << '\n';
 	for (auto x : val)
 	{
 		// print("{}\n", x);
-		cout << x << '\n';
+		cout << x << ' ';
 	}
-	cout << '\n';
+	cout << '\n' << '\n';
 }
 
 // 列主元高斯消去法
@@ -54,10 +55,11 @@ vector<double> Gauss(vector<vector<double>> const& val)
 		}
 	}
 
+	// 得到精确解
 	vector<double> res(n);
 	for (i64 i = n - 1; i >= 0; i--)
 	{
-		for (i64 j = i + 1; j < n; j++)
+		for (size_t j = i + 1; j < n; j++)
 		{
 			b[i] -= res[j] * a[i][j];
 		}
@@ -70,7 +72,7 @@ vector<double> Gauss(vector<vector<double>> const& val)
 vector<double> J(vector<vector<double>> const& val, const size_t count, const bool do_print = false)
 {
 	auto a = val;
-    const size_t n = a.size();
+	const size_t n = a.size();
 	vector<double> b(n, 1.0);
 	vector<double> x(n, 0);
 
@@ -84,15 +86,15 @@ vector<double> J(vector<vector<double>> const& val, const size_t count, const bo
 			{
 				if (j == i)
 					continue;
-                num -= a[i][j] * tx[j];
-            }
+				num -= a[i][j] * tx[j];
+			}
 			x[i] = (1.0 / a[i][i]) * num;
 		}
 		x = std::move(tx);
 		if (do_print) [[unlikely]]
 		{
 			print("J", x);
-        }
+		}
 	}
 
 	return x;
@@ -123,7 +125,7 @@ vector<double> GS(vector<vector<double>> const& val, const size_t count, const b
 		if (do_print) [[unlikely]]
 		{
 			print("GS", x);
-        }
+		}
 	}
 
 	return x;
@@ -162,7 +164,7 @@ vector<double> SOR(vector<vector<double>> const& val, const double ω, const siz
 
 int main()
 {
-	constexpr size_t weidu = 7;
+	constexpr size_t weidu = 6;
 	vector<vector<double>> arr(weidu, vector<double>(weidu));
 	for (size_t i = 0; i < weidu; i++)
 	{
@@ -172,18 +174,40 @@ int main()
 		}
 	}
 
-	constexpr size_t count = 100000000; // 迭代次数
+	constexpr size_t count = 1000000; // 迭代次数
 
 	print("Gauss", Gauss(arr));
-	
-	// print("J", J(arr, count));
+
+	print("J", J(arr, count));
 
 	print("GS", GS(arr, count));
 
-	print("SOR, ω = " + to_string(0.2), SOR(arr, 0.2, count));
 	print("SOR, ω = " + to_string(0.8), SOR(arr, 0.8, count));
-	print("SOR, ω = " + to_string(0.97), SOR(arr, 0.95, count));
 	print("SOR, ω = " + to_string(0.99), SOR(arr, 0.95, count));
-	print("SOR, ω = " + to_string(1.0), SOR(arr, 1.0, count));
 	print("SOR, ω = " + to_string(1.01), SOR(arr, 1.01, count));
+
+	// tbb::parallel_invoke([&]
+	// 	{
+	// 		print("Gauss", Gauss(arr));
+	// 	},
+	// 	[&]
+	// 	{
+	// 		print("J", J(arr, count));
+	// 	},
+	// 	[&]
+	// 	{
+	// 		print("GS", GS(arr, count));
+	// 	},
+	// 	[&]
+	// 	{
+	// 		print("SOR, ω = " + to_string(0.8), SOR(arr, 0.8, count));
+	// 	},
+	// 	[&]
+	// 	{
+	// 		print("SOR, ω = " + to_string(0.99), SOR(arr, 0.95, count));
+	// 	},
+	// 	[&]
+	// 	{
+	// 		print("SOR, ω = " + to_string(1.01), SOR(arr, 1.01, count));
+	// 	});
 }
