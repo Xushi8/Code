@@ -17,15 +17,15 @@
                 "-o",
                 "${workspaceFolder}/${fileBasenameNoExtension}.exe",
                 "-DLOCAL",
-                "-O3",
-                // "-g",
-                // "-D_GLIBCXX_DEBUG",
+                // "-O3",
+                "-g",
+                "-D_GLIBCXX_DEBUG",
                 "-lfmt",
                 "-lpqxx",
                 "-ltbb",
                 // "-march=native",
                 // "-fopenmp", // OpemMP
-                "-ffast-math", // 对浮点数有更大胆的优化，确保不会出现NaN和INF时可开启; 如 a /= b 优化为 a *= inv_b, sqrt保证不为负数
+                // "-ffast-math", // 对浮点数有更大胆的优化，确保不会出现NaN和INF时可开启; 如 a /= b 优化为 a *= inv_b, sqrt保证不为负数
                 // "-fopt-info", // 显示优化过程的输出
                 "-std=c++20",
                 "-Wall", // 开启警告
