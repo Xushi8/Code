@@ -28,6 +28,7 @@
                 // "-ffast-math", // 对浮点数有更大胆的优化，确保不会出现NaN和INF时可开启; 如 a /= b 优化为 a *= inv_b, sqrt保证不为负数
                 // "-fopt-info", // 显示优化过程的输出
                 "-std=c++20",
+                "-fno-rtti",
                 "-Wall", // 开启警告
                 "-Wextra", // 除Wall外的警告
                 "-pedantic", // 使用了扩展语法的地方将产生相应的警告信息
