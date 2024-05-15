@@ -27,7 +27,10 @@ constexpr int N = 1000005;
 struct A
 {
 	int x;
-	A() = default;
+	A() noexcept = default;
+
+	friend bool operator==(A const& lhs, A const& rhs) noexcept = default;
+	friend bool operator<=>(A const& lhs, A const& rhs) noexcept = default;
 };
 
 int main()
@@ -45,6 +48,11 @@ int main()
 	for (auto x : a)
 	{
 		cout << x.x << '\n';
+	}
+
+	if (a[0] == a[1])
+	{
+		
 	}
 
 	vector<int> b{};
