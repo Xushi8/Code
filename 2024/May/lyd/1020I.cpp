@@ -67,30 +67,32 @@ int solve(int n)
 				if (!(0 <= tx && tx < 3 && 0 <= ty && ty < 3))
 					continue;
 
-				if (a[day + 1][x][y] || a[day + 1][x + 1][y] || a[day + 1][x][y + 1] || a[day + 1][x + 1][y + 1])
+				if (a[day + 1][tx][ty] || a[day + 1][tx + 1][ty] || a[day + 1][tx][ty + 1] || a[day + 1][tx + 1][ty + 1])
 					continue;
 
-				if (x == 0 && y == 0)
-					s0 = 0;
-				else if (++s0 == 7)
+				auto t0 = s0, t1 = s1, t2 = s2, t3 = s3;
+
+				if (tx == 0 && ty == 0)
+					t0 = 0;
+				else if (++t0 == 7)
 					continue;
-				else if (x == 0 && y == 2)
-					s1 = 0;
-				else if (++s1 == 7)
+				if (tx == 0 && ty == 2)
+					t1 = 0;
+				else if (++t1 == 7)
 					continue;
-				else if (x == 2 && y == 0)
-					s2 = 0;
-				else if (++s2 == 7)
+				if (tx == 2 && ty == 0)
+					t2 = 0;
+				else if (++t2 == 7)
 					continue;
-				else if (x == 2 && y == 2)
-					s3 = 0;
-				else if (++s3 == 7)
+				if (tx == 2 && ty == 2)
+					t3 = 0;
+				else if (++t3 == 7)
 					continue;
 
-				if (vis[day + 1][tx][ty][s0][s1][s2][s3])
+				if (vis[day + 1][tx][ty][t0][t1][t2][t3])
 					continue;
-				vis[day + 1][tx][ty][s0][s1][s2][s3] = 1;
-				que.push({day + 1, tx, ty, s0, s1, s2, s3});
+				vis[day + 1][tx][ty][t0][t1][t2][t3] = 1;
+				que.push({day + 1, tx, ty, t0, t1, t2, t3});
 			}
 		}
 	}
