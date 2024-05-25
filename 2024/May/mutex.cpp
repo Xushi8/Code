@@ -1,7 +1,8 @@
 #include <fmt/core.h>
+#include <fmt/format.h>
 #include <mutex>
 #include <memory>
-#include <mimalloc-new-delete.h>
+// #include <mimalloc-new-delete.h>
 using namespace std;
 using fmt::print;
 
@@ -20,4 +21,7 @@ int main()
 	lock_guard lock(mtx, adopt_lock);
 	unique_ptr<int, free_deleter> ptr((int*)malloc(sizeof(int)));
 	print("{}\n", sizeof(ptr));
+	print("{}\n", fmt::ptr(ptr.get()));
+	ptr.reset();
+	print("{}\n", fmt::ptr(ptr.get()));
 }
