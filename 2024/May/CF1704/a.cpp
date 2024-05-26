@@ -1,23 +1,9 @@
 // 2024/05/20 14:04:46
-#include <iostream>
-#include <algorithm>
-#include <cstring>
-#include <cstdint>
-#include <vector>
-#include <string>
-#include <set>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <queue>
-#include <functional>
-#include <iomanip>
-#include <cmath>
-#include <stack>
-#include <array>
-#include <fstream>
-#include <bitset>
-#include <numeric>
+#ifdef LOCAL
+#include <basic_std_lib.h>
+#else
+#include <bits/stdc++.h>
+#endif
 using namespace std;
 
 using i64 = int64_t;
@@ -38,7 +24,10 @@ int main()
 		cin >> n >> m;
 		string s, t;
 		cin >> s >> t;
-		
+		if (string_view(s.end() - (t.size() - 1), s.end()) == string_view(t.end() - (t.size() - 1), t.end()) && count(s.begin(), s.end() - (t.size() - 1), t.front()) > 0)
+			cout << "YES\n";
+		else
+			cout <<"NO\n";
 	}
 
 #ifdef LOCAL
