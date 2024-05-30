@@ -69,7 +69,7 @@ void solve()
 	prefix.reserve(n + 1);
 	vector<int> ans(n);
 
-	function<void(int u, i64 now_sum)> dfs = [&](int u, i64 now_sum)
+	const function<void(int u, i64 now_sum)> dfs = [&](int u, i64 now_sum)
 	{
 		// if (u != 0)
 		{
