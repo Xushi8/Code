@@ -41,18 +41,13 @@ int main()
 				pos = nex_pos + 1;
 			}
 		}
-		if (qujian.empty())
-		{
-			cout << -1 << '\n';
-			continue;
-		}
 
 		sort(qujian.begin(), qujian.end());
 		vector<pii> ans;
 		int pre = 0;
 		while (pre < s.size())
 		{
-			int maxx = 0;
+			int maxx = -1;
 			pii tmp;
 			for (auto [x, y] : qujian)
 			{
@@ -64,6 +59,11 @@ int main()
 						tmp = {x, y};
 					}
 				}
+			}
+			if (maxx == -1 || maxx == pre)
+			{
+				cout << "-1\n";
+				goto out;
 			}
 			ans.emplace_back(tmp);
 			pre = tmp.second;
@@ -89,6 +89,8 @@ int main()
 				cout << x + 1 << '\n';
 			}
 		}
+	out:
+		// cout << flush;
 
 		// size_t pre = 0;
 		// ans.emplace_back(qujian.front());
