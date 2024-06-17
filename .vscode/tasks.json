@@ -23,7 +23,6 @@
                 "-D_GLIBCXX_DEBUG",
                 "-D_GLIBCXX_DEBUG_PEDANTIC",
                 "-lfmt",
-                "-lpqxx",
                 "-ltbb",
                 // "-march=native",
                 // "-fopenmp", // OpemMP
