@@ -97,9 +97,10 @@ int main()
     cin.tie(0);
 
     int tt = 1;
-    // cin >> tt;
+    cin >> tt;
     for (int i = 1; i <= tt; i++)
-    {
+	{
+		cout << "Case #" << i << ":\n";
         solve();
     }
 
