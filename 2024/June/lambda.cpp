@@ -2,8 +2,10 @@
 #include <vector>
 #include <set>
 #include <chrono>
+#include <array>
 #include <cstdint>
 using namespace std;
+using fmt::print;
 
 using i64 = int64_t;
 
@@ -23,6 +25,14 @@ inline i64 f2()
 	return std::chrono::system_clock::now().time_since_epoch().count();
 }
 
+struct A
+{
+	int va, vb;
+	// A() noexcept = default;
+	A(int x = -1) noexcept :
+		va(x) {}
+};
+
 int main()
 {
 	// vector<int> arr = {1, 4, 2, 8, 5, 1, 7, 4};
@@ -39,6 +49,12 @@ int main()
 	// };
 	// dfs(dfs, 0);
 
-	fmt::print("{}\n", func(f1, 1));
-	fmt::print("{}\n", func(f2));
+	// print("{}\n", func(f1, 1));
+	// print("{}\n", func(f2));
+
+	for (size_t i = 0; i < 100000000; i++)
+	{
+		A a{};
+		print("{} {}\n", a.va, a.vb);
+	}
 }
