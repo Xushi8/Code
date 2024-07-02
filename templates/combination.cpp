@@ -1,6 +1,6 @@
 #include <cassert>
 #include <vector>
-
+#include <cstdint>
 
 constexpr int P = 1000000007;
 // assume -P <= x < 2P
@@ -40,7 +40,7 @@ struct Z
 	}
 	Z& operator*=(const Z& rhs)
 	{
-		x = x * rhs.x % P;
+		x = int64_t(x) * rhs.x % P;
 		return *this;
 	}
 	Z& operator+=(const Z& rhs)
