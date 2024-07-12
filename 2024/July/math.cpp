@@ -1,5 +1,5 @@
 #include <random>
-#include <vector>
+#include <boost/container/vector.hpp>
 #include <fmt/format.h>
 #include <numeric>
 #include <execution>
@@ -24,7 +24,7 @@ int main()
 	};
 
 	constexpr size_t n = 100000000;
-	vector<double> arr(n);
+	boost::container::vector<double> arr(n, boost::container::default_init);
 	for_each(std::execution::par_unseq, arr.begin(), arr.end(), [&](double& val)
 		{
 			val = func();
