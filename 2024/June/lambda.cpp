@@ -1,9 +1,5 @@
 #include <fmt/core.h>
 #include <functional>
-#include <vector>
-#include <set>
-#include <chrono>
-#include <array>
 #include <cstdint>
 using namespace std;
 using fmt::print;
@@ -19,6 +15,13 @@ template <CallableWithIntAndReturn F>
 void func(F&& f)
 {
 	f();
+}
+
+template <typename F, typename... Ts>
+auto func1(F&& f, Ts&&... ts)
+	requires requires { { f(int{}) } -> std::convertible_to<int>; }
+{
+	print("{}\n", f(std::forward<Ts>(ts)...));
 }
 
 // template <typename F, typename... Ts>
@@ -79,4 +82,10 @@ int main()
 			print("{}\n", x);
 		},
 		10));
+
+	func1([](int x) -> int
+		{
+			return x;
+		},
+		87879);
 }
