@@ -42,13 +42,15 @@ void solve()
 	q2.emplace(b2, e2);
 	constexpr int INF = 0x3f3f3f3f;
 	vector<vector<int>> dis(n, vector<int>(m, INF)), vis(n, vector<int>(m));
+	vis[b1][e1] = 1;
+	vis[b2][e2] = 2;
 	dis[b1][e1] = 0;
 	dis[b2][e2] = 0;
-	constexpr int dx1[8] = {-1, -1, -1, 0, 0, 1, 1, 1}, dx2[8] = {-1, -2, -1, 0, 0, 1, 2, 1};
-	constexpr int dy1[8] = {-1, 0, 1, -1, 1, -1, 0, 1}, dy2[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
+	constexpr int dx1[8] = {-1, -1, -1, 0, 0, 1, 1, 1}, dx2[4] = {0, 0, -1, 1};
+	constexpr int dy1[8] = {-1, 0, 1, -1, 1, -1, 0, 1}, dy2[4] = {-1, 1, 0, 0};
 	while (!q1.empty() || !q2.empty())
 	{
-		if (!q1.empty())
+		for (int j = q1.size(); j--;)
 		{
 			auto [x, y] = q1.front();
 			q1.pop();
@@ -64,40 +66,43 @@ void solve()
 				{
 					vis[tx][ty] = 1;
 					dis[tx][ty] = dis[x][y] + 1;
-					q1.emplace(tx,ty);
+					q1.emplace(tx, ty);
 				}
 				else if (vis[tx][ty] == 2)
 				{
-                    cout << "YES\n";
-					cout << max(dis[tx][ty], dis[x][y] + 1);
+					cout << "YES\n";
+					cout << max(dis[tx][ty], dis[x][y] + 1) << '\n';
 					return;
-                }
-            }
+				}
+			}
 		}
 
-		if (!q2.empty())
+		for (int t = 0; t < 2; t++)
 		{
-			auto [x, y] = q2.front();
-			q2.pop();
-			for (int k = 0; k < 8; k++)
+			for (int j = q2.size(); j--;)
 			{
-				int tx = x + dx2[k];
-				int ty = y + dy2[k];
-				if (!(0 <= tx && tx < n && 0 <= ty && ty < m && a[tx][ty] != '#'))
+				auto [x, y] = q2.front();
+				q2.pop();
+				for (int k = 0; k < 4; k++)
 				{
-					continue;
-				}
-				if (!vis[tx][ty])
-				{
-					vis[tx][ty] = 1;
-					dis[tx][ty] = dis[x][y] + 1;
-					q2.emplace(tx, ty);
-				}
-				else if (vis[tx][ty] == 1)
-				{
-                    cout << "YES\n";
-					cout << max(dis[tx][ty], dis[x][y] + 1);
-					return;
+					int tx = x + dx2[k];
+					int ty = y + dy2[k];
+					if (!(0 <= tx && tx < n && 0 <= ty && ty < m && a[tx][ty] != '#'))
+					{
+						continue;
+					}
+					if (!vis[tx][ty])
+					{
+						vis[tx][ty] = 2;
+						dis[tx][ty] = dis[x][y] + 1 - t;
+						q2.emplace(tx, ty);
+					}
+					else if (vis[tx][ty] == 1)
+					{
+						cout << "YES\n";
+						cout << max(dis[tx][ty], dis[x][y] + 1 - t) << '\n';
+						return;
+					}
 				}
 			}
 		}
