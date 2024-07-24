@@ -52,3 +52,69 @@ void solve()
 
 	dfs(dfs, S, V);
 }
+
+// 这里提供下标从1开始的代码, 同时次数设置为常量22
+void solve1()
+{
+	int V, q, S;
+	cin >> V >> q >> S;
+	vector<vector<int>> G(V + 1);
+	for (int i = 0; i < V - 1; i++)
+	{
+		int u, v;
+		cin >> u >> v;
+		if (u == v)
+			continue;
+		G[u].emplace_back(v);
+		G[v].emplace_back(u);
+	}
+
+	vector<int> dep(V + 1);
+	vector<vector<int>> f(V + 1, vector<int>(22));
+	auto dfs = [&](auto&& self, int u, int par) -> void
+	{
+		dep[u] = dep[par] + 1;
+		f[u][0] = par;
+		for (int i = 1; i <= 21; i++)
+		{
+			f[u][i] = f[f[u][i - 1]][i - 1];
+		}
+		for (auto v : G[u])
+		{
+			if (v == par)
+				continue;
+			self(self, v, u);
+		}
+	};
+
+	auto lca = [&](int x, int y)
+	{
+		if (dep[x] < dep[y])
+			swap(x, y);
+		for (int i = 21; i >= 0; i--)
+		{
+			if (dep[f[x][i]] >= dep[y])
+				x = f[x][i];
+			if (x == y)
+				return x;
+		}
+		for (int i = 21; i >= 0; i--)
+		{
+			if (f[x][i] != f[y][i])
+			{
+				x = f[x][i];
+				y = f[y][i];
+			}
+		}
+		return f[x][0];
+	};
+
+	dfs(dfs, S, 0);
+
+	while (q--)
+	{
+		int x, y;
+		cin >> x >> y;
+		cout << lca(x, y) << '\n';
+	}
+}
