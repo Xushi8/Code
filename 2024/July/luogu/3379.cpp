@@ -102,7 +102,7 @@ void solve1()
 	}
 }
 
-void solve()
+void solve2()
 {
 	int V, q, S;
 	cin >> V >> q >> S;
@@ -159,6 +159,73 @@ void solve()
 
 	dfs(dfs, S, 0);
 
+	while (q--)
+	{
+		int x, y;
+		cin >> x >> y;
+		cout << lca(x, y) << '\n';
+	}
+}
+
+
+void solve()
+{
+	int n, q, S;
+	cin >> n >> q >> S;
+	vector<vector<int>> G(n + 1);
+	for (int i = 0; i < n - 1; i++)
+	{
+		int u, v;
+		cin >> u >> v;
+		G[u].emplace_back(v);
+		G[v].emplace_back(u);
+	}
+
+	vector<int> par(n + 1), dep(n + 1), top(n + 1), siz(n + 1, 1), son(n + 1);
+
+	auto dfs1 = [&](auto&& self, int u) -> void
+	{
+		dep[u] = dep[par[u]] + 1;
+		for (auto v : G[u])
+		{
+			if (v == par[u])
+				continue;
+			par[v] = u;
+			self(self, v);
+			siz[u] += siz[v];
+			if (siz[v] > siz[son[u]])
+				son[u] = v;
+		}
+	};
+
+	auto dfs2 = [&](auto&& self, int u, int h) -> void
+	{
+		top[u] = h;
+		if (son[u])
+			self(self, son[u], h);
+		for (auto v : G[u])
+		{
+			if (v == par[u] || v == son[u])
+				continue;
+			self(self, v, v);
+		}
+	};
+
+	auto lca = [&](int x, int y) -> int
+	{
+		while (top[x] != top[y])
+		{
+			if (dep[top[x]] > dep[top[y]])
+				x = par[top[x]];
+			else
+				y = par[top[y]];
+		}
+		return dep[x] < dep[y] ? x : y;
+	};
+
+	par[S] = 0;
+	dfs1(dfs1, S);
+	dfs2(dfs2, S, S);
 	while (q--)
 	{
 		int x, y;
