@@ -41,24 +41,22 @@ void solve()
     i64 ans = 0;
     for (int i = 0; i < 30; i++)
     {
-        for (int j = 0, k = 0; j < m;)
-        { // 双指针
+        for (int j = 0, k = 0; j < m; j = k)
+        {
             int x = 0;
-            int res = 0;
-            while (k < m && (j == k || a[k][0] - 1 == a[k - 1][0]))
-            { // 连续段[j,k)
-                x ^= a[k][1] >> i & 1;
-                if (x) res++;
+            int cnt = 0; // 1的数量
+            while (k < m && (j == k || a[k][0] - 1 == a[k - 1][0])) // 连续段[j,k)
+            { 
+                x ^= (a[k][1] >> i) & 1;
+                if (x)
+                    cnt++;
                 k++;
             }
-            // cout<<res<<" "<<a[k-1][0]<<" "<<a[j][0]<<endl;
-            if (a[j][0] == 1)
-                ans += (1ll << i) * res;
+            if (a[j][0] == 1) // 从1开始的连续段没的选
+                ans += (1ll << i) * cnt;
             else
-                ans += (1ll << i) * min(res, a[k - 1][0] + 2 - a[j][0] - res); // 连续段前一位填0或1,位置为1则没得选前面一定是0
-            j = k;
+                ans += (1ll << i) * min(cnt, a[k - 1][0] - a[j][0] + 2 - cnt); // 连续段前一位填0或1
         }
     }
-    cout << ans << endl;
-    return;
+    cout << ans << '\n';
 }
