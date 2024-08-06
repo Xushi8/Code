@@ -3,39 +3,48 @@
 template <typename T = int>
 struct union_find
 {
-	using reference = T&;
-	using const_reference = T const&;
+    using reference = T&;
+    using const_reference = T const&;
 
-	union_find() noexcept = default;
-	union_find(size_t n) noexcept :
-		m_size(n)
-	{
-	}
+    union_find() noexcept = default;
+    union_find(size_t n) noexcept :
+        m_size(n)
+    {
+    }
 
-	const_reference find(T const& x)
-	{
-		auto it = par.find(x);
-		if (it == par.end())
-			return par[x] = x;
-		if (it->second == x)
-			return x;
-		else
-			return it->second = find(it->second);
-	}
+    void resize(size_t n) noexcept
+    {
+        m_size = n;
+        m_par.clear();
+    }
 
-	void unite(T const& x, T const& y)
-	{
-		auto& px = find(x);
-		auto& py = find(y);
-		par[px] = py;
-	}
+    const_reference find(T const& x)
+    {
+        auto it = m_par.find(x);
+        if (it == m_par.end())
+        {
+            m_par.emplace(x, x);
+            return x;
+        }
+        if (it->second == x)
+            return x;
+        else
+            return it->second = find(it->second);
+    }
 
-	bool same(T const& x, T const& y)
-	{
-		return find(x) == find(y);
+    void unite(T const& x, T const& y)
+    {
+        const_reference px = find(x);
+        const_reference py = find(y);
+        m_par[px] = py;
+    }
+
+    bool same(T const& x, T const& y)
+    {
+        return find(x) == find(y);
     }
 
 private:
-	size_t m_size;
-	std::map<T, T> par;
+    size_t m_size;
+    std::map<T, T> m_par;
 };

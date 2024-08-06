@@ -1,7 +1,40 @@
+// 2024/08/05 16:17:08
+#ifdef LOCAL
+#include <basic_std_lib.h>
+#else
+#include <bits/stdc++.h>
+#endif
+using namespace std;
+
+void solve();
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
+
+#ifdef LOCAL
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+#endif
+    return 0;
+}
+
+using i64 = int64_t;
+using u64 = uint64_t;
+using pii = pair<int, int>;
+using pll = pair<i64, i64>;
+constexpr int N = 1000005;
+
 #include <cassert>
 #include <vector>
 #include <cstdint>
-#include <iostream>
 
 constexpr int P = 998244353;
 // assume -P <= x < 2P
@@ -108,13 +141,13 @@ struct Z
         return lhs.val() >= rhs.val();
     }
 
-    friend std::ostream& operator<<(std::ostream& os, Z const& val)
+    friend ostream& operator<<(ostream& os, Z const& val)
     {
         os << val.val();
         return os;
     }
 
-    friend std::istream& operator>>(std::istream& is, Z& val)
+    friend istream& operator>>(istream& is, Z& val)
     {
         is >> val.m_x;
         return is;
@@ -182,3 +215,43 @@ struct Comb
         return fac(n) * invfac(m) * invfac(n - m);
     }
 } comb;
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> b[i];
+    }
+
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+
+    auto func = [&](int x, int y) -> Z
+    {
+        if (x > y)
+            swap(x, y);
+        if (x == 0)
+            return 1;
+        else
+            return comb.binom(x + y, x);
+    };
+
+    Z ans;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            ans += abs(a[i] - b[j]) * func(i, j) * func(n - i - 1, n - j - 1);
+        }
+    }
+
+    cout << ans << '\n';
+}
