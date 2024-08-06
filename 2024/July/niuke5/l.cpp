@@ -57,35 +57,35 @@ T qpow(T a, int b)
 }
 struct Z
 {
-    int x;
+    int m_x;
     Z(int x = 0) :
-        x(norm(x)) {}
+        m_x(norm(x)) {}
     int val() const
     {
-        return x;
+        return m_x;
     }
     Z operator-() const
     {
-        return Z(norm(P - x));
+        return Z(norm(P - m_x));
     }
     Z inv() const
     {
-        assert(x != 0);
+        assert(m_x != 0);
         return qpow(*this, P - 2);
     }
     Z& operator*=(const Z& rhs)
     {
-        x = int64_t(x) * rhs.x % P;
+        m_x = int64_t(m_x) * rhs.m_x % P;
         return *this;
     }
     Z& operator+=(const Z& rhs)
     {
-        x = norm(x + rhs.x);
+        m_x = norm(m_x + rhs.m_x);
         return *this;
     }
     Z& operator-=(const Z& rhs)
     {
-        x = norm(x - rhs.x);
+        m_x = norm(m_x - rhs.m_x);
         return *this;
     }
     Z& operator/=(const Z& rhs)
@@ -120,13 +120,13 @@ struct Z
 
 struct Comb
 {
-    int n;
-    std::vector<Z> _fac;
-    std::vector<Z> _invfac;
-    std::vector<Z> _inv;
+    int m_n;
+    std::vector<Z> m_fac;
+    std::vector<Z> m_invfac;
+    std::vector<Z> m_inv;
 
     Comb() :
-        n{0}, _fac{1}, _invfac{1}, _inv{0} {}
+        m_n{0}, m_fac{1}, m_invfac{1}, m_inv{0} {}
     Comb(int n) :
         Comb()
     {
@@ -135,38 +135,38 @@ struct Comb
 
     void init(int m)
     {
-        if (m <= n) return;
-        _fac.resize(m + 1);
-        _invfac.resize(m + 1);
-        _inv.resize(m + 1);
+        if (m <= m_n) return;
+        m_fac.resize(m + 1);
+        m_invfac.resize(m + 1);
+        m_inv.resize(m + 1);
 
-        for (int i = n + 1; i <= m; i++)
+        for (int i = m_n + 1; i <= m; i++)
         {
-            _fac[i] = _fac[i - 1] * i;
+            m_fac[i] = m_fac[i - 1] * i;
         }
-        _invfac[m] = _fac[m].inv();
-        for (int i = m; i > n; i--)
+        m_invfac[m] = m_fac[m].inv();
+        for (int i = m; i > m_n; i--)
         {
-            _invfac[i - 1] = _invfac[i] * i;
-            _inv[i] = _invfac[i] * _fac[i - 1];
+            m_invfac[i - 1] = m_invfac[i] * i;
+            m_inv[i] = m_invfac[i] * m_fac[i - 1];
         }
-        n = m;
+        m_n = m;
     }
 
     Z fac(int m)
     {
-        if (m > n) init(2 * m);
-        return _fac[m];
+        if (m > m_n) init(2 * m);
+        return m_fac[m];
     }
     Z invfac(int m)
     {
-        if (m > n) init(2 * m);
-        return _invfac[m];
+        if (m > m_n) init(2 * m);
+        return m_invfac[m];
     }
     Z inv(int m)
     {
-        if (m > n) init(2 * m);
-        return _inv[m];
+        if (m > m_n) init(2 * m);
+        return m_inv[m];
     }
     Z binom(int n, int m)
     {
