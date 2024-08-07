@@ -1,4 +1,4 @@
-// 2024/08/07 14:09:17
+// 2024/08/07 14:25:40
 #ifdef LOCAL
 #include <basic_std_lib.h>
 #else
@@ -56,44 +56,40 @@ void solve()
         }
         else
         {
-            G[u].try_emplace(v, w);
+            G[u].emplace(v, w);
         }
     }
 
     constexpr i64 INF = 0x3f3f3f3f3f3f3f3f;
-
-    auto spfa = [&](int s)
+    auto dijkstra = [&](int s)
     {
         vector<i64> dis(n, INF);
-        queue<int> que;
-        vector<int> vis(n);
-        que.emplace(s);
+        priority_queue<pii, vector<pii>, greater<>> que;
+        que.emplace(0, s);
         dis[s] = 0;
-        vis[s] = 1;
         while (!que.empty())
         {
-            auto u = que.front();
+            auto [ww, u] = que.top();
             que.pop();
-            vis[u] = 0;
+            if (dis[u] < ww)
+                continue;
             for (auto [v, w] : G[u])
             {
                 if (dis[v] > dis[u] + w)
                 {
                     dis[v] = dis[u] + w;
-                    if (!vis[v])
-                    {
-                        que.emplace(v);
-                        vis[v] = 1;
-                    }
+                    que.emplace(dis[v], v);
                 }
             }
         }
+
         return dis;
     };
 
-    auto dis = spfa(0);
+    auto dis = dijkstra(0);
+
     for (int i = 0; i < n; i++)
     {
-        cout << (dis[i] != INF ? dis[i] : (i64(-1))) << ' ';
+        cout << (dis[i] != INF ? dis[i] : -1) << ' ';
     }
 }
