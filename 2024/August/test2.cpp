@@ -1,6 +1,7 @@
 #include <boost/container/vector.hpp>
 #include <iostream>
 #include <vector>
+#include <bit>
 using namespace std;
 struct default_init_t
 {
@@ -65,7 +66,8 @@ int main()
     constexpr size_t n = 10;
     // std::vector<A> a(n, default_init);
     // boost::container::vector<A> a(n, default_init);
-    boost::container::vector<A> a(n, boost::container::default_init);
+    // boost::container::vector<A> a(n, boost::container::default_init);
+    boost::container::vector<A> a(n);
     int cnt = 0;
     for (size_t i = 0; i < n; i++)
     {
@@ -76,4 +78,8 @@ int main()
         }
     }
     cout << cnt << '\n';
+
+    unsigned int x = 100;
+    cout << bit_floor(x) << '\n';
+    cout << __lg(x) << '\n';
 }
