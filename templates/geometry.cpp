@@ -4,7 +4,7 @@
 using namespace std;
 
 // 二维向量
-const double PI = 2.0 * acos(0.0);
+const double PI = acosl(-1);
 const double EPS = 1e-10;
 
 struct Vector2
@@ -328,7 +328,7 @@ bool segmentIntersection(Vector2 a, Vector2 b, Vector2 c, Vector2 d)
     double ab = ccw(a, b, c) * ccw(a, b, d);
     double cd = ccw(c, d, a) * ccw(c, d, b);
     // 两条线段在同一直线上或者端点相互重叠
-    if (ab == 0 && cd == 0)
+    if (abs(ab - 0) < EPS && abs(cd - 0) < EPS)
     {
         if (b < a)
             std::swap(a, b);
