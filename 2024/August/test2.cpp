@@ -1,6 +1,7 @@
 #include <boost/container/vector.hpp>
 #include <iostream>
 #include <vector>
+#include <bit>
 using namespace std;
 struct default_init_t
 {
@@ -9,15 +10,48 @@ inline constexpr default_init_t default_init;
 
 struct A
 {
-    int x;
+    int m_x;
     A() :
-        x()
+        m_x()
     {
         cout << "值初始化" << '\n';
     }
+
     A(default_init_t)
     {
         cout << "默认初始化" << '\n';
+    }
+
+    A(int x) :
+        m_x(x)
+    {
+        cout << "直接初始化" << '\n';
+    }
+
+    A(A const& that) :
+        m_x(that.m_x)
+    {
+        cout << "A const&" << '\n';
+    }
+
+    A(A&& that) noexcept :
+        m_x(std::move(that.m_x))
+    {
+        cout << "A&&" << '\n';
+    }
+
+    A& operator=(A const& that)
+    {
+        m_x = that.m_x;
+        cout << "operator= const&" << '\n';
+        return *this;
+    }
+
+    A& operator=(A&& that) noexcept
+    {
+        m_x = that.m_x;
+        cout << "operator= &&" << '\n';
+        return *this;
     }
 };
 
@@ -29,18 +63,23 @@ void func()
 
 int main()
 {
-    constexpr size_t n = 1000000;
-    std::vector<A> a(n, default_init);
+    constexpr size_t n = 10;
+    // std::vector<A> a(n, default_init);
     // boost::container::vector<A> a(n, default_init);
     // boost::container::vector<A> a(n, boost::container::default_init);
+    boost::container::vector<A> a(n);
     int cnt = 0;
     for (size_t i = 0; i < n; i++)
     {
-        if (a[i].x != 0)
+        if (a[i].m_x != 0)
         {
             cnt++;
-            cout << a[i].x << '\n';
+            cout << a[i].m_x << '\n';
         }
     }
     cout << cnt << '\n';
+
+    unsigned int x = 100;
+    cout << bit_floor(x) << '\n';
+    cout << __lg(x) << '\n';
 }

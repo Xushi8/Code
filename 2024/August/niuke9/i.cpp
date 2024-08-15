@@ -37,6 +37,8 @@ using i128 = __int128_t;
 template <typename T>
 int num_len(T x)
 {
+    if (x == 0)
+        return 1;
     int res = 0;
     while (x)
     {
@@ -46,24 +48,24 @@ int num_len(T x)
     return res;
 }
 
-string to_string(i128 x)
+std::string to_string(i128 x)
 {
-    string res;
+    std::string res;
+    res.reserve(35);
     while (x)
     {
-        res += char(x % 10);
+        res += char(x % 10 + '0');
         x /= 10;
     }
     reverse(res.begin(), res.end());
     return res;
 }
 
-i128 stoi128(string s)
+i128 get_i128(std::string_view s)
 {
     i128 res = 0;
-    reverse(s.begin(), s.end());
     i128 now = 1;
-    for (size_t i = 0; i < s.size(); i++, now *= 10)
+    for (int i = int(s.size()) - 1; i >= 0; i--, now *= 10)
     {
         res += (s[i] - '0') * now;
     }
@@ -72,9 +74,11 @@ i128 stoi128(string s)
 
 i128 sqrt(i128 x)
 {
+    if (x < 0)
+        return -1;
     int len = num_len(x);
     i128 l = 0, r = 9;
-    for (int i = 0; i < (len / 2) + 1; i++)
+    for (int i = 0; i < (len / 2); i++)
     {
         r = r * 10 + 9;
     }
@@ -82,7 +86,7 @@ i128 sqrt(i128 x)
     i128 res = 0;
     while (l <= r)
     {
-        i128 mid = (l + r) / 2;
+        i128 mid = l + (r - l) / 2;
         if (mid * mid <= x)
         {
             res = mid;
@@ -96,36 +100,59 @@ i128 sqrt(i128 x)
     return res;
 }
 
-template <typename T>
-void print(T num)
+std::istream& operator>>(std::istream& is, i128& x)
 {
-    if (num / 10)
+    x = 0;
+    int f = 1;
+    int ch = is.get();
+    while (!isdigit(ch))
     {
-        print(num / 10);
+        if (ch == '-')
+            f = -1;
+        ch = is.get();
     }
-    cout.put((char)(num % 10 + '0'));
+    while (isdigit(ch))
+        x = x * 10 + ch - '0', ch = is.get();
+    x *= f;
+    return is;
+}
+
+std::ostream& operator<<(std::ostream& os, i128 x)
+{
+    if (x >= 10)
+    {
+        os << (x / 10);
+    }
+    os.put(x % 10 + '0');
+    return os;
 }
 
 void solve()
 {
-    // i128 x = 8;
-    // cout << i64(sqrt(x)) << endl;
-    // cout << i64(sqrt(x + 1)) << endl;
-    // cout << i64(sqrt(x + 2)) << endl;
-    // cout << i64(sqrt(x + 3)) << endl;
-    // cout << i64(sqrt(i128(99))) << endl;
-    // cout << i64(sqrt(i128(100))) << endl;
-    // cout << i64(sqrt(i128(101))) << endl;
-
     int n;
     cin >> n;
     string L, R;
     cin >> L >> R;
 
-    i128 lhigh = stoi128(L.substr(0, n / 2));
-    i128 llow = stoi128(L.substr(n / 2));
-    i128 rhigh = stoi128(R.substr(0, n / 2));
-    i128 rlow = stoi128(R.substr(n / 2));
+    i128 lhigh = get_i128(L.substr(0, n / 2));
+    i128 llow = get_i128(L.substr(n / 2));
+    i128 rhigh = get_i128(R.substr(0, n / 2));
+    i128 rlow = get_i128(R.substr(n / 2));
+
+    // 计算[l, r]中平方数的数量
+    auto calc = [](i128 l, i128 r)
+    {
+        i128 nl = sqrt(l);
+        if (nl * nl != l)
+            nl++;
+        i128 nr = sqrt(r);
+        i128 res = 0;
+        if (nl <= nr)
+        {
+            res += nr - nl + 1;
+        }
+        return res;
+    };
 
     i128 l = sqrt(lhigh) + 1;
     i128 r = sqrt(rhigh);
@@ -138,16 +165,10 @@ void solve()
         i128 len = r - l + 1;
 
         // [string(n / 2, '0'), string(n / 2, '9')];
-        i128 l1 = stoi128(string(n / 2, '0'));
-        i128 r1 = stoi128(string(n / 2, '9'));
-        i128 nl = sqrt(l1);
-        if (nl * nl != l1)
-            nl++;
-        i128 nr = sqrt(r1);
-        if (nl <= nr)
-        {
-            ans += len * (nr - nl + 1);
-        }
+        i128 l1 = get_i128(string(n / 2, '0'));
+        i128 r1 = get_i128(string(n / 2, '9'));
+        i128 cnt = calc(l1, r1);
+        ans += len * cnt;
     }
 
     l--;
@@ -157,14 +178,7 @@ void solve()
         if (l * l == lhigh)
         {
             // [llow, rlow]
-            i128 nl = sqrt(llow);
-            if (nl * nl != llow)
-                nl++;
-            i128 nr = sqrt(rlow);
-            if (nl <= nr)
-            {
-                ans += nr - nl + 1;
-            }
+            ans += calc(llow, rlow);
         }
     }
     else
@@ -172,30 +186,14 @@ void solve()
         if (l * l == lhigh)
         {
             // [llow, string(n / 2, '9')]
-            i128 nl = sqrt(llow);
-            if (nl * nl != llow)
-                nl++;
-            i128 nr = sqrt(stoi128(string(n / 2, '9')));
-            if (nl <= nr)
-            {
-                ans += nr - nl + 1;
-            }
+            ans += calc(llow, get_i128(string(n / 2, '9')));
         }
         if (r * r == rhigh)
         {
             // [string(n / 2, '0'), rlow]
-            i128 t = stoi128(string(n / 2, '0'));
-            i128 nl = sqrt(t);
-            if (nl * nl != t)
-                nl++;
-            i128 nr = sqrt(rlow);
-            if (nl <= nr)
-            {
-                ans += nr - nl + 1;
-            }
+            ans += calc(get_i128(string(n / 2, '0')), rlow);
         }
     }
 
-    print(ans);
-    cout << '\n';
+    cout << ans << '\n';
 }
