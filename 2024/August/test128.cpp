@@ -20,7 +20,7 @@ int num_len(T x)
 std::string to_string(i128 x)
 {
     std::string res;
-    res.reserve(42);
+    res.reserve(35);
     while (x)
     {
         res += char(x % 10 + '0');
@@ -94,4 +94,15 @@ std::ostream& operator<<(std::ostream& os, i128 x)
     }
     os.put(x % 10 + '0');
     return os;
+}
+
+int main()
+{
+    using namespace std;
+    i128 x = 1;
+    for (i128 i = 0; i < 40; i++)
+    {
+        x *= 10;
+        cout << x << endl;
+    }
 }
