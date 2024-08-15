@@ -73,6 +73,8 @@ void solve()
     while (l <= r)
     {
         int mid = (l + r) / 2;
+        if ((l + r) % 2 == 1)
+            mid++;
 
         if (check(mid))
             l = mid + 1, ans = mid;
