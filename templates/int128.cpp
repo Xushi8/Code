@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <limits>
 using i128 = __int128_t;
 
 template <typename T>
@@ -19,8 +20,18 @@ int num_len(T x)
 
 std::string to_string(i128 x)
 {
+    // 应做的特判
+    if (x == std::numeric_limits<i128>::min())
+    {
+        return "-170141183460469231731687303715884105728";
+    }
     std::string res;
-    res.reserve(42);
+    res.reserve(40);
+    if (x < 0)
+    {
+        x = -x;
+        res += '-';
+    }
     while (x)
     {
         res += char(x % 10 + '0');
