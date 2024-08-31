@@ -11,7 +11,6 @@
             "args": [
                 "-fdiagnostics-color=always",
                 // "-fsanitize=address", // 内存越界检查
-                // "-fno-omit-frame-pointer", // 检测到内存错误时打印函数调用栈
                 "-fsanitize=undefined", // 检测未定义行为
                 "-I${workspaceFolder}",
                 "${file}",
@@ -20,6 +19,9 @@
                 "-DLOCAL",
                 // "-O3",
                 "-g",
+                "-fno-omit-frame-pointer",
+                "-ggdb3",
+                "-fno-omit-frame-pointer",
                 "-D_GLIBCXX_DEBUG",
                 "-D_GLIBCXX_DEBUG_PEDANTIC",
                 "-lfmt",
