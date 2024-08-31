@@ -7,7 +7,7 @@
         {
             "type": "shell",
             "label": "single",
-            "command": "/usr/bin/g++",
+            "command": "/usr/local/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 // "-fsanitize=address", // 内存越界检查
