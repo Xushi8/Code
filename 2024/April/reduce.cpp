@@ -50,24 +50,47 @@ double func_c(vector<double> const& vec)
 	return reduce(vec.begin(), vec.end());
 }
 
+double func_d(vector<double> const& vec) {
+	double sum = 0;
+	#pragma omp simd
+	for(size_t i = 0; i < vec.size(); i++) {
+		sum += vec[i];
+	}
+	return sum;
+}
+
+template <typename F>
+std::chrono::duration<double, std::milli> time_test(F&& f)
+{
+	auto first = std::chrono::steady_clock::now();
+	f();
+	auto last = std::chrono::steady_clock::now();
+	return last - first;
+}
+
 int main()
 {
 	auto vec = read_vec();
-	auto t_begin = tick_count::now();
-	auto t_end = tick_count::now();
-	auto a = func_a(vec);
-	t_end = tick_count::now();
-	print("a = {}\npar reduce use: {}s\n", a, (t_end - t_begin).seconds());
+	double res;
+	auto time_use = time_test([&]{
+		res = func_a(vec);
+	});
+	print("res = {}, std::par:\t {}ms\n", res, time_use.count());
 
-	t_begin = tick_count::now();
-	auto b = func_b(vec);
-	t_end = tick_count::now();
-	print("b = {}\nparallel_reduce use: {}s\n", b, (t_end - t_begin).seconds());
+	time_use = time_test([&]{
+		res = func_b(vec);
+	});
+	print("res = {}, tbb:\t\t {}ms\n", res, time_use.count());
 
-	t_begin = tick_count::now();
-	auto c = func_c(vec);
-	t_end = tick_count::now();
-	print("c = {}\nreduce use: {}s\n", c, (t_end - t_begin).seconds());
+	time_use = time_test([&]{
+		res = func_c(vec);
+	});
+	print("res = {}, std::seq:\t {}ms\n", res, time_use.count());
+
+	time_use = time_test([&]{
+		res = func_d(vec);
+	});
+	print("res = {}, brute force:\t {}ms\n", res, time_use.count());
 
 	return 0;
 }
