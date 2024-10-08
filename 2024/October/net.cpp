@@ -10,7 +10,7 @@
 #define PORT 8080
 #define BACKLOG 10
 
-int main(void)
+int main()
 {
     int sockfd;
     struct sockaddr_in6 servaddr;
