@@ -6,8 +6,7 @@ struct union_find
     using reference = T&;
     using const_reference = T const&;
 
-    union_find() noexcept = default;
-    union_find(size_t n) noexcept :
+    union_find(size_t n = 0) noexcept :
         m_size(n)
     {
     }
