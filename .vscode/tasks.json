@@ -24,6 +24,7 @@
                 "-fno-omit-frame-pointer",
                 "-D_GLIBCXX_DEBUG",
                 "-D_GLIBCXX_DEBUG_PEDANTIC",
+                "-D_FORTIFY_SOURCE=3",
                 "-lfmt",
                 "-ltbb",
                 // "-march=native",
