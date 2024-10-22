@@ -21,7 +21,6 @@
                 "-g",
                 "-fno-omit-frame-pointer",
                 "-ggdb3",
-                "-fno-omit-frame-pointer",
                 "-D_GLIBCXX_DEBUG",
                 "-D_GLIBCXX_DEBUG_PEDANTIC",
                 "-D_FORTIFY_SOURCE=3",
