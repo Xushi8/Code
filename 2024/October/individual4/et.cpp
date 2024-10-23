@@ -1,10 +1,5 @@
-#include <cstddef>
-#include <cstdint>
-#include <limits>
-#include <string_view>
-#include <string>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 using u64 = uint64_t;
 
@@ -17,8 +12,8 @@ auto get_hash = [](string_view s, const size_t BASE, const size_t MOD)
     {
         hash[i + 1] = hash[i] * BASE + s[i] - 'a' + 1;
         p[i + 1] = p[i] * BASE;
-        hash[i + 1] %= MOD;
-        p[i + 1] %= MOD;
+        // hash[i + 1] %= MOD;
+        // p[i + 1] %= MOD;
     }
     return std::pair{hash, p};
 };
@@ -33,15 +28,39 @@ auto update_hash = [](string_view s, const size_t BASE, const size_t MOD, vector
     {
         hash[i + 1] = hash[i] * BASE + s[i] - 'a' + 1;
         p[i + 1] = p[i] * BASE;
-        hash[i + 1] %= MOD;
-        p[i + 1] %= MOD;
+        // hash[i + 1] %= MOD;
+        // p[i + 1] %= MOD;
     }
     return std::pair{hash, p};
 };
 
-// [l, r] 最大为 [1, s.size()]
 auto query = [](int l, int r, vector<u64> const& hash, vector<u64> const& p, const size_t MOD)
 {
-    const u64 res = (hash[r] - hash[l - 1] * p[r - l + 1] % MOD + MOD) % MOD;
+    // const u64 res = (hash[r] - hash[l - 1] * p[r - l + 1] % MOD + MOD) % MOD;
+    const u64 res = hash[r] - hash[l - 1] * p[r - l + 1];
     return res;
 };
+
+int main()
+{
+    string res = "asdjd";
+    auto [hash1, p1] = get_hash(res, BASE1, MOD1);
+    string s;
+    while (cin >> s)
+    {
+        // cout << s.size() << '\n';
+        auto [hash, p] = get_hash(s, BASE1, MOD1);
+        if (s.size() > 10)
+        {
+            cout << query(1, 10, hash, p, MOD1) << '\n';
+        }
+
+        res += s;
+
+        update_hash(res, BASE1, MOD1, hash1, p1);
+        if (res.size() > 1000000)
+        {
+            cout << query(1, 1000, hash1, p1, MOD1) << '\n';
+        }
+    }
+}
