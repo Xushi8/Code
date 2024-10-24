@@ -78,6 +78,7 @@ std::pair<size_t, size_t> get_neighbor_k(size_t l, size_t r, double k)
             y = 0;
     }
 
+    // std::cout << std::format("{}\n", y);
     weights[x][y] *= k;
     return std::pair{x, y};
 }
@@ -127,6 +128,7 @@ std::pair<size_t, std::vector<double>> iteration(size_t node_size, size_t begin_
         double variance = std::transform_reduce(values.begin(), values.end(), 0., std::plus<>(), [&](double val)
             { return (val - average) * (val - average); });
 
+        std::cout << std::format("{} {}\n", iteration_count, variance);
         if (variance < eps) // 方差小于 eps 记为收敛
         {
             break;
@@ -136,40 +138,22 @@ std::pair<size_t, std::vector<double>> iteration(size_t node_size, size_t begin_
     return std::pair{iteration_count, values};
 }
 
-int main(int argc, char** argv)
+int main()
 {
     std::ofstream ofs("data_random.txt");
     // for (size_t node_size = 100; node_size < static_cast<size_t>(1e6); node_size *= 1.5)
     // {
     //     auto [count, values] = iteration(node_size, node_size * 40, node_size / 10);
     //     ofs << node_size << ' ' << count << std::endl;
-    //     using namespace std::string_literals;
-    //     if (argc == 2 && argv[1] == "--print"s)
-    //     {
-    //         for (auto x : values)
-    //         {
-    //             ofs << std::format("{} ", x);
-    //         }
-    //         ofs << '\n';
-    //     }
     // }
 
-    ofs.close();
-    ofs.open("data_k.txt");
-    for (double k = 1.0; k > 0.01; k -= 0.01)
-    {
-        static constexpr size_t node_size = fixed;
-        auto [count, values] = iteration(node_size, node_size, node_size / 10, k);
+    // ofs.close();
+    // ofs.open("data_k.txt");
+    // for (double k = 1.0; k > 0.01; k -= 0.05)
+    // {
+    //     static constexpr size_t node_size = fixed;
+    //     auto [count, values] = iteration(node_size, node_size * 40, node_size, k);
 
-        ofs << node_size << ' ' << count << std::endl;
-        using namespace std::string_literals;
-        if (argc == 2 && argv[1] == "--print"s)
-        {
-            for (auto x : values)
-            {
-                ofs << std::format("{} ", x);
-            }
-            ofs << '\n';
-        }
-    }
+    //     ofs << std::format("{}", k) << ' ' << count << std::endl;
+    // }
 }
