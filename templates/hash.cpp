@@ -1,6 +1,5 @@
 #include <cstddef>
 #include <cstdint>
-#include <limits>
 #include <string_view>
 #include <string>
 #include <utility>
@@ -8,7 +7,9 @@
 using namespace std;
 using u64 = uint64_t;
 
-constexpr u64 BASE1 = 211, BASE2 = 13331, MOD1 = 1e9 + 7, MOD2 = 998244353;
+// BASE 要大于 s[i], 最好远大于
+// BASE 与 MOD 最好都是质数, 冲突概率小
+constexpr u64 BASE1 = 1063, BASE2 = 13331, MOD1 = 1e9 + 7, MOD2 = 998244353;
 auto get_hash(string_view s, const u64 BASE, const u64 MOD)
 {
     vector<u64> hash(s.size() + 1), p(s.size() + 1);

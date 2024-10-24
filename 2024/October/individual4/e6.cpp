@@ -11,7 +11,9 @@ using pii = pair<int, int>;
 using pll = pair<i64, i64>;
 constexpr int N = 1e6 + 6;
 
-constexpr u64 BASE1 = 211, BASE2 = 13331, MOD1 = 1e9 + 7, MOD2 = 998244353;
+// BASE 要大于 s[i], 最好远大于
+// BASE 与 MOD 最好都是质数, 冲突概率小
+constexpr u64 BASE1 = 1063, BASE2 = 13331, MOD1 = 1e9 + 7, MOD2 = 998244353;
 auto get_hash(string_view s, const u64 BASE, const u64 MOD)
 {
     vector<u64> hash(s.size() + 1), p(s.size() + 1);
@@ -83,7 +85,7 @@ void solve()
             u64 h2 = query(ans.size() - j, ans.size(), hash2, p2, MOD2);
             u64 h22 = query(1, 1 + j, hash22, p22, MOD2);
 
-            if (h1 == h11 && h2 == h22)
+            if (h1 == h11)
             {
                 cnt = j + 1;
             }
