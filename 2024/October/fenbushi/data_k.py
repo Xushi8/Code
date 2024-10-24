@@ -10,10 +10,10 @@ def read_data(filename):
     with open(filename, 'r') as file:
         lines = file.readlines()
         for line in lines:
-            if line.strip():  # 跳过空行
+            if line.strip():
                 x, y = map(float, line.strip().split())
                 x_values.append(x)
-                y_values.append(int(y))  # 第二个数是整数
+                y_values.append(int(y))
     
     return x_values, y_values
 
@@ -35,11 +35,10 @@ def plot_smooth_curve(x_values, y_values):
 
     # 绘图
     plt.figure(figsize=(10, 6))
-    plt.plot(x_smooth, y_smooth, color='b', label='Smooth Curve')
+    plt.plot(x_smooth, y_smooth, color='b', label='Curve')
     plt.scatter(x_sorted, y_sorted, color='r', label='Data Points')  # 画出原始数据点
-    plt.xlabel('X (float values)')
-    plt.ylabel('Y (integer values)')
-    plt.title('Smoothed Curve of X vs Y')
+    plt.xlabel('X (K values)')
+    plt.ylabel('Y (Iteration counts)')
 
     # 限制 y 轴范围
     plt.ylim(0, 1000000)
@@ -52,7 +51,7 @@ def plot_smooth_curve(x_values, y_values):
     plt.show()
 
 # 读取数据并绘图
-filename = 'data.txt'  # 假设文件名为 data.txt
+filename = 'data_k.txt'  # 假设文件名为 data.txt
 x_values, y_values = read_data(filename)
 
 # 绘制平滑图表

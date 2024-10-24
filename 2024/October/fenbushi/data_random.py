@@ -30,10 +30,10 @@ def plot_smooth_convergence(nodes, iterations):
     
     # 绘图
     plt.figure(figsize=(10, 6))
-    plt.plot(nodes_smooth, iterations_smooth, color='b', label='Smooth Curve')
+    plt.plot(nodes_smooth, iterations_smooth, color='b', label='Curve')
     plt.scatter(nodes, iterations, color='r', label='Data Points')  # 画出原始数据点
     plt.xlabel('Number of Nodes')
-    plt.ylabel('Convergence Iterations')
+    plt.ylabel('Iterations counts')
     plt.title('Smoothed Convergence vs Number of Nodes')
     plt.grid(True)
     plt.legend()

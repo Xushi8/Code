@@ -14,10 +14,10 @@ static constexpr double eps = 1e-3;
 static constexpr size_t fixed = 1e4; // 对于 k 值与收敛次数的关系对比, 这里使用固定值
 
 // [l, r)
-std::pair<size_t, size_t> get_neighbor_random(size_t l, size_t r)
+[[nodiscard]] std::pair<size_t, size_t> get_neighbor_random(size_t l, size_t r)
 {
     thread_local std::mt19937 rng(std::random_device{}());
-    std::uniform_int_distribution<size_t> uni(l, r - 1);
+    std::uniform_int_distribution<size_t> uni(l, r - 1); // 均匀分布的构造和析构非常 cheap， 可以随用随构造
     while (1)
     {
         size_t x = uni(rng);
@@ -30,10 +30,10 @@ std::pair<size_t, size_t> get_neighbor_random(size_t l, size_t r)
 }
 
 // [l, r)
-std::pair<size_t, size_t> get_neighbor_k(size_t l, size_t r, double k)
+[[nodiscard]] std::pair<size_t, size_t> get_neighbor_k(size_t l, size_t r, double k)
 {
     thread_local std::mt19937 rng(std::random_device{}());
-    std::uniform_int_distribution<size_t> uni(l, r - 1);
+    std::uniform_int_distribution<size_t> uni(l, r - 1); // 均匀分布的构造和析构非常 cheap， 可以随用随构造
     std::uniform_real_distribution<double> dist(0, 1);
     static std::mutex mtx;
 
@@ -80,10 +80,11 @@ std::pair<size_t, size_t> get_neighbor_k(size_t l, size_t r, double k)
 
     // std::cout << std::format("{}\n", y);
     weights[x][y] *= k;
+    weights[y][x] *= k;
     return std::pair{x, y};
 }
 
-std::pair<size_t, std::vector<double>> iteration(size_t node_size, size_t begin_count, size_t add_count, double k = 0.0)
+[[nodiscard]] std::pair<size_t, std::vector<double>> iteration(size_t node_size, size_t begin_count, size_t add_count, double k = 0.0)
 {
     std::vector<std::mutex> mutexs(node_size);
     std::vector<double> values(node_size);
@@ -141,7 +142,7 @@ std::pair<size_t, std::vector<double>> iteration(size_t node_size, size_t begin_
 int main()
 {
     std::ofstream ofs("data_random.txt");
-    for (size_t node_size = 100; node_size < static_cast<size_t>(1e6); node_size *= 1.5)
+    for (size_t node_size = 100; node_size < static_cast<size_t>(1e5); node_size *= 1.5)
     {
         auto [count, values] = iteration(node_size, node_size * 40, node_size / 10);
         ofs << node_size << ' ' << count << std::endl;
