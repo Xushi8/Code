@@ -1,12 +1,15 @@
-#include <cstddef>
-#include <cstdint>
-#include <limits>
-#include <string_view>
-#include <string>
-#include <utility>
-#include <vector>
+// 2024/10/23 17:15:58
+#ifdef LOCAL
+#include <basic_std_lib.h>
+#else
+#include <bits/stdc++.h>
+#endif
 using namespace std;
+using i64 = int64_t;
 using u64 = uint64_t;
+using pii = pair<int, int>;
+using pll = pair<i64, i64>;
+constexpr int N = 1e6 + 6;
 
 constexpr u64 BASE1 = 211, BASE2 = 13331, MOD1 = 1e9 + 7, MOD2 = 998244353;
 auto get_hash(string_view s, const u64 BASE, const u64 MOD)
@@ -38,7 +41,6 @@ void update_hash(string_view s, vector<u64>& hash, vector<u64>& p, const u64 BAS
     }
 }
 
-// [l, r] 最大为 [1, s.size()]
 u64 query(int l, int r, vector<u64> const& hash, vector<u64> const& p, const u64 MOD)
 {
     u64 res = (hash[r] - hash[l - 1] * p[r - l + 1] % MOD + MOD) % MOD;
@@ -72,13 +74,6 @@ void solve()
         auto [hash11, p11] = get_hash(s2, BASE1, MOD1);
         auto [hash22, p22] = get_hash(s2, BASE2, MOD2);
 
-        /**
-            注意这里 h1 指第一个字符串的hash 使用MOD1, h2 同样是第一个字符串的hash 使用MOD2
-            h11 才表示第二个的hash值
-            1 2 表示使用的MOD
-            位数才表示第几个, 如 1 位如 h1 为第一个字符串, h11 则为第二个字符串
-        */
-
         int cnt = 0;
         for (int j = 0; j < min<int>(ans.size(), s2.size()); j++)
         {
@@ -98,4 +93,22 @@ void solve()
     }
 
     cout << ans << '\n';
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
+
+#ifdef LOCAL
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+#endif
+    return 0;
 }
