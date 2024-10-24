@@ -44,8 +44,8 @@ void gossipAverage(std::vector<double>& values, int iterations)
 int main()
 {
     // 初始化节点值
-    std::vector<double> values = {10.0, 20.0, 30.0, 40.0};
-    int iterations = 1000; // 迭代次数
+    std::vector<double> values = {10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0};
+    int iterations = 3; // 迭代次数
 
     std::cout << "Initial values: ";
     for (const auto& v : values)
@@ -65,14 +65,13 @@ int main()
     std::cout << std::endl;
 
     // 计算最终的平均数
-    double finalAverage = 0.0;
-    for (const auto& v : values)
-    {
-        finalAverage += v;
-    }
-    finalAverage /= values.size();
+    double realAverage = std::reduce(values.begin(), values.end()) / values.size();
 
-    std::cout << "Global average: " << finalAverage << std::endl;
+    double piancha = std::transform_reduce(values.begin(), values.end(), 0.0, std::plus<>(), [&](double x)
+        { return std::abs(realAverage - x); }) / values.size();
+
+    std::cout << "Global average: " << realAverage << std::endl;
+    std::cout << "偏差: " << piancha << std::endl;
 
     return 0;
 }
