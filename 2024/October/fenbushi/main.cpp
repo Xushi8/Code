@@ -141,19 +141,19 @@ std::pair<size_t, std::vector<double>> iteration(size_t node_size, size_t begin_
 int main()
 {
     std::ofstream ofs("data_random.txt");
-    // for (size_t node_size = 100; node_size < static_cast<size_t>(1e6); node_size *= 1.5)
-    // {
-    //     auto [count, values] = iteration(node_size, node_size * 40, node_size / 10);
-    //     ofs << node_size << ' ' << count << std::endl;
-    // }
+    for (size_t node_size = 100; node_size < static_cast<size_t>(1e6); node_size *= 1.5)
+    {
+        auto [count, values] = iteration(node_size, node_size * 40, node_size / 10);
+        ofs << node_size << ' ' << count << std::endl;
+    }
 
-    // ofs.close();
-    // ofs.open("data_k.txt");
-    // for (double k = 1.0; k > 0.01; k -= 0.05)
-    // {
-    //     static constexpr size_t node_size = fixed;
-    //     auto [count, values] = iteration(node_size, node_size * 40, node_size, k);
+    ofs.close();
+    ofs.open("data_k.txt");
+    for (double k = 1.0; k > 0.01; k -= 0.05)
+    {
+        static constexpr size_t node_size = fixed;
+        auto [count, values] = iteration(node_size, node_size * 40, node_size, k);
 
-    //     ofs << std::format("{}", k) << ' ' << count << std::endl;
-    // }
+        ofs << std::format("{}", k) << ' ' << count << std::endl;
+    }
 }
