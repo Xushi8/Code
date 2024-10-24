@@ -68,10 +68,11 @@ int main()
     double realAverage = std::reduce(values.begin(), values.end()) / values.size();
 
     double piancha = std::transform_reduce(values.begin(), values.end(), 0.0, std::plus<>(), [&](double x)
-        { return std::abs(realAverage - x); }) / values.size();
+                         { return (realAverage - x) * (realAverage - x); })
+                     / values.size();
 
     std::cout << "Global average: " << realAverage << std::endl;
-    std::cout << "偏差: " << piancha << std::endl;
+    std::cout << "方差: " << piancha << std::endl;
 
     return 0;
 }
