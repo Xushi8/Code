@@ -85,7 +85,7 @@ void solve()
             u64 h2 = query(ans.size() - j, ans.size(), hash2, p2, MOD2);
             u64 h22 = query(1, 1 + j, hash22, p22, MOD2);
 
-            if (h1 == h11)
+            if (h1 == h11 && h2 == h22)
             {
                 cnt = j + 1;
             }
