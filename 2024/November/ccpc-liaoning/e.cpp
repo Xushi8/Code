@@ -5,30 +5,6 @@
 #include <bits/stdc++.h>
 #endif
 using namespace std;
-using i64 = int64_t;
-using u64 = uint64_t;
-using pii = pair<int, int>;
-using pll = pair<i64, i64>;
-constexpr int N = 1e6 + 6;
-
-void print(bool ok, vector<vector<int>> const& vec = {})
-{
-    if (!ok)
-    {
-        cout << "NO\n";
-        return;
-    }
-
-    cout << "YES\n";
-    for (size_t i = 0; i < vec.size(); i++)
-    {
-        for (size_t j = 0; j < vec[i].size(); j++)
-        {
-            cout << vec[i][j] << ' ';
-        }
-        cout << '\n';
-    }
-}
 
 enum class dirs
 {
@@ -46,13 +22,27 @@ void solve()
 {
     int n, m;
     cin >> n >> m;
-    if (n * m % 4 != 0)
-    {
-        print(false);
-        return;
-    }
 
     vector<vector<int>> a(n, vector<int>(m));
+
+    auto print = [&](bool ok)
+    {
+        if (!ok)
+        {
+            cout << "NO\n";
+            return;
+        }
+
+        cout << "YES\n";
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                cout << a[i][j] << ' ';
+            }
+            cout << '\n';
+        }
+    };
 
     auto cover = [&](int x, int y, int& k, dirs dir, lens len)
     {
@@ -124,6 +114,12 @@ void solve()
 
     int k = 1;
 
+    if (n * m % 4 != 0)
+    {
+        print(false);
+        return;
+    }
+
     if (n % 4 == 0)
     {
         for (int j = 0; j < m; j++)
@@ -134,7 +130,7 @@ void solve()
             }
         }
 
-        print(true, a);
+        print(true);
         return;
     }
 
@@ -147,7 +143,7 @@ void solve()
                 cover(i, j, k, dirs::heng, lens::len4);
             }
         }
-        print(true, a);
+        print(true);
         return;
     }
 
@@ -171,7 +167,7 @@ void solve()
                 }
             }
 
-            print(true, a);
+            print(true);
             return;
         }
 
@@ -193,7 +189,7 @@ void solve()
                 }
             }
 
-            print(true, a);
+            print(true);
             return;
         }
     }
