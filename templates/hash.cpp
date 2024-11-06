@@ -10,7 +10,7 @@ using u64 = uint64_t;
 // BASE 要大于 s[i], 最好远大于
 // BASE 与 MOD 最好都是质数, 冲突概率小
 constexpr u64 BASE1 = 1063, BASE2 = 13331, MOD1 = 1e9 + 7, MOD2 = 998244353;
-auto get_hash(string_view s, const u64 BASE, const u64 MOD)
+__attribute__((always_inline)) auto get_hash(string_view s, const u64 BASE, const u64 MOD)
 {
     vector<u64> hash(s.size() + 1), p(s.size() + 1);
     p[0] = 1;
@@ -24,7 +24,7 @@ auto get_hash(string_view s, const u64 BASE, const u64 MOD)
     return std::pair{hash, p};
 }
 
-void update_hash(string_view s, vector<u64>& hash, vector<u64>& p, const u64 BASE, const u64 MOD)
+__attribute__((always_inline)) void update_hash(string_view s, vector<u64>& hash, vector<u64>& p, const u64 BASE, const u64 MOD)
 {
     const size_t old_size = hash.size();
     hash.resize(s.size() + 1);
@@ -40,7 +40,7 @@ void update_hash(string_view s, vector<u64>& hash, vector<u64>& p, const u64 BAS
 }
 
 // [l, r] 最大为 [1, s.size()]
-u64 query(int l, int r, vector<u64> const& hash, vector<u64> const& p, const u64 MOD)
+__attribute__((always_inline)) u64 query(int l, int r, vector<u64> const& hash, vector<u64> const& p, const u64 MOD)
 {
     u64 res = (hash[r] - hash[l - 1] * p[r - l + 1] % MOD + MOD) % MOD;
     return res;
