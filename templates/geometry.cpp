@@ -4,8 +4,7 @@
 using namespace std;
 
 // 二维向量
-const double PI = acosl(-1);
-const double EPS = 1e-10;
+constexpr double EPS = 1e-10;
 
 struct Vector2
 {
@@ -59,7 +58,7 @@ struct Vector2
     {
         // atan2 返回 (-PI, PI]，修正为 [0，2PI)
         // fmod 求两个实数相除的余数
-        return fmod(atan2(y, x) + 2 * PI, 2 * PI);
+        return fmod(atan2(y, x) + 2 * std::numbers::pi_v<double>, 2 * std::numbers::pi_v<double>);
     }
 
     // 内积
