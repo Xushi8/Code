@@ -39,15 +39,20 @@ struct pool
     }
 
     template <typename Func, typename... Ts>
-    void post(Func&& func, Ts&&... ts)
+    std::future<std::invoke_result_t<Func, Ts...>> post(Func&& func, Ts&&... ts)
     {
-        auto task = std::make_shared<std::packaged_task<void()>>(std::bind(std::forward<Func>(func), std::forward<Ts>(ts)...));
+        using result_type = std::invoke_result_t<Func, Ts...>;
+        auto task = std::make_shared<std::packaged_task<result_type()>>(std::bind(std::forward<Func>(func), std::forward<Ts>(ts)...));
+
+        std::future<result_type> res = task->get_future();
         {
             std::scoped_lock lock(m_mtx);
             m_tasks.emplace([task]
                 { (*task)(); });
         }
         m_cv.notify_one();
+
+        return res;
     }
 
     ~pool() noexcept
