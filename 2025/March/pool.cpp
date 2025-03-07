@@ -42,7 +42,11 @@ struct pool
     std::future<std::invoke_result_t<Func, Ts...>> post(Func&& func, Ts&&... ts)
     {
         using result_type = std::invoke_result_t<Func, Ts...>;
-        auto task = std::make_shared<std::packaged_task<result_type()>>(std::bind(std::forward<Func>(func), std::forward<Ts>(ts)...));
+        auto task = std::make_shared<std::packaged_task<result_type()>>(
+            [func = std::forward<Func>(func), ... ts = std::forward<Ts>(ts)]
+            {
+                func(std::forward<Ts>(ts)...);
+            });
 
         std::future<result_type> res = task->get_future();
         {
