@@ -58,7 +58,8 @@ void solve() {
 		if(du1 > now) {
 			ans += du1 - now;
 		}
-		now = du2;
+        // now = du2;
+        now = max(now, du2);
 	}
 	
 	const long double pi = acosl(-1);
