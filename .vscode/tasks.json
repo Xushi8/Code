@@ -10,6 +10,7 @@
             "command": "clang++-19",
             "args": [
                 "-stdlib=libc++",
+                "-static-libstdc++",
                 "-fdiagnostics-color=always",
                 // "-fsanitize=address", // 内存越界检查
                 "-fsanitize=undefined", // 检测未定义行为
