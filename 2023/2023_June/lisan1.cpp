@@ -18,6 +18,3 @@ int main()
     ::std::cout << ::std::flush;
     return 0;
 }
-
-
-

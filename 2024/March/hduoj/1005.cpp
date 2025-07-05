@@ -27,14 +27,12 @@ constexpr int N = 100005;
 
 struct node
 {
-	size_t deep;
-	vector<node> sons;
-	
+    size_t deep;
+    vector<node> sons;
 };
 
 void solve()
 {
-	
 }
 
 int main()
@@ -42,13 +40,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

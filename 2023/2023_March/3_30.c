@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include<stdbool.h>
+#include <stdbool.h>
 
 // int gcd(int a, int b)
 // {
@@ -77,8 +77,10 @@ int main()
     int min_num = arr[0], max_num = 0;
     for (int i = 1; i < n; i++)
     {
-        if (max_num < arr[i] - min_num) max_num = arr[i] - min_num;
-        if (min_num > arr[i]) min_num = arr[i];
+        if (max_num < arr[i] - min_num)
+            max_num = arr[i] - min_num;
+        if (min_num > arr[i])
+            min_num = arr[i];
     }
     if (max_num != 0)
         printf("%d", max_num);

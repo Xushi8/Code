@@ -9,7 +9,8 @@ inline int read()
     int ch = getchar();
     while (ch < '0' || ch > '9')
     {
-        if (ch = '-') f = -1;
+        if (ch = '-')
+            f = -1;
     }
     while ((ch = getchar()) >= '0' && ch <= '9')
     {
@@ -27,7 +28,7 @@ int main()
         printf("error");
         return 0;
     }
-    
+
     if (m > n)
     {
         int tmp = n;
@@ -41,9 +42,11 @@ int main()
         int sum = i;
         for (int j = 1; j < i; j++)
         {
-            if (i % j == 0) sum += j;
+            if (i % j == 0)
+                sum += j;
         }
-        if (sum == 2 * i) ans[tot++] = i;
+        if (sum == 2 * i)
+            ans[tot++] = i;
     }
 
     if (tot != 0)
@@ -57,7 +60,6 @@ int main()
     {
         printf("error");
     }
-
 
     system("pause");
     return 0;

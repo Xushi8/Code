@@ -23,7 +23,6 @@ public:
 
     Stu()
     {
-
     }
     Stu(int a, char b)
     {
@@ -43,7 +42,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     Stu a(3, '4');
     Stu b(a);
     Stu c = a;

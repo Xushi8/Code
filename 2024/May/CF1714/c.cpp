@@ -79,7 +79,7 @@
 // 			cout << '\n';
 // 			continue;
 //         }
-		
+
 // 		// bitset<10> vis;
 // 		// ans.insert(ans.end(), 11, 10);
 // 		// vector<int> now_ans;
@@ -120,13 +120,11 @@
 // 		dp[x] = std::move(ans);
 // 	}
 
-
 // #ifdef LOCAL
 // 	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 // #endif
 // 	return 0;
 // }
-
 
 // 2024/05/30 11:06:23
 #ifdef LOCAL
@@ -143,30 +141,30 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		int val;
-		cin >> val;
-		int ans = 0;
-		int wei = 1;
-		for (int i = 9; i >= 1 && val != 0; i--)
-		{
-			int t = min(i, val);
-			val -= t;
-			ans += t * wei;
-			wei *= 10;
-		}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        int val;
+        cin >> val;
+        int ans = 0;
+        int wei = 1;
+        for (int i = 9; i >= 1 && val != 0; i--)
+        {
+            int t = min(i, val);
+            val -= t;
+            ans += t * wei;
+            wei *= 10;
+        }
 
-		cout << ans << '\n';
-	}
-	
+        cout << ans << '\n';
+    }
+
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

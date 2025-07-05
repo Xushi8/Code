@@ -27,7 +27,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string s;
     getline(cin, s);
     int a = -1, b = -1, c = -1;
@@ -77,7 +77,7 @@ int main()
                 cout << a << " + " << b << " = " << c << endl;
                 return 0;
             }
-            
+
             sa.erase(it + i);
         }
     }
@@ -127,7 +127,6 @@ int main()
             sc.erase(it + i);
         }
     }
-
 
     cout << "No\n";
 

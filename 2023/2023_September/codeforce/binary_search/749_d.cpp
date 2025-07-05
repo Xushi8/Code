@@ -28,7 +28,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
@@ -60,7 +60,7 @@ int main()
             cin >> tmp[i];
             tmp[i]--;
             if (!prise[tmp[i]].empty())
-                st.erase({ prise[tmp[i]].back(), tmp[i] });
+                st.erase({prise[tmp[i]].back(), tmp[i]});
         }
         if (st.empty())
             cout << "0 0\n";
@@ -78,11 +78,10 @@ int main()
             cout << winer + 1 << ' ' << *upper_bound(prise[winer].begin(), prise[winer].end(), target) << '\n';
         }
 
-
         for (int i = 0; i < m; i++)
         {
             if (!prise[tmp[i]].empty())
-                st.insert({ prise[tmp[i]].back(), tmp[i] });
+                st.insert({prise[tmp[i]].back(), tmp[i]});
         }
     }
 

@@ -1,13 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     bool arr[64] = { 0 };
 //     int tt;
 //     cin >> tt;
@@ -64,7 +62,7 @@ using namespace std;
 //             {
 //                 cout << 0 << '\n';
 //             }
-            
+
 //             break;
 //         case 6:
 //             flag = 0;
@@ -109,8 +107,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -133,7 +129,6 @@ using namespace std;
 //         }
 //         mark.emplace_back(tmp);
 //     }
-    
 
 //     int tt;
 //     cin >> tt;
@@ -155,7 +150,7 @@ using namespace std;
 //             {
 //                 arr[mark[b][i]] = 1;
 //             }
-            
+
 //             break;
 //         case 2:
 //             cin >> b;
@@ -255,7 +250,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 2; i <= n; i++)
@@ -323,13 +318,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     string str;
 //     cin >> str;
 //     while (1)
@@ -358,7 +351,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     ifstream ifs;
 //     ifs.open("data.out", ios::in);
 
@@ -367,7 +360,7 @@ using namespace std;
 //     begin = clock();
 //     while ((ch = ifs.get()) != EOF)
 //     {
-        
+
 //     }
 //     end = clock();
 //     cout << endl;
@@ -392,12 +385,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     vector<int> arr;
 //     arr.emplace_back(1);
 //     arr.emplace_back(1);
@@ -412,12 +404,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     for (int i = 0; i < 16; i++)
 //         cout << bitset<8>(i) << '\n';
 
@@ -467,8 +458,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // void init(bool* arr)
 // {
 //     for (int i = 0; i < 64; i++)
@@ -510,15 +499,14 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     for (int i = 0; i < 10; i++)
 //     {
-        
+
 //     }
 //     vector<int> arr(8);
 //     cout << arr.size();
@@ -527,8 +515,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // void subset(int n, int s) {
 

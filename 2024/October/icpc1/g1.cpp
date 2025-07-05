@@ -2,23 +2,24 @@
 using namespace std;
 using i64 = int64_t;
 using pii = pair<int, int>;
-void solve() {
+void solve()
+{
     int n;
     cin >> n;
     vector<int> A(n + 1);
     map<int, int> B;
-    for (int i = 0;i < n;i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> A[i];
         B[A[i]] = 0;
     }
-    for (int l = 0;l < n;l++)
+    for (int l = 0; l < n; l++)
     {
-        priority_queue<int, vector<int>, greater<int> > S;
-        priority_queue<int, vector<int>, less<int> > D;
+        priority_queue<int, vector<int>, greater<int>> S;
+        priority_queue<int, vector<int>, less<int>> D;
         int mid;
 
-        for (int r = l;r < n;r++)
+        for (int r = l; r < n; r++)
         {
             if (l == r)
             {
@@ -75,23 +76,22 @@ void solve() {
                     {
                         S.push(A[r]);
                     }
-
                 }
             }
             B[mid]++;
         }
     }
-
-
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(0);
 
     int tt = 1;
-    //cin >> tt;
-    while (tt--) {
+    // cin >> tt;
+    while (tt--)
+    {
         solve();
     }
 

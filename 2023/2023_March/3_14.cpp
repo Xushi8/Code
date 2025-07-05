@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     vector<int> arr(a);
@@ -22,7 +20,6 @@ using namespace std;
 //     }
 //     cout << arr[0] + 1 << endl;
 
-
 //     cout << flush;
 //     system("pause");
 //     return 0;
@@ -32,12 +29,11 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     int ans = 0;
 
-    
 //     for (int i = 1; i <= n; i++)
 //     {
 //         int a = n, b = i;
@@ -57,13 +53,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     vector<char> s1;
 //     vector<int> a1;
 //     int ch;
@@ -77,7 +71,7 @@ using namespace std;
 //         {
 //             ch = cin.get();
 //         }
-        
+
 //         s1.emplace_back(ch);
 //         ch = cin.get();
 //         a1.emplace_back(ch - '0');
@@ -86,7 +80,6 @@ using namespace std;
 //     vector<int> a2(a1);
 //     vector<char> str(s1);
 //     vector<int> arr(a1);
-
 
 //     for (int i = 0; i < n; i++)
 //     {
@@ -195,19 +188,16 @@ using namespace std;
 //     if (flag == 1) cout << "Not stable\n";
 //     else cout << "Stable\n";
 
-
-
 //     cout << flush;
 //     ::system("pause");
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     stack<int> s;
 //     int ch;
 //     int cnt = 0;
@@ -266,12 +256,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     list<int> L;
     int tt;
     cin >> tt;

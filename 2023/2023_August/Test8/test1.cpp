@@ -27,7 +27,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int arr[100];
     cout << arr[1000000] << '\n';
 

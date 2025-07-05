@@ -31,25 +31,25 @@ vector<int> ans;
 
 void dfs(int deep)
 {
-	if (deep == n)
-	{
-		for (auto x : ans)
-		{
-			cout << x + 1 << ' ';
-		}
-		cout << '\n';
-		return;
-	}
+    if (deep == n)
+    {
+        for (auto x : ans)
+        {
+            cout << x + 1 << ' ';
+        }
+        cout << '\n';
+        return;
+    }
 
-	for (int i = 0; i < n; i++)
-	{
-		if (!vis[i])
-		{
-			vis[i] = 1;
-			ans.emplace_back(i);
-			dfs(deep + 1);
-			ans.pop_back();
-			vis[i] = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (!vis[i])
+        {
+            vis[i] = 1;
+            ans.emplace_back(i);
+            dfs(deep + 1);
+            ans.pop_back();
+            vis[i] = 0;
         }
     }
 }
@@ -57,11 +57,11 @@ void dfs(int deep)
 int main()
 {
     ios::sync_with_stdio(false);
-	cin.tie(0);
+    cin.tie(0);
 
-	cin >> n;
-	dfs(0);
-    
+    cin >> n;
+    dfs(0);
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

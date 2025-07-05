@@ -2,8 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -14,7 +12,8 @@ int main()
     for (int i = 0; i < 1000; i++)
     {
         int a = rand();
-        if (a <= 100000) ans++;
+        if (a <= 100000)
+            ans++;
     }
     cout << ans << endl;
     cout << ans / 1000000000. << endl;

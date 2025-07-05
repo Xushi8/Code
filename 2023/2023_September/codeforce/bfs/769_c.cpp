@@ -29,15 +29,16 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, k;
     cin >> n >> m >> k;
     if (k & 1)
     {
-        cout << "IMPOSSIBLE\n" << endl;
+        cout << "IMPOSSIBLE\n"
+             << endl;
         return 0;
     }
-    
+
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -56,8 +57,8 @@ int main()
         }
     }
 
-    int dx[] = { 1, 0, 0, -1 };
-    int dy[] = { 0, -1, 1, 0 };
+    int dx[] = {1, 0, 0, -1};
+    int dy[] = {0, -1, 1, 0};
     queue<pii> que;
     que.emplace(bx, by);
     memset(dis, -1, sizeof(dis));
@@ -65,7 +66,8 @@ int main()
     arr[bx][by] = '.';
     while (!que.empty())
     {
-        auto [x, y] = que.front(); que.pop();
+        auto [x, y] = que.front();
+        que.pop();
         for (int i = 0; i < 4; i++)
         {
             int tx = x + dx[i];
@@ -105,7 +107,8 @@ int main()
         }
         else
         {
-            cout << "IMPOSSIBLE\n" << endl;
+            cout << "IMPOSSIBLE\n"
+                 << endl;
             return 0;
         }
     }

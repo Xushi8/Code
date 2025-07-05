@@ -87,7 +87,6 @@ private:
     std::vector<int> m_data;
 };
 
-
 int main()
 {
     int n;

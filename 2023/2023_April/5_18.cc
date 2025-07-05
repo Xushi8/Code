@@ -11,7 +11,7 @@ vector<vector<__int128_t>> mul(const vector<vector<__int128_t>>& a, const vector
             {
                 c[i][j] += a[i][k] * b[k][j];
             }
-    
+
     return c;
 }
 
@@ -36,7 +36,7 @@ __int128_t fib(__int128_t n)
         return 1;
     else
     {
-        return pow({ {1, 1}, {1, 0} }, n)[1][0];
+        return pow({{1, 1}, {1, 0}}, n)[1][0];
     }
 }
 
@@ -47,7 +47,7 @@ void print_int128(__int128_t n)
     cout.put((char)(n % 10 + '0'));
 }
 
-ostream& operator << (ostream& out, __int128_t n)
+ostream& operator<<(ostream& out, __int128_t n)
 {
     print_int128(n);
     return out;
@@ -57,7 +57,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // for (int i = 0; i < 1000; i++)
     //     cout << fib(i) << ' ';
 

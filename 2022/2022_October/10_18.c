@@ -1,6 +1,6 @@
 #include "10_18.h"
 
-//猜数字
+// 猜数字
 /* void menu(void)
 {
     printf("*****0.exit*****\n");
@@ -41,7 +41,7 @@ int main()
     return 0;
 } */
 
-//素数
+// 素数
 /* int primeNumbers(int);
 
 int primeNumbers(int n)
@@ -81,19 +81,19 @@ void game(void)
     char show[ROWS][COLS];
     InitBoard(mine, ROWS, COLS, '0');
     InitBoard(show, ROWS, COLS, '*');
-    //DisplayBoard(mine, ROW, COL);
+    // DisplayBoard(mine, ROW, COL);
     DisplayBoard(show, ROW, COL);
     SetMine(mine, ROW, COL);
-    //DisplayBoard(mine, ROW, COL);
+    // DisplayBoard(mine, ROW, COL);
     FindMine(mine, show, ROW, COL);
 }
 
 void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)
 {
     int i, j;
-    for(i = 0; i<rows; i++)
+    for (i = 0; i < rows; i++)
     {
-        for(j = 0; j<cols; j++)
+        for (j = 0; j < cols; j++)
         {
             board[i][j] = set;
         }
@@ -104,34 +104,32 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 {
     int i, j;
     printf("-----------------\n");
-    for(i = 0; i<=row; i++)
+    for (i = 0; i <= row; i++)
     {
         printf("%d ", i);
     }
     printf("\n");
-    for(i = 1; i<=row; i++)
+    for (i = 1; i <= row; i++)
     {
         printf("%d ", i);
-        for(j = 1; j<=col; j++)
+        for (j = 1; j <= col; j++)
         {
             printf("%c ", board[i][j]);
         }
         printf("\n");
-
     }
     printf("-----------------\n");
-
 }
 
 void SetMine(char board[ROWS][COLS], int row, int col)
 {
     int count = 10;
     int x, y;
-    while(count)
+    while (count)
     {
-        x = rand()%row+1;
-        y = rand()%col+1;
-        if(board[x][y] == '0')
+        x = rand() % row + 1;
+        y = rand() % col + 1;
+        if (board[x][y] == '0')
         {
             board[x][y] = '1';
             count--;
@@ -142,13 +140,13 @@ void SetMine(char board[ROWS][COLS], int row, int col)
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
     int x, y;
-    while(1)
+    while (1)
     {
         puts("请输入坐标");
         scanf("%d%d", &x, &y);
-        if(x>=1 && x<=row && y>=1 && y<=col)
+        if (x >= 1 && x <= row && y >= 1 && y <= col)
         {
-            if(mine[x][y] == '1')
+            if (mine[x][y] == '1')
             {
                 puts("你被炸死了");
                 DisplayBoard(mine, row, col);
@@ -158,7 +156,6 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
             {
                 show[x][y] = GetMineCount(mine, x, y) + '0';
                 DisplayBoard(show, ROW, COL);
-
             }
         }
         else
@@ -170,14 +167,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 
 int GetMineCount(char mine[ROWS][COLS], int x, int y)
 {
-    return mine[x-1][y-1]+
-           mine[x-1][y]+ 
-           mine[x-1][y+1]+ 
-           mine[x][y-1]+ 
-           mine[x][y+1]+ 
-           mine[x+1][y-1]+ 
-           mine[x+1][y]+ 
-           mine[x+1][y+1] -8*'0';
+    return mine[x - 1][y - 1] + mine[x - 1][y] + mine[x - 1][y + 1] + mine[x][y - 1] + mine[x][y + 1] + mine[x + 1][y - 1] + mine[x + 1][y] + mine[x + 1][y + 1] - 8 * '0';
 }
 int main()
 {

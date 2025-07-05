@@ -144,65 +144,65 @@ constexpr int N = 1000005;
 
 bool is_lun(int y)
 {
-	return y % 400 == 0 || (y % 4 == 0 && y % 100 != 0);
+    return y % 400 == 0 || (y % 4 == 0 && y % 100 != 0);
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	string s, t;
-	cin >> s >> t;
-	int y1 = stoi(s.substr(0, 4));
-	int m1 = stoi(s.substr(4, 2));
-	int d1 = stoi(s.substr(6));
+    string s, t;
+    cin >> s >> t;
+    int y1 = stoi(s.substr(0, 4));
+    int m1 = stoi(s.substr(4, 2));
+    int d1 = stoi(s.substr(6));
 
-	int y2 = stoi(t.substr(0, 4));
-	int m2 = stoi(t.substr(4, 2));
-	int d2 = stoi(t.substr(6));
-	int days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	int ans = 0;
-	for (int year = y1; year <= y2; year++)
-	{
-		string s1 = to_string(year);
-		string s2 = s1;
-		reverse(s2.begin(), s2.end());
-		s1 += s2;
-		int mon = stoi(s1.substr(4, 2));
-		int day = stoi(s1.substr(6, 2));
-		if (year == y1)
-		{
-			if (mon < m1 || (mon == m1 && day < d1))
-				continue;
-		}
-		else if (year == y2)
-		{
-			if (mon > m2 || (mon == m2 && day > d2))
-				continue;
-		}
+    int y2 = stoi(t.substr(0, 4));
+    int m2 = stoi(t.substr(4, 2));
+    int d2 = stoi(t.substr(6));
+    int days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int ans = 0;
+    for (int year = y1; year <= y2; year++)
+    {
+        string s1 = to_string(year);
+        string s2 = s1;
+        reverse(s2.begin(), s2.end());
+        s1 += s2;
+        int mon = stoi(s1.substr(4, 2));
+        int day = stoi(s1.substr(6, 2));
+        if (year == y1)
+        {
+            if (mon < m1 || (mon == m1 && day < d1))
+                continue;
+        }
+        else if (year == y2)
+        {
+            if (mon > m2 || (mon == m2 && day > d2))
+                continue;
+        }
 
-		if (mon == 0 || mon > 12 || day == 0)
-			continue;
-		if (mon != 2 && day > days[mon])
-			continue;
-		if (mon == 2)
-		{
-			if (is_lun(year))
-			{
-				if (day > 29)
-					continue;
-			}
-			else
-			{
-				if (day > 28)
-					continue;
-			}
-		}
-		ans++;
-	}
+        if (mon == 0 || mon > 12 || day == 0)
+            continue;
+        if (mon != 2 && day > days[mon])
+            continue;
+        if (mon == 2)
+        {
+            if (is_lun(year))
+            {
+                if (day > 29)
+                    continue;
+            }
+            else
+            {
+                if (day > 28)
+                    continue;
+            }
+        }
+        ans++;
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

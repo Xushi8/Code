@@ -41,9 +41,9 @@ int main()
         if (x1 == 1 || x1 == n)
         {
             if (y1 == 1 || y1 == m)
-                ans = min({ ans, 2 });
+                ans = min({ans, 2});
             else
-                ans = min({ ans, 3 });
+                ans = min({ans, 3});
         }
 
         if (y1 == 1 || y1 == m)
@@ -57,9 +57,9 @@ int main()
         if (x2 == 1 || x2 == n)
         {
             if (y2 == 1 || y2 == m)
-                ans = min({ ans, 2 });
+                ans = min({ans, 2});
             else
-                ans = min({ ans, 3 });
+                ans = min({ans, 3});
         }
 
         if (y2 == 1 || y2 == m)
@@ -74,11 +74,11 @@ int main()
         {
             if (y1 != y2)
             {
-                ans = min({ ans, 4, n, m });
+                ans = min({ans, 4, n, m});
             }
             else
             {
-                ans = min({ ans, 4, m });
+                ans = min({ans, 4, m});
             }
         }
 
@@ -86,11 +86,11 @@ int main()
         {
             if (x1 != x2)
             {
-                ans = min({ ans, 4, n, m });
+                ans = min({ans, 4, n, m});
             }
             else
             {
-                ans = min({ ans, 4, n });
+                ans = min({ans, 4, n});
             }
         }
 

@@ -46,7 +46,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string s;
     while (cin >> s)
     {
@@ -61,7 +61,7 @@ int main()
             }
             t = nex[t];
         }
-        vector<int> tmp = { arr.rbegin(), arr.rend() };
+        vector<int> tmp = {arr.rbegin(), arr.rend()};
         tmp.pop_back();
         ull ans = 0;
         ans += s.size();

@@ -14,35 +14,35 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, k;
-	cin >> n >> k;
-	vector<vector<int>> G(n + 1);
-	for (int i = 0; i < n - 1; i++)
-	{
-		int u, v;
-		cin >> u >> v;
-		G[u].emplace_back(v);
-		G[v].emplace_back(u);
-	}
+    int n, k;
+    cin >> n >> k;
+    vector<vector<int>> G(n + 1);
+    for (int i = 0; i < n - 1; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        G[u].emplace_back(v);
+        G[v].emplace_back(u);
+    }
 
-	vector<vector<i64>> dp(n + 1, vector<i64>(k + 1));
-	dp[0][0] = 1;
-	constexpr i64 MOD = 1e9 + 7;
-	for (int i = 1; i <= n; i++)
-	{
-		for (int j = 1; j <= min(i, k); j++)
-		{
-			dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1] * (k - (j - 1));
-			dp[i][j] %= MOD;
+    vector<vector<i64>> dp(n + 1, vector<i64>(k + 1));
+    dp[0][0] = 1;
+    constexpr i64 MOD = 1e9 + 7;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= min(i, k); j++)
+        {
+            dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1] * (k - (j - 1));
+            dp[i][j] %= MOD;
         }
-	}
+    }
 
-	i64 ans = 0;
-	for (int j = 1; j <= k; j++)
-	{
-		ans += dp[n][j];
-	}
-	cout << ans % MOD << '\n';
+    i64 ans = 0;
+    for (int j = 1; j <= k; j++)
+    {
+        ans += dp[n][j];
+    }
+    cout << ans % MOD << '\n';
 }
 
 int main()

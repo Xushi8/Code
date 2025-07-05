@@ -35,7 +35,7 @@ void solve()
             {
                 y.emplace(val);
                 ans -= n - x.size();
-            }           
+            }
         }
     }
 

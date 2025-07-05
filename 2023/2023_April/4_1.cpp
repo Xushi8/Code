@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // class Point
 // {
 // public:
@@ -34,8 +33,6 @@ using namespace std;
 //         quick_sort(arr, q + 1, r);
 //     }
 // }
-
-
 
 // const int N = 100005;
 // Point arr[N];
@@ -110,7 +107,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 0; i < n; i++)
@@ -156,7 +153,7 @@ using namespace std;
 //         to = a;
 //         cost = b;
 //     }
-    
+
 //     int to, cost;
 // };
 
@@ -191,7 +188,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, s;
 //     cin >> V >> n >> s;
 //     for (int i = 0; i < n; i++)
@@ -211,8 +208,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // vector<int>edge[50];
 // int in[50];
@@ -264,7 +259,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // // 拓扑排序
 // const int max_v = 100;
@@ -336,7 +330,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cin >> a >> b;
     if (a[0] == '-' && b[0] == '-')
     {
@@ -357,7 +351,8 @@ int main()
             ans[i + 1] = ans[i] / 10;
             ans[i] %= 10;
         }
-        while (ans[len] == 0 && len > 0) len--;
+        while (ans[len] == 0 && len > 0)
+            len--;
         printf("-");
         for (int i = len; i >= 0; i--)
         {
@@ -383,7 +378,8 @@ int main()
             ans[i + 1] = ans[i] / 10;
             ans[i] %= 10;
         }
-        while (ans[len] == 0 && len > 0) len--;
+        while (ans[len] == 0 && len > 0)
+            len--;
         for (int i = len; i >= 0; i--)
         {
             cout << (int)ans[i];
@@ -391,7 +387,6 @@ int main()
     }
     else if (a[0] == '-' && b[0] != '-')
     {
-        
     }
 
     cout << flush;

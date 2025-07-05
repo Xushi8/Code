@@ -29,20 +29,20 @@ int bit[N];
 
 void add(int i, int x)
 {
-	for (; i < N; i += i & -i)
-	{
-		bit[i] += x;
+    for (; i < N; i += i & -i)
+    {
+        bit[i] += x;
     }
 }
 
 int sum(int i)
 {
-	int res = 0;
-	for (; i > 0; i -= i & -i)
-	{
-		res += bit[i];
-	}
-	return res;
+    int res = 0;
+    for (; i > 0; i -= i & -i)
+    {
+        res += bit[i];
+    }
+    return res;
 }
 
 int main()
@@ -50,33 +50,33 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
-	while (m--)
-	{
-		char op;
-		cin >> op;
-		if (op == 'Q')
-		{
-			int i;
-			cin >> i;
-			cout << sum(i) + a[i - 1] << '\n';
-		}
-		else
-		{
-			int l, r, x;
-			cin >> l >> r >> x;
-			add(l, x);
-			add(r + 1, -x);
+    while (m--)
+    {
+        char op;
+        cin >> op;
+        if (op == 'Q')
+        {
+            int i;
+            cin >> i;
+            cout << sum(i) + a[i - 1] << '\n';
+        }
+        else
+        {
+            int l, r, x;
+            cin >> l >> r >> x;
+            add(l, x);
+            add(r + 1, -x);
         }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

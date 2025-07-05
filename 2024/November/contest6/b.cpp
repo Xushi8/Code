@@ -250,9 +250,8 @@ void solve()
                         {
                             if (it != a.begin())
                             {
-                                
                             }
-                            
+
                             break;
                         }
                     }

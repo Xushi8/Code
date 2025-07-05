@@ -44,14 +44,11 @@
 //             tmpy.emplace_back(j);
 //     }
 
-
 //     for (size_t i = 0; i < usedx.size(); i++)
 //     {
 //         if (usedx[i] == tmpx && usedy[i] == tmpy)
 //             return false;
 //     }
-
-
 
 //     int sum = 0;
 //     for (int i = 1; i <= n; i++)
@@ -141,7 +138,6 @@
 //     return 0;
 // }
 
-
 // 2023/07/24 14:16:25
 #include <iostream>
 #include <algorithm>
@@ -165,19 +161,18 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, k;
     cin >> n >> m >> k;
     vector<string> arr(n);
 
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-    
+
     int all = 0;
     for (int i = 0; i < n; i++)
     {

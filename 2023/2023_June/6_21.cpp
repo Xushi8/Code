@@ -74,7 +74,6 @@ using ll = long long;
 //     return 0;
 // }
 
-
 // using ll = long long;
 // const ll MOD = (ll)1e9 + 7;
 // const int N = 100005;
@@ -111,7 +110,6 @@ using ll = long long;
 //     return 0;
 // }
 
-
 // 2023/06/21 18:03:26
 
 // int main()
@@ -140,7 +138,6 @@ using ll = long long;
 //     cout << flush;
 //     return 0;
 // }
-
 
 // 2023/06/21 18:17:07
 // const int N = 20;
@@ -189,7 +186,6 @@ using ll = long long;
 //     return 0;
 // }
 
-
 // 2023/06/21 18:32:42
 
 // vector<int> prime;
@@ -236,14 +232,12 @@ using ll = long long;
 //     return 0;
 // }
 
-
-
 // 2023/06/21 20:49:24
 
 // class my_que
 // {
 //     deque<int> que;
-    
+
 // public:
 //     void pop(int val)
 //     {
@@ -299,7 +293,6 @@ using ll = long long;
 //     return 0;
 // }
 
-
 // // 2023/06/21 21:10:42
 // const long long MOD = (long long)1e9 + 7;
 
@@ -319,7 +312,7 @@ using ll = long long;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     long long n, m;
 //     cin >> m >> n;
 //     cout << ::pow(m, n);
@@ -327,7 +320,6 @@ using ll = long long;
 //     cout << flush;
 //     return 0;
 // }
-
 
 // 2023/06/21 21:19:23
 
@@ -338,7 +330,7 @@ using ll = long long;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -388,14 +380,11 @@ using ll = long long;
 //     //     }
 //     // }
 
-    
 //     cout << flush;
 //     return 0;
 // }
 
-
 // // 45 1 5 3 1
-
 
 // 2023/06/21 22:03:13
 
@@ -403,7 +392,7 @@ using ll = long long;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     int sum = -n;
@@ -429,7 +418,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     // vector<int> arr(n);
@@ -446,9 +435,6 @@ int main()
     vector<int>().swap(arr);
     cout << arr.size() << '\n';
 
-
-
-    
     // priority_queue<int, vector<int>, greater<int>> que;
     // for (int i = 0; i < n; i++)
     // {
@@ -502,7 +488,6 @@ int main()
     // }
     // ans = min(ans, dp[n - 1][n][1]);
     // cout << ans;
-
 
     cout << flush;
     return 0;

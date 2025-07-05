@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int find_pivot(int* arr, int left, int right);
@@ -18,9 +18,9 @@ int main()
     cout << "数据量: " << SIZE << endl;
     init_array(ar, SIZE);
     int begin, end;
-    //to_file(ar, SIZE);
-    //system("pause");
-    
+    // to_file(ar, SIZE);
+    // system("pause");
+
     // begin = clock();
     // insert_sort(ar, ar + SIZE);
     // end = clock();
@@ -44,18 +44,21 @@ int main()
     end = clock();
     cout << "STL快速排序时间: " << (end - begin) / 1000.0 << endl;
 
-    //to_file(ar, SIZE);
+    // to_file(ar, SIZE);
 
-    system("pause"); 
+    system("pause");
     return 0;
 }
 
 int find_pivot(int* arr, int left, int right)
 {
     int middle = (right + left) / 2;
-    if (arr[left] > arr[middle]) swap(arr[left], arr[middle]);
-    if (arr[middle] > arr[right]) swap(arr[middle], arr[right]);
-    if (arr[left] > arr[middle]) swap(arr[left], arr[middle]);
+    if (arr[left] > arr[middle])
+        swap(arr[left], arr[middle]);
+    if (arr[middle] > arr[right])
+        swap(arr[middle], arr[right]);
+    if (arr[left] > arr[middle])
+        swap(arr[left], arr[middle]);
 
     swap(arr[middle], arr[right]);
     return arr[right];

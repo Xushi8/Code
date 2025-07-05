@@ -33,51 +33,51 @@ int ans;
 
 void dfs(int now, int cnt)
 {
-	if (cnt >= ans)
-	{
-		return;
-	}
+    if (cnt >= ans)
+    {
+        return;
+    }
 
-	if (now == n)
-	{
-		ans = min(ans, cnt);
-		return;
-	}
+    if (now == n)
+    {
+        ans = min(ans, cnt);
+        return;
+    }
 
-	for (int i = 1; i <= cnt; i++)
-	{
-		if (sum[i] + a[now] <= W)
-		{
-			sum[i] += a[now];
-			dfs(now + 1, cnt);
-			sum[i] -= a[now];
-		}
-	}
+    for (int i = 1; i <= cnt; i++)
+    {
+        if (sum[i] + a[now] <= W)
+        {
+            sum[i] += a[now];
+            dfs(now + 1, cnt);
+            sum[i] -= a[now];
+        }
+    }
 
-	sum[cnt + 1] += a[now];
-	dfs(now + 1, cnt + 1);
-	sum[cnt + 1] -= a[now];
+    sum[cnt + 1] += a[now];
+    dfs(now + 1, cnt + 1);
+    sum[cnt + 1] -= a[now];
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	cin >> n >> W;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
+    cin >> n >> W;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
-	sort(a, a + n, greater<>());
-	ans = n;
-	dfs(0, 0);
+    sort(a, a + n, greater<>());
+    ans = n;
+    dfs(0, 0);
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

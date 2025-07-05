@@ -1,11 +1,11 @@
 #include "game.h"
 using namespace std;
 
-const int board_size[4] = { 0,10,20,30 };
-const int mine_num[4] = { 0,10,60,100 };
+const int board_size[4] = {0, 10, 20, 30};
+const int mine_num[4] = {0, 10, 60, 100};
 const int INF = 0x3f3f3f3f;
-const int dx[8] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-const int dy[8] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+const int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
 int grade = -1;
 int true_location = 0;
 
@@ -39,10 +39,10 @@ int main()
 void game()
 {
     vector<vector<int>> display_board(board_size[grade] + 1, vector<int>(board_size[grade] + 1, INF)); // 用来打印, INF表示未知
-    vector<vector<int>> true_board(board_size[grade] + 1, vector<int>(board_size[grade] + 1, 0)); // 用来布置雷, 1为雷, 2无雷
-    vector<vector<int>> count_board(board_size[grade] + 1, vector<int>(board_size[grade] + 1, 0)); // 计算周围雷的数量
+    vector<vector<int>> true_board(board_size[grade] + 1, vector<int>(board_size[grade] + 1, 0));      // 用来布置雷, 1为雷, 2无雷
+    vector<vector<int>> count_board(board_size[grade] + 1, vector<int>(board_size[grade] + 1, 0));     // 计算周围雷的数量
     initBoard(true_board, count_board);
-    
+
     while (1)
     {
         displayBoard(display_board);
@@ -104,13 +104,9 @@ bool location(std::vector<std::vector<int>>& display_board, const std::vector<st
     int x, y;
     while (1)
     {
-
-
-
         // cout << endl;
         // displayBoard(true_board);
         // displayBoard(count_board);
-        
 
         cin >> x >> y;
         if (x > 0 && x < board_size[grade] + 1 && y > 0 && y < board_size[grade] + 1)
@@ -173,7 +169,6 @@ void displayBoard(const std::vector<std::vector<int>>& board)
                     cout << k << "  ";
                 else
                     cout << k << " ";
-
             }
             cout << '\n';
             continue;

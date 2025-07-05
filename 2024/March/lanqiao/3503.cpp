@@ -27,16 +27,17 @@ constexpr int N = 1000005;
 
 bool check(size_t i, size_t j, string_view s)
 {
-	while (i < j && s[i] == s[j])
-	{
-		i++; j--;
-	}
-	if (i >= j)
-		return false;
-	if (s[i] > s[j])
-		return true;
-	else
-		return false;
+    while (i < j && s[i] == s[j])
+    {
+        i++;
+        j--;
+    }
+    if (i >= j)
+        return false;
+    if (s[i] > s[j])
+        return true;
+    else
+        return false;
 }
 
 int main()
@@ -44,20 +45,20 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	string s;
-	cin >> s;
-	int ans = 0;
-	for (size_t i = 0; i < s.size(); i++)
-	{
-		for (size_t j = i + 1; j < s.size(); j++)
-		{
-			if (check(i, j, s))
-				ans++;
+    string s;
+    cin >> s;
+    int ans = 0;
+    for (size_t i = 0; i < s.size(); i++)
+    {
+        for (size_t j = i + 1; j < s.size(); j++)
+        {
+            if (check(i, j, s))
+                ans++;
         }
-	}
+    }
 
-	cout << ans << endl;
-    
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

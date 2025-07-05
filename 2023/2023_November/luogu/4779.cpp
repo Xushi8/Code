@@ -63,7 +63,8 @@ int main()
     {
         int u, v, w;
         cin >> u >> v >> w;
-        u--; v--;
+        u--;
+        v--;
         G[u].emplace_back(v, w);
     }
 

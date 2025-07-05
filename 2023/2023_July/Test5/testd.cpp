@@ -58,8 +58,6 @@ bool dfs(int i, int j, int sum, bool turn)
         return !(dfs(i - 1, j, sum, !turn) || dfs(i, j - 1, sum, !turn));
     }
 
-
-
     // if (i == 0)
     //     return sum % 2 == 0;
     // if (j == 0)

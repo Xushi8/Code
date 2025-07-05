@@ -44,7 +44,6 @@ ll qmi(ll a, ll n, ll mod)
     return res;
 }
 
-
 void init()
 {
     for (int i = 0; i < N; i++)
@@ -69,7 +68,6 @@ void init1()
     }
 }
 
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -83,7 +81,6 @@ int main()
 
     ll ans = qmi(a, n, MOD) * qmi(b, m, MOD) % MOD * fact[k] % MOD * infact[n] % MOD * infact[k - n] % MOD;
     cout << ans << '\n';
-
 
     cout << endl;
     return 0;

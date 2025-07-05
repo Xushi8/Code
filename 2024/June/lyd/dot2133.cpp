@@ -14,45 +14,45 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, W;
-	cin >> n >> W;
-	vector<int> v(n), w(n), c(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> v[i] >> w[i] >> c[i];
-	}
+    int n, W;
+    cin >> n >> W;
+    vector<int> v(n), w(n), c(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i] >> w[i] >> c[i];
+    }
 
-	vector<int> v2, w2;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 1; j <= c[i]; j *= 2)
-		{
-			v2.emplace_back(v[i] * j);
-			w2.emplace_back(w[i] * j);
-			c[i] -= j;
-		}
-		if (c[i])
-		{
-			int j = c[i];
-			v2.emplace_back(v[i] * j);
-			w2.emplace_back(w[i] * j);
-			c[i] -= j;
-		}
-	}
+    vector<int> v2, w2;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j <= c[i]; j *= 2)
+        {
+            v2.emplace_back(v[i] * j);
+            w2.emplace_back(w[i] * j);
+            c[i] -= j;
+        }
+        if (c[i])
+        {
+            int j = c[i];
+            v2.emplace_back(v[i] * j);
+            w2.emplace_back(w[i] * j);
+            c[i] -= j;
+        }
+    }
 
-	swap(v2, w2);
+    swap(v2, w2);
     vector<int> dp(W + 1);
-	for (int i = 0; i < v2.size(); i++)
-	{
-		auto ndp = dp;
-		for (int j = w2[i]; j <= W; j++)
-		{
-			ndp[j] = max(dp[j], dp[j - w2[i]] + v2[i]);
+    for (int i = 0; i < v2.size(); i++)
+    {
+        auto ndp = dp;
+        for (int j = w2[i]; j <= W; j++)
+        {
+            ndp[j] = max(dp[j], dp[j - w2[i]] + v2[i]);
         }
         dp = std::move(ndp);
-	}
+    }
 
-	cout << dp.back() << '\n';
+    cout << dp.back() << '\n';
 }
 
 int main()

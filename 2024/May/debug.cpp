@@ -30,13 +30,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	size_t n;
-	cin >> n;
-	vector<int> a(n);
-	size_t x;
-	cin >> x;
-	cout << a[x] << endl;
-    
+    size_t n;
+    cin >> n;
+    vector<int> a(n);
+    size_t x;
+    cin >> x;
+    cout << a[x] << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

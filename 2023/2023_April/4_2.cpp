@@ -13,7 +13,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     char a = 'A', b = 'B', c = 'C';
@@ -45,7 +45,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     __uint128_t i = LLONG_MAX;
 //     cout << i << '\n';
 //     i++;
@@ -62,7 +62,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, k, s;
 //     cin >> n >> k >> s;
 //     vector<P> arr(n);
@@ -82,12 +82,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m, tt;
 //     cin >> n >> m >> tt;
 //     long long ans = n * m;
@@ -121,12 +120,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

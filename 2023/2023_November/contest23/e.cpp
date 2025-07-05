@@ -23,7 +23,7 @@ void solve()
         cout << "1 1 2 " << n << '\n';
         return;
     }
-    
+
     int cnt = 0;
     for (int i = 1; i <= n; i++)
     {

@@ -9,7 +9,8 @@ ll power(ll x, ll y)
     ll ans = 1;
     while (y)
     {
-        if (y & 1) ans = ans * x % mod;
+        if (y & 1)
+            ans = ans * x % mod;
         x = x * x % mod;
         y >>= 1;
     }
@@ -21,8 +22,10 @@ ll C(int n, int m)
 }
 ll calc(int x, int y)
 {
-    if (x > y) swap(x, y);
-    if (!x) return 1;
+    if (x > y)
+        swap(x, y);
+    if (!x)
+        return 1;
     return C(x + y, x);
 }
 int main()

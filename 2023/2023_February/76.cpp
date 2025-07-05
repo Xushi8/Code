@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 
 class Person
 {
@@ -15,8 +14,6 @@ public:
 
 int main()
 {
-    
-    
     system("pause");
     return 0;
 }

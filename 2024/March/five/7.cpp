@@ -30,27 +30,26 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	for (int i = 0; i < m; i++)
-	{
-		string s;
-		cin >> s;
-		int ans = 0;
-		for (int j = 0, k = n - 1; j < n; j++, --k)
-		{
-			if (s[j] == 'n')
-			{
-				ans += 1 << k;
-			}
-			else
-			{
-				
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++)
+    {
+        string s;
+        cin >> s;
+        int ans = 0;
+        for (int j = 0, k = n - 1; j < n; j++, --k)
+        {
+            if (s[j] == 'n')
+            {
+                ans += 1 << k;
             }
-		}
-		cout << ans + 1 << '\n';
+            else
+            {
+            }
+        }
+        cout << ans + 1 << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

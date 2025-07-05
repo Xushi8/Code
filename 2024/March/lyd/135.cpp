@@ -27,47 +27,47 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	size_t n;
-	cin >> n;
-	map<int, int> mp;
-	for (size_t i = 1; i <= n; i++)
-	{
-		int x;
-		cin >> x;
-		if (i > 1)
-		{
-			auto it1 = mp.lower_bound(x);
-			auto it2 = it1;
-			
-			int v1, v2;
-			v1 = v2 = 2e9;
-			if (it1 != mp.end())
-			{
-				v1 = it1->first - x;
-			}
-			if (it1 != mp.begin())
-			{
-				it2--;
-				v2 = x - it2->first;
-			}
+    size_t n;
+    cin >> n;
+    map<int, int> mp;
+    for (size_t i = 1; i <= n; i++)
+    {
+        int x;
+        cin >> x;
+        if (i > 1)
+        {
+            auto it1 = mp.lower_bound(x);
+            auto it2 = it1;
 
-			if (v2 <= v1)
-			{
-				cout << v2 << ' ' << it2->second << '\n';
-			}
-			else
-			{
-				cout << v1 << ' ' << it1->second << '\n';
-			}
-		}
-		mp[x] = i;
-	}
+            int v1, v2;
+            v1 = v2 = 2e9;
+            if (it1 != mp.end())
+            {
+                v1 = it1->first - x;
+            }
+            if (it1 != mp.begin())
+            {
+                it2--;
+                v2 = x - it2->first;
+            }
+
+            if (v2 <= v1)
+            {
+                cout << v2 << ' ' << it2->second << '\n';
+            }
+            else
+            {
+                cout << v1 << ' ' << it1->second << '\n';
+            }
+        }
+        mp[x] = i;
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

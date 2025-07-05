@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -50,9 +49,7 @@ void solve()
     }
     auto cp = arr;
     sort(arr.begin(), arr.end(), [](auto const& l, auto const& r)
-        {
-            return l[2] < r[2];
-        });
+        { return l[2] < r[2]; });
 
     vector<int> ans(n);
     int l = 0, r = n - 1;

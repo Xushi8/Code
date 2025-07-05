@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -44,8 +43,7 @@ void solve()
     {
         for (size_t i = 0; i < s.size(); i++)
         {
-            if()
+            if ()
         }
     };
-    
 }

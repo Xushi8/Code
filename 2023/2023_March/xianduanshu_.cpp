@@ -66,14 +66,17 @@ void update_tree(int node, int start, int end, int L, int R, int add_val)
         mark[node * 2 + 1] += mark[node];
         mark[node] = 0;
     }
-    if (L <= mid) update_tree(node * 2, start, mid, L, R, add_val);
-    if (R > mid) update_tree(node * 2 + 1, mid + 1, end, L, R, add_val);
+    if (L <= mid)
+        update_tree(node * 2, start, mid, L, R, add_val);
+    if (R > mid)
+        update_tree(node * 2 + 1, mid + 1, end, L, R, add_val);
     tree[node] = tree[node * 2] + tree[node * 2 + 1];
 }
 
 int query_tree(int node, int start, int end, int L, int R)
 {
-    if (L <= start && end <= R) return tree[node];
+    if (L <= start && end <= R)
+        return tree[node];
 
     int mid = (start + end) / 2;
     if (mark[node] != 0 && start != end)
@@ -86,8 +89,10 @@ int query_tree(int node, int start, int end, int L, int R)
     }
 
     int sum = 0;
-    if (L <= mid) sum += query_tree(node * 2, start, mid, L, R);
-    if (R > mid) sum += query_tree(node * 2 + 1, mid + 1, end, L, R);
+    if (L <= mid)
+        sum += query_tree(node * 2, start, mid, L, R);
+    if (R > mid)
+        sum += query_tree(node * 2 + 1, mid + 1, end, L, R);
     return sum;
 }
 
@@ -100,7 +105,7 @@ int query_tree(int node, int start, int end, int L, int R)
 //     int mid = (start + end) / 2;
 //     int left_node = 2 * node;
 //     int right_node = 2 * node + 1;
-    
+
 //     return query_tree(left_node, start, mid, L, R) + query_tree(right_node, mid + 1, end, L, R);
 // }
 
@@ -113,7 +118,7 @@ signed main()
     {
         cin >> arr[i];
     }
-    build_tree(1, 1, n); 
+    build_tree(1, 1, n);
     while (m--)
     {
         int a, b, c;

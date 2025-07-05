@@ -66,7 +66,8 @@ int main()
         {
             if (que.top() > arr[i].time)
             {
-                now -= que.top(); que.pop();
+                now -= que.top();
+                que.pop();
                 now += arr[i].time;
                 que.emplace(arr[i].time);
             }
@@ -80,4 +81,4 @@ int main()
 #endif
     cout << endl;
     return 0;
-    }
+}

@@ -16,13 +16,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	ofstream ofs("/home/tom/Documents/Code/in.txt");
-	ofs << 45 << '\n';
-	for (int i = 1; i <= 45; i++)
-	{
-		ofs << i << '\n';
+    ofstream ofs("/home/tom/Documents/Code/in.txt");
+    ofs << 45 << '\n';
+    for (int i = 1; i <= 45; i++)
+    {
+        ofs << i << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

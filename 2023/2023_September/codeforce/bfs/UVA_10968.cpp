@@ -30,14 +30,15 @@ void solve(int n, int m)
     {
         G[i].clear();
     }
-    
+
     for (int i = 0; i < m; i++)
     {
         int u, v;
         cin >> u >> v;
         if (u == 0 && v == 0)
             break;
-        u--; v--;
+        u--;
+        v--;
         G[u].emplace_back(v);
         G[v].emplace_back(u);
     }
@@ -71,7 +72,8 @@ void solve(int n, int m)
         while (!que.empty())
         {
             // auto [u, cost] = que.front(); que.pop();
-            pii p = que.front(); que.pop();
+            pii p = que.front();
+            que.pop();
             int u = p.first, cost = p.second;
             for (int v : G[u])
             {
@@ -93,7 +95,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     while (cin >> n >> m && (n || m))
     {

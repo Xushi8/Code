@@ -23,8 +23,8 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 constexpr int INF = 0x3f3f3f3f;
-int dx[] = { 0, 1, 0, -1 };
-int dy[] = { 1, 0, -1, 0 };
+int dx[] = {0, 1, 0, -1};
+int dy[] = {1, 0, -1, 0};
 
 void solve()
 {
@@ -44,7 +44,7 @@ void solve()
         {
             if (s[i][j] == 'S')
             {
-                que.push({ i, j, 3, 0 });
+                que.push({i, j, 3, 0});
                 mp[{i, j}].emplace(3);
             }
         }
@@ -52,7 +52,8 @@ void solve()
 
     while (!que.empty())
     {
-        auto [x, y, tmp, dis] = que.front(); que.pop();
+        auto [x, y, tmp, dis] = que.front();
+        que.pop();
         int k = (tmp == 3 ? 1 : tmp + 1);
         for (int i = 0; i < 4; i++)
         {
@@ -77,8 +78,7 @@ void solve()
                 }
             }
 
-        next:
-            ;
+        next:;
         }
     }
 
@@ -89,7 +89,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

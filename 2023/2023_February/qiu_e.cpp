@@ -1,7 +1,6 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int n, m;
-
 
 int main()
 {
@@ -11,7 +10,7 @@ int main()
     {
         e += 1.0 / (double)tmp;
         tmp *= i;
-        //if (1.0 / (double)tmp < 1e-18) break;
+        // if (1.0 / (double)tmp < 1e-18) break;
     }
     printf("%.18Lf\n", e);
 

@@ -103,18 +103,16 @@ namespace intrin
  * machines to test them, and the secondary reason is that I even doubt anyone writing
  * code for such machines would bother using a C++ port rather than the original C version.
  */
-#ifndef XXH_VECTOR /* can be predefined on command line */
+#ifndef XXH_VECTOR   /* can be predefined on command line */
 #define XXH_VECTOR 1 /* SSE2 for Pentium 4 and all x86_64 */
 #endif
 
 constexpr int vector_mode = XXH_VECTOR;
 
-
 using avx512_underlying = void;
 using avx2_underlying = void; // std::array<__m128i, 2>;
 using sse2_underlying = __m128i;
 constexpr int acc_align = 16;
-
 
 /* Prefetch
  * Can be disabled by defining XXH_NO_PREFETCH

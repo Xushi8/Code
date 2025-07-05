@@ -36,7 +36,6 @@ int main()
         arr[i].second = i;
     }
 
-
     /*
     8
     45 45 12 546 78 2 45 45
@@ -117,7 +116,6 @@ int main()
     //     }
     // }
 
-
     // int ans = 0;
     // for (int i = 1; i < n - 1; i++)
     // {
@@ -128,7 +126,6 @@ int main()
     //     ans++;
     // if (arr[n - 1] < arr[n - 2])
     //     ans++;
-
 
     int ans = 0;
     bool flag = 0;
@@ -174,5 +171,3 @@ int main()
     cout << flush;
     return 0;
 }
-
-

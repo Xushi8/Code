@@ -42,7 +42,6 @@ void solve()
         lens.emplace_back(j - i);
         i = j;
     }
-
 }
 
 int main()

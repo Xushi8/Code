@@ -21,10 +21,9 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 100005;
 
-
 // void foo()
 // {
-    
+
 // }
 
 // int bar()
@@ -50,7 +49,7 @@ const int N = 100005;
 //             }
 //         }
 //     }
-    
+
 //     return ret;
 // }
 
@@ -104,7 +103,6 @@ const int N = 100005;
 //     return 0;
 // }
 
-
 // 2023/06/23 22:18:20
 
 inline bool func(int n)
@@ -128,8 +126,8 @@ int main()
     //     cout << i << '\n';
     // }
 
-    list<int> list = { 1, 2, 3, 4 };
-    vector<int> datas = { 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    list<int> list = {1, 2, 3, 4};
+    vector<int> datas = {1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     // for (auto i : list)
     //     datas.erase(remove(datas.begin(), datas.end(), i), datas.end());
 
@@ -139,11 +137,8 @@ int main()
     // remove_if(datas.begin(), datas.end(), func);
     datas.erase(remove_if(datas.begin(), datas.end(), func), datas.end());
 
-
     for (auto i : datas)
         cout << i << '\n';
-
-
 
     cout << endl;
     return 0;

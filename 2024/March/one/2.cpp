@@ -30,15 +30,15 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	string s = "I Love GPLT";
-	for (auto ch : s)
-	{
-		cout << ch << '\n';
+    string s = "I Love GPLT";
+    for (auto ch : s)
+    {
+        cout << ch << '\n';
     }
 
 #ifdef LOCAL
-			   cerr
-			   << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

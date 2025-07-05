@@ -56,8 +56,7 @@ void dfs(int deep, int pre) // 第一个是已经放的层数， 第二个是上
         }
 
         ans.push_back(tmp);
-        if (is_prime(ans[n - 1] + ans[n - 2])&&
-            is_prime(ans.front() + ans.back()))
+        if (is_prime(ans[n - 1] + ans[n - 2]) && is_prime(ans.front() + ans.back()))
         {
             for (int i = 0; i < n; i++)
             {

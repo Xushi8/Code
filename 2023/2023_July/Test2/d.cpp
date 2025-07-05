@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -44,7 +44,6 @@ int main()
             int maxn = arr.back();
             for (int i = arr.size() - 2; i >= -1; i--)
             {
-
                 if (i == -1)
                 {
                     max_index = 0;
@@ -63,13 +62,12 @@ int main()
             int maxn = arr[max_index - 1];
             for (int i = max_index - 2; i >= -1; i--)
             {
-
                 if (i == -1)
                 {
                     max_index = 0;
                     break;
                 }
-                
+
                 if (arr[i] != maxn)
                 {
                     max_index = i + 1;

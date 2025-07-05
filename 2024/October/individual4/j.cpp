@@ -115,7 +115,7 @@ void solve()
 {
     int len = init();
 
-    int max_len = -1; 
+    int max_len = -1;
     int id;
     int mx = 0;
 
@@ -123,15 +123,15 @@ void solve()
     for (int i = 1; i <= len; i++)
     {
         if (i < mx)
-            p[i] = min(p[2 * id - i], mx - i); 
+            p[i] = min(p[2 * id - i], mx - i);
         else
             p[i] = 1;
-        while (s_new[i - p[i]] == s_new[i + p[i]]) 
-            p[i]++;                                
+        while (s_new[i - p[i]] == s_new[i + p[i]])
+            p[i]++;
         if (mx < i + p[i])
-        {                 
-            id = i;       
-            mx = i + p[i]; 
+        {
+            id = i;
+            mx = i + p[i];
         }
         max_len = max(max_len, p[i] - 1);
 

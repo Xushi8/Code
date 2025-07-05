@@ -34,7 +34,7 @@ void tarjan(int u)
             tarjan(v);
             low[u] = min(low[u], low[v]);
         }
-        else if(vis[v])
+        else if (vis[v])
         {
             low[u] = min(low[u], dfn[v]);
         }
@@ -45,7 +45,8 @@ void tarjan(int u)
         int v;
         do
         {
-            v = stk.top(); stk.pop();
+            v = stk.top();
+            stk.pop();
             vis[v] = 0;
             c[v] = tot;
             scc[tot].emplace_back(v);
@@ -66,7 +67,8 @@ int func(int s)
     que.emplace(s);
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         vis[u] = 0;
         res = max(res, dis[u] + ans[u]);
         for (int v : G1[u])
@@ -99,7 +101,8 @@ int main()
     {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         G[u].emplace_back(v);
     }
 

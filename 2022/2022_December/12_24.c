@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // int main()
 // {
@@ -8,14 +8,14 @@
 //     int prize[7] = {0};
 //     int arr[7];
 //     scanf("%d", &n);
-//     scanf("%d %d %d %d %d %d %d", 
+//     scanf("%d %d %d %d %d %d %d",
 //                                 &code[0], &code[1], &code[2],
 //                                 &code[3], &code[4], &code[5], &code[6]);
 //     int i,j,k;
 //     for(i = 0; i<n; i++)
 //     {
 //         int count = 0;
-//         scanf("%d %d %d %d %d %d %d", 
+//         scanf("%d %d %d %d %d %d %d",
 //                                 &arr[0], &arr[1], &arr[2],
 //                                 &arr[3], &arr[4], &arr[5], &arr[6]);
 //         for(j = 0; j<7; j++)
@@ -27,12 +27,12 @@
 //                     count++;
 //                 }
 //             }
-//         }           
+//         }
 
 //         if(count == 0)
 //         {
 //             continue;
-//         }           
+//         }
 
 //         prize[7-count]++;
 //     }
@@ -127,16 +127,17 @@ int main()
 {
     int arr[10000];
     int i;
-    for(i = 0; i<9999; i++)
+    for (i = 0; i < 9999; i++)
     {
         printf("%d ", arr[i]);
     }
     printf("\n");
     printf("\n");
-    printf("\n");printf("\n");
+    printf("\n");
+    printf("\n");
 
     qsort(arr, 9999, sizeof(int), compare);
-    for(i = 0; i<9999; i++)
+    for (i = 0; i < 9999; i++)
     {
         printf("%d ", arr[i]);
     }

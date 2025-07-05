@@ -36,7 +36,7 @@ int main()
             cout << fuhao[i] << ' ';
         }
         cout << '\n';
-        }while(next_permutation(fuhao, fuhao + 9));
+    } while (next_permutation(fuhao, fuhao + 9));
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

@@ -14,34 +14,34 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<pii> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		int x, y;
-		cin >> x >> y;
-		a[i] = {y, x};
-	}
-	sort(a.begin(), a.end(), greater<>());
+    int n;
+    cin >> n;
+    vector<pii> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        a[i] = {y, x};
+    }
+    sort(a.begin(), a.end(), greater<>());
 
-	// priority_queue贪心
-	i64 sum = 0;
-	i64 ans = 0;
-	priority_queue<i64, vector<i64>, greater<>> que;
-	for (auto [s, v] : a)
-	{
-		sum += v;
-		que.emplace(v);
-		while (que.size() > s)
-		{
-			sum -= que.top();
-			que.pop();
-		}
+    // priority_queue贪心
+    i64 sum = 0;
+    i64 ans = 0;
+    priority_queue<i64, vector<i64>, greater<>> que;
+    for (auto [s, v] : a)
+    {
+        sum += v;
+        que.emplace(v);
+        while (que.size() > s)
+        {
+            sum -= que.top();
+            que.pop();
+        }
 
-		ans = max(ans, sum);
-	}
-	cout << ans << '\n';
+        ans = max(ans, sum);
+    }
+    cout << ans << '\n';
 }
 
 int main()

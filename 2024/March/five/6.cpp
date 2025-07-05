@@ -27,40 +27,40 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int t = 0;
-	int cnt = 0;
-	string s;
-	int id = -1;
-	while (getline(cin, s))
-	{
-		if (s.size() == 1 && s.front() == '.')
-			break;
-		t++;
-		if (s.find("chi1 huo3 guo1") != -1)
-		{
-			if (id == -1)
-			{
-				id = t;
-			}
-			cnt++;
+    int t = 0;
+    int cnt = 0;
+    string s;
+    int id = -1;
+    while (getline(cin, s))
+    {
+        if (s.size() == 1 && s.front() == '.')
+            break;
+        t++;
+        if (s.find("chi1 huo3 guo1") != -1)
+        {
+            if (id == -1)
+            {
+                id = t;
+            }
+            cnt++;
         }
-	}
+    }
 
-	cout << t << '\n';
-	if (id == -1)
-	{
-		cout << "-_-#\n";
-	}
-	else
-	{
-		cout << id << ' ' << cnt << '\n';
+    cout << t << '\n';
+    if (id == -1)
+    {
+        cout << "-_-#\n";
+    }
+    else
+    {
+        cout << id << ' ' << cnt << '\n';
     }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

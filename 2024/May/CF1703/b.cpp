@@ -30,29 +30,29 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		int n;
-		string s;
-		cin >> n >> s;
-		bool vis[26] = {0};
-		int ans = 0;
-		for (auto ch : s)
-		{
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        int n;
+        string s;
+        cin >> n >> s;
+        bool vis[26] = {0};
+        int ans = 0;
+        for (auto ch : s)
+        {
             ans++;
-			ch -= 'A';
-			if (!vis[ch])
-			{
-				vis[ch] = 1;
-				ans++;
+            ch -= 'A';
+            if (!vis[ch])
+            {
+                vis[ch] = 1;
+                ans++;
             }
-		}
+        }
 
-		cout << ans << endl;
+        cout << ans << endl;
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

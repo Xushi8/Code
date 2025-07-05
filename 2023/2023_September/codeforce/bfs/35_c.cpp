@@ -34,7 +34,7 @@ int main()
 {
     // ios::sync_with_stdio(false);
     // cin.tie(0);
-    
+
     int n, m;
     cin >> n >> m;
     int k;
@@ -45,18 +45,20 @@ int main()
     {
         int x, y;
         cin >> x >> y;
-        x--; y--;
+        x--;
+        y--;
         que.emplace(x, y);
         dis[x][y] = 0;
     }
 
-    int dx[] = { 0, 1, 0, -1 };
-    int dy[] = { 1, 0, -1, 0 };
+    int dx[] = {0, 1, 0, -1};
+    int dy[] = {1, 0, -1, 0};
     int maxx = -1;
     int ansx = 0, ansy = 0;
     while (!que.empty())
     {
-        auto [x, y] = que.front(); que.pop();
+        auto [x, y] = que.front();
+        que.pop();
         for (int i = 0; i < 4; i++)
         {
             int tx = x + dx[i];
@@ -76,7 +78,6 @@ int main()
     }
 
     cout << ansx + 1 << ' ' << ansy + 1 << '\n';
-
 
     ifs.close();
     ofs.close();

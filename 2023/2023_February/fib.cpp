@@ -1,5 +1,5 @@
-#include<iostream>
-#include<ctime>
+#include <iostream>
+#include <ctime>
 using namespace std;
 
 // uint64_t fib(int n)
@@ -51,7 +51,7 @@ using namespace std;
 // int main()
 // {
 //     func(100);
-    
+
 //     system("pause");
 //     return 0;
 // }

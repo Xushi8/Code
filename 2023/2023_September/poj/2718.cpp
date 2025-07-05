@@ -22,7 +22,7 @@ inline int read()
 {
     int x = 0, f = 1;
     int ch = getchar();
-    while (ch < '0' || ch>'9')
+    while (ch < '0' || ch > '9')
     {
         if (ch == '-')
             f = -1;
@@ -36,9 +36,6 @@ inline int read()
 typedef long long ll;
 typedef pair<int, int> pii;
 const int N = 15;
-
-
-
 
 int main()
 {

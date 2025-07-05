@@ -14,38 +14,38 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	map<int, int> mp;
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		mp[x]++;
-	}
+    int n;
+    cin >> n;
+    map<int, int> mp;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        mp[x]++;
+    }
 
-	int ans = 0;
-	for (auto [x, y] : mp)
-	{
-		ans = max(ans, y);
-	}
-	cout << ans << '\n';
+    int ans = 0;
+    for (auto [x, y] : mp)
+    {
+        ans = max(ans, y);
+    }
+    cout << ans << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

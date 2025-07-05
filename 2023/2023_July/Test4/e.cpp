@@ -82,7 +82,8 @@ void solve()
     ull ans = 0;
     while (!que.empty())
     {
-        int a = que.top(); que.pop();
+        int a = que.top();
+        que.pop();
         if (a == 1)
         {
             que.emplace(1);

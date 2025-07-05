@@ -10,7 +10,8 @@ int fpow(int a, int b)
     int ans = 1;
     while (b)
     {
-        if (b & 1) ans = 1LL * ans * a % mod;
+        if (b & 1)
+            ans = 1LL * ans * a % mod;
         a = 1LL * a * a % mod;
         b >>= 1;
     }
@@ -24,7 +25,8 @@ int main()
         scanf("%d%d%d%d", &s[i][0].first, &s[i][0].second, &s[i][1].first, &s[i][1].second);
     for (int i = 1; i <= n; i++)
     {
-        if (s[i][0] > s[i][1]) swap(s[i][0], s[i][1]);
+        if (s[i][0] > s[i][1])
+            swap(s[i][0], s[i][1]);
         m = max(s[i][0].second, m);
         m = max(s[i][1].second, m);
     }
@@ -48,7 +50,10 @@ int main()
     {
         dif[i][0] += dif[i - 1][0];
         dif[i][1] += dif[i - 1][1];
-        if (dif[i][0] == n) { ans = (ans + fpow(2, dif[i][1])) % mod; }
+        if (dif[i][0] == n)
+        {
+            ans = (ans + fpow(2, dif[i][1])) % mod;
+        }
     }
     memset(dif, 0, sizeof(dif));
     for (int i = 1; i <= n; i++)
@@ -68,7 +73,10 @@ int main()
     {
         dif[i][0] += dif[i - 1][0];
         dif[i][1] += dif[i - 1][1];
-        if (dif[i][0] == n) { ans = (ans - fpow(2, dif[i][1]) + mod) % mod; }
+        if (dif[i][0] == n)
+        {
+            ans = (ans - fpow(2, dif[i][1]) + mod) % mod;
+        }
     }
     printf("%d\n", ans);
     return 0;

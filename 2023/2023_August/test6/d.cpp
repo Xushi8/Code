@@ -120,7 +120,6 @@
 //         //     }
 //         // }
 
-
 //         if (s.size() == 1)
 //             cout << s << '\n';
 //         else
@@ -218,7 +217,6 @@
 //     return 0;
 // }
 
-
 // 2023/08/03 17:13:59
 #ifndef LOCAL
 #pragma GCC optimize(2)
@@ -260,7 +258,7 @@ int main()
         cin >> s;
 
         // cout << s << ' ';
-        
+
         if (s.size() == 1)
             cout << s << '\n';
         else
@@ -276,8 +274,7 @@ int main()
                     cout << '\n';
                 }
                 // 100003
-                else if (count(s.begin() + 1, s.end(), '0') == s.size() - 2 &&
-                    s.back() != '0')
+                else if (count(s.begin() + 1, s.end(), '0') == s.size() - 2 && s.back() != '0')
                 {
                     cout << s << '\n';
                 }

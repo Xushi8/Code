@@ -29,7 +29,7 @@ double sinx, cosx;
 
 void build(int l, int r, int p)
 {
-    if(l == r)
+    if (l == r)
     {
         ts[p] = sin(arr[l]);
         tc[p] = cos(arr[l]);
@@ -95,7 +95,7 @@ double query(int l, int r, int nl, int nr, int p)
     {
         push_down(p);
     }
-    
+
     double sum = 0;
     if (l <= mid)
         sum += query(l, r, nl, mid, p * 2);
@@ -109,7 +109,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     for (int i = 1; i <= n; i++)

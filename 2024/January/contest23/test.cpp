@@ -63,8 +63,6 @@ int main()
     vec.pop_back();
     cout << vec.size() << endl;
 
-    
-
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

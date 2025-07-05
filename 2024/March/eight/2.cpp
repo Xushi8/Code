@@ -30,11 +30,14 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int a, b;
-	cin >> a >> b;
-	int ans = a + b;
-	cout << ans - 16 << endl << ans - 3 << endl << ans - 1<< endl << ans << endl;
-    
+    int a, b;
+    cin >> a >> b;
+    int ans = a + b;
+    cout << ans - 16 << endl
+         << ans - 3 << endl
+         << ans - 1 << endl
+         << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

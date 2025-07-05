@@ -29,60 +29,60 @@ vector<int> ans;
 
 void dfs(int deep)
 {
-	// if (deep + ans.size() < m)
-	// 	return;
-	// if (deep + ans.size() == m)
-	// {
-	// 	if (deep == 0)
-	// 	{
-	// 		for (auto it = ans.rbegin(); it != ans.rend(); it++)
-	// 		{
-	// 			cout << *it << ' ';
-	//         }
-	// 		cout << '\n';
-	// 		return;
-	//     }
-	// }
-	// if (deep == 0)
-	// 	return;
+    // if (deep + ans.size() < m)
+    // 	return;
+    // if (deep + ans.size() == m)
+    // {
+    // 	if (deep == 0)
+    // 	{
+    // 		for (auto it = ans.rbegin(); it != ans.rend(); it++)
+    // 		{
+    // 			cout << *it << ' ';
+    //         }
+    // 		cout << '\n';
+    // 		return;
+    //     }
+    // }
+    // if (deep == 0)
+    // 	return;
 
-	// ans.emplace_back(deep);
-	// dfs(deep - 1);
-	// ans.pop_back();
+    // ans.emplace_back(deep);
+    // dfs(deep - 1);
+    // ans.pop_back();
 
-	// dfs(deep - 1);
+    // dfs(deep - 1);
 
-	if (n - deep + ans.size() < m)
-		return;
-	if (ans.size() == m)
-	{
-		for (auto x : ans)
-		{
-			cout << x + 1 << ' ';
-		}
-		cout << '\n';
-		return;
-	}
-	if (deep == n)
-		return;
+    if (n - deep + ans.size() < m)
+        return;
+    if (ans.size() == m)
+    {
+        for (auto x : ans)
+        {
+            cout << x + 1 << ' ';
+        }
+        cout << '\n';
+        return;
+    }
+    if (deep == n)
+        return;
 
-	ans.emplace_back(deep);
-	dfs(deep + 1);
-	ans.pop_back();
+    ans.emplace_back(deep);
+    dfs(deep + 1);
+    ans.pop_back();
 
-	dfs(deep + 1);
+    dfs(deep + 1);
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	cin >> n >> m;
-	dfs(0);
+    cin >> n >> m;
+    dfs(0);
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

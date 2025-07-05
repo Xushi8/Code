@@ -27,10 +27,10 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	i64 n;
-	cin >> n;
-	cout << n * 6 << ' ' << 3 << '\n';
-	cout << n << ' ' << n * 2 << ' ' << n * 3 << '\n';
+    i64 n;
+    cin >> n;
+    cout << n * 6 << ' ' << 3 << '\n';
+    cout << n << ' ' << n * 2 << ' ' << n * 3 << '\n';
 }
 
 int main()
@@ -38,13 +38,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -16,90 +16,90 @@ int par[N];
 
 void init(int n)
 {
-	iota(par, par + n, 0);
+    iota(par, par + n, 0);
 }
 
 int find(int x)
 {
-	if (x == par[x])
-		return x;
-	else
-		return par[x] = find(par[x]);
+    if (x == par[x])
+        return x;
+    else
+        return par[x] = find(par[x]);
 }
 
 void unite(int x, int y)
 {
-	x = find(x);
-	y = find(y);
-	if (x == y)
-		return;
+    x = find(x);
+    y = find(y);
+    if (x == y)
+        return;
     par[x] = y;
 }
 
 bool same(int x, int y)
 {
-	return find(x) == find(y);
+    return find(x) == find(y);
 }
 
 void solve()
 {
-	int n;
-	cin >> n;
-	int m = n;
-	init(2 * n);
-	vector<vector<int>> a(n, vector<int>(m));
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			cin >> a[i][j];
+    int n;
+    cin >> n;
+    int m = n;
+    init(2 * n);
+    vector<vector<int>> a(n, vector<int>(m));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cin >> a[i][j];
         }
-	}
+    }
 
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < m; j++)
-		{
-			if (a[i][j] > a[j][i]) // 换
-			{
-				if (same(i, j) || same(i + n, j + n))
-					continue;
-				unite(i, j + n);
-				unite(i + n, j);
-			}
-			else if(a[i][j] < a[j][i]) // 不换
-			{
-				if (same(i + n, j) || same(i, j + n))
-					continue;
-				unite(i, j);
-				unite(i + n, j + n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < m; j++)
+        {
+            if (a[i][j] > a[j][i]) // 换
+            {
+                if (same(i, j) || same(i + n, j + n))
+                    continue;
+                unite(i, j + n);
+                unite(i + n, j);
+            }
+            else if (a[i][j] < a[j][i]) // 不换
+            {
+                if (same(i + n, j) || same(i, j + n))
+                    continue;
+                unite(i, j);
+                unite(i + n, j + n);
             }
         }
-	}
+    }
 
-	vector<int> huan;
-	for (int i = 0; i < n; i++)
-	{
-		if (0 <= find(i) && find(i) < n)
-			huan.emplace_back(i);
-	}
+    vector<int> huan;
+    for (int i = 0; i < n; i++)
+    {
+        if (0 <= find(i) && find(i) < n)
+            huan.emplace_back(i);
+    }
 
-	for (auto k : huan)
-	{
-		// cerr << k + 1 << endl;
-		for (int i = 0; i < n; i++)
-		{
-			swap(a[i][k], a[k][i]);
+    for (auto k : huan)
+    {
+        // cerr << k + 1 << endl;
+        for (int i = 0; i < n; i++)
+        {
+            swap(a[i][k], a[k][i]);
         }
-	}
+    }
 
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			cout << a[i][j] << ' ';
-		}
-		cout << '\n';
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << a[i][j] << ' ';
+        }
+        cout << '\n';
     }
 }
 

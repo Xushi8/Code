@@ -30,14 +30,14 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     while (cin >> n >> m && n)
     {
         memset(in, 0, sizeof(in));
         for (int i = 0; i < n; i++)
             G[i].clear();
-        
+
         for (int i = 0; i < m; i++)
         {
             int x, y;
@@ -58,7 +58,8 @@ int main()
         vector<int> ans;
         while (!que.empty())
         {
-            int u = que.front(); que.pop();
+            int u = que.front();
+            que.pop();
             ans.emplace_back(u);
             for (int v : G[u])
             {

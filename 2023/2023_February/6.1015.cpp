@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int n, m;
 
@@ -31,7 +31,7 @@ int main()
             a[i] = a[i] - 'a' + 11;
         }
     }
-    
+
     int ans = 0;
     while (1)
     {
@@ -46,10 +46,11 @@ int main()
             break;
         if (ans > 30)
             break;
-
     }
-    if (ans > 30) cout << "Impossible!" << endl;
-    else cout << "STEP=" << ans << endl;
+    if (ans > 30)
+        cout << "Impossible!" << endl;
+    else
+        cout << "STEP=" << ans << endl;
 
     system("pause");
     return 0;

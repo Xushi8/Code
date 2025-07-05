@@ -53,7 +53,8 @@ int main()
             break;
         }
 
-        if(mp[a] >= 1 && mp[b] >= 1) {
+        if (mp[a] >= 1 && mp[b] >= 1)
+        {
             ans = {a, b};
             break;
         }

@@ -14,33 +14,33 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<pii> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		int x, y;
-		cin >> x >> y;
-		a[i] = {x, y};
-	}
-	sort(a.begin(), a.end());
-	vector<int> w(n);
-	for (int i = 0; i < n; i++)
-	{
-		w[i] = a[i].second;
-	}
+    int n;
+    cin >> n;
+    vector<pii> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        a[i] = {x, y};
+    }
+    sort(a.begin(), a.end());
+    vector<int> w(n);
+    for (int i = 0; i < n; i++)
+    {
+        w[i] = a[i].second;
+    }
 
-	vector<int> f(n, 1);
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < i; j++)
-		{
-			if (w[j] < w[i])
-				f[i] = max(f[i], f[j] + 1);
+    vector<int> f(n, 1);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (w[j] < w[i])
+                f[i] = max(f[i], f[j] + 1);
         }
-	}
+    }
 
-	cout << *max_element(f.begin(), f.end()) << '\n';
+    cout << *max_element(f.begin(), f.end()) << '\n';
 }
 
 int main()

@@ -14,31 +14,30 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	int cnt = n / 3;
-	n %= 3;
-	if (n == 0)
-	{
-		
-	}
-	else if (n == 1)
-	{
-		if (cnt == 0)
-		{
-			cnt = 2;
-		}
-		else
-		{
-			cnt++;
+    int n;
+    cin >> n;
+    int cnt = n / 3;
+    n %= 3;
+    if (n == 0)
+    {
+    }
+    else if (n == 1)
+    {
+        if (cnt == 0)
+        {
+            cnt = 2;
         }
-	}
-	else
-	{
-		cnt++;
-	}
+        else
+        {
+            cnt++;
+        }
+    }
+    else
+    {
+        cnt++;
+    }
 
-	cout << cnt << '\n';
+    cout << cnt << '\n';
 }
 
 int main()

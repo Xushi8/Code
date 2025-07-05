@@ -1,24 +1,22 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using std::ostream;
 using std::istream;
-
 
 const int MAX_NAME = 30;
 
 class Person
 {
 public:
+    friend ostream& operator<<(ostream& out, Person p);
 
-    friend ostream& operator<< (ostream& out, Person p);
-
-    Person operator ++ (int)
+    Person operator++(int)
     {
         Person tmp = *this;
         age++;
         return tmp;
     }
 
-    Person& operator ++ ()
+    Person& operator++()
     {
         age++;
         return *this;
@@ -26,9 +24,7 @@ public:
 
     int age;
 
-    
-
     char name[MAX_NAME];
 };
 
-istream& operator >> (istream& in, Person& p);
+istream& operator>>(istream& in, Person& p);

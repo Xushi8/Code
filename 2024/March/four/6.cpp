@@ -30,25 +30,25 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	string s;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> s;
-		int a = 0, b = 0;
-		for (int j = 0; j < 3; j++)
-		{
-			a += s[j] - '0';
-		}
-		for (int j = 3; j < 6; j++)
-		{
-			b += s[j] - '0';
-		}
+    int n;
+    cin >> n;
+    string s;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> s;
+        int a = 0, b = 0;
+        for (int j = 0; j < 3; j++)
+        {
+            a += s[j] - '0';
+        }
+        for (int j = 3; j < 6; j++)
+        {
+            b += s[j] - '0';
+        }
 
-		cout << (a == b ? "You are lucky!" : "Wish you good luck.") << '\n';
-	}
-    
+        cout << (a == b ? "You are lucky!" : "Wish you good luck.") << '\n';
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

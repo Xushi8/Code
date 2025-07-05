@@ -38,7 +38,8 @@ ll fast_pow(ll a, ll n, const ll mod = MOD)
     return b;
 }
 
-ll inv(ll a, ll n, const ll mod = MOD) {
+ll inv(ll a, ll n, const ll mod = MOD)
+{
     return fast_pow(a, n - 2, mod);
 }
 

@@ -27,60 +27,60 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int t = 1;
-	int n;
-	while (cin >> n && n)
-	{
-		map<int, int> id;
-		for (int i = 0; i < n; i++)
-		{
-			int k;
-			cin >> k;
-			for (int j = 0; j < k; j++)
-			{
-				int x;
-				cin >> x;
-				id[x] = i;
-			}
-		}
+    int t = 1;
+    int n;
+    while (cin >> n && n)
+    {
+        map<int, int> id;
+        for (int i = 0; i < n; i++)
+        {
+            int k;
+            cin >> k;
+            for (int j = 0; j < k; j++)
+            {
+                int x;
+                cin >> x;
+                id[x] = i;
+            }
+        }
 
-		map<int, int> siz;
+        map<int, int> siz;
 
-		cout << "Scenario #" << t++ << '\n';
-		queue<int> que_id;
-		vector<queue<int>> que(n);
-		string op;
-		while (cin >> op && op != "STOP")
-		{
-			if (op == "ENQUEUE")
-			{
-				int x;
-				cin >> x;
-				que[id[x]].emplace(x);
-				if (++siz[id[x]] == 1)
-				{
-					que_id.emplace(id[x]);
+        cout << "Scenario #" << t++ << '\n';
+        queue<int> que_id;
+        vector<queue<int>> que(n);
+        string op;
+        while (cin >> op && op != "STOP")
+        {
+            if (op == "ENQUEUE")
+            {
+                int x;
+                cin >> x;
+                que[id[x]].emplace(x);
+                if (++siz[id[x]] == 1)
+                {
+                    que_id.emplace(id[x]);
                 }
-			}
-			else
-			{
-				auto front_team = que_id.front();
-				cout << que[front_team].front() << '\n';
-				que[front_team].pop();
-				if (--siz[front_team] == 0)
-				{
-					que_id.pop();
+            }
+            else
+            {
+                auto front_team = que_id.front();
+                cout << que[front_team].front() << '\n';
+                que[front_team].pop();
+                if (--siz[front_team] == 0)
+                {
+                    que_id.pop();
                 }
-			}
-		}
-		cout << '\n';
-	}
+            }
+        }
+        cout << '\n';
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -1,6 +1,6 @@
-#include<iostream>
-#include<cstring>
-#include<fstream>
+#include <iostream>
+#include <cstring>
+#include <fstream>
 using namespace std;
 
 ofstream ofs;
@@ -13,10 +13,12 @@ void print()
     count++;
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= n;j++)
+        for (int j = 1; j <= n; j++)
         {
-            if (j == a[i]) ofs << '+';
-            else ofs << '-';
+            if (j == a[i])
+                ofs << '+';
+            else
+                ofs << '-';
         }
         ofs << '\n';
     }
@@ -26,7 +28,7 @@ void print()
 void dfs(int i)
 {
     int j;
-    for (j = 1; j <= n;j++)
+    for (j = 1; j <= n; j++)
     {
         if (i + j <= n && i - j >= 1)
         {
@@ -57,8 +59,10 @@ void dfs(int i)
             }
         }
 
-        if (i < n) dfs(i + 1);
-        else print();
+        if (i < n)
+            dfs(i + 1);
+        else
+            print();
 
         if (i + j <= n && i - j >= 1)
         {

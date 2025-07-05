@@ -27,67 +27,67 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	map<int, int> mp;
-	int all = 0;
-	int x;
-	char ch;
-	int siz = 0;
-	while (cin >> x && x != 0)
-	{
-		cin >> ch;
-		int tim = 0;
-		int h, m;
-		char tmp;
-		cin >> h >> tmp >> m;
-		tim = h * 60 + m;
-		if (ch == 'S')
-		{
-			mp[x] = tim;
-		}
-		else
-		{
-			auto it = mp.find(x);
-			if (it == mp.end())
-				continue;
-			all += tim - mp[x];
-			mp.erase(it);
-			siz++;
-		}
-	}
-	cin >> ch;
-	int tim = 0;
-	int h, m;
-	char tmp;
-	cin >> h >> tmp >> m;
+    map<int, int> mp;
+    int all = 0;
+    int x;
+    char ch;
+    int siz = 0;
+    while (cin >> x && x != 0)
+    {
+        cin >> ch;
+        int tim = 0;
+        int h, m;
+        char tmp;
+        cin >> h >> tmp >> m;
+        tim = h * 60 + m;
+        if (ch == 'S')
+        {
+            mp[x] = tim;
+        }
+        else
+        {
+            auto it = mp.find(x);
+            if (it == mp.end())
+                continue;
+            all += tim - mp[x];
+            mp.erase(it);
+            siz++;
+        }
+    }
+    cin >> ch;
+    int tim = 0;
+    int h, m;
+    char tmp;
+    cin >> h >> tmp >> m;
 
-	cout << siz << ' ';
-	if (siz == 0)
-		cout << 0;
-	else
-	{
-		double x = (1.0 * all) / siz;
-		int y = static_cast<int>(x);
-		if (x - y >= 0.5)
-			y++;
-		cout << y;
-	}
-	cout << '\n';
+    cout << siz << ' ';
+    if (siz == 0)
+        cout << 0;
+    else
+    {
+        double x = (1.0 * all) / siz;
+        int y = static_cast<int>(x);
+        if (x - y >= 0.5)
+            y++;
+        cout << y;
+    }
+    cout << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	while (n--)
-	{
-		solve();
-	}
+    int n;
+    cin >> n;
+    while (n--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

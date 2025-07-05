@@ -2,13 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     double x1, y1, r1, x2, y2, r2;
     cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
     double dis = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));

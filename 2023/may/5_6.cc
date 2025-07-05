@@ -11,7 +11,7 @@ public:
     }
 };
 
-class Cat :public Animal
+class Cat : public Animal
 {
 public:
     void speak() const
@@ -29,7 +29,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     Cat a;
     a.speak();
     test(a);

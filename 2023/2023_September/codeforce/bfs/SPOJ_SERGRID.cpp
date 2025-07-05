@@ -22,8 +22,8 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-int dx[] = { 0, 1, 0, -1 };
-int dy[] = { 1, 0, -1, 0 };
+int dx[] = {0, 1, 0, -1};
+int dy[] = {1, 0, -1, 0};
 
 void solve(int n, int m)
 {
@@ -38,7 +38,8 @@ void solve(int n, int m)
     dis[0][0] = 0;
     while (!que.empty())
     {
-        pii p = que.front(); que.pop();
+        pii p = que.front();
+        que.pop();
         int x = p.first, y = p.second;
         int k = s[x][y] - '0';
         for (int i = 0; i < 4; i++)
@@ -60,7 +61,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     while (cin >> n >> m)
     {

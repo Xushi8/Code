@@ -44,9 +44,9 @@ void solve()
         for (int j = 0, k = 0; j < m; j = k)
         {
             int x = 0;
-            int cnt = 0; // 1的数量
+            int cnt = 0;                                            // 1的数量
             while (k < m && (j == k || a[k][0] - 1 == a[k - 1][0])) // 连续段[j,k)
-            { 
+            {
                 x ^= (a[k][1] >> i) & 1;
                 if (x)
                     cnt++;

@@ -5,7 +5,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -37,44 +36,46 @@ int par[N], dep[N], ans[N];
 
 void init(int n)
 {
-	iota(par, par + n, 0);
-	fill(dep, dep + n, 0);
-	fill(ans, ans + n, 0);
+    iota(par, par + n, 0);
+    fill(dep, dep + n, 0);
+    fill(ans, ans + n, 0);
 }
 
 int find(int x)
 {
-	if (x == par[x])
-		return x;
-	int t = find(par[x]);
-	dep[x] += dep[std::exchange(par[x], t)];
-	return par[x];
+    if (x == par[x])
+        return x;
+    int t = find(par[x]);
+    dep[x] += dep[std::exchange(par[x], t)];
+    return par[x];
 }
 
 void unite(int x, int y)
 {
-	int t = find(x);
-	ans[t] = max(ans[t], dep[x] + ans[y] + 1);
-	par[y] = x;
-	dep[y] = 1;
+    int t = find(x);
+    ans[t] = max(ans[t], dep[x] + ans[y] + 1);
+    par[y] = x;
+    dep[y] = 1;
 }
 
 void solve()
 {
-	int n;
-	cin >> n;
-	init(n);
-	vector<int> a(n - 1), b(n - 1), c(n - 1);
-	for (int i = 0; i < n - 1; i++)
-	{
-		cin >> a[i] >> b[i] >> c[i];
-		a[i]--; b[i]--; c[i]--;
-	}
+    int n;
+    cin >> n;
+    init(n);
+    vector<int> a(n - 1), b(n - 1), c(n - 1);
+    for (int i = 0; i < n - 1; i++)
+    {
+        cin >> a[i] >> b[i] >> c[i];
+        a[i]--;
+        b[i]--;
+        c[i]--;
+    }
 
-	for (int i = 0; i < n - 1; i++)
-	{
-		unite(a[i], b[i]);
-		cout << ans[c[i]] << ' ';
-	}
-	cout << '\n';
+    for (int i = 0; i < n - 1; i++)
+    {
+        unite(a[i], b[i]);
+        cout << ans[c[i]] << ' ';
+    }
+    cout << '\n';
 }

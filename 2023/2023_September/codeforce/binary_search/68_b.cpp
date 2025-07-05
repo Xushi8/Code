@@ -27,7 +27,7 @@ int main()
 {
     // ios::sync_with_stdio(false);
     // cin.tie(0);
-    
+
     int n, k;
     cin >> n >> k;
     vector<double> arr(n);
@@ -39,22 +39,22 @@ int main()
     double decreases = 1.0 - k / 100.0;
 
     auto check = [&](double x) -> bool
+    {
+        double adds = 0.0;
+        for (int i = 0; i < n; i++)
         {
-            double adds = 0.0;
-            for (int i = 0; i < n; i++)
+            if (arr[i] > x)
             {
-                if (arr[i] > x)
-                {
-                    adds += (arr[i] - x) * decreases;
-                }
-                else
-                {
-                    adds -= (x - arr[i]);
-                }
+                adds += (arr[i] - x) * decreases;
             }
+            else
+            {
+                adds -= (x - arr[i]);
+            }
+        }
 
-            return adds >= 0.0;
-        };
+        return adds >= 0.0;
+    };
 
     double l = *min_element(arr.begin(), arr.end());
     double r = *max_element(arr.begin(), arr.end());

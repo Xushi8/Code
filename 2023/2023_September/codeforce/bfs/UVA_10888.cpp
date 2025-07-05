@@ -22,9 +22,6 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-
-
-
 void solve()
 {
     int n, m;
@@ -34,15 +31,13 @@ void solve()
     {
         cin >> s[i];
     }
-
-    
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

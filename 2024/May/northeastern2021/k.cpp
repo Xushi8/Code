@@ -279,91 +279,85 @@ int par[N];
 i64 siz[N];
 void init(int n)
 {
-	iota(par, par + n, 0);
-	fill(siz, siz + n, 1);
+    iota(par, par + n, 0);
+    fill(siz, siz + n, 1);
 }
 
 int find(int x)
 {
-	if (par[x] == x)
-		return par[x];
-	else
-		return par[x] = find(par[x]);
+    if (par[x] == x)
+        return par[x];
+    else
+        return par[x] = find(par[x]);
 }
 
 void solve()
 {
-	int n, m, q;
-	cin >> n >> m >> q;
-	init(n + 1);
-	vector<array<int, 3>> a(n + 1);
-	for (int i = 1; i <= n; i++)
-	{
-		int u, v, w;
-		cin >> u >> v >> w;
-		a[i] = {u, v, w};
-	}
+    int n, m, q;
+    cin >> n >> m >> q;
+    init(n + 1);
+    vector<array<int, 3>> a(n + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        int u, v, w;
+        cin >> u >> v >> w;
+        a[i] = {u, v, w};
+    }
 
-	vector<pair<i64, int>> query(q + 1);
-	for (int i = 1; i <= q; i++)
-	{
-		i64 x;
-		cin >> x;
-		query[i] = {x, i};
-	}
+    vector<pair<i64, int>> query(q + 1);
+    for (int i = 1; i <= q; i++)
+    {
+        i64 x;
+        cin >> x;
+        query[i] = {x, i};
+    }
 
-	sort(a.begin() + 1, a.end(), [&](auto const& x, auto const& y)
-		{
-			return x.back() > y.back();
-		});
-	sort(query.begin() + 1, query.end(), [&](auto const& x, auto const& y)
-		{
-			return x.first > y.first;
-		});
+    sort(a.begin() + 1, a.end(), [&](auto const& x, auto const& y)
+        { return x.back() > y.back(); });
+    sort(query.begin() + 1, query.end(), [&](auto const& x, auto const& y)
+        { return x.first > y.first; });
 
-	int cnt = 1;
-	i64 sum = 0;
-	for (int i = 1; i <= q; i++)
-	{
-		while (cnt <= m && a[cnt].back() >= query[i].first)
-		{
-			int t = find(a[cnt][0]);
-			int z = find(a[cnt][1]);
-			if (t != z)
-			{
-				par[t] = z;
-				sum += siz[t] * siz[z];
-				siz[z] += siz[t];
-			}
-			cnt++;
-		}
-		query[i].first = sum;
-	}
+    int cnt = 1;
+    i64 sum = 0;
+    for (int i = 1; i <= q; i++)
+    {
+        while (cnt <= m && a[cnt].back() >= query[i].first)
+        {
+            int t = find(a[cnt][0]);
+            int z = find(a[cnt][1]);
+            if (t != z)
+            {
+                par[t] = z;
+                sum += siz[t] * siz[z];
+                siz[z] += siz[t];
+            }
+            cnt++;
+        }
+        query[i].first = sum;
+    }
 
-	sort(query.begin(), query.end(), [&](auto const& x, auto const& y)
-		{
-			return x.second < y.second;
-		});
-	for (int i = 1; i <= q; i++)
-	{
-		cout << query[i].first << '\n';
-	}
+    sort(query.begin(), query.end(), [&](auto const& x, auto const& y)
+        { return x.second < y.second; });
+    for (int i = 1; i <= q; i++)
+    {
+        cout << query[i].first << '\n';
+    }
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

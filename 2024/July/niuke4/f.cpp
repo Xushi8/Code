@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -36,18 +35,18 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	i64 x;
-	cin >> x;
-	i64 y = sqrt(x);
-	i64 ans = x + 2;
-	for (i64 i = max(y - 100, i64(2)); i <= y + 100; i++)
-	{
-		if (x % 2 == 1 && i % 2 == 1)
-			continue;
-		i64 z = (x - 1) / (i - 1) + 1;
-		if (z * (i - 1) % 2 != x % 2)
-			z++;
-		ans = min(ans, z + i);
-	}
-	cout << ans << '\n';
+    i64 x;
+    cin >> x;
+    i64 y = sqrt(x);
+    i64 ans = x + 2;
+    for (i64 i = max(y - 100, i64(2)); i <= y + 100; i++)
+    {
+        if (x % 2 == 1 && i % 2 == 1)
+            continue;
+        i64 z = (x - 1) / (i - 1) + 1;
+        if (z * (i - 1) % 2 != x % 2)
+            z++;
+        ans = min(ans, z + i);
+    }
+    cout << ans << '\n';
 }

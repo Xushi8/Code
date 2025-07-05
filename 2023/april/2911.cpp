@@ -2,13 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int arr[10000005];
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int a, b, c;
     cin >> a >> b >> c;
     for (int i = 1; i <= a; i++)

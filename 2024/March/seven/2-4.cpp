@@ -288,101 +288,101 @@ constexpr int INF = 0x3f3f3f3f;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<vector<int>> dis(n, vector<int>(n, INF));
-	for (int i = 0; i < n; i++)
-	{
-		dis[i][i] = 0;
-	}
+    int n;
+    cin >> n;
+    vector<vector<int>> dis(n, vector<int>(n, INF));
+    for (int i = 0; i < n; i++)
+    {
+        dis[i][i] = 0;
+    }
 
-	vector<int> sex(n);
-	for (int i = 0; i < n; i++)
-	{
-		char ch;
-		cin >> ch;
-		if (ch == 'F')
-			sex[i] = 0;
-		else
-			sex[i] = 1;
+    vector<int> sex(n);
+    for (int i = 0; i < n; i++)
+    {
+        char ch;
+        cin >> ch;
+        if (ch == 'F')
+            sex[i] = 0;
+        else
+            sex[i] = 1;
 
-		int k;
-		cin >> k;
-		for (int j = 0; j < k; j++)
-		{
-			int v, w;
-			cin >> v >> ch >> w;
-			v--;
-			dis[i][v] = w;
-		}
-	}
+        int k;
+        cin >> k;
+        for (int j = 0; j < k; j++)
+        {
+            int v, w;
+            cin >> v >> ch >> w;
+            v--;
+            dis[i][v] = w;
+        }
+    }
 
-	for (int k = 0; k < n; k++)
-	{
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < n; j++)
-			{
-				if (dis[i][j] > dis[i][k] + dis[k][j])
-				{
-					dis[i][j] = dis[i][k] + dis[k][j];
-				}
-			}
-		}
-	}
+    for (int k = 0; k < n; k++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (dis[i][j] > dis[i][k] + dis[k][j])
+                {
+                    dis[i][j] = dis[i][k] + dis[k][j];
+                }
+            }
+        }
+    }
 
-	vector<pii> max0, max1;
-	for (int i = 0; i < n; i++)
-	{
-		int maxx = 0;
-		for (int j = 0; j < n; j++)
-		{
-			if (sex[i] != sex[j])
-			{
-				maxx = max(maxx, dis[j][i]);
-			}
-		}
-		if (sex[i] == 0)
-			max0.emplace_back(maxx, i);
-		else
-			max1.emplace_back(maxx, i);
-	}
+    vector<pii> max0, max1;
+    for (int i = 0; i < n; i++)
+    {
+        int maxx = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (sex[i] != sex[j])
+            {
+                maxx = max(maxx, dis[j][i]);
+            }
+        }
+        if (sex[i] == 0)
+            max0.emplace_back(maxx, i);
+        else
+            max1.emplace_back(maxx, i);
+    }
 
-	auto [min0, nouse0] = *min_element(max0.begin(), max0.end());
-	auto [min1, nouse1] = *min_element(max1.begin(), max1.end());
+    auto [min0, nouse0] = *min_element(max0.begin(), max0.end());
+    auto [min1, nouse1] = *min_element(max1.begin(), max1.end());
 
-	vector<int> ans0, ans1;
-	for (size_t i = 0; i < max0.size(); i++)
-	{
-		if (min0 == max0[i].first)
-			ans0.emplace_back(max0[i].second);
-	}
-	for (size_t i = 0; i < max1.size(); i++)
-	{
-		if (min1 == max1[i].first)
-			ans1.emplace_back(max1[i].second);
-	}
+    vector<int> ans0, ans1;
+    for (size_t i = 0; i < max0.size(); i++)
+    {
+        if (min0 == max0[i].first)
+            ans0.emplace_back(max0[i].second);
+    }
+    for (size_t i = 0; i < max1.size(); i++)
+    {
+        if (min1 == max1[i].first)
+            ans1.emplace_back(max1[i].second);
+    }
 
-	for (size_t i = 0; i < ans0.size(); i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << ans0[i] + 1;
-	}
-	cout << '\n';
-	for (size_t i = 0; i < ans1.size(); i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << ans1[i] + 1;
-	}
-	cout << '\n';
+    for (size_t i = 0; i < ans0.size(); i++)
+    {
+        if (i != 0)
+            cout << ' ';
+        cout << ans0[i] + 1;
+    }
+    cout << '\n';
+    for (size_t i = 0; i < ans1.size(); i++)
+    {
+        if (i != 0)
+            cout << ' ';
+        cout << ans1[i] + 1;
+    }
+    cout << '\n';
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

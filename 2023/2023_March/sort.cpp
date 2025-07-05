@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 void insert_sort(int* arr, int* end)
@@ -19,9 +19,12 @@ void insert_sort(int* arr, int* end)
 int search_pivot(int* arr, int left, int right)
 {
     int middle = (right + left) / 2;
-    if (arr[left] > arr[middle]) swap(arr[left], arr[middle]);
-    if (arr[middle] > arr[right]) swap(arr[middle], arr[right]);
-    if (arr[left] > arr[middle]) swap(arr[left], arr[middle]);
+    if (arr[left] > arr[middle])
+        swap(arr[left], arr[middle]);
+    if (arr[middle] > arr[right])
+        swap(arr[middle], arr[right]);
+    if (arr[left] > arr[middle])
+        swap(arr[left], arr[middle]);
 
     swap(arr[right], arr[middle]);
     return arr[right];
@@ -72,7 +75,7 @@ int main()
 
     begin = clock();
     int arr[10000000];
-    for(int i = 0; i < 10000000; i++)
+    for (int i = 0; i < 10000000; i++)
     {
         arr[i] = rand();
     }
@@ -93,13 +96,13 @@ int main()
     {
         v.push_back(rand());
     }
-    
+
     sort(v.begin(), v.end());
     for (auto i = v.begin(); i != v.end(); i++)
     {
         cout << *i << '\n';
     }
-    
+
     end = clock();
     ofs << (end - begin) / 1000.0 << '\n';
 
@@ -110,13 +113,11 @@ int main()
 // #include<bits/stdc++.h>
 // using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[10] = { 54,542,233,12,43,43,2,34,34,2 };
 //     sort(arr, arr + 10);
 //     for(int i = 0; i < 10; i++)

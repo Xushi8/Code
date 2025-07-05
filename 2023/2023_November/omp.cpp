@@ -25,7 +25,7 @@ constexpr int N = 1000005;
 
 void func1(std::vector<int>& a)
 {
-// #pragma omp simd
+    // #pragma omp simd
     for (auto it = a.begin(); it != a.end(); it++)
     {
         *it = 13;

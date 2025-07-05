@@ -13,7 +13,7 @@
 
 // void solve()
 // {
-	
+
 // }
 
 // int main()
@@ -77,44 +77,44 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		int n;
-		cin >> n;
-		vector<int> a(n);
-		for (auto& x : a)
-			cin >> x;
-		set<int> b, c;
-		for (auto x : a)
-		{
-			if (x % 10 == 0)
-				b.emplace(x);
-			else if (x % 5 == 0)
-				b.emplace(x + 5);
-			else
-			{
-				while (x % 10 != 6)
-				{
-					x += x % 10;
-				}
-				c.emplace(x % 20);
-			}
-		}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (auto& x : a)
+            cin >> x;
+        set<int> b, c;
+        for (auto x : a)
+        {
+            if (x % 10 == 0)
+                b.emplace(x);
+            else if (x % 5 == 0)
+                b.emplace(x + 5);
+            else
+            {
+                while (x % 10 != 6)
+                {
+                    x += x % 10;
+                }
+                c.emplace(x % 20);
+            }
+        }
 
-		if (!b.empty())
-			cout << (b.size() == 1 && c.empty() ? "YES" : "NO");
-		else
-			cout << (c.size() == 1 ? "YES" : "NO");
-		cout << '\n';
-	}
-	
+        if (!b.empty())
+            cout << (b.size() == 1 && c.empty() ? "YES" : "NO");
+        else
+            cout << (c.size() == 1 ? "YES" : "NO");
+        cout << '\n';
+    }
+
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

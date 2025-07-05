@@ -246,7 +246,6 @@
 //     cout << (vec1 == vec2 ? "Same" : "Different") << '\n';
 // }
 
-
 // 2024/08/16 23:50:49
 #ifdef LOCAL
 #include <basic_std_lib.h>
@@ -254,7 +253,6 @@
 #include <bits/stdc++.h>
 #endif
 using namespace std;
-
 
 void solve();
 
@@ -301,8 +299,7 @@ void solve()
                 if (lhs.second != rhs.second)
                     return lhs.second < rhs.second;
                 else
-                    return lhs.first < rhs.first;
-            });
+                    return lhs.first < rhs.first; });
 
         auto func1 = [](vector<pii>& vec)
         {
@@ -342,7 +339,7 @@ void solve()
         };
 
         func1(a);
-        
+
         return func2(a);
     };
 
@@ -356,5 +353,4 @@ void solve()
     {
         cout << (a1 == a2 ? "Same" : "Different") << '\n';
     }
-
 }

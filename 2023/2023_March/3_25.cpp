@@ -36,14 +36,20 @@ int main()
     {
         for (int j = 0; j <= 1600 * 50; j++)
         {
-            if (j < v[i]) dp[(i + 1) & 1][j] = dp[i & 1][j];
-            else dp[(i + 1) & 1][j] = min(dp[i & 1][j], dp[i & 1][j - v[i]] + w[i]);
+            if (j < v[i])
+                dp[(i + 1) & 1][j] = dp[i & 1][j];
+            else
+                dp[(i + 1) & 1][j] = min(dp[i & 1][j], dp[i & 1][j - v[i]] + w[i]);
         }
     }
     int ans = 0;
-    for (int i = 0; i < 1600 * 50; i++) if (dp[tot & 1][i] <= W) ans = i;
-    if (ans == 79999) cout << 1166666666;
-    else cout << ans;
+    for (int i = 0; i < 1600 * 50; i++)
+        if (dp[tot & 1][i] <= W)
+            ans = i;
+    if (ans == 79999)
+        cout << 1166666666;
+    else
+        cout << ans;
 
     cout << flush;
     system("pause");
@@ -59,7 +65,7 @@ int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     fill(dp[0], dp[0] + 102 * 102, inf);
 //     dp[0][0] = 0;
 //     cin >> n >> W;

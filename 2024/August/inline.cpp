@@ -20,14 +20,12 @@ int main()
     std::thread t1([]()
         {
             incrementCounter();
-            anotherFunction();
-        });
+            anotherFunction(); });
 
     std::thread t2([]()
         {
             incrementCounter();
-            anotherFunction();
-        });
+            anotherFunction(); });
 
     t1.join();
     t2.join();

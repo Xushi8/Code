@@ -27,8 +27,8 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    int arr[20] = { 0 };
+
+    int arr[20] = {0};
     for (int i = 0; i < 20; i++)
     {
         for (int j = i; j < 20; j++)

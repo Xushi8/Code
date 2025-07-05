@@ -1,7 +1,7 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -52,10 +52,8 @@ using namespace std;
 //     b -= 5;
 //     cout << b - 5;
 
-
 //     return 0;
 // }
-
 
 class Person
 {

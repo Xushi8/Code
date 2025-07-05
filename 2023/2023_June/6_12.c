@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-
-
 int main()
 {
     int i = 1000;
-    while (0 <---------- i)
+    while (0 < -- -- -- -- --i)
     {
         printf("%d ", i);
     }

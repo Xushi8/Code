@@ -23,7 +23,7 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-int dfs(int u, int par, vector<vector<int>>const& G)
+int dfs(int u, int par, vector<vector<int>> const& G)
 {
     int res = 0;
     for (int v : G[u])

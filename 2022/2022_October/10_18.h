@@ -16,4 +16,4 @@ void SetMine(char board[ROWS][COLS], int, int);
 
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int, int);
 
-int GetMineCount(char mine[ROWS][COLS], int ,int );
+int GetMineCount(char mine[ROWS][COLS], int, int);

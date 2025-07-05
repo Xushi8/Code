@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     map<int, int> mp;
@@ -46,15 +46,23 @@ int main()
     vector<array<int, 3>> ans;
     while (que.size() >= 3)
     {
-        auto [a1, b1] = que.top(); que.pop();
-        auto [a2, b2] = que.top(); que.pop();
-        auto [a3, b3] = que.top(); que.pop();
-        a1--; a2--; a3--;
-        ans.push_back({ b1, b2, b3 });
+        auto [a1, b1] = que.top();
+        que.pop();
+        auto [a2, b2] = que.top();
+        que.pop();
+        auto [a3, b3] = que.top();
+        que.pop();
+        a1--;
+        a2--;
+        a3--;
+        ans.push_back({b1, b2, b3});
         sort(ans.back().begin(), ans.back().end(), greater<int>());
-        if (a1 != 0) que.emplace(a1, b1);
-        if (a2 != 0) que.emplace(a2, b2);
-        if (a3 != 0) que.emplace(a3, b3);
+        if (a1 != 0)
+            que.emplace(a1, b1);
+        if (a2 != 0)
+            que.emplace(a2, b2);
+        if (a3 != 0)
+            que.emplace(a3, b3);
     }
 
     cout << ans.size() << '\n';

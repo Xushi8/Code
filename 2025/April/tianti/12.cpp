@@ -13,28 +13,35 @@ void solve()
     string sl = to_string(l);
     string sr = to_string(r);
 
-    auto dfs = [&](auto &&self, string s)
+    auto dfs = [&](auto&& self, string s)
     {
         int deep = s.size();
-        if(deep == n) {
+        if (deep == n)
+        {
             i64 val = stoll(s);
-            if(l <= val && val <= r) {
+            if (l <= val && val <= r)
+            {
                 ans.emplace_back(s);
             }
             return;
         }
 
         int be;
-        if(deep == 0) {
+        if (deep == 0)
+        {
             be = 1;
-        } else {
+        }
+        else
+        {
             be = 0;
         }
 
-        for (int i = be; i < 10; i++) {
+        for (int i = be; i < 10; i++)
+        {
             s += i + '0';
             i64 val = stoll(s);
-            if(val % (deep + 1) == 0) {
+            if (val % (deep + 1) == 0)
+            {
                 self(self, s);
             }
             s.pop_back();

@@ -97,50 +97,48 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	vector<long double> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
+    int n, m;
+    cin >> n >> m;
+    vector<long double> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
-	auto check = [&](long double val) -> bool
-	{
-		vector<long double> sum(n + 1);
-		sum[0] = 0;
-		auto b = a;
-		for_each(b.begin(), b.end(), [&](long double& t)
-			{
-				t -= val;
-			});
-		inclusive_scan(b.begin(), b.end(), sum.begin() + 1);
-		long double ans = -1e18, minn = 1e18;
-		for (int i = m; i < n + 1; i++)
-		{
-			minn = min(minn, sum[i - m]);
-			ans = max(ans, sum[i] - minn);
-		}
-		return ans >= 0;
-	};
+    auto check = [&](long double val) -> bool
+    {
+        vector<long double> sum(n + 1);
+        sum[0] = 0;
+        auto b = a;
+        for_each(b.begin(), b.end(), [&](long double& t)
+            { t -= val; });
+        inclusive_scan(b.begin(), b.end(), sum.begin() + 1);
+        long double ans = -1e18, minn = 1e18;
+        for (int i = m; i < n + 1; i++)
+        {
+            minn = min(minn, sum[i - m]);
+            ans = max(ans, sum[i] - minn);
+        }
+        return ans >= 0;
+    };
 
-	long double l = -1e18, r = 1e18;
-	while(r - l > 1e-6)
-	{
-		long double mid = (l + r) / 2;
-		if (check(mid))
-			l = mid;
-		else
-			r = mid;
-	}
+    long double l = -1e18, r = 1e18;
+    while (r - l > 1e-6)
+    {
+        long double mid = (l + r) / 2;
+        if (check(mid))
+            l = mid;
+        else
+            r = mid;
+    }
 
-	cout << int((r * 1000)) << endl;
+    cout << int((r * 1000)) << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

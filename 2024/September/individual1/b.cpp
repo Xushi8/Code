@@ -52,8 +52,6 @@ int main()
     return 0;
 }
 
-
-
 void solve()
 {
     int l, r;
@@ -66,7 +64,6 @@ void solve()
     {
         x = cnt[x];
     }
-
 
     int ans = 0;
     ans += a.front() * 2;

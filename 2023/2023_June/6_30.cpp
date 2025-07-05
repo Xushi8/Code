@@ -24,7 +24,7 @@ const int N = 100005;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     ll a, b;
 //     while (cin >> a >> b)
 //     {
@@ -49,14 +49,13 @@ const int N = 100005;
 //     return 0;
 // }
 
-
 // 2023/06/30 09:55:05
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int tt;
 //     cin >> tt;
 //     while (tt--)
@@ -78,8 +77,6 @@ const int N = 100005;
 //     cout << endl;
 //     return 0;
 // }
-
-
 
 // 2023/06/30 10:08:06
 // int n;
@@ -112,7 +109,7 @@ const int N = 100005;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     while (cin >> n)
 //     {
 //         dfs(0);
@@ -122,14 +119,13 @@ const int N = 100005;
 //     return 0;
 // }
 
-
 // 2023/06/30 10:49:39
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int tt;
 //     cin >> tt;
 //     while (tt--)
@@ -141,7 +137,7 @@ const int N = 100005;
 //         {
 //             cin >> arr[i].first >> arr[i].second;
 //         }
-        
+
 //         int max_line = 0;
 //         for (int i = 0; i < n; i++)
 //         {
@@ -170,11 +166,9 @@ const int N = 100005;
 //         cout << n - max_line << '\n';
 //     }
 
-
 //     cout << endl;
 //     return 0;
 // }
-
 
 // 2023/06/30 12:11:43
 
@@ -185,7 +179,7 @@ const int N = 100005;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     for (int i = 2; i < 10000005; i++)
 //     {
 //         if (!isnp[i])
@@ -222,16 +216,13 @@ const int N = 100005;
 //     return 0;
 // }
 
-
-
-
 // 2023/06/30 13:34:59
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // vector<int> arr(10);
     // for (int i = 0; i < 10; i++)
     //     cin >> arr[i];

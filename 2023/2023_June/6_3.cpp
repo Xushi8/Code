@@ -11,7 +11,7 @@ void print_uint128(__uint128_t num)
     cout.put((char)(num % 10 + '0'));
 }
 
-ostream& operator << (ostream& out, __uint128_t num)
+ostream& operator<<(ostream& out, __uint128_t num)
 {
     print_uint128(num);
     return out;
@@ -25,14 +25,14 @@ int main()
     srand((unsigned)time(nullptr));
     unsigned long long n = 449749848967864967;
     __uint128_t sum = 0;
-    
+
     cout << sum << endl;
     sum = 0;
     for (unsigned long long i = 0; i < n; i++)
     {
         sum += i;
     }
-    
+
     cout << sum << endl;
 
     cout << endl;

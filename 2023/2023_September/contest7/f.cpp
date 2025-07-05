@@ -31,15 +31,12 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cout << setprecision(15) << fixed;
     int a, b, P, Q;
     cin >> a >> b >> P >> Q;
     double p = P / 100.;
     double q = Q / 100.;
-
-
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

@@ -34,7 +34,7 @@ struct A
         y = b;
         w = c;
     }
-    
+
     int x, y, w;
 };
 
@@ -42,7 +42,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int x1, y1, x2, y2;
     cin >> x1 >> y1 >> x2 >> y2;
     if (x1 == x2 && y1 == y2)
@@ -63,11 +63,13 @@ int main()
         arr[x1][x2] = 0;
         while (!que.empty())
         {
-            A a = que.front(); que.pop();
+            A a = que.front();
+            que.pop();
             A tmp = a;
             while (tmp.x + 1 <= 8 && tmp.y + 1 <= 8)
             {
-                tmp.x++; tmp.y++;
+                tmp.x++;
+                tmp.y++;
                 if (arr[tmp.x][tmp.y] != -1)
                     continue;
 
@@ -78,7 +80,8 @@ int main()
             tmp = a;
             while (tmp.x + 1 <= 8 && tmp.y - 1 >= 1)
             {
-                tmp.x++; tmp.y--;
+                tmp.x++;
+                tmp.y--;
                 if (arr[tmp.x][tmp.y] != -1)
                     continue;
 
@@ -89,7 +92,8 @@ int main()
             tmp = a;
             while (tmp.x - 1 >= 1 && tmp.y + 1 <= 8)
             {
-                tmp.x--; tmp.y++;
+                tmp.x--;
+                tmp.y++;
                 if (arr[tmp.x][tmp.y] != -1)
                     continue;
 
@@ -100,7 +104,8 @@ int main()
             tmp = a;
             while (tmp.x - 1 >= 1 && tmp.y - 1 >= 1)
             {
-                tmp.x--; tmp.y--;
+                tmp.x--;
+                tmp.y--;
                 if (arr[tmp.x][tmp.y] != -1)
                     continue;
 
@@ -113,8 +118,6 @@ int main()
             cout << 0 << ' ';
         else
             cout << arr[x2][y2] << ' ';
-
-
 
         int a = abs(x1 - x2);
         int b = abs(y1 - y2);

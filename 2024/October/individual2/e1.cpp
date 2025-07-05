@@ -44,7 +44,7 @@ int main()
         {
             dis[a[i]][a[i]] = 1;
         }
-        
+
         for (int k = 0; k < n; k++)
         {
             for (int i = 0; i < n; i++)
@@ -53,7 +53,7 @@ int main()
                 {
                     if (i == j && j == k)
                         continue;
-                    auto const& si = a[i], sj = a[j], sk = a[k];
+                    auto const &si = a[i], sj = a[j], sk = a[k];
                     if (dis[si][sj] < dis[si][sk] * dis[sk][sj])
                     {
                         dis[si][sj] = dis[si][sk] * dis[sk][sj];

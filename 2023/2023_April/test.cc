@@ -21,10 +21,6 @@ int main()
         cout << binary_search(arr.begin(), arr.end(), tmp) << '\n';
     }
 
-
-
-    
-
     // int a, b, c, d;
     // cin >> a >> b >> c >> d;
     // int tt;
@@ -42,16 +38,12 @@ int main()
     //     cout << (-A * B * x + A * A * y - B * C) / (A * A + B * B) << '\n';
     // }
 
-
-    
     // while (tt--)
     // {
     //     cin >> x >> y;
     //     cout << setprecision(10) << fixed << -(2 * y * A * B + (A * A - B * B) * x + 2 * A * C) / (A * A + B * B) << ' ';
     //     cout << -((B * B - A * A) * y + 2 * A * B * x + 2 * B * C) / (A * A + B * B) << '\n';
     // }
-
-
 
     cout << flush;
     system("pause");

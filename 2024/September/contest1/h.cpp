@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -59,7 +58,7 @@ void solve()
             if (ans >= siz + (n - j))
                 break;
             i64 pre = a[j];
-            
+
             while (1)
             {
                 auto it = lower_bound(a.begin() + j, a.end(), pre + dec);

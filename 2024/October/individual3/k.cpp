@@ -29,8 +29,7 @@ void solve()
             auto const& [tj, cj] = rhs;
             // return s * (cj - ci) + ti * cj - tj * ci > 0;
             return s * cj + 2 * s * ci + tj * ci >
-                   s * ci + 2 * s * cj + ti * cj;
-        });
+                   s * ci + 2 * s * cj + ti * cj; });
 
     i64 ans = 0;
     i64 now = 0;

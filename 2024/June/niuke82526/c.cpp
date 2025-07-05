@@ -14,24 +14,24 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	string s;
-	cin >> s;
-	reverse(s.begin(), s.end());
+    string s;
+    cin >> s;
+    reverse(s.begin(), s.end());
 
-	int ans = 0;
-	int jinwei = 0;
-	for (size_t i = 0; i < s.size() - 1; i++)
-	{
-		int val = s[i] - '0' + jinwei;
-		if (val == 10)
-			jinwei = 1;
-		else if (val != 0)
-			jinwei = 1, ans += 10 - val;
-		else
-			jinwei = 0;
-	}
+    int ans = 0;
+    int jinwei = 0;
+    for (size_t i = 0; i < s.size() - 1; i++)
+    {
+        int val = s[i] - '0' + jinwei;
+        if (val == 10)
+            jinwei = 1;
+        else if (val != 0)
+            jinwei = 1, ans += 10 - val;
+        else
+            jinwei = 0;
+    }
 
-	cout << ans << '\n';
+    cout << ans << '\n';
 }
 
 int main()

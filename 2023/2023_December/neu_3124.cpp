@@ -72,8 +72,8 @@ int main()
     cout << "IMPOSSIBLE" << endl;
 
 #ifdef LOCAL
-        cerr
-         << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     cout << endl;
     return 0;

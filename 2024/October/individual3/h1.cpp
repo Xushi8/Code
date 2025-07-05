@@ -21,8 +21,6 @@ void solve()
         cin >> a[i];
     }
     sort(a.begin(), a.end());
-
-    
 }
 
 int main()

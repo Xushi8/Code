@@ -47,8 +47,7 @@ void solve()
         {
             int add1 = min(l.first * 2, l.second) - min(l.first, l.second);
             int add2 = min(r.first * 2, r.second) - min(r.first, r.second);
-            return add1 > add2;
-        });
+            return add1 > add2; });
     i64 ans = 0;
     for (int i = 0; i < k; i++)
     {

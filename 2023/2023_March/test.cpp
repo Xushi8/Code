@@ -42,11 +42,9 @@
 //     }
 // }
 
-
 // int gcd(int a, int b) {
 //     return b ? gcd(b, a % b) : a;
 // }
-
 
 // int main(void) {
 //     scanf("%d", &n);
@@ -82,22 +80,17 @@
 //         cout << res << endl;
 //     }
 
-
 //     return 0;
 // }
 
-
-
 #include <bits/stdc++.h>
 using namespace std;
-
-
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string str = "1245";
     string tmp = "12";
     cout << str.find(tmp);

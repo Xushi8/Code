@@ -46,7 +46,8 @@ int main()
     for (int i = 0; i < N; i++)
         ofs << arr[i] << ' ';
 
-    ofs << '\n' << sum / 3;
+    ofs << '\n'
+        << sum / 3;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

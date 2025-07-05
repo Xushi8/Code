@@ -29,7 +29,8 @@ vector<vector<int>> pow(vector<vector<int>> a, unsigned long long n)
 
     while (n)
     {
-        if (n & 1) res = mul(res, a);
+        if (n & 1)
+            res = mul(res, a);
         a = mul(a, a);
         n /= 2;
     }
@@ -40,7 +41,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     unsigned long long n, k;
     cin >> n >> k;
     vector<vector<int>> arr(n, vector<int>(n));

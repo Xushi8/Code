@@ -47,7 +47,8 @@ vector<int> solve()
     que.emplace(0);
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         for (int v : arr[u])
         {
             if (vis[v])
@@ -77,7 +78,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

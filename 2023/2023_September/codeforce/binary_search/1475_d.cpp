@@ -23,7 +23,6 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-
 void solve()
 {
     int n, m;
@@ -41,7 +40,7 @@ void solve()
         else
             b.push_back(tmpa[i]);
     }
-    
+
     sort(a.begin(), a.end(), greater<>());
     sort(b.begin(), b.end(), greater<>());
     vector<ll> suma(a.size() + 1), sumb(b.size() + 1);
@@ -73,7 +72,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

@@ -66,22 +66,29 @@ int main()
     int n, k;
     cin >> n >> k;
     vector<A> arr(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         string a, b;
         int c;
         cin >> a >> b >> c;
         arr[i] = {a, b, c};
     }
 
-    if(k == 1) {
+    if (k == 1)
+    {
         sort(arr.begin(), arr.end(), cmp1);
-    } else if(k == 2) {
+    }
+    else if (k == 2)
+    {
         sort(arr.begin(), arr.end(), cmp2);
-    } else {
+    }
+    else
+    {
         sort(arr.begin(), arr.end(), cmp3);
     }
 
-    for(auto x : arr) {
+    for (auto x : arr)
+    {
         cout << x.id << ' ' << x.name << ' ' << x.score << '\n';
     }
 

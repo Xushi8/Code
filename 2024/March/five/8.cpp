@@ -27,86 +27,86 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int a[3][3];
-	int bx, by;
-	set<int> st;
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cin >> a[i][j];
-			if (a[i][j] == 0)
-			{
-				bx = i;
-				by = j;
-			}
-			st.emplace(a[i][j]);
-		}
-	}
+    int a[3][3];
+    int bx, by;
+    set<int> st;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cin >> a[i][j];
+            if (a[i][j] == 0)
+            {
+                bx = i;
+                by = j;
+            }
+            st.emplace(a[i][j]);
+        }
+    }
 
-	for (int i = 1; i <= 9; i++)
-	{
-		if (!st.count(i))
-		{
-			a[bx][by] = i;
-			break;
-		}
-	}
+    for (int i = 1; i <= 9; i++)
+    {
+        if (!st.count(i))
+        {
+            a[bx][by] = i;
+            break;
+        }
+    }
 
-	for (int i = 0; i < 3; i++)
-	{
-		int x, y;
-		cin >> x >> y;
-		x--;
-		y--;
-		cout << a[x][y] << '\n';
-	}
+    for (int i = 0; i < 3; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        x--;
+        y--;
+        cout << a[x][y] << '\n';
+    }
 
-	int t;
-	cin >> t;
-	int ans = 0;
-	if (t <= 3)
-	{
-		for (int i = 0; i < 3; i++)
-		{
-			ans += a[t - 1][i];
-		}
-	}
-	else if (t <= 6)
-	{
-		for (int i = 0; i < 3; i++)
-		{
-			ans += a[i][t - 4];
-		}
-	}
-	else
-	{
-		if (t == 7)
-		{
-			for (int i = 0, j = 0; i < 3; i++, j++)
-			{
-				ans += a[i][j];
-			}
-		}
-		else
-		{
-			for (int i = 0, j = 2; i < 3; i++, j--)
-			{
-				ans += a[i][j];
-			}
-		}
-	}
+    int t;
+    cin >> t;
+    int ans = 0;
+    if (t <= 3)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            ans += a[t - 1][i];
+        }
+    }
+    else if (t <= 6)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            ans += a[i][t - 4];
+        }
+    }
+    else
+    {
+        if (t == 7)
+        {
+            for (int i = 0, j = 0; i < 3; i++, j++)
+            {
+                ans += a[i][j];
+            }
+        }
+        else
+        {
+            for (int i = 0, j = 2; i < 3; i++, j--)
+            {
+                ans += a[i][j];
+            }
+        }
+    }
 
-	map<int, int> mp = {
-		{6, 10000}, {7, 36}, {8, 720}, {9, 360}, {10, 80}, {11, 252}, {12, 108}, {13, 72}, {14, 54}, {15, 180}, {16, 72}, {17, 180}, {18, 119}, {19, 36}, {20, 306}, {21, 1080}, {22, 144}, {23, 1800}, {24, 3600}};
+    map<int, int> mp = {
+        {6, 10000}, {7, 36}, {8, 720}, {9, 360}, {10, 80}, {11, 252}, {12, 108}, {13, 72}, {14, 54}, {15, 180}, {16, 72}, {17, 180}, {18, 119}, {19, 36}, {20, 306}, {21, 1080}, {22, 144}, {23, 1800}, {24, 3600}};
 
-	cout << mp[ans] << endl;
+    cout << mp[ans] << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -18,7 +17,7 @@ int main()
 
     int tt;
     tt = 1;
-    cin >> tt;  
+    cin >> tt;
     while (tt--)
     {
         solve();
@@ -43,7 +42,7 @@ void solve()
 
     auto dis = [](double x, double y, double x1, double y1)
     {
-        return sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1));  
+        return sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1));
     };
     double dis1 = dis(x, y, 0, 0);
     double dis2 = dis(x, y, L, 0);

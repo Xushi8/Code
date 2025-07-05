@@ -14,30 +14,30 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int a[3];
-	cin >> a[0] >> a[1] >> a[2];
-	sort(a, a + 3);
-	if (a[0] + a[1] == a[2])
-		cout << "YES\n";
-	else
-		cout << "NO\n";
+    int a[3];
+    cin >> a[0] >> a[1] >> a[2];
+    sort(a, a + 3);
+    if (a[0] + a[1] == a[2])
+        cout << "YES\n";
+    else
+        cout << "NO\n";
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -210,5 +210,4 @@ void func_6_54(node*& root, list sa)
     }
 }
 
-
 // 6.56

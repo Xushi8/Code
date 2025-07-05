@@ -27,7 +27,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ll n, k;
     cin >> n >> k;
     vector<ll> arr(n);
@@ -47,12 +47,12 @@ int main()
             tmp[arr[i]]++;
             continue;
         }
-        
+
         ll a = tmp[arr[i] / k];
         ll b = mp[arr[i] * k] - tmp[arr[i] * k];
         if (k == 1 || arr[i] == 0)
             b--;
-        
+
         ans += a * b;
         tmp[arr[i]]++;
     }

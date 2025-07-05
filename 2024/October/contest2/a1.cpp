@@ -29,8 +29,6 @@ void solve()
         cout << s - 1 << ' ' << 1 << '\n';
         return;
     }
-
-    
 }
 
 int main()

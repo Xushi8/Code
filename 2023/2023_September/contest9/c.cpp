@@ -33,7 +33,7 @@ void solve()
     {
         int a, b;
         cin >> a >> b;
-        arr[i] = { a, b };
+        arr[i] = {a, b};
         sum += b;
     }
     sort(arr.begin(), arr.end());
@@ -72,7 +72,7 @@ int32_t main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

@@ -39,38 +39,36 @@ int main()
     {
         int x;
         cin >> x;
-        b[i] = { x, i };
+        b[i] = {x, i};
     }
 
     sort(a.begin(), a.end());
     sort(b.begin(), b.end(), greater<>());
 
     auto check = [&](int val) -> bool
+    {
+        int i = 0, j = val - 1;
+        for (int begins = 0, tim = 0; begins < n + val; begins += k, tim++)
         {
-            int i = 0, j = val - 1;
-            for (int begins = 0, tim = 0; begins < n + val; begins += k, tim++)
+            for (int cnt = 0; cnt < k && cnt + begins < n + val; cnt++)
             {
-                for (int cnt = 0; cnt < k && cnt + begins < n + val; cnt++)
-                {
-                    int use;
-                    if (i == n)
-                        use = b[j--].first;
-                    else if (j == -1)
-                        use = a[i++];
-                    else if (a[i] < b[j].first)
-                        use = a[i++];
-                    else
-                        use = b[j--].first;
+                int use;
+                if (i == n)
+                    use = b[j--].first;
+                else if (j == -1)
+                    use = a[i++];
+                else if (a[i] < b[j].first)
+                    use = a[i++];
+                else
+                    use = b[j--].first;
 
-                    if (use < tim)
-                        return false;
-                }
+                if (use < tim)
+                    return false;
             }
+        }
 
-            return true;
-        };
-
-
+        return true;
+    };
 
     int l = 0, r = m;
     while (l < r)

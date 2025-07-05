@@ -30,11 +30,11 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cout << "PTA shi3 wo3 jing1 shen2 huan4 fa1 !" << endl;
+    cout << "PTA shi3 wo3 jing1 shen2 huan4 fa1 !" << endl;
 
 #ifdef LOCAL
-		cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

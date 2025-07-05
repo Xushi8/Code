@@ -28,7 +28,8 @@ void solve()
 {
     ll n, m, x, y;
     cin >> n >> m >> x >> y;
-    n--; m--;
+    n--;
+    m--;
     ll minn = min(n, m), maxx = max(n, m);
     ll ans = 0;
     if (minn == 0)
@@ -52,7 +53,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

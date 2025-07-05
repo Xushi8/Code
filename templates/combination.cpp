@@ -7,8 +7,10 @@ constexpr int P = 998244353;
 // assume -P <= x < 2P
 int norm(int x)
 {
-    if (x < 0) x += P;
-    if (x >= P) x -= P;
+    if (x < 0)
+        x += P;
+    if (x >= P)
+        x -= P;
     return x;
 }
 template <class T>
@@ -17,7 +19,8 @@ T qpow(T a, int b)
     T res = 1;
     for (; b; b /= 2, a *= a)
     {
-        if (b % 2) res *= a;
+        if (b % 2)
+            res *= a;
     }
     return res;
 }
@@ -143,7 +146,8 @@ struct Comb
 
     void init(int new_n)
     {
-        if (new_n <= m_n) return;
+        if (new_n <= m_n)
+            return;
         m_fac.resize(new_n + 1);
         m_invfac.resize(new_n + 1);
         m_inv.resize(new_n + 1);
@@ -163,22 +167,26 @@ struct Comb
 
     Z fac(int m)
     {
-        if (m > m_n) init(2 * m);
+        if (m > m_n)
+            init(2 * m);
         return m_fac[m];
     }
     Z invfac(int m)
     {
-        if (m > m_n) init(2 * m);
+        if (m > m_n)
+            init(2 * m);
         return m_invfac[m];
     }
     Z inv(int m)
     {
-        if (m > m_n) init(2 * m);
+        if (m > m_n)
+            init(2 * m);
         return m_inv[m];
     }
     Z binom(int n, int m)
     {
-        if (n < m || m < 0) return 0;
+        if (n < m || m < 0)
+            return 0;
         return fac(n) * invfac(m) * invfac(n - m);
     }
 } comb;

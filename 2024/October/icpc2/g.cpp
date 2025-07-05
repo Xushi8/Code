@@ -23,7 +23,7 @@ int the_inv(int x)
     return qpow(x, MOD - 2);
 }
 
-void dfs(int x, int y, int p0, int p1, i64 &ans, int a0, int a1, int b, i64 sna)
+void dfs(int x, int y, int p0, int p1, i64& ans, int a0, int a1, int b, i64 sna)
 {
     ans += MOD;
     ans %= MOD;

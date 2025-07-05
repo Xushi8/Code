@@ -12,7 +12,6 @@ using namespace std;
 //     double x, y;
 // };
 
-
 int main()
 {
     ios::sync_with_stdio(false);

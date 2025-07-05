@@ -2,13 +2,11 @@
 // #include <bits/stdc++.h>
 // using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     // vector<string> arr[2];
 //     // arr[1].emplace_back("lklk", "rkjhffjrew");
 //     // vector<string> arr{"ss", "dfsw"};
@@ -17,15 +15,12 @@
 //     //     cout << arr[i] << '\n';
 //     // }
 
-
-    
 //     // vector<int> s;
 //     // s.insert(s.end(), { 2,2,3,4 });
 //     // for (int i = 0; i < s.size(); i++)
 //     // {
 //     //     cout << s[i];
 //     // }
-
 
 //     string s;
 //     cout << s.max_size();
@@ -37,7 +32,6 @@
 // // 2023/04/27 22:05:08
 // #include <bits/stdc++.h>
 // using namespace std;
-
 
 // struct A { int a[10000]; };
 // A a;
@@ -73,7 +67,6 @@
 //     return 0;
 // }
 
-
 // 2023/04/27 22:09:17
 #include <bits/stdc++.h>
 using namespace std;
@@ -99,7 +92,6 @@ public:
         arr = a;
     }
 
-    
     vector<int> arr;
 };
 
@@ -132,7 +124,6 @@ int main()
 
     ofs.open("test.out", ios::out);
 
-    
     // size_t begin1, begin2, begin3, end1, end2, end3;
     // begin1 = clock();
     // for (int i = 0; i < 10000000; i++)
@@ -149,7 +140,6 @@ int main()
     // cout << end1 - begin1 << endl;
     // cout << end2 - begin2 << endl;
     // cout << end3 - begin3 << endl;
-
 
     vector<stu> arr;
     arr.reserve(100000);
@@ -186,6 +176,5 @@ int main()
     ofs.open("test.out", ios::out);
     ofs.close();
 
-    
     return 0;
 }

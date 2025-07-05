@@ -39,7 +39,7 @@ int main()
         cin >> arr[i];
     }
 
-    int dp[2][4] = { 0 };
+    int dp[2][4] = {0};
     for (int i = 1; i <= n; i++)
     {
         dp[i & 1][0] = dp[(i - 1) & 1][0] + (arr[i] == 1);

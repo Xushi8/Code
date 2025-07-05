@@ -72,7 +72,8 @@ int main()
     for (int i = 0; i < m; i++)
     {
         cin >> arr[i][0] >> arr[i][1] >> arr[i][2];
-        arr[i][0]--; arr[i][1]--;
+        arr[i][0]--;
+        arr[i][1]--;
     }
 
     sort(arr.begin(), arr.end(), cmp);
@@ -95,7 +96,6 @@ int main()
     }
 
     cout << ans << '\n';
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

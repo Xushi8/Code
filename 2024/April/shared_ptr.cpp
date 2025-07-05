@@ -5,13 +5,11 @@ using namespace std;
 
 void func(shared_ptr<int> p)
 {
-	print("{}\n", p.use_count());
+    print("{}\n", p.use_count());
 }
 
 int main()
 {
-	// auto p = make_shared<int>(4);
-	// func(p);
-
-
+    // auto p = make_shared<int>(4);
+    // func(p);
 }

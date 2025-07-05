@@ -37,7 +37,8 @@ int main()
     {
         int a, b;
         cin >> a >> b;
-        a--; b--;
+        a--;
+        b--;
         G[b].emplace_back(a);
         in[a]++;
     }
@@ -53,7 +54,8 @@ int main()
     while (!que.empty())
     {
         ans = max(ans, que.size() - 1);
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         for (int v : G[u])
         {
             in[v]--;

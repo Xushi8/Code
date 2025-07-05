@@ -32,67 +32,67 @@ ll ans = 0;
 
 void dfs(int deep)
 {
-	if (deep == N)
-	{
-		int cnt = 0;
-		for (int i = 0; i < N; i++)
-		{
-			if (own[i] == i)
-			{
-				cnt++;
-			}
-		}
+    if (deep == N)
+    {
+        int cnt = 0;
+        for (int i = 0; i < N; i++)
+        {
+            if (own[i] == i)
+            {
+                cnt++;
+            }
+        }
 
-		if (cnt == N / 2)
-		{
-			ans++;
-		}
-		return;
-	}
+        if (cnt == N / 2)
+        {
+            ans++;
+        }
+        return;
+    }
 
-	for (int i = 0; i < N; i++)
-	{
-		if (!vis[i])
-		{
-			vis[i] = 1;
-			own[deep] = i;
-			dfs(deep + 1);
-			vis[i] = 0;
+    for (int i = 0; i < N; i++)
+    {
+        if (!vis[i])
+        {
+            vis[i] = 1;
+            own[deep] = i;
+            dfs(deep + 1);
+            vis[i] = 0;
         }
     }
 }
 
 ll A(ll n)
 {
-	ll res = 1;
-	for (ll i = 1; i <= n; i++)
-	{
-		res *= i;
-	}
-	return res;
+    ll res = 1;
+    for (ll i = 1; i <= n; i++)
+    {
+        res *= i;
+    }
+    return res;
 }
 
 ll C(ll m, ll n)
 {
-	ll res = 1;
-	for (ll i = 1; i <= n; i++)
-	{
-		res *= m--;
-	}
-	return res / A(n);
+    ll res = 1;
+    for (ll i = 1; i <= n; i++)
+    {
+        res *= m--;
+    }
+    return res / A(n);
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	// dfs(0);
-	
-	cout << ans << endl;
+    // dfs(0);
+
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

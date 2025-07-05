@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
 
 // int main()
 // {
@@ -59,7 +59,7 @@
 //     return 0;
 // }
 
-// 
+//
 // void print(char* str, int n)
 // {
 //     if (str[0] != 100)

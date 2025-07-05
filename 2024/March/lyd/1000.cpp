@@ -27,58 +27,58 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	vector<pair<string, int>> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		string x;
-		int y;
-		cin >> x >> y;
-		a[i] = {x, y};
-	}
+    int n, m;
+    cin >> n >> m;
+    vector<pair<string, int>> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        string x;
+        int y;
+        cin >> x >> y;
+        a[i] = {x, y};
+    }
 
-	auto func = [&](int val, int bit)
-	{
-		for (int i = 0; i < n; i++)
-		{
-			auto [x, y] = a[i];
-			if (x == "AND")
-			{
-				val &= y;
-			}
-			else if (x == "OR")
-			{
-				val |= y;
-			}
-			else
-			{
-				val ^= y;
-			}
-		}
-		return val & (1 << bit);
-	};
+    auto func = [&](int val, int bit)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            auto [x, y] = a[i];
+            if (x == "AND")
+            {
+                val &= y;
+            }
+            else if (x == "OR")
+            {
+                val |= y;
+            }
+            else
+            {
+                val ^= y;
+            }
+        }
+        return val & (1 << bit);
+    };
 
-	int now = 0, ans = 0;
-	for (int i = 30; i >= 0; i--)
-	{
-		int tmp1 = 1 << i;
-		int tmp2 = 0;
-		int t1 = func(tmp1, i);
-		int t2 = func(tmp2, i);
-		if (now + tmp1 <= m && t1 > t2)
-			now += tmp1, ans += t1;
-		else
-			now += tmp2, ans += t2;
-	}
+    int now = 0, ans = 0;
+    for (int i = 30; i >= 0; i--)
+    {
+        int tmp1 = 1 << i;
+        int tmp2 = 0;
+        int t1 = func(tmp1, i);
+        int t2 = func(tmp2, i);
+        if (now + tmp1 <= m && t1 > t2)
+            now += tmp1, ans += t1;
+        else
+            now += tmp2, ans += t2;
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

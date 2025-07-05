@@ -2,9 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include<vector>
-#include<iostream>
-#include<string>
+#include <vector>
+#include <iostream>
+#include <string>
 #define INF 0x3f3f3f3f
 using namespace std;
 
@@ -16,13 +16,17 @@ public:
     // 构造函数
     BigInteger() {};
     BigInteger(const string& s);
-    BigInteger(ll a):BigInteger(to_string(a)) {}
-    BigInteger(const BigInteger& bInt):nums(bInt.nums), isPositive(bInt.isPositive), length(bInt.length) {}
-    BigInteger(BigInteger&& bInt) noexcept:nums(move(bInt.nums)), isPositive(bInt.isPositive), length(bInt.length) {}
-    BigInteger(const vector<int>& vec, bool sign = true):nums(vec), isPositive(sign) { cutLeadZero(); }
+    BigInteger(ll a) :
+        BigInteger(to_string(a)) {}
+    BigInteger(const BigInteger& bInt) :
+        nums(bInt.nums), isPositive(bInt.isPositive), length(bInt.length) {}
+    BigInteger(BigInteger&& bInt) noexcept :
+        nums(move(bInt.nums)), isPositive(bInt.isPositive), length(bInt.length) {}
+    BigInteger(const vector<int>& vec, bool sign = true) :
+        nums(vec), isPositive(sign) { cutLeadZero(); }
 
     // 从输入流读取
-    friend istream& operator >>(istream& is, BigInteger& bInt)
+    friend istream& operator>>(istream& is, BigInteger& bInt)
     {
         string s;
         is >> s;
@@ -30,13 +34,13 @@ public:
         return is;
     }
     // 输出
-    friend ostream& operator <<(ostream& os, const BigInteger& bInt);
+    friend ostream& operator<<(ostream& os, const BigInteger& bInt);
     // 转换为string
     operator string() const;
     // 一元正号
-    const BigInteger& operator +() const { return *this; }
+    const BigInteger& operator+() const { return *this; }
     // 一元负号
-    BigInteger operator -() const
+    BigInteger operator-() const
     {
         BigInteger tmp(*this);
         if (!tmp.isZero())
@@ -44,18 +48,18 @@ public:
         return tmp;
     }
     // 比较运算符
-    bool operator <(const BigInteger& bInt) const;
-    bool operator <=(const BigInteger& bInt) const;
-    bool operator ==(const BigInteger& bInt) const;
+    bool operator<(const BigInteger& bInt) const;
+    bool operator<=(const BigInteger& bInt) const;
+    bool operator==(const BigInteger& bInt) const;
     // 算数运算符
-    BigInteger operator +(const BigInteger& bInt) const;
-    BigInteger operator -(const BigInteger& bInt) const;
-    BigInteger operator *(const BigInteger& bInt) const;
+    BigInteger operator+(const BigInteger& bInt) const;
+    BigInteger operator-(const BigInteger& bInt) const;
+    BigInteger operator*(const BigInteger& bInt) const;
     // 除法会返回 商和余数
-    pair<BigInteger, BigInteger> operator /(const BigInteger& bInt) const;
+    pair<BigInteger, BigInteger> operator/(const BigInteger& bInt) const;
     int operator[](int idx) const { return nums[idx]; }
     // 赋值运算符
-    BigInteger& operator =(const BigInteger& bInt)
+    BigInteger& operator=(const BigInteger& bInt)
     {
         if (bInt == *this)
             return *this;
@@ -64,7 +68,7 @@ public:
         length = bInt.length;
         return *this;
     }
-    BigInteger& operator =(BigInteger&& bInt)noexcept
+    BigInteger& operator=(BigInteger&& bInt) noexcept
     {
         nums = move(bInt.nums);
         isPositive = bInt.isPositive;
@@ -105,7 +109,7 @@ private:
     static int mod;
 };
 
-int BigInteger::digit = 8;        // 8位
+int BigInteger::digit = 8;       // 8位
 int BigInteger::mod = 100000000; // 1e9 可能用mask会更好？
 
 BigInteger::BigInteger(const string& s)
@@ -123,7 +127,7 @@ BigInteger::BigInteger(const string& s)
     cutLeadZero();
 }
 
-ostream& operator <<(ostream& os, const BigInteger& bInt)
+ostream& operator<<(ostream& os, const BigInteger& bInt)
 {
     os << (string)bInt;
     return os;
@@ -342,7 +346,8 @@ mat pow(mat& a, int n)
     }
     while (n)
     {
-        if (n & 1) res = mul(res, a);
+        if (n & 1)
+            res = mul(res, a);
         a = mul(a, a);
         n /= 2;
     }
@@ -353,7 +358,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     n++;

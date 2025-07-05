@@ -33,47 +33,46 @@ bool vis[N];
 
 void dfs(int deep)
 {
-	if (cnt == 20)
-	{
-		exit(0);
-	}
-	
-	if (deep == n)
-	{
-		cnt++;
-		for (auto x : ans)
-			cout << x + 1;
-		for (int i = chezhan.size() - 1; i >= 0; i--)
-			cout << chezhan[i] + 1;
-		cout << '\n';
-		return;
-	}
+    if (cnt == 20)
+    {
+        exit(0);
+    }
 
-	
-	if (!chezhan.empty())
-	{
-		ans.emplace_back(chezhan.back());
-		chezhan.pop_back();
-		dfs(deep);
-		chezhan.emplace_back(ans.back());
-		ans.pop_back();
-	}
+    if (deep == n)
+    {
+        cnt++;
+        for (auto x : ans)
+            cout << x + 1;
+        for (int i = chezhan.size() - 1; i >= 0; i--)
+            cout << chezhan[i] + 1;
+        cout << '\n';
+        return;
+    }
 
-	chezhan.emplace_back(deep);
-	dfs(deep + 1);
-	chezhan.pop_back();
+    if (!chezhan.empty())
+    {
+        ans.emplace_back(chezhan.back());
+        chezhan.pop_back();
+        dfs(deep);
+        chezhan.emplace_back(ans.back());
+        ans.pop_back();
+    }
+
+    chezhan.emplace_back(deep);
+    dfs(deep + 1);
+    chezhan.pop_back();
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	cin >> n;
-	dfs(0);
+    cin >> n;
+    dfs(0);
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

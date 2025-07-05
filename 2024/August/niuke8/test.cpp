@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -36,5 +35,4 @@ constexpr int N = 1000005;
 
 void solve()
 {
-    
 }

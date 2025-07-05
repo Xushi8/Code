@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -16,7 +14,7 @@ using namespace std;
 //     {
 //         string str;
 //         getline(cin, str);
-//         if (str.find("qiandao") != -1 || str.find("easy") != -1) 
+//         if (str.find("qiandao") != -1 || str.find("easy") != -1)
 //         {
 //             continue;
 //         }
@@ -34,7 +32,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // const int N = 510;
 
@@ -198,7 +195,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -224,20 +220,16 @@ using namespace std;
 // }
 class edge
 {
-    
 };
 
 void spfa(int s)
 {
-    
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
-    
 
     cout << flush;
     system("pause");

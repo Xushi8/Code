@@ -26,26 +26,26 @@ using pll = pair<ll, ll>;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	constexpr double target = 11625907.5798;
+    constexpr double target = 11625907.5798;
 
-	constexpr int N = 23333333;
-	for (int i = 0; i < N / 2 + 1; i++)
-	{
-		double p0 = 1.0 * i / N;
-		double p1 = 1 - p0;
-		double ans = -p0 * log2(p0) * i - p1 * log2(p1) * (N - i);
-		if (abs(target - ans) < 1e-4)
-		{
-			cout << ans << ' ' << i << endl;
+    constexpr int N = 23333333;
+    for (int i = 0; i < N / 2 + 1; i++)
+    {
+        double p0 = 1.0 * i / N;
+        double p1 = 1 - p0;
+        double ans = -p0 * log2(p0) * i - p1 * log2(p1) * (N - i);
+        if (abs(target - ans) < 1e-4)
+        {
+            cout << ans << ' ' << i << endl;
         }
-	}
+    }
 
 #ifdef LOCAL
-	cerr
-		<< "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

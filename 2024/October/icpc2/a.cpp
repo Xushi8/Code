@@ -22,24 +22,24 @@ void solve()
         cin >> val >> name;
         mp[name].emplace_back(val, i);
     }
-    for (auto &[name, pa] : mp)
+    for (auto& [name, pa] : mp)
     {
         sort(pa.begin(), pa.end(), greater<>());
     }
     int minn = *min_element(limit.begin(), limit.end());
     vector<int> ans(n, -1);
     vector<pii> all;
-    for (auto const &[name, pa] : mp)
+    for (auto const& [name, pa] : mp)
     {
         std::copy(pa.begin(), pa.begin() + min<size_t>(minn, pa.size()), back_inserter(all));
     }
     sort(all.begin(), all.end(), greater<>());
-    for (auto const &[name, pa] : mp)
+    for (auto const& [name, pa] : mp)
     {
         for (int i = 0; i < (int)pa.size(); i++)
         {
             auto it = lower_bound(all.begin(), all.end(), pa[i], greater<>());
-            auto &rank = ans[pa[i].second];
+            auto& rank = ans[pa[i].second];
             if (it != all.end())
             {
                 rank = it - all.begin() + 1;

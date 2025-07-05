@@ -90,7 +90,8 @@ int main()
     for (int i = 0; i < m; i++)
     {
         cin >> arr[i].a >> arr[i].b >> arr[i].time;
-        arr[i].a--; arr[i].b--;
+        arr[i].a--;
+        arr[i].b--;
     }
     sort(arr.begin(), arr.end(), cmp);
     int index = -1;

@@ -36,7 +36,8 @@ void solve()
     }
     else
     {
-        cout << x << '\n' << y << '\n';
+        cout << x << '\n'
+             << y << '\n';
     }
 }
 

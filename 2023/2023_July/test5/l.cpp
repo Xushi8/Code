@@ -24,20 +24,20 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
-const int N = 
+const int N =
 #ifdef DEBUG
-1000005; // 调试
+    1000005; // 调试
 #else
-1000005; // 实际
+    1000005; // 实际
 #endif
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cout << (size_t)-1 << endl;
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

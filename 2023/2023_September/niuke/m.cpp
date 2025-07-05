@@ -29,7 +29,6 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
 
     int tt;
     cin >> tt;
@@ -63,7 +62,8 @@ int main()
     vector<char> ans;
     while (!que.empty())
     {
-        char u = que.front(); que.pop();
+        char u = que.front();
+        que.pop();
         ans.push_back(u);
         for (char v : G[u])
         {

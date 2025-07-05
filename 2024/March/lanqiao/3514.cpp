@@ -30,29 +30,29 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int k;
-	cin >> k;
-	string s;
-	cin >> s;
-	char ca, cb;
-	cin >> ca >> cb;
-	vector<int> a, b;
-	for (size_t i = 0; i < s.size(); i++)
-	{
-		char ch = s[i];
-		if (ch == ca)
-			a.emplace_back(i);
-		else if(ch == cb)
-			b.emplace_back(i);
-	}
+    int k;
+    cin >> k;
+    string s;
+    cin >> s;
+    char ca, cb;
+    cin >> ca >> cb;
+    vector<int> a, b;
+    for (size_t i = 0; i < s.size(); i++)
+    {
+        char ch = s[i];
+        if (ch == ca)
+            a.emplace_back(i);
+        else if (ch == cb)
+            b.emplace_back(i);
+    }
 
-	ll ans = 0;
-	for (auto index : a)
-	{
-		ans += b.end() - lower_bound(b.begin(), b.end(), index + k - 1);
-	}
-	cout << ans << endl;
-    
+    ll ans = 0;
+    for (auto index : a)
+    {
+        ans += b.end() - lower_bound(b.begin(), b.end(), index + k - 1);
+    }
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

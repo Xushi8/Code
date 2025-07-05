@@ -30,7 +30,7 @@ int find(int x)
     {
         return par[x] = x;
     }
-    else if(par[x] == x)
+    else if (par[x] == x)
     {
         return par[x];
     }

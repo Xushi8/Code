@@ -2,13 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int arr[201];
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -126,7 +125,6 @@ int main()
         //     swap(count[0], count[1]);
         // cout << count[0].first << ' ' << count[1].first - 1 << '\n';
 
-        
         // int arr[3];
         // arr[2] = -1;
         // auto it = s.begin();
@@ -158,8 +156,6 @@ int main()
         //     sort(arr, arr + 3);
         //     cout << arr[2] << ' ' << arr[1] - 1 << '\n';
         // }
-
-
 
         // for (int i = 2; i < m; i++)
         // {

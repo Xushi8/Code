@@ -14,25 +14,25 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	if (n < 8)
-	{
-		cout << "-1\n";
-	}
-	else
-	{
-		for (int i = 5; i <= n; i++)
-		{
-			cout << i  << ' ';
-		}
-		if (n % 2 == 1)
-		{
-			cout << "2 1 4 3\n";
-		}
-		else
-		{
-			cout << "1 2 3 4\n";
+    int n;
+    cin >> n;
+    if (n < 8)
+    {
+        cout << "-1\n";
+    }
+    else
+    {
+        for (int i = 5; i <= n; i++)
+        {
+            cout << i << ' ';
+        }
+        if (n % 2 == 1)
+        {
+            cout << "2 1 4 3\n";
+        }
+        else
+        {
+            cout << "1 2 3 4\n";
         }
     }
 }

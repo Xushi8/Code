@@ -2,13 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ofstream ofs1, ofs2;
     ofs1.open("binary1.out", ios::out);
     ofs2.open("binary2.out", ios::out | ios::binary);
@@ -27,7 +25,7 @@ int main()
 
     ofs1.close();
     ofs2.close();
-    
+
     cout << flush;
     system("pause");
     return 0;

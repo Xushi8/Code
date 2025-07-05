@@ -1,6 +1,5 @@
 #include <cstdio>
 
-
 int arr[100005];
 
 int min(int a, int b)

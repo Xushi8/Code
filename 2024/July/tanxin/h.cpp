@@ -82,9 +82,11 @@ struct BigIntTiny
     }
     bool absless(const BigIntTiny& b) const
     {
-        if (v.size() != b.v.size()) return v.size() < b.v.size();
+        if (v.size() != b.v.size())
+            return v.size() < b.v.size();
         for (int i = (int)v.size() - 1; i >= 0; i--)
-            if (v[i] != b.v[i]) return v[i] < b.v[i];
+            if (v[i] != b.v[i])
+                return v[i] < b.v[i];
         return false;
     }
     BigIntTiny operator-() const
@@ -115,7 +117,8 @@ struct BigIntTiny
     }
     BigIntTiny& operator+=(const BigIntTiny& b)
     {
-        if (sign != b.sign) return *this = (*this) - -b;
+        if (sign != b.sign)
+            return *this = (*this) - -b;
         v.resize(std::max(v.size(), b.v.size()) + 1);
         for (int i = 0, carry = 0; i < (int)b.v.size() || carry; i++)
         {
@@ -140,9 +143,12 @@ struct BigIntTiny
     }
     BigIntTiny operator-(const BigIntTiny& b) const
     {
-        if (b.v.empty() || b.v.size() == 1 && b.v[0] == 0) return *this;
-        if (sign != b.sign) return (*this) + -b;
-        if (absless(b)) return -(b - *this);
+        if (b.v.empty() || b.v.size() == 1 && b.v[0] == 0)
+            return *this;
+        if (sign != b.sign)
+            return (*this) + -b;
+        if (absless(b))
+            return -(b - *this);
         BigIntTiny c;
         for (int i = 0, borrow = 0; i < (int)v.size(); i++)
         {
@@ -154,7 +160,8 @@ struct BigIntTiny
     }
     BigIntTiny operator*(const BigIntTiny& b) const
     {
-        if (b < *this) return b * *this;
+        if (b < *this)
+            return b * *this;
         BigIntTiny c, d = b;
         for (int i = 0; i < (int)v.size(); i++, d.v.insert(d.v.begin(), 0))
             c.add_mul(d, v[i]);
@@ -213,9 +220,7 @@ void solve()
         a[i] = {l, r};
     }
     sort(a.begin() + 1, a.end(), [](auto const& l, auto const& r)
-        {
-            return l.first * l.second < r.first * r.second;
-        });
+        { return l.first * l.second < r.first * r.second; });
     BigIntTiny maxx{0};
     for (int i = 1; i < n; i++)
     {

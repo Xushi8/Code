@@ -1,12 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct tree 
+typedef struct tree
 {
     int element;
     tree* left;
     tree* right;
-}tree;
+} tree;
 
 tree* insert(int n, tree* p);
 tree* find_element(int n, tree* p);
@@ -45,10 +45,10 @@ int main()
 
 tree* insert(int n, tree* p)
 {
-    if(p == NULL)
+    if (p == NULL)
     {
         p = (tree*)malloc(sizeof(tree));
-        if(p == NULL)
+        if (p == NULL)
         {
             perror("insert");
             return NULL;
@@ -61,11 +61,11 @@ tree* insert(int n, tree* p)
             return p;
         }
     }
-    else if(p->element > n)
+    else if (p->element > n)
     {
         p->left = insert(n, p->left);
     }
-    else if(p->element < n)
+    else if (p->element < n)
     {
         p->right = insert(n, p->right);
     }
@@ -75,16 +75,16 @@ tree* insert(int n, tree* p)
 
 tree* find_element(int n, tree* p)
 {
-    if(p == NULL)
+    if (p == NULL)
     {
         return NULL;
     }
-    
-    if(p->element > n)
+
+    if (p->element > n)
     {
         return find_element(n, p->left);
     }
-    else if(p->element < n)
+    else if (p->element < n)
     {
         return find_element(n, p->right);
     }
@@ -96,12 +96,12 @@ tree* find_element(int n, tree* p)
 
 tree* find_min(tree* p)
 {
-    if(p == NULL)
+    if (p == NULL)
     {
         return NULL;
     }
 
-    while(p->left != NULL)
+    while (p->left != NULL)
     {
         p = p->left;
     }
@@ -111,12 +111,12 @@ tree* find_min(tree* p)
 
 tree* find_max(tree* p)
 {
-    if(p == NULL)
+    if (p == NULL)
     {
         return NULL;
     }
 
-    while(p->right != NULL)
+    while (p->right != NULL)
     {
         p = p->right;
     }
@@ -127,28 +127,28 @@ tree* find_max(tree* p)
 tree* delete_tree(int n, tree* p)
 {
     tree* tmp;
-    if(p == NULL)
+    if (p == NULL)
     {
         return NULL;
     }
-    else if(p->element > n)
+    else if (p->element > n)
     {
         p->left = delete_tree(n, p->left);
     }
-    else if(p->element < n)
+    else if (p->element < n)
     {
         p->right = delete_tree(n, p->right);
     }
-    else if(p->left != NULL && p->right != NULL)//两个儿子
+    else if (p->left != NULL && p->right != NULL) // 两个儿子
     {
         tmp = find_min(p->right);
         p->element = tmp->element;
         p->right = delete_tree(p->element, p->right);
     }
-    else//一个或没有儿子
+    else // 一个或没有儿子
     {
         tmp = p;
-        if(p->left == NULL)
+        if (p->left == NULL)
         {
             p = p->right;
         }
@@ -164,19 +164,19 @@ tree* delete_tree(int n, tree* p)
 
 void print_tree(tree* p)
 {
-    if(p == NULL)
+    if (p == NULL)
     {
         puts("空树");
     }
 
-    if(p->left != NULL)
+    if (p->left != NULL)
     {
         print_tree(p->left);
     }
 
     printf("%d ", p->element);
 
-    if(p->right != NULL)
+    if (p->right != NULL)
     {
         print_tree(p->right);
     }

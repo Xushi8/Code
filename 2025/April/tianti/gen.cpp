@@ -8,8 +8,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-
-
     ofstream ofs("in.txt");
 
     mt19937 rng(random_device{}());
@@ -17,7 +15,8 @@ int main()
 
     constexpr i64 n = 50000;
     ofs << n << '\n';
-    for (i64 i = 0; i < n; i++) {
+    for (i64 i = 0; i < n; i++)
+    {
         ofs << uni_x(rng) << ' ' << uni_y(rng) << '\n';
     }
 

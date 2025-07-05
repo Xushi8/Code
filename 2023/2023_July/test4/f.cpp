@@ -50,7 +50,6 @@ void solve()
     double p = k * log10(n);
     ans1 = pow(10, p - (int)p) * 100;
 
-
     // cout << "Case " << Case++ << ": " << (ll)ans1 << ' ' << ans2 << '\n';
     printf("Case %d: %03lld %03lld\n", Case++, (ll)ans1, ans2);
 }

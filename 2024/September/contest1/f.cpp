@@ -57,7 +57,6 @@ void solve()
         }
         else
         {
-            
         }
     }
 

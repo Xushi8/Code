@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // int arr[5] = { 100,1000,10000,100000,1000000 };
     // for (int i = 0; i < 5; i++)
     // {

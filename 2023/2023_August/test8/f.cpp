@@ -9,7 +9,7 @@ int nex[N];
 void solve(const string& s)
 {
     nex[0] = -1;
-    for (int i = 0, j = -1; i < (int)s.size(); )
+    for (int i = 0, j = -1; i < (int)s.size();)
     {
         if (j == -1 || s[i] == s[j])
         {

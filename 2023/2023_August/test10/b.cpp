@@ -51,7 +51,8 @@ void tarjan(int u)
         int v;
         do
         {
-            v = stk.top(); stk.pop();
+            v = stk.top();
+            stk.pop();
             vis[v] = 0;
             c[v] = tot;
             sum[tot]++;
@@ -64,14 +65,15 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     cin >> n >> m;
     for (int i = 0; i < m; i++)
     {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         G[u].emplace_back(v);
     }
 

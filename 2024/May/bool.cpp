@@ -29,13 +29,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	bool a, b, c;
-	cin >> a >> b >> c;
-	if (cin.good())
-	{
-		cout <<  c << endl;
+    bool a, b, c;
+    cin >> a >> b >> c;
+    if (cin.good())
+    {
+        cout << c << endl;
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

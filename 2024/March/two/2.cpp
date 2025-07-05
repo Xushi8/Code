@@ -30,25 +30,25 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	char ch;
-	string mm, dd, yyyy;
-	while ((ch = cin.get()) != '-')
-	{
-		mm += ch;
-	}
+    char ch;
+    string mm, dd, yyyy;
+    while ((ch = cin.get()) != '-')
+    {
+        mm += ch;
+    }
 
-	while ((ch = cin.get()) != '-')
-	{
-		dd += ch;
-	}
+    while ((ch = cin.get()) != '-')
+    {
+        dd += ch;
+    }
 
-	while((ch = cin.get()) != '\n' && ch != '\r' && ch != EOF)
-	{
-		yyyy += ch;
-	}
+    while ((ch = cin.get()) != '\n' && ch != '\r' && ch != EOF)
+    {
+        yyyy += ch;
+    }
 
-	cout << yyyy << '-' << mm << '-' << dd << endl;
-    
+    cout << yyyy << '-' << mm << '-' << dd << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

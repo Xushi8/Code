@@ -59,7 +59,7 @@ int main()
     {
         solve();
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

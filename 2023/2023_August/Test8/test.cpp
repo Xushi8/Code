@@ -23,7 +23,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 int nex[N];
 
 void get_next(const string& s)
@@ -34,14 +33,15 @@ void get_next(const string& s)
     {
         if (j == -1 || s[i] == s[j])
         {
-            i++; j++;
+            i++;
+            j++;
             nex[i] = j;
         }
         else
         {
             j = nex[j];
         }
-}
+    }
 }
 
 int kmp(const string& a, const string& b)
@@ -52,7 +52,8 @@ int kmp(const string& a, const string& b)
     {
         if (j == -1 || a[i] == b[j])
         {
-            i++; j++;
+            i++;
+            j++;
         }
         else if (j > 0)
         {
@@ -74,7 +75,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string a, b;
     cin >> a >> b;
     cout << kmp(a, b) << '\n';

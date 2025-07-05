@@ -43,7 +43,7 @@ void solve()
     }
     if (0 < cnt && cnt < n && m + b[cnt - 1] - a[cnt] >= 0)
         cnt++;
-    
+
     cout << n + 1 - cnt << '\n';
 }
 
@@ -51,7 +51,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

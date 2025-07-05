@@ -62,52 +62,52 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	i64 n, k;
-	cin >> n >> k;
-	vector<i64> a(n + 1);
-	for (i64 i = 1; i <= n; i++)
-	{
-		cin >> a[i];
-	}
+    i64 n, k;
+    cin >> n >> k;
+    vector<i64> a(n + 1);
+    for (i64 i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+    }
 
-	vector<i64> sum(n + 1);
-	inclusive_scan(a.begin(), a.end(), sum.begin());
+    vector<i64> sum(n + 1);
+    inclusive_scan(a.begin(), a.end(), sum.begin());
 
-	multiset<int> st;
+    multiset<int> st;
     i64 ans = 0;
-	for (i64 i = n; i >= 0; i--)
-	{
-		i64 now_sum = sum[i] - i * k;
-		for (auto x : st)
-			now_sum += x;
-		ans = max(ans, now_sum);
-		st.emplace(a[i]);
-		multiset<int> tmp;
-		for (auto x : st)
-		{
-			if (x / 2 > 0)
-				tmp.emplace(x / 2);
-		}
-		st = std::move(tmp);
-	}
+    for (i64 i = n; i >= 0; i--)
+    {
+        i64 now_sum = sum[i] - i * k;
+        for (auto x : st)
+            now_sum += x;
+        ans = max(ans, now_sum);
+        st.emplace(a[i]);
+        multiset<int> tmp;
+        for (auto x : st)
+        {
+            if (x / 2 > 0)
+                tmp.emplace(x / 2);
+        }
+        st = std::move(tmp);
+    }
 
-	cout << ans << '\n';
+    cout << ans << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

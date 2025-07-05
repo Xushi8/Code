@@ -27,26 +27,26 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (auto& x : a)
-	{
-		cin >> x;
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto& x : a)
+    {
+        cin >> x;
     }
-	vector<int> prices = {7, 27, 41, 49, 63, 78, 108};
-	int sum = 0;
-	for (auto x : a)
-	{
-		sum += prices[x - 1];
-	}
-	if (sum >= 120)
-		sum -= 50;
-	else if (sum >= 89)
-		sum -= 30;
-	else if (sum >= 69)
-		sum -= 15;
-	cout << sum << '\n';
+    vector<int> prices = {7, 27, 41, 49, 63, 78, 108};
+    int sum = 0;
+    for (auto x : a)
+    {
+        sum += prices[x - 1];
+    }
+    if (sum >= 120)
+        sum -= 50;
+    else if (sum >= 89)
+        sum -= 30;
+    else if (sum >= 69)
+        sum -= 15;
+    cout << sum << '\n';
 }
 
 int main()
@@ -54,13 +54,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

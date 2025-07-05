@@ -38,7 +38,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, k;
     cin >> n >> m >> k;
     vector<string> s(n);
@@ -62,13 +62,14 @@ int main()
 
     queue<point> que;
     que.emplace(bx, by, 0);
-    int dx[] = { 0, 1, 0, -1 };
-    int dy[] = { 1, 0, -1, 0 };
+    int dx[] = {0, 1, 0, -1};
+    int dy[] = {1, 0, -1, 0};
     constexpr int INF = 0x3f3f3f3f;
     vector<vector<int>> cnt(n, vector<int>(m, INF));
     while (!que.empty())
     {
-        point p = que.front(); que.pop();
+        point p = que.front();
+        que.pop();
         for (int i = 0; i < 4; i++)
         {
             int tx = dx[i] + p.x;

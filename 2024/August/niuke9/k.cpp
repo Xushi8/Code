@@ -34,7 +34,7 @@ constexpr int N = 1000005;
 
 void solve()
 {
-     // int n, k;
+    // int n, k;
     // cin >> n >> k;
     // deque<i64> a(n);
     // for (int i = 0; i < n; i++)
@@ -130,4 +130,3 @@ void solve()
 
     cout << ans << '\n';
 }
-

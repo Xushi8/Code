@@ -29,53 +29,49 @@ constexpr int N = 1000005;
 
 size_t func(vector<u64> const& a)
 {
-	return count_if(std::execution::par_unseq, a.begin(), a.end(), [](u64 x)
-		{
-			return x % 2 == 0;
-		});
+    return count_if(std::execution::par_unseq, a.begin(), a.end(), [](u64 x)
+        { return x % 2 == 0; });
 }
 
 size_t func1(vector<u64> const& a)
 {
-	return count_if(a.begin(), a.end(), [](u64 x)
-		{
-			return x % 2 == 0;
-		});
+    return count_if(a.begin(), a.end(), [](u64 x)
+        { return x % 2 == 0; });
 }
 
 void print(vector<u64> const& a)
 {
-	for (size_t i = 10000000; i < 100000000; i += 10000000)
-	{
-		cout << a[i] << '\n';
-	}
+    for (size_t i = 10000000; i < 100000000; i += 10000000)
+    {
+        cout << a[i] << '\n';
+    }
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	size_t n;
-	ifstream ifs("test.in");
-	ifs >> n;
-	vector<u64> a(n);
-	for (auto& x : a)
-	{
-		ifs >> x;
-	}
+    size_t n;
+    ifstream ifs("test.in");
+    ifs >> n;
+    vector<u64> a(n);
+    for (auto& x : a)
+    {
+        ifs >> x;
+    }
 
-	cout << "sort begin" << endl;
+    cout << "sort begin" << endl;
 
-	// sort(a.begin(), a.end());
-	// sort(std::execution::par, a.begin(), a.end());
-	// print(a);
+    // sort(a.begin(), a.end());
+    // sort(std::execution::par, a.begin(), a.end());
+    // print(a);
 
-	// cout << func(a) << endl;
-	// cout << func1(a) << endl;
+    // cout << func(a) << endl;
+    // cout << func1(a) << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

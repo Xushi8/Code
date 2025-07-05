@@ -1,15 +1,15 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
 
 typedef struct Heap
 {
     int capacity;
     int size;
     int* element;
-}Heap;
+} Heap;
 
 Heap* init_heap(Heap* head, int capacity)
 {
@@ -29,7 +29,7 @@ Heap* init_heap(Heap* head, int capacity)
         free(head);
         return NULL;
     }
-    
+
     head->element[0] = -2147483648;
     return head;
 }
@@ -64,7 +64,7 @@ void print_heap(Heap* p)
     }
     putchar('\n');
 }
-#include<limits.h>
+#include <limits.h>
 int main()
 {
     Heap* heap_head = init_heap(heap_head, 30);

@@ -31,11 +31,11 @@ int n;
 
 void build(int p)
 {
-	if (p >= n)
-		return;
-	build(p * 2 + 1);
-	build(p * 2 + 2);
-	tree[p] = a[tot++];
+    if (p >= n)
+        return;
+    build(p * 2 + 1);
+    build(p * 2 + 2);
+    tree[p] = a[tot++];
 }
 
 int main()
@@ -43,21 +43,21 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-
-	build(0);
-
-	for (int i = 0; i < n; i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << tree[i];
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
     }
-    
+
+    build(0);
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i != 0)
+            cout << ' ';
+        cout << tree[i];
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

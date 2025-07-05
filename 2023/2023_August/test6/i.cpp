@@ -84,7 +84,8 @@ int main()
         {
             if (!que.empty() && que.top().first > arr[i].b)
             {
-                auto [b, index] = que.top(); que.pop();
+                auto [b, index] = que.top();
+                que.pop();
                 add(index, b);
                 add(i, -arr[i].b);
                 que.emplace(arr[i].b, i);

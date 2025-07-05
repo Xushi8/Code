@@ -72,7 +72,6 @@ void solve()
     {
         if (l == 1)
             l = 2;
-        
 
         for (ll i = 0; i < (ll)primes.size(); i++)
         {
@@ -84,7 +83,6 @@ void solve()
                     continue;
                 vis[primes[i] * j - l] = 1;
             }
-
         }
 
         vector<ll> tmp;
@@ -126,7 +124,6 @@ void solve()
             cout << tmp[max_index] << ',' << tmp[max_index + 1] << " are most distant.\n";
         }
     }
-
 }
 
 int main()

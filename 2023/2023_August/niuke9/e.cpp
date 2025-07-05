@@ -31,7 +31,7 @@ struct A
         b = b_;
         c = c_;
     }
-    
+
     int a, b, c;
 };
 vector<A> ans;

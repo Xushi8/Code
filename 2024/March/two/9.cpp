@@ -27,63 +27,63 @@ constexpr int N = 1000005;
 
 struct A
 {
-	string name;
-	set<int> flags;
-	int n;
+    string name;
+    set<int> flags;
+    int n;
 };
 
 bool cmp(A const& x, A const& y)
 {
-	if (x.flags.size() != y.flags.size())
-	{
-		return x.flags.size() > y.flags.size();
-	}
-	else
-	{
-		return x.n < y.n;
+    if (x.flags.size() != y.flags.size())
+    {
+        return x.flags.size() > y.flags.size();
+    }
+    else
+    {
+        return x.n < y.n;
     }
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<A> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i].name;
-		cin >> a[i].n;
-		for (int j = 0; j < a[i].n; j++)
-		{
-			int x;
-			cin >> x;
-			a[i].flags.emplace(x);
-		}
-	}
+    int n;
+    cin >> n;
+    vector<A> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i].name;
+        cin >> a[i].n;
+        for (int j = 0; j < a[i].n; j++)
+        {
+            int x;
+            cin >> x;
+            a[i].flags.emplace(x);
+        }
+    }
 
-	sort(a.begin(), a.end(), cmp);
+    sort(a.begin(), a.end(), cmp);
 
-	vector<string> ans;
-	for (int i = 0; i < min(3, n); i++)
-	{
-		ans.emplace_back(a[i].name);
-	}
+    vector<string> ans;
+    for (int i = 0; i < min(3, n); i++)
+    {
+        ans.emplace_back(a[i].name);
+    }
 
-	while (ans.size() < 3)
-		ans.emplace_back("-");
+    while (ans.size() < 3)
+        ans.emplace_back("-");
 
-	for (int i = 0; i < 3; i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << ans[i];
+    for (int i = 0; i < 3; i++)
+    {
+        if (i != 0)
+            cout << ' ';
+        cout << ans[i];
     }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

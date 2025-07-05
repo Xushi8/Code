@@ -14,8 +14,8 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	string s;
-	cin >> s;
+    string s;
+    cin >> s;
 }
 
 int main()

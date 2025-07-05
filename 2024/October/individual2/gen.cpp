@@ -19,7 +19,7 @@ int main()
 
     uniform_int_distribution<size_t> uni_size_t(0, (n - 1) * (n - 1));
     set<size_t> st;
-    for(size_t cnt = 0; cnt < m; cnt++)
+    for (size_t cnt = 0; cnt < m; cnt++)
     {
         size_t x = uni_size_t(rng);
         if (st.contains(x))

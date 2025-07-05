@@ -14,55 +14,55 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	vector<i64> sum(n + 1);
-	for (int i = 0; i < n; i++)
-	{
-		sum[i + 1] = sum[i] + a[i];
-	}
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    vector<i64> sum(n + 1);
+    for (int i = 0; i < n; i++)
+    {
+        sum[i + 1] = sum[i] + a[i];
+    }
 
-	constexpr i64 INF = 9e18;
-	vector<vector<i64>> dp(n + 1, vector<i64>(n + 1, INF));
-	for (int i = 0; i <= n; i++)
-	{
-		dp[i][i] = 0;
-	}
-	for (int len = 2; len <= n; len++)
-	{
-		for (int l = 1; l + len - 1 <= n; l++)
-		{
-			int r = l + len - 1;
-			for (int j = l; j + 1 <= r; j++)
-			{
-				dp[l][r] = min(dp[l][r], dp[l][j] + dp[j + 1][r]);
-			}
-			dp[l][r] += sum[r] - sum[l - 1];
-		}
-	}
+    constexpr i64 INF = 9e18;
+    vector<vector<i64>> dp(n + 1, vector<i64>(n + 1, INF));
+    for (int i = 0; i <= n; i++)
+    {
+        dp[i][i] = 0;
+    }
+    for (int len = 2; len <= n; len++)
+    {
+        for (int l = 1; l + len - 1 <= n; l++)
+        {
+            int r = l + len - 1;
+            for (int j = l; j + 1 <= r; j++)
+            {
+                dp[l][r] = min(dp[l][r], dp[l][j] + dp[j + 1][r]);
+            }
+            dp[l][r] += sum[r] - sum[l - 1];
+        }
+    }
 
-	cout << dp[1][n] << '\n';
+    cout << dp[1][n] << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

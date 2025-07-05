@@ -26,33 +26,33 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     string s;
     cin >> n >> s;
 
     auto check = [&](int tim) -> bool
+    {
+        int pos = -1, lst = -1;
+        for (int i = 0; i < n; i++)
         {
-            int pos = -1, lst = -1;
-            for (int i = 0; i < n; i++)
+            if (s[i] == '*')
             {
-                if (s[i] == '*')
-                {
-                    if (pos == -1 && lst < i)
-                        pos = i;
-                }
-                else if (s[i] == 'P')
-                {
-                    if (pos == -1)
-                        lst = i + tim;
-                    else if (i - pos > tim)
-                        return false;
-                    else
-                        lst = max({lst, i + (tim - (i - pos) * 2), i + (tim - (i - pos)) / 2}), pos = -1;
-                }
+                if (pos == -1 && lst < i)
+                    pos = i;
             }
-            return pos == -1;
-        };
+            else if (s[i] == 'P')
+            {
+                if (pos == -1)
+                    lst = i + tim;
+                else if (i - pos > tim)
+                    return false;
+                else
+                    lst = max({lst, i + (tim - (i - pos) * 2), i + (tim - (i - pos)) / 2}), pos = -1;
+            }
+        }
+        return pos == -1;
+    };
 
     int l = 1, r = int(s.size()) * 2, ans = r;
     while (l <= r)

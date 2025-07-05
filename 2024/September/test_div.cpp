@@ -44,26 +44,18 @@ int main()
     uniform_real_distribution<float_type> unf(-1e9, 1e9);
     uniform_int_distribution<int_type> uni;
     generate_n(a.begin(), n, [&]
-        {
-            return unf(rng);
-        });
+        { return unf(rng); });
     generate_n(b.begin(), n, [&]
-        {
-            return uni(rng);
-        });
+        { return uni(rng); });
 
     float_type x = unf(rng);
     while (abs(x - 0) < 1e-6)
         x = unf(rng);
     auto time_use = time_test([&]
-        {
-            float_div(a.data(), n, x);
-        });
+        { float_div(a.data(), n, x); });
     print("float div: {:.3f}ms\n", time_use.count());
     time_use = time_test([&]
-        {
-            int_div(b.data(), n, x);
-        });
+        { int_div(b.data(), n, x); });
     print("int div: {:.3f}ms\n", time_use.count());
 
     print("{} {}\n", a[(uni(rng) % n + n) % n], b[(uni(rng) % n + n) % n]);

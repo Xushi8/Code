@@ -10,20 +10,20 @@ void solve();
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }
 
 using i64 = int64_t;
@@ -34,23 +34,23 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	i64 n, k;
-	cin >> n >> k;
-	i64 sum = k * (k + 1) / 2;
-	set<i64> st;
-	for (int i = 0; i < n; i++)
-	{
-		i64 x;
-		cin >> x;
+    i64 n, k;
+    cin >> n >> k;
+    i64 sum = k * (k + 1) / 2;
+    set<i64> st;
+    for (int i = 0; i < n; i++)
+    {
+        i64 x;
+        cin >> x;
         st.emplace(x);
-	}
+    }
 
-	for (auto x : st)
-	{
-		if (1 <= x && x <= k)
-		{
-			sum -= x;
+    for (auto x : st)
+    {
+        if (1 <= x && x <= k)
+        {
+            sum -= x;
         }
-	}
-	cout << sum << '\n';
+    }
+    cout << sum << '\n';
 }

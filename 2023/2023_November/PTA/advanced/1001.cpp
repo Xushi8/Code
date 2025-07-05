@@ -31,12 +31,14 @@ int main()
     int a, b;
     cin >> a >> b;
     int sum = a + b;
-    if(sum == 0){
+    if (sum == 0)
+    {
         cout << 0 << endl;
         return 0;
     }
 
-    if(sum < 0){
+    if (sum < 0)
+    {
         cout << '-';
         sum = -sum;
     }
@@ -48,7 +50,8 @@ int main()
         ans.push_back(sum % 10 + '0');
         sum /= 10;
         cnt++;
-        if(cnt % 3 == 0 && sum != 0){
+        if (cnt % 3 == 0 && sum != 0)
+        {
             ans.push_back(',');
         }
     }

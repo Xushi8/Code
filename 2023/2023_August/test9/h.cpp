@@ -104,7 +104,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -118,7 +118,7 @@ int main()
         {
             int u, v, w;
             cin >> u >> v >> w;
-            arr.push_back({ u, v, w });
+            arr.push_back({u, v, w});
         }
         sort(arr.begin(), arr.end(), cmp);
 

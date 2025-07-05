@@ -13,12 +13,15 @@ int main()
     int begin = clock();
     for (int i = 2; i < 1000005; i++)
     {
-        if (!isnp[i]) prime.emplace_back(i);
+        if (!isnp[i])
+            prime.emplace_back(i);
         for (const int& p : prime)
         {
-            if (p * i > 1000005) break;
+            if (p * i > 1000005)
+                break;
             isnp[p * i] = 1;
-            if (i % p == 0) break;
+            if (i % p == 0)
+                break;
         }
     }
     int end = clock();

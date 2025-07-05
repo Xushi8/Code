@@ -29,9 +29,8 @@ void solve()
         deg[v]++;
     }
 
-    auto dfs = [&](auto&& self, int u, int par) -> int
-    {
-          
+    auto dfs = [&](auto&& self, int u, int par) -> int {
+
     };
 }
 

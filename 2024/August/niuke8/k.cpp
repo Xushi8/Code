@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -43,9 +42,9 @@ void solve()
         cout << "Yes\n";
         return;
     }
-    
+
     set<int> st;
-    for (int i = 0; i < s.size(); )
+    for (int i = 0; i < s.size();)
     {
         auto s1 = s.substr(i, 3);
         auto s2 = s.substr(i, 5);

@@ -95,7 +95,7 @@ void solve()
         {
             for (int k = bag[j]; k >= wei; k--)
             {
-                dp[j][k] = max(dp[j][k], dp[j][k  - wei] + val);
+                dp[j][k] = max(dp[j][k], dp[j][k - wei] + val);
             }
         }
 

@@ -20,7 +20,8 @@ void solve()
     {
         int x, y;
         cin >> x >> y;
-        x--; y--;
+        x--;
+        y--;
         a[i] = {x, y};
     }
 

@@ -33,7 +33,8 @@ void get_next(const string& s)
     {
         if (j == -1 || s[i] == s[j])
         {
-            i++; j++;
+            i++;
+            j++;
             nex[i] = j;
         }
         else
@@ -49,9 +50,10 @@ int kmp(const string& a, const string& b)
     get_next(b);
     while (i < (int)a.size())
     {
-        if (j == - 1 || a[i] == b[j])
+        if (j == -1 || a[i] == b[j])
         {
-            i++; j++;
+            i++;
+            j++;
         }
         else if (j > 0)
         {

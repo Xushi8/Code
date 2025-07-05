@@ -27,50 +27,50 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int op, n;
-	cin >> op >> n;
+    int op, n;
+    cin >> op >> n;
     vector<int> ans;
-	priority_queue<int, vector<int>, less<>> big_que;
-	priority_queue<int, vector<int>, greater<>> less_que;
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		if (big_que.empty() || x <= big_que.top())
-		{
-			big_que.emplace(x);
-		}
-		else
-		{
-			less_que.emplace(x);
-		}
-
-		while (big_que.size() >= less_que.size() + 2)
-		{
-			less_que.emplace(big_que.top());
-			big_que.pop();
-		}
-		while (less_que.size() >= big_que.size() + 2)
-		{
-			big_que.emplace(less_que.top());
-			less_que.pop();
-		}
-
-		if (i % 2 == 0)
-		{
-			while (big_que.size() < less_que.size())
-			{
-				big_que.emplace(less_que.top());
-				less_que.pop();
-			}
-			ans.emplace_back(big_que.top());
+    priority_queue<int, vector<int>, less<>> big_que;
+    priority_queue<int, vector<int>, greater<>> less_que;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        if (big_que.empty() || x <= big_que.top())
+        {
+            big_que.emplace(x);
         }
-	}
+        else
+        {
+            less_que.emplace(x);
+        }
 
-	cout << op << ' ' << ans.size() << '\n';
-	for (size_t i = 0; i < ans.size(); i++)
-	{
-		cout << ans[i] << " \n"[(i + 1) % 10 == 0 || i + 1 == ans.size()];
+        while (big_que.size() >= less_que.size() + 2)
+        {
+            less_que.emplace(big_que.top());
+            big_que.pop();
+        }
+        while (less_que.size() >= big_que.size() + 2)
+        {
+            big_que.emplace(less_que.top());
+            less_que.pop();
+        }
+
+        if (i % 2 == 0)
+        {
+            while (big_que.size() < less_que.size())
+            {
+                big_que.emplace(less_que.top());
+                less_que.pop();
+            }
+            ans.emplace_back(big_que.top());
+        }
+    }
+
+    cout << op << ' ' << ans.size() << '\n';
+    for (size_t i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " \n"[(i + 1) % 10 == 0 || i + 1 == ans.size()];
     }
 }
 
@@ -79,13 +79,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

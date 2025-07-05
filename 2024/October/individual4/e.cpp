@@ -62,7 +62,7 @@ void solve()
     top.reserve(N);
     auto [hash1, p1] = get_hash(top, BASE1, MOD1);
 
-    for(int i = 1; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
         auto s2 = std::move(a[i]);
 

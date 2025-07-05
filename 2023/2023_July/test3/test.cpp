@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // map<int, int> m;
     // m[1]++;
     // m[1]++;
@@ -36,7 +36,6 @@ int main()
     cout << (1 ^ 7) << '\n';
     cout << (1 ^ 5) << '\n';
     cout << (1 ^ 5 ^ 2) << '\n';
-
 
     cout << endl;
     return 0;

@@ -41,14 +41,14 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     memset(arr, 0x3f, sizeof(arr));
     cin >> V >> E;
     for (int i = 0; i < V; i++)
     {
         arr[i][i] = 0;
     }
-    
+
     for (int i = 0; i < E; i++)
     {
         int a, b, c;
@@ -57,13 +57,12 @@ int main()
         // G.emplace_back(a, b, c);
     }
 
-
     for (int k = 0; k < V; k++)
         for (int i = 0; i < V; i++)
             for (int j = 0; j < V; j++)
                 if (arr[i][k] != INF && arr[k][j] != INF && arr[i][j] > arr[i][k] + arr[k][j])
                     arr[i][j] = arr[i][k] + arr[k][j];
-    
+
     bool flag = 0;
     for (int i = 0; i < V; i++)
     {
@@ -73,7 +72,7 @@ int main()
             break;
         }
     }
-    
+
     if (flag)
         cout << "NEGATIVE CYCL\n";
     else
@@ -88,10 +87,6 @@ int main()
             cout << '\n';
         }
     }
-    
-
-    
-   
 
     cout << flush;
     system("pause");

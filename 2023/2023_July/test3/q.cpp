@@ -21,7 +21,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 map<pair<pair<int, int>, int>, int> m;
 int arr[50][50];
 int n;
@@ -30,7 +29,7 @@ ll ans;
 void dfsl(int x, int y, int val)
 {
     val ^= arr[x][y];
-    
+
     if (x + y == 1 + n)
     {
         m[{{x, y}, val}]++;
@@ -45,7 +44,6 @@ void dfsl(int x, int y, int val)
 
 void dfsr(int x, int y, int val)
 {
-
     if (x + y == 1 + n)
     {
         ans += m[{{x, y}, val}];
@@ -63,7 +61,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cin >> n;
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= n; j++)

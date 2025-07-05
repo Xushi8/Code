@@ -27,18 +27,18 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	double x, y;
-	cin >> x >> y;
-	double val = x / (y * y);
-	cout << setprecision(1) << fixed << val << '\n'
-		 << (val > 25 ? "PANG" : "Hai Xing") << '\n';
+    double x, y;
+    cin >> x >> y;
+    double val = x / (y * y);
+    cout << setprecision(1) << fixed << val << '\n'
+         << (val > 25 ? "PANG" : "Hai Xing") << '\n';
 
 #ifdef LOCAL
-	cerr
-		<< "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

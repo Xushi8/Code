@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ll a, b, x, y;
     cin >> a >> b >> x >> y;
     ll gcd = __gcd(x, y);
@@ -34,9 +34,9 @@ int main()
     y /= gcd;
 
     auto check = [&](ll val) -> bool
-        {
-            return val * x <= a && val * y <= b;
-        };
+    {
+        return val * x <= a && val * y <= b;
+    };
 
     ll l = 0, r = 2e9, ans = 0;
     while (l <= r)

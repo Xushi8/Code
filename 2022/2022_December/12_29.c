@@ -1,4 +1,4 @@
-#include"test1.h"
+#include "test1.h"
 
 // int main()
 // {
@@ -103,7 +103,6 @@
 //     {
 //         puts("Impossible!");
 //     }
-    
 
 //     return 0;
 // }
@@ -132,7 +131,7 @@
 //         sum += arr[i]*pow(2, 31-i);
 //     }
 //     printf("%u", sum);
-    
+
 //     return 0;
 // }
 

@@ -42,7 +42,7 @@ void solve()
     {
         ans += abs(a[i] - k) * 2;
     }
-    
+
     // int id = int(lower_bound(a.begin(), a.end(), k) - a.begin());
     // ll ans = 0;
     // if (id == 0)
@@ -88,7 +88,7 @@ int main()
     {
         solve();
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

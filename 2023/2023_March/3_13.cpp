@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -36,12 +34,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     do
@@ -64,7 +61,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -97,18 +94,16 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
 //     for (int i = 0; i < n; i++) cin >> arr[i];
-    
+
 //     int min_num = arr[0], max_num = 0;
 //     for (int i = 1; i < n; i++)
 //     {
@@ -131,7 +126,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // long int a[200000000];
 // int main(void)
 // {
@@ -147,7 +141,7 @@ using namespace std;
 //         if (minv > a[i])
 //             minv = a[i];
 //     }
-    
+
 //     printf("%ld\n", maxv);
 //     return 0;
 // }
@@ -156,7 +150,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -182,12 +176,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -214,19 +207,17 @@ using namespace std;
 //     for (const int& p : arr) cout << p << ' ';
 //     cout << endl;
 //     cout << cnt << '\n';
-    
 
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -235,7 +226,7 @@ using namespace std;
 //     {
 //         cin >> arr[i];
 //     }
-    
+
 //     for (int i = 1; i < n; i = 3 * i + 1)
 //     {
 //         increment.emplace_back(i);
@@ -273,7 +264,7 @@ using namespace std;
 //     {
 //         cout << arr[i] << '\n';
 //     }
-    
+
 //     cout << flush;
 //     system("pause");
 //     return 0;
@@ -284,7 +275,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     fgets(s1, 1005, stdin);
 //     fgets(s2, 1005, stdin);
 //     for (size_t i = 0; i < strlen(s1); i++)
@@ -299,13 +290,10 @@ using namespace std;
 //     return 0;
 // }
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
 
     cout << flush;
     system("pause");

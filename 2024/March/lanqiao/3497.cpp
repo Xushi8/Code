@@ -28,21 +28,21 @@ ll ans = 0;
 
 void dfs(int deep, int val)
 {
-	if (deep >=  31 || val == 100)
-	{
-		return;
-	}
-	
-	if (val == 70)
-	{
-		ans++;
-	}
-	
-	// 错误
-	dfs(deep + 1, 0);
+    if (deep >= 31 || val == 100)
+    {
+        return;
+    }
 
-	// 正确
-	dfs(deep + 1, val + 10);
+    if (val == 70)
+    {
+        ans++;
+    }
+
+    // 错误
+    dfs(deep + 1, 0);
+
+    // 正确
+    dfs(deep + 1, val + 10);
 }
 
 int main()
@@ -50,9 +50,9 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	dfs(0, 0);
-	cout << ans << endl;
-    
+    dfs(0, 0);
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -1,11 +1,10 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
-
-template<typename T>
+template <typename T>
 void my_swap(T& a, T& b)
 {
     T tmp = a;

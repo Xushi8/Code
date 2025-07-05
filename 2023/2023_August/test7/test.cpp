@@ -28,7 +28,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ofstream ofs("in");
     int n = 1;
     ofs << n << '\n';

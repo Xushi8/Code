@@ -1,7 +1,7 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 int f(int x, int y)
@@ -44,7 +44,7 @@ int main()
         {
             cout << ' ';
         }
-            for (int j = 0; j <= i; j++)
+        for (int j = 0; j <= i; j++)
         {
             cout << arr[i][j] << ' ';
         }

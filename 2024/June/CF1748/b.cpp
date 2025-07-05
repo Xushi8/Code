@@ -14,46 +14,46 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	string s;
-	cin >> s;
-	i64 ans = 0;
-	for (int i = 0; i < n; i++)
-	{
-		array<int, 10> cnt;
-		cnt.fill(0);
-		int diff = 0;
-		int maxx = 0;
-		for (int j = 0; i + j < n && j < 200; j++)
-		{
-			int val = s[i + j] - '0';
-			if (++cnt[val] == 1)
-				diff++;
-			maxx = max(maxx, cnt[val]);
-			if (maxx <= diff)
-				ans++;
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    i64 ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        array<int, 10> cnt;
+        cnt.fill(0);
+        int diff = 0;
+        int maxx = 0;
+        for (int j = 0; i + j < n && j < 200; j++)
+        {
+            int val = s[i + j] - '0';
+            if (++cnt[val] == 1)
+                diff++;
+            maxx = max(maxx, cnt[val]);
+            if (maxx <= diff)
+                ans++;
         }
-	}
+    }
 
-	cout << ans << '\n';
+    cout << ans << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

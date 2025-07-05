@@ -42,10 +42,10 @@ int main()
         {
             cin >> arr[i];
         }
-        
+
         sort(arr.begin(), arr.end());
         arr.erase(unique(arr.begin(), arr.end()), arr.end());
-        
+
         if (arr.size() == 1)
         {
             cout << 2 * arr[0] << '\n';
@@ -56,7 +56,7 @@ int main()
             cout << arr[0] + arr[1] << '\n';
             continue;
         }
-        
+
         vector<int> g1(arr.size()), g2(arr.size());
         g1[0] = arr[0];
         for (int i = 1; i < (int)g1.size(); i++)
@@ -68,8 +68,6 @@ int main()
         {
             g2[i] = __gcd(g2[i + 1], arr[i]);
         }
-
-        
 
         int ans = max(g1.front() + g2[1], g2.back() + g1[arr.size() - 2]);
         for (int i = 1; i < (int)arr.size() - 1; i++)

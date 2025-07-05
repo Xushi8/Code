@@ -26,7 +26,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -75,7 +74,7 @@ int main()
         {
             cout << sum + negative << '\n';
         }
-        else if(negative > 0)
+        else if (negative > 0)
         {
             cout << sum - positive << '\n';
         }

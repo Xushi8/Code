@@ -2,13 +2,11 @@
 // #include <bits/stdc++.h>
 // using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     string a;
@@ -42,74 +40,79 @@
 //     return 0;
 // }
 
-#include<cstdio>
+#include <cstdio>
 using namespace std;
-char c[10][5][4] = 
+char c[10][5][4] =
+    {
+        "XXX", // 0
+        "X.X",
+        "X.X",
+        "X.X",
+        "XXX",
+        "..X", // 1
+        "..X",
+        "..X",
+        "..X",
+        "..X",
+        "XXX", // 2
+        "..X",
+        "XXX",
+        "X..",
+        "XXX",
+        "XXX", // 3
+        "..X",
+        "XXX",
+        "..X",
+        "XXX",
+        "X.X", // 4
+        "X.X",
+        "XXX",
+        "..X",
+        "..X",
+        "XXX", // 5
+        "X..",
+        "XXX",
+        "..X",
+        "XXX",
+        "XXX", // 6
+        "X..",
+        "XXX",
+        "X.X",
+        "XXX",
+        "XXX", // 7
+        "..X",
+        "..X",
+        "..X",
+        "..X",
+        "XXX", // 8
+        "X.X",
+        "XXX",
+        "X.X",
+        "XXX",
+        "XXX", // 9
+        "X.X",
+        "XXX",
+        "..X",
+        "XXX"},
+     ans[10][1000];
+int main()
 {
-    "XXX",//0
-    "X.X",
-    "X.X",
-    "X.X",
-    "XXX",
-    "..X",//1
-    "..X",
-    "..X",
-    "..X",
-    "..X",
-    "XXX",//2
-    "..X",
-    "XXX",
-    "X..",
-    "XXX",
-    "XXX",//3
-    "..X",
-    "XXX",
-    "..X",
-    "XXX",
-    "X.X",//4
-    "X.X",
-    "XXX",
-    "..X",
-    "..X",
-    "XXX",//5
-    "X..",
-    "XXX",
-    "..X",
-    "XXX",
-    "XXX",//6
-    "X..",
-    "XXX",
-    "X.X",
-    "XXX",
-    "XXX",//7
-    "..X",
-    "..X",
-    "..X",
-    "..X",
-    "XXX",//8
-    "X.X",
-    "XXX",
-    "X.X",
-    "XXX",
-    "XXX",//9
-    "X.X",
-    "XXX",
-    "..X",
-    "XXX"
-}, ans[10][1000];
-int main() {
     int n, a, s = 0;
     scanf("%d", &n);
-    while (n--) {
+    while (n--)
+    {
         scanf("%1d", &a);
-        for (int i = 0;i < 5;i++)//复制
-            for (int j = 0;j < 3;j++)
+        for (int i = 0; i < 5; i++) // 复制
+            for (int j = 0; j < 3; j++)
                 ans[i][s + j] = c[a][i][j];
-        for (int i = 0;i < 5;i++) ans[i][s + 3] = '.';
+        for (int i = 0; i < 5; i++)
+            ans[i][s + 3] = '.';
         s += 4;
     }
-    for (int i = 0;i < 5;i++) {
-        for (int j = 0;j < s - 1;j++) printf("%c", ans[i][j]);
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < s - 1; j++)
+            printf("%c", ans[i][j]);
         printf("\n");
     }
     return 0;

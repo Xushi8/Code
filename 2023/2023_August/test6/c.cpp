@@ -30,9 +30,10 @@ class A
 {
 public:
     int s, h, this_ans; // 字串的s, h, 与该字串自己的答案
-    A()
-        :s(0), h(0), this_ans(0)
-    {}
+    A() :
+        s(0), h(0), this_ans(0)
+    {
+    }
 };
 
 bool cmp(const A& a, const A& b)

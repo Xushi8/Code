@@ -26,63 +26,63 @@ using pll = pair<ll, ll>;
 constexpr int N = 1000005;
 bool flag;
 
-void dfs(size_t deep, int now, vector<array<int ,3>> const& a, vector<int>& vis)
+void dfs(size_t deep, int now, vector<array<int, 3>> const& a, vector<int>& vis)
 {
-	if (flag)
-		return;
-	if (deep == a.size())
-	{
-		flag = 1;
-		return;
-	}
+    if (flag)
+        return;
+    if (deep == a.size())
+    {
+        flag = 1;
+        return;
+    }
 
-	for (size_t i = 0; i < a.size(); i++)
-	{
-		if (!vis[i])
-		{
-			auto [t, d, l] = a[i];
-			if (now > t + d)
-				return;
-			// if (now < t)
-			// 	continue;
-			vis[i] = 1;
-			dfs(deep + 1, max(now, t) + l, a, vis);
-			vis[i] = 0;
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        if (!vis[i])
+        {
+            auto [t, d, l] = a[i];
+            if (now > t + d)
+                return;
+            // if (now < t)
+            // 	continue;
+            vis[i] = 1;
+            dfs(deep + 1, max(now, t) + l, a, vis);
+            vis[i] = 0;
         }
     }
 }
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<array<int, 3>> a(n);
-	for (auto& [x, y, z] : a)
-	{
-		cin >> x >> y >> z;
-	}
-	// sort(a.begin(), a.end());
+    int n;
+    cin >> n;
+    vector<array<int, 3>> a(n);
+    for (auto& [x, y, z] : a)
+    {
+        cin >> x >> y >> z;
+    }
+    // sort(a.begin(), a.end());
 
-	vector<int> vis(n, 0);
-	flag = 0;
-	dfs(0, 0, a, vis);
-	cout << (flag ? "YES" : "NO") << '\n';
+    vector<int> vis(n, 0);
+    flag = 0;
+    dfs(0, 0, a, vis);
+    cout << (flag ? "YES" : "NO") << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

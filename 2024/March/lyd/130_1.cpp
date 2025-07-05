@@ -27,26 +27,26 @@ constexpr int N = 1000005;
 
 ll factorial(int n)
 {
-	ll res = 1;
-	for (int i = 2; i <= n; i++)
-	{
-		res *= i;
-	}
-	return res;
+    ll res = 1;
+    for (int i = 2; i <= n; i++)
+    {
+        res *= i;
+    }
+    return res;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	cout << factorial(2 * n) / (factorial(n) * factorial(n + 1));
+    int n;
+    cin >> n;
+    cout << factorial(2 * n) / (factorial(n) * factorial(n + 1));
 
 #ifdef LOCAL
-					cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

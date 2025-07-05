@@ -2,13 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     // ios::sync_with_stdio(false);
     // cin.tie(0);
-    
+
     int n;
     int k;
     cin >> n >> k;
@@ -25,7 +23,8 @@ int main()
         }
     }
     int c, d;
-    c = 0; d = 0;
+    c = 0;
+    d = 0;
     for (int p : a)
         c += p;
     for (int p : b)

@@ -66,6 +66,4 @@ void solve()
     // cin >> n >> k;
     // int m = (1 << k);
     // // a & b ^ c | d
-
-    
 }

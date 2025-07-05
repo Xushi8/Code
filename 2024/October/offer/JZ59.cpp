@@ -24,6 +24,6 @@ struct max_que
     {
         return m_que.front();
     }
-    
+
     deque<int> m_que;
 };

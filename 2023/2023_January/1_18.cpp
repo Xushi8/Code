@@ -1,7 +1,7 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<list>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <list>
 
 using namespace std;
 
@@ -25,7 +25,7 @@ using namespace std;
 //     cout << endl;
 
 //     sort(arr, arr + 10, cmp);
-    
+
 //     for (int i = 0; i < 10; i++)
 //     {
 //         cout << arr[i] << ' ';
@@ -47,12 +47,12 @@ public:
 
     string name;
     int age;
-    int height;//单位: 厘米
+    int height; // 单位: 厘米
 };
 
 void print_person(list<Person>& person)
 {
-    for (list<Person>::iterator it = person.begin(); it != person.end();it++)
+    for (list<Person>::iterator it = person.begin(); it != person.end(); it++)
     {
         cout << "姓名: " << it->name << " 年龄: " << it->age << " 身高: " << it->height << '\n';
     }
@@ -90,11 +90,10 @@ int main()
     person.push_back(p6);
     print_person(person);
 
-    //按年龄升序
+    // 按年龄升序
     person.sort(cmp);
 
     print_person(person);
-    
 
     return 0;
 }

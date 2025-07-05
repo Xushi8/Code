@@ -63,8 +63,6 @@ void solve()
 
             for (; j < int(s.size()) && a[j] != 2; j++) {}
             nex_2 = j;
-
-            
         }
     };
 }

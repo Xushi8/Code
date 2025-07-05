@@ -41,7 +41,7 @@ int main()
     int sum = 0;
     int pre = 0;
     vector<int> index;
-    for (size_t i = 0, j = 0; ; i++)
+    for (size_t i = 0, j = 0;; i++)
     {
         if (i == a.size() || j == b.size())
         {
@@ -53,7 +53,7 @@ int main()
             {
                 flag = 0;
             }
-            
+
             break;
         }
 
@@ -86,7 +86,7 @@ int main()
 
     if (!flag)
     {
-           cout << "NO\n";
+        cout << "NO\n";
     }
     else
     {

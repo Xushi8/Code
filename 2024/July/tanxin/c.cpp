@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -46,9 +45,7 @@ void solve()
         a[i] = {l, r};
     }
     sort(a.begin(), a.end(), [](pii const& l, pii const& r)
-        {
-            return l.second < r.second;
-        });
+        { return l.second < r.second; });
     int ans = 0;
     int last = -1;
     for (auto [l, r] : a)

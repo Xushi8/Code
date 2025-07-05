@@ -16,48 +16,48 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		int n;
-		cin >> n;
-		deque<int> a(n);
-		for (int i = 0; i < n; i++)
-		{
-			cin >> a[i];
-		}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        int n;
+        cin >> n;
+        deque<int> a(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
 
-		map<int, int> cnt;
-		for (int i = 0; i < n; i++)
-		{
-			cnt[a[i]]++;
-		}
+        map<int, int> cnt;
+        for (int i = 0; i < n; i++)
+        {
+            cnt[a[i]]++;
+        }
 
-		int ans = 0;
-		int ge1 = 0;
-		for (auto [x, y] : cnt)
-		{
-			if (y > 1)
-			{
-				ge1++;
+        int ans = 0;
+        int ge1 = 0;
+        for (auto [x, y] : cnt)
+        {
+            if (y > 1)
+            {
+                ge1++;
             }
-		}
+        }
 
-		while (ge1 > 0)
-		{
-			ans++;
-			auto x = a.front();
-			a.pop_front();
-			if (--cnt[x] == 1)
-			{
-				ge1--;
+        while (ge1 > 0)
+        {
+            ans++;
+            auto x = a.front();
+            a.pop_front();
+            if (--cnt[x] == 1)
+            {
+                ge1--;
             }
-		}
+        }
 
-		cout << ans << '\n';
+        cout << ans << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -36,7 +36,6 @@ array<ll, 26> dfs(size_t x)
         char ch = s[i];
         if (ch == '(')
         {
-            
         }
     }
 }
@@ -45,7 +44,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ifs >> s;
     ifs >> k;
 
@@ -59,7 +58,6 @@ int main()
             auto tmp = dfs(i + 1);
             if (arr[0] + tmp[0] < k)
             {
-                
             }
         }
         else if (isalpha(ch))

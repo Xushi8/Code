@@ -69,12 +69,9 @@ const int N = 1000005;
 //             ans.pop_back();
 //     }
 
-
-
 //     cout << endl;
 //     return 0;
 // }
-
 
 class Point
 {
@@ -115,28 +112,29 @@ void func(pii p)
 int main()
 {
     int arr[5][5];
-    bool used[5][5] = { 0 };
+    bool used[5][5] = {0};
     for (int i = 0; i < 5; i++)
         for (int j = 0; j < 5; j++)
             cin >> arr[i][j];
 
     queue<Point> que;
-    que.push({ 0, 0, 0, {-1, -1} });
+    que.push({0, 0, 0, {-1, -1}});
     while (!que.empty())
     {
         bool flag = 0;
-        Point p = que.front(); que.pop();
+        Point p = que.front();
+        que.pop();
         tmp.push_back(p);
         int x = p.x, y = p.y;
-        int dx[] = { 0,1,0,-1 };
-        int dy[] = { 1,0,-1,0 };
+        int dx[] = {0, 1, 0, -1};
+        int dy[] = {1, 0, -1, 0};
         for (int i = 0; i < 4; i++)
         {
             int tx = x + dx[i];
             int ty = y + dy[i];
             if (0 <= tx && tx < 5 && 0 <= ty && ty < 5 && !used[tx][ty] && arr[tx][ty] == 0)
             {
-                que.push({ tx, ty, p.dis + 1, {p.x, p.y} });
+                que.push({tx, ty, p.dis + 1, {p.x, p.y}});
                 used[tx][ty] = 1;
                 if (tx == 4 && ty == 4)
                 {

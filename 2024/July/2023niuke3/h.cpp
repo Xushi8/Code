@@ -10,20 +10,20 @@ void solve();
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }
 
 using i64 = int64_t;
@@ -34,42 +34,42 @@ constexpr int N = 1000005;
 
 bool is_prime(i64 n)
 {
-	if (n == 1)
-		return false;
-	for (i64 i = 2; i * i <= n; i++)
-	{
-		if (n % i == 0)
-		{
-			return false;
-		}
-	}
-	return true;
+    if (n == 1)
+        return false;
+    for (i64 i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<i64> a(n);
-	i64 sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-		sum += a[i];
-	}
-	if (n == 1)
-	{
-		cout << (is_prime(a[0]) ? "Yes" : "No") << '\n';
-	}
-	else if (n == 2)
-	{
-		if (sum % 2 == 0)
-			cout << (sum != 2 ? "Yes" : "No") << '\n';
-		else
-			cout << (is_prime(sum - 2) ? "Yes" : "No") << '\n';
-	}
-	else
-	{
-		cout << (sum >= 2 * n ? "Yes" : "No") << '\n';
-	}
+    int n;
+    cin >> n;
+    vector<i64> a(n);
+    i64 sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+    if (n == 1)
+    {
+        cout << (is_prime(a[0]) ? "Yes" : "No") << '\n';
+    }
+    else if (n == 2)
+    {
+        if (sum % 2 == 0)
+            cout << (sum != 2 ? "Yes" : "No") << '\n';
+        else
+            cout << (is_prime(sum - 2) ? "Yes" : "No") << '\n';
+    }
+    else
+    {
+        cout << (sum >= 2 * n ? "Yes" : "No") << '\n';
+    }
 }

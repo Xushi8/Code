@@ -17,7 +17,8 @@ int bfs(int s, int t)
         {
             pair<int, int> u = q.front();
             q.pop();
-            if (u.first == t) return u.second;
+            if (u.first == t)
+                return u.second;
             for (auto v : G[u.first])
             {
                 if (!vis[v])
@@ -35,7 +36,8 @@ void slove()
     int n, m;
     cin >> m >> n;
     int sz = n * m;
-    for (int i = 1; i <= sz; i++) G[i].clear();
+    for (int i = 1; i <= sz; i++)
+        G[i].clear();
     memset(vis, 0, sizeof vis);
     getchar();
     for (int i = 1; i <= 4 * m + 3; i++)
@@ -51,8 +53,10 @@ void slove()
             int y = 6 * j - 1;
             int id = (i - 1) * n + j;
             int nid = 0;
-            if (mp[x][y] == 'S') s = id;
-            if (mp[x][y] == 'T') t = id;
+            if (mp[x][y] == 'S')
+                s = id;
+            if (mp[x][y] == 'T')
+                t = id;
             if (mp[x + 2][y] == ' ')
             {
                 nid = id + n;
@@ -82,6 +86,7 @@ int main()
     cout.tie(0);
     int t;
     cin >> t;
-    while (t--) slove();
+    while (t--)
+        slove();
     return 0;
 }

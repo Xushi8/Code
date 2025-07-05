@@ -9,39 +9,39 @@ using namespace std;
 
 void test_par()
 {
-	random_device rd;
-	mt19937 rng(rd());
-	constexpr size_t N = 1e8;
-	std::vector<int> a(N);
+    random_device rd;
+    mt19937 rng(rd());
+    constexpr size_t N = 1e8;
+    std::vector<int> a(N);
 
-	auto first = tbb::tick_count::now();
+    auto first = tbb::tick_count::now();
 
-	std::generate(execution::par_unseq, a.begin(), a.end(), rng);
-	vector<int> b = a;
+    std::generate(execution::par_unseq, a.begin(), a.end(), rng);
+    vector<int> b = a;
 
-	auto last = tbb::tick_count::now();
-	fmt::print("Time elapsed of generating: {:.3f}s\n", (last - first).seconds());
+    auto last = tbb::tick_count::now();
+    fmt::print("Time elapsed of generating: {:.3f}s\n", (last - first).seconds());
 
-	first = tbb::tick_count::now();
+    first = tbb::tick_count::now();
 
-	tbb::parallel_sort(a.begin(), a.end());
+    tbb::parallel_sort(a.begin(), a.end());
 
-	last = tbb::tick_count::now();
-	fmt::print("Time elapsed of parallel sort: {:.3f}s\n", (last - first).seconds());
+    last = tbb::tick_count::now();
+    fmt::print("Time elapsed of parallel sort: {:.3f}s\n", (last - first).seconds());
 
-	first = tbb::tick_count::now();
+    first = tbb::tick_count::now();
 
-	std::sort(execution::par, b.begin(), b.end(), less<>());
+    std::sort(execution::par, b.begin(), b.end(), less<>());
 
-	last = tbb::tick_count::now();
-	fmt::print("Time elapsed of std::sort with execution::par: {:.3f}s\n", (last - first).seconds());
+    last = tbb::tick_count::now();
+    fmt::print("Time elapsed of std::sort with execution::par: {:.3f}s\n", (last - first).seconds());
 
-	fmt::print("\n");
+    fmt::print("\n");
 }
 
 int main()
 {
-	test_par();
-	
-	return 0;
+    test_par();
+
+    return 0;
 }

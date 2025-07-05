@@ -30,16 +30,15 @@ int main()
 
     cout << '\n';
 
-
     arr.erase(remove_if(arr.begin(), arr.end(),
-        [](int n) -> bool
-        {
-            return n % 2 != 0;
-        }), arr.end());
+                  [](int n) -> bool
+                  {
+                      return n % 2 != 0;
+                  }),
+        arr.end());
 
     for (size_t i = 0; i < arr.size(); i++)
         cout << arr[i] << '\n';
-
 
     ::cout << flush;
     return 0;

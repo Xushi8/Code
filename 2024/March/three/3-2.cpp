@@ -109,45 +109,45 @@ ll dp[N][4];
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	string s;
-	cin >> s;
+    string s;
+    cin >> s;
 
-	// vector<vector<ll>> dp(s.size() + 1, vector<ll>(4));
-	for (size_t i = 0; i <= s.size(); i++)
-	{
-		dp[i][0] = 1;
-	}
+    // vector<vector<ll>> dp(s.size() + 1, vector<ll>(4));
+    for (size_t i = 0; i <= s.size(); i++)
+    {
+        dp[i][0] = 1;
+    }
 
-	vector<int> last_vis(256);
-	for (int i = 1; i <= s.size(); i++)
-	{
-		int pre = last_vis[s[i - 1]];
-		last_vis[s[i - 1]] = i;
+    vector<int> last_vis(256);
+    for (int i = 1; i <= s.size(); i++)
+    {
+        int pre = last_vis[s[i - 1]];
+        last_vis[s[i - 1]] = i;
 
-		for (int j = 1; j <= 3; j++)
-		{
-			dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1];
+        for (int j = 1; j <= 3; j++)
+        {
+            dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1];
 
-			if (pre != 0 && j - (i - pre) >= 0)
-			{
-				dp[i][j] -= dp[pre - 1][j - (i - pre)];
-			}
-		}
-	}
+            if (pre != 0 && j - (i - pre) >= 0)
+            {
+                dp[i][j] -= dp[pre - 1][j - (i - pre)];
+            }
+        }
+    }
 
-	ll ans = 0;
-	for (int i = 0; i < 4; i++)
-	{
-		ans += dp[s.size()][i];
-	}
+    ll ans = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        ans += dp[s.size()][i];
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

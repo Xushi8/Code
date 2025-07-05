@@ -27,33 +27,33 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	string s;
-	cin >> s;
-	if (s.size() == 6)
-	{
-		cout << string(s.data(), 4) << '-' << string(s.data() + 4) << endl;
-	}
-	else
-	{
-		int x = stoi(string(s.data(), 2));
-		if (x < 22)
-		{
-			cout << "20";
-		}
-		else
-		{
-			cout << "19";
-		}
+    string s;
+    cin >> s;
+    if (s.size() == 6)
+    {
+        cout << string(s.data(), 4) << '-' << string(s.data() + 4) << endl;
+    }
+    else
+    {
+        int x = stoi(string(s.data(), 2));
+        if (x < 22)
+        {
+            cout << "20";
+        }
+        else
+        {
+            cout << "19";
+        }
         cout << x / 10 << x % 10;
         cout << '-';
-		cout << string(s.data() + 2) << endl;
-	}
+        cout << string(s.data() + 2) << endl;
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -2,18 +2,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string tmp;
     getline(cin, tmp);
     vector<string> str{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"};
     stringstream ss;
-    int arr[23] = { 0 };
+    int arr[23] = {0};
     while (ss << tmp)
     {
         string a;
@@ -37,7 +35,7 @@ int main()
                 ans += i;
                 flag = 0;
             }
-            else if(i < 10 && !flag)
+            else if (i < 10 && !flag)
             {
                 ans += '0' + i;
             }

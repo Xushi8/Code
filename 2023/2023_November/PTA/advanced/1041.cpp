@@ -33,13 +33,16 @@ int main()
     int n;
     cin >> n;
     vector<int> a(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
         vis[a[i]]++;
     }
 
-    for (int i = 0; i < n; i++) {
-        if(vis[a[i]] == 1) {
+    for (int i = 0; i < n; i++)
+    {
+        if (vis[a[i]] == 1)
+        {
             cout << a[i] << endl;
             return 0;
         }
@@ -48,8 +51,8 @@ int main()
     cout << "None" << endl;
 
 #ifdef LOCAL
-        cerr
-         << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     cout << flush;
     return 0;

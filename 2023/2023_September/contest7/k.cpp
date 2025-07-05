@@ -50,20 +50,18 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, k;
     cin >> n >> m >> k;
     int len = k - m;
     if (check(n, len))
     {
         cout << "Yes\n";
-        
     }
     else
     {
         cout << "No\n";
     }
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

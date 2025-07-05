@@ -29,54 +29,54 @@ int par[N], dis[N], siz[N];
 
 int find(int x)
 {
-	if (par[x] == x)
-		return x;
-	int t1 = par[x];
-	int t2 = find(par[x]);
-	dis[x] += dis[t1];
-	return par[x] = t2;
+    if (par[x] == x)
+        return x;
+    int t1 = par[x];
+    int t2 = find(par[x]);
+    dis[x] += dis[t1];
+    return par[x] = t2;
 }
 
 void unite(int x, int y)
 {
-	x = find(x);
-	y = find(y);
-	par[y] = x;
-	dis[y] = siz[x];
-	siz[x] += siz[y];
-	siz[y] = 0;
+    x = find(x);
+    y = find(y);
+    par[y] = x;
+    dis[y] = siz[x];
+    siz[x] += siz[y];
+    siz[y] = 0;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	iota(par, par + N, 0);
-	fill(siz, siz + n, 1);
+    int n;
+    cin >> n;
+    iota(par, par + N, 0);
+    fill(siz, siz + n, 1);
 
-	for (int i = 0; i < n; i++)
-	{
-		char op;
-		int x, y;
-		cin >> op >> x >> y;
-		if (op == 'M')
-		{
-			unite(x, y);
-		}
-		else
-		{
-			if (find(x) == find(y))
-				cout << abs(dis[x] - dis[y]) - 1 << '\n';
-			else
-				cout << "-1\n";
-		}
-	}
+    for (int i = 0; i < n; i++)
+    {
+        char op;
+        int x, y;
+        cin >> op >> x >> y;
+        if (op == 'M')
+        {
+            unite(x, y);
+        }
+        else
+        {
+            if (find(x) == find(y))
+                cout << abs(dis[x] - dis[y]) - 1 << '\n';
+            else
+                cout << "-1\n";
+        }
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

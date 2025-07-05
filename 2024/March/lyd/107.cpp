@@ -27,24 +27,24 @@ constexpr int N = 1000005;
 
 void merge_sort(vector<int>& a, int l, int r, vector<int>& tmp, ll& ans)
 {
-	if (l >= r - 1)
-		return;
-	int mid = (l + r) / 2;
-	merge_sort(a, l, mid, tmp, ans);
-	merge_sort(a, mid, r, tmp, ans);
-	int tot = l;
-	int p = l, q = mid;
-	while (tot < r)
-	{
-		if (q == r || (p < mid && a[p] <= a[q]))
-			tmp[tot++] = a[p++];
-		else
-			tmp[tot++] = a[q++], ans += mid - p;
-	}
-	for (int i = l; i < r; i++)
-	{
-		a[i] = tmp[i];
-	}
+    if (l >= r - 1)
+        return;
+    int mid = (l + r) / 2;
+    merge_sort(a, l, mid, tmp, ans);
+    merge_sort(a, mid, r, tmp, ans);
+    int tot = l;
+    int p = l, q = mid;
+    while (tot < r)
+    {
+        if (q == r || (p < mid && a[p] <= a[q]))
+            tmp[tot++] = a[p++];
+        else
+            tmp[tot++] = a[q++], ans += mid - p;
+    }
+    for (int i = l; i < r; i++)
+    {
+        a[i] = tmp[i];
+    }
 }
 
 int main()
@@ -52,20 +52,20 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	while (cin >> n && n != 0)
-	{
-		vector<int> a(n);
-		for (int i = 0; i < n; i++)
-		{
-			cin >> a[i];
-		}
-		vector<int> tmp(n);
-		ll ans = 0;
-		merge_sort(a, 0, n, tmp, ans);
-		cout << ans << '\n';
+    int n;
+    while (cin >> n && n != 0)
+    {
+        vector<int> a(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        vector<int> tmp(n);
+        ll ans = 0;
+        merge_sort(a, 0, n, tmp, ans);
+        cout << ans << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

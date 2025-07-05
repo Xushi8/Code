@@ -1,6 +1,6 @@
-#include<iostream>
-#include<ctime>
-#include<fstream>
+#include <iostream>
+#include <ctime>
+#include <fstream>
 using namespace std;
 
 void to_file(int* arr);
@@ -22,8 +22,8 @@ int main()
         arr[i] = rand() % 1000;
     }
     int begin = clock();
-    //sort1(arr, arr + SIZE);
-    //sort2(arr, arr + SIZE);
+    // sort1(arr, arr + SIZE);
+    // sort2(arr, arr + SIZE);
     sort3(arr, arr + SIZE);
     for (int i = 0; i < 10; i++)
     {
@@ -31,7 +31,7 @@ int main()
     }
     cout << endl;
     int end = clock();
-    procedure_time = (double)(end - begin)/1000.0;
+    procedure_time = (double)(end - begin) / 1000.0;
     to_file(arr);
 
     return 0;
@@ -72,7 +72,7 @@ void sort2(int* arr, int* end)
 
 void sort3(int* arr, int* end)
 {
-    quicksort(arr, 0, end-arr-1);
+    quicksort(arr, 0, end - arr - 1);
 }
 
 void quicksort(int* arr, int left, int right)
@@ -83,8 +83,10 @@ void quicksort(int* arr, int left, int right)
         int pivot = search_pivot(arr, left, right);
         while (1)
         {
-            while (arr[++i] < pivot);
-            while (arr[--j] > pivot);
+            while (arr[++i] < pivot)
+                ;
+            while (arr[--j] > pivot)
+                ;
 
             if (i < j)
             {

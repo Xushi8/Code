@@ -30,19 +30,19 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, m, k;
-	string x;
-	cin >> n >> x >> m >> k;
-	if (k == n)
-		cout << "mei you mai " << x << " de";
-	else if (k == m)
-		cout << "kan dao le mai " << x << " de";
-	else
-		cout << "wang le zhao mai " << x << " de";
+    int n, m, k;
+    string x;
+    cin >> n >> x >> m >> k;
+    if (k == n)
+        cout << "mei you mai " << x << " de";
+    else if (k == m)
+        cout << "kan dao le mai " << x << " de";
+    else
+        cout << "wang le zhao mai " << x << " de";
 
 #ifdef LOCAL
-			cerr
-			 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

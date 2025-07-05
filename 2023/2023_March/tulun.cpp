@@ -19,7 +19,7 @@ using namespace std;
 // void shortest_path(int s)
 // {
 //     for (int i = 1; i <= V; i++) d[i] = inf;
-    
+
 //     d[s] = 0;
 //     while (1)
 //     {
@@ -41,14 +41,14 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int s;
 //     cin >> V >> E >> s;
 //     for (int i = 1; i <= E; i++)
 //     {
 //         cin >> es[i].from >> es[i].to >> es[i].cost;
 //     }
-    
+
 //     shortest_path(s);
 //     for (int i = 1; i <= V; i++)
 //     {
@@ -73,7 +73,7 @@ public:
         to = a;
         cost = b;
     }
-    
+
     int to, cost;
 };
 typedef pair<int, int> P;
@@ -91,9 +91,11 @@ void dijkstra(int s)
 
     while (!que.empty())
     {
-        P p = que.top(); que.pop();
+        P p = que.top();
+        que.pop();
         int v = p.second;
-        if (d[v] < p.first) continue;
+        if (d[v] < p.first)
+            continue;
         for (int i = 0; i < (int)G[v].size(); i++)
         {
             edge e = G[v][i];
@@ -110,7 +112,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int s, E;
     cin >> V >> E >> s;
     for (int i = 0; i < E; i++)
@@ -129,7 +131,7 @@ int main()
         else
             cout << "INF" << '\n';
     }
-    
+
     cout << flush;
     system("pause");
     return 0;

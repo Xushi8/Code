@@ -2,13 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int arr[25][25][25];
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int x, y, z;
     cin >> x >> y >> z;
     for (int i = 0; i < x; i++)
@@ -27,7 +26,12 @@ int main()
     {
         int a, b, c, d, e, f;
         cin >> a >> b >> c >> d >> e >> f;
-        a--;b--;c--;d--;e--;f--;
+        a--;
+        b--;
+        c--;
+        d--;
+        e--;
+        f--;
         for (int i = a; i <= d; i++)
         {
             for (int j = b; j <= e; j++)

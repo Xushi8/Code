@@ -32,46 +32,46 @@ ll sum[N];
 
 void dfs(ll now_sum, int deep, int cnt)
 {
-	if (cnt >= ans)
-		return;
-	if (now_sum == m)
-	{
-		ans = min(ans, cnt);
-		return;
-	}
-	if (deep == n || now_sum > m || now_sum + sum[deep] < m)
-		return;
-	dfs(now_sum, deep + 1, cnt);
-	dfs(now_sum + a[deep], deep + 1, cnt);
-	dfs(now_sum + a[deep] / 2, deep + 1, cnt + 1);
+    if (cnt >= ans)
+        return;
+    if (now_sum == m)
+    {
+        ans = min(ans, cnt);
+        return;
+    }
+    if (deep == n || now_sum > m || now_sum + sum[deep] < m)
+        return;
+    dfs(now_sum, deep + 1, cnt);
+    dfs(now_sum + a[deep], deep + 1, cnt);
+    dfs(now_sum + a[deep] / 2, deep + 1, cnt + 1);
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	cin >> n >> m;
-	m *= 2;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-		a[i] *= 2;
-	}
-	sort(a, a + n, greater<>());
-	for (int i = n - 1; i >= 0; i--)
-	{
-		sum[i] = sum[i + 1] + a[i];
+    cin >> n >> m;
+    m *= 2;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        a[i] *= 2;
     }
-	dfs(0, 0, 0);
+    sort(a, a + n, greater<>());
+    for (int i = n - 1; i >= 0; i--)
+    {
+        sum[i] = sum[i + 1] + a[i];
+    }
+    dfs(0, 0, 0);
 
-	if (ans == N)
-		ans = -1;
-	cout << ans << endl;
+    if (ans == N)
+        ans = -1;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr
-		<< "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

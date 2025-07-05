@@ -27,7 +27,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     set<string> a, b;
     int n;
     cin >> n;

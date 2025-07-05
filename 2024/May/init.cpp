@@ -26,11 +26,11 @@ constexpr int N = 1000005;
 
 struct A
 {
-	int x;
-	A() noexcept = default;
+    int x;
+    A() noexcept = default;
 
-	friend bool operator==(A const& lhs, A const& rhs) noexcept = default;
-	friend bool operator<=>(A const& lhs, A const& rhs) noexcept = default;
+    friend bool operator==(A const& lhs, A const& rhs) noexcept = default;
+    friend bool operator<=>(A const& lhs, A const& rhs) noexcept = default;
 };
 
 int main()
@@ -38,26 +38,25 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	// array<int, 1000000> a;
-	// for (auto x : a)
-	// {
-	// 	cout << x << '\n';
-	// }
+    // array<int, 1000000> a;
+    // for (auto x : a)
+    // {
+    // 	cout << x << '\n';
+    // }
 
-	array<A, 1000000> a;
-	for (auto x : a)
-	{
-		cout << x.x << '\n';
-	}
+    array<A, 1000000> a;
+    for (auto x : a)
+    {
+        cout << x.x << '\n';
+    }
 
-	if (a[0] == a[1])
-	{
-		
-	}
+    if (a[0] == a[1])
+    {
+    }
 
-	vector<int> b{};
-	b.push_back(3);
-    
+    vector<int> b{};
+    b.push_back(3);
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

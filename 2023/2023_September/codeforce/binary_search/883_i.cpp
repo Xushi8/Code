@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, k;
     cin >> n >> k;
     if (k == 1)
@@ -42,10 +42,9 @@ int main()
     }
     sort(arr.begin(), arr.end());
 
-    auto check = [&](int val) -> bool
-        {
-            
-        };
+    auto check = [&](int val) -> bool {
+
+    };
 
     int l = 0, r = 1e9, ans = r;
     while (l <= r)

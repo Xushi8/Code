@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 
 int main()
 {
@@ -14,7 +13,7 @@ int main()
     //         ans.push_back(umap.find(target - nums[i])->second);
     //         return ans;
     //     }
-        
+
     //     umap.insert(pair<int, int>(nums[i], i));
     // }
 

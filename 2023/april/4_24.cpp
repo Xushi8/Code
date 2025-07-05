@@ -2,13 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string ans;
     cin >> ans;
     int tt;
@@ -18,7 +16,8 @@ int main()
         int a, b;
         string c, d;
         cin >> a >> b >> c >> d;
-        a--; b--;
+        a--;
+        b--;
         string tmp;
         tmp = ans.substr(a, b - a + 1);
         ans.erase(a, b - a + 1);

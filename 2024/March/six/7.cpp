@@ -30,21 +30,21 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	map<int, int> mp;
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		mp[x]++;
-	}
+    int n;
+    cin >> n;
+    map<int, int> mp;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        mp[x]++;
+    }
 
-	auto it1 = mp.begin();
-	auto it2 = --mp.end();
-	cout << it1->first << ' ' << it1->second << '\n';
-	cout << it2->first << ' ' << it2->second << '\n';
-    
+    auto it1 = mp.begin();
+    auto it2 = --mp.end();
+    cout << it1->first << ' ' << it1->second << '\n';
+    cout << it2->first << ' ' << it2->second << '\n';
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

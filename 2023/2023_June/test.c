@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define SWAP(a, b)                \
-do                                \
-{                                 \
-    typeof(a) tmp = a;            \
-    a = b;                        \
-    b = tmp;                      \
-} while (0)
+#define SWAP(a, b)         \
+    do                     \
+    {                      \
+        typeof(a) tmp = a; \
+        a = b;             \
+        b = tmp;           \
+    } while (0)
 
 int main()
 {

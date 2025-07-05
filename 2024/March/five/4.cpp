@@ -27,26 +27,26 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	double ans = 0;
-	for (int i = 0; i < n; i++)
-	{
-		double x;
-		cin >> x;
-		ans += 1.0 / x;
-	}
+    int n;
+    cin >> n;
+    double ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        double x;
+        cin >> x;
+        ans += 1.0 / x;
+    }
 
-	ans /= n;
-	cout << setprecision(2) << fixed;
+    ans /= n;
+    cout << setprecision(2) << fixed;
 
-	cout << 1.0 / ans << endl;
+    cout << 1.0 / ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

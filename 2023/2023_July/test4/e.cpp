@@ -45,7 +45,6 @@ void get_primes()
     }
 }
 
-
 ll func(int n)
 {
     ll res = 0;

@@ -25,7 +25,8 @@ constexpr int N = 100005;
 
 int a[N], f[__lg(N) + 1][N];
 
-int query(int l, int r) {
+int query(int l, int r)
+{
     int mid = __lg(r - l + 1);
     return __gcd(f[mid][l], f[mid][r - (1 << mid) + 1]);
 }

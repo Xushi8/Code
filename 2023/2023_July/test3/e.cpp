@@ -42,8 +42,8 @@ int main()
 
         double ans;
         ans = max((n - p1) / v1, p2 / v2);
-        ans = min({ ans, (n - p2 + n) / v2, (p2 + n) / v2 });
-        ans = min({ ans, (p1 + n) / v1, (n - p1 + n) / v1 });
+        ans = min({ans, (n - p2 + n) / v2, (p2 + n) / v2});
+        ans = min({ans, (p1 + n) / v1, (n - p1 + n) / v1});
         double l = p1, r = p2;
         double mid;
         double t1, t2;
@@ -60,7 +60,6 @@ int main()
         }
 
         cout << ans << '\n';
-        
 
         // double ans = min((p1 + n) / v1, (n - p1 + n) / v1);
         // ans = min(ans, min((n - p2 + n) / v2, (p2 + n) / v2));

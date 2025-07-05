@@ -2,12 +2,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fib(int n) {
-    if (n <= 2) return 1;
-    else return fib(n - 1) + fib(n - 2);
+int fib(int n)
+{
+    if (n <= 2)
+        return 1;
+    else
+        return fib(n - 1) + fib(n - 2);
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(0);
 
@@ -26,14 +30,14 @@ int main() {
         tmp += " -o ";
         tmp += file_name + ".exe";
         char* sys = new char[tmp.size() + 1];
-        for (int i = 0; i < tmp.size();i++)
+        for (int i = 0; i < tmp.size(); i++)
         {
             sys[i] = tmp[i];
         }
         sys[tmp.size()] = 0;
         system(sys);
         delete[] sys;
-        
+
         tmp = file_name + ".exe";
         sys = new char[tmp.size() + 1];
         for (int i = 0; i < tmp.size(); i++)

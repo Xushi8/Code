@@ -31,15 +31,15 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	constexpr size_t n = 100000000;
-	ofstream ofs("test.in");
-	ofs << n << '\n';
-	mt19937_64 rng(random_device{}());
-	for (size_t i = 0; i < n; i++)
-	{
-		ofs << rng() << ' ';
+    constexpr size_t n = 100000000;
+    ofstream ofs("test.in");
+    ofs << n << '\n';
+    mt19937_64 rng(random_device{}());
+    for (size_t i = 0; i < n; i++)
+    {
+        ofs << rng() << ' ';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

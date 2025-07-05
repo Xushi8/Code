@@ -31,59 +31,56 @@ constexpr char pa[5] = "wens";
 
 struct A
 {
-	int x, y;
-	string path;
+    int x, y;
+    string path;
 };
 
 void solve(int n, int m)
 {
-	static int tt = 1;
-	cout << "Maze #" << tt++ << '\n';
+    static int tt = 1;
+    cout << "Maze #" << tt++ << '\n';
 
-	vector<string> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
+    vector<string> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
-	auto valid = [&](int x, int y)
-	{
-		return 0 <= x && x < n && 0 <= y && y < m && a[x][y] != '#';
-	};
+    auto valid = [&](int x, int y)
+    {
+        return 0 <= x && x < n && 0 <= y && y < m && a[x][y] != '#';
+    };
 
-	
+    int bx, by, sx, sy, ex, ey;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (a[i][j] == 'B')
+                bx = i, by = j;
+            else if (a[i][j] == 'T')
+                ex = i, ey = j;
+            else if (a[i][j] == 'S')
+                sx = i, sy = j;
+        }
+    }
 
-	int bx, by, sx, sy, ex, ey;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			if (a[i][j] == 'B')
-				bx = i, by = j;
-			else if (a[i][j] == 'T')
-				ex = i, ey = j;
-			else if (a[i][j] == 'S')
-				sx = i, sy = j;
-		}
-	}
-
-
-	cout << "Impossible.\n";
+    cout << "Impossible.\n";
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m;
-	while (cin >> n >> m && (n || m))
-	{
-		solve(n, m);
-	}
+    int n, m;
+    while (cin >> n >> m && (n || m))
+    {
+        solve(n, m);
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

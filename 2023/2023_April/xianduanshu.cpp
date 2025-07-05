@@ -37,8 +37,10 @@ void add(int l, int r, int val, int s, int t, int p)
         b[p * 2 + 1] += b[p];
         b[p] = 0;
     }
-    if (l <= mid) add(l, r, val, s, mid, p * 2);
-    if (mid < r) add(l, r, val, mid + 1, t, p * 2 + 1);
+    if (l <= mid)
+        add(l, r, val, s, mid, p * 2);
+    if (mid < r)
+        add(l, r, val, mid + 1, t, p * 2 + 1);
     d[p] = d[p * 2] + d[p * 2 + 1];
 }
 
@@ -58,8 +60,10 @@ long long getsum(int l, int r, int s, int t, int p)
         b[p] = 0;
     }
     long long sum = 0;
-    if (l <= mid) sum = getsum(l, r, s, mid, p * 2);
-    if (mid < r) sum += getsum(l, r, mid + 1, t, p * 2 + 1);
+    if (l <= mid)
+        sum = getsum(l, r, s, mid, p * 2);
+    if (mid < r)
+        sum += getsum(l, r, mid + 1, t, p * 2 + 1);
     return sum;
 }
 
@@ -67,7 +71,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; i++)
@@ -95,5 +99,3 @@ int main()
     system("pause");
     return 0;
 }
-
-

@@ -14,37 +14,37 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<int> ans(n);
-	iota(ans.begin(), ans.end(), 1);
-	for (int i = n - 1; i - 1 >= 0; i -= 2)
-	{
-		swap(ans[i], ans[i - 1]);
-	}
+    int n;
+    cin >> n;
+    vector<int> ans(n);
+    iota(ans.begin(), ans.end(), 1);
+    for (int i = n - 1; i - 1 >= 0; i -= 2)
+    {
+        swap(ans[i], ans[i - 1]);
+    }
 
-	for (auto x : ans)
-	{
-		cout << x << ' ';
-	}
-	cout << '\n';
+    for (auto x : ans)
+    {
+        cout << x << ' ';
+    }
+    cout << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

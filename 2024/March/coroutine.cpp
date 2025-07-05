@@ -6,6 +6,6 @@ using fmt::print;
 int main()
 {
     throw std::runtime_error("klsadjlkj");
-    
-	return 0;
+
+    return 0;
 }

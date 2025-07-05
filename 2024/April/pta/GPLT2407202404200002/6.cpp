@@ -6,33 +6,33 @@ using pll = pair<ll, ll>;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<double> a(n);
-	for (auto& x : a)
-	{
-		cin >> x;
-	}
+    int n;
+    cin >> n;
+    vector<double> a(n);
+    for (auto& x : a)
+    {
+        cin >> x;
+    }
 
-	vector<int> cnt(n, 0);
-	int x, y;
-	double ans = 0;
-	while (cin >> x >> y && x != 0)
-	{
-		x--;
-		cnt[x] += y;
-		ans += a[x] * y;
-	}
+    vector<int> cnt(n, 0);
+    int x, y;
+    double ans = 0;
+    while (cin >> x >> y && x != 0)
+    {
+        x--;
+        cnt[x] += y;
+        ans += a[x] * y;
+    }
 
-	for (auto x : cnt)
-	{
-		cout << x << '\n';
-	}
-	cout << fixed << setprecision(2);
-	cout << ans << endl;
+    for (auto x : cnt)
+    {
+        cout << x << '\n';
+    }
+    cout << fixed << setprecision(2);
+    cout << ans << endl;
 
-	return 0;
+    return 0;
 }

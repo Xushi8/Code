@@ -14,61 +14,61 @@ constexpr int N = 1000005;
 
 void solve(int n, int m)
 {
-	vector<int> a(n), cnt(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	for (int i = 0; i < n; i++)
-	{
-		cin >> cnt[i];
-	}
+    vector<int> a(n), cnt(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cin >> cnt[i];
+    }
 
-	vector<int> all;
-	for (int i = 0; i < n; i++)
-	{
-		int val = a[i];
-		int count = cnt[i];
-		for (int j = 1; j <= count; j *= 2)
-		{
-			all.emplace_back(val * j);
-			count -= j;
-		}
-		if (count != 0)
-		{
-			all.emplace_back(val * count);
-		}
-	}
+    vector<int> all;
+    for (int i = 0; i < n; i++)
+    {
+        int val = a[i];
+        int count = cnt[i];
+        for (int j = 1; j <= count; j *= 2)
+        {
+            all.emplace_back(val * j);
+            count -= j;
+        }
+        if (count != 0)
+        {
+            all.emplace_back(val * count);
+        }
+    }
 
-	vector<i64> dp(m + 1);
-	dp[0] = 1;
+    vector<i64> dp(m + 1);
+    dp[0] = 1;
 
-	for (auto val : all)
-	{
-		auto ndp = dp;
-		for (int j = val; j <= m; j++)
-		{
-			ndp[j] += dp[j - val];
-		}
-		dp = std::move(ndp);
-	}
+    for (auto val : all)
+    {
+        auto ndp = dp;
+        for (int j = val; j <= m; j++)
+        {
+            ndp[j] += dp[j - val];
+        }
+        dp = std::move(ndp);
+    }
 
-	cout << m - std::count(dp.begin(), dp.end(), 0) << '\n';
+    cout << m - std::count(dp.begin(), dp.end(), 0) << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m;
-	while (cin >> n >> m && (n || m))
-	{
-		solve(n, m);
-	}
+    int n, m;
+    while (cin >> n >> m && (n || m))
+    {
+        solve(n, m);
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

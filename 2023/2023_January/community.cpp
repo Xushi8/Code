@@ -1,185 +1,185 @@
-#include<cstdio>
-#include<cstdlib>
-#include<string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <string.h>
 #include <windows.h>
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-#define ADMINISTRATOR_CODE "123456"//管理员密码
+#define ADMINISTRATOR_CODE "123456" // 管理员密码
 
-#define MAX_USER_NAME 19//用户名长度
+#define MAX_USER_NAME 19 // 用户名长度
 
-#define MAX_ONER_NAME 15//姓名长度
+#define MAX_ONER_NAME 15 // 姓名长度
 
-#define MAX_LODGER 15//房屋住客姓名长度
+#define MAX_LODGER 15 // 房屋住客姓名长度
 
-#define MAX_CODE 19//密码长度
+#define MAX_CODE 19 // 密码长度
 
-#define MAX_ADDRESS 20//房屋地址长度
+#define MAX_ADDRESS 20 // 房屋地址长度
 
-#define MAX_TELEPHONE 13//电话长度
+#define MAX_TELEPHONE 13 // 电话长度
 
-#define MAX_FACILITY_NAME 20//娱乐设施名字长度
+#define MAX_FACILITY_NAME 20 // 娱乐设施名字长度
 
-#define MAX_FACILITY_CONDITION 10//娱乐设施使用情况长度
+#define MAX_FACILITY_CONDITION 10 // 娱乐设施使用情况长度
 
-#define MAX_BUS_NAME 10//班车序号长度
+#define MAX_BUS_NAME 10 // 班车序号长度
 
-#define MAX_DEPARTURE MAX_FACILITY_NAME//班车出发点长度
+#define MAX_DEPARTURE MAX_FACILITY_NAME // 班车出发点长度
 
-#define MAX_DESTINATION MAX_FACILITY_NAME//班车目的地长度
+#define MAX_DESTINATION MAX_FACILITY_NAME // 班车目的地长度
 
 struct User
 {
-    char user_name[MAX_USER_NAME];//用户名
-    char code[MAX_CODE];//密码
-    char oner_name[MAX_ONER_NAME];//真实姓名
-    char tele[MAX_TELEPHONE];//电话
+    char user_name[MAX_USER_NAME]; // 用户名
+    char code[MAX_CODE];           // 密码
+    char oner_name[MAX_ONER_NAME]; // 真实姓名
+    char tele[MAX_TELEPHONE];      // 电话
     struct User* next;
 };
 struct User* user_head;
 
 struct House
 {
-    char oner_name[MAX_ONER_NAME];//房主
-    char addr[MAX_ADDRESS];//地址
-    char lodger[MAX_LODGER];//记录住客
+    char oner_name[MAX_ONER_NAME]; // 房主
+    char addr[MAX_ADDRESS];        // 地址
+    char lodger[MAX_LODGER];       // 记录住客
     struct House* next;
 };
 struct House* house_head;
 
 struct Facility
 {
-    char facility_name[MAX_FACILITY_NAME];//设施名字
-    char facility_condition[MAX_FACILITY_CONDITION];//设施状态:使用中,预约中,可用
-    char user_name[MAX_USER_NAME];//使用人姓名
+    char facility_name[MAX_FACILITY_NAME];           // 设施名字
+    char facility_condition[MAX_FACILITY_CONDITION]; // 设施状态:使用中,预约中,可用
+    char user_name[MAX_USER_NAME];                   // 使用人姓名
     struct Facility* next;
 };
 struct Facility* facility_head;
 
 struct Bus
 {
-    char bus_name[MAX_BUS_NAME];//班车序号
-    char departure[MAX_DEPARTURE];//出发点
-    char destination[MAX_DESTINATION];//目的地
+    char bus_name[MAX_BUS_NAME];       // 班车序号
+    char departure[MAX_DEPARTURE];     // 出发点
+    char destination[MAX_DESTINATION]; // 目的地
     struct Bus* next;
 };
 struct Bus* bus_head;
 
-char* s_gets(char* st, int n);//读取一段字符串,最后为\0而不是\n\0
+char* s_gets(char* st, int n); // 读取一段字符串,最后为\0而不是\n\0
 
-void change_command_size(int x, int y);//设置控制台大小
+void change_command_size(int x, int y); // 设置控制台大小
 
 void line_star(void);
 
-void begin_menu(void);//开始菜单
+void begin_menu(void); // 开始菜单
 
-void init_head_all(void);//初始化所有头结点
+void init_head_all(void); // 初始化所有头结点
 
-void init_user_head(void);//初始化用户头结点
+void init_user_head(void); // 初始化用户头结点
 
-void init_house_head(void);//初始化房间头结点
+void init_house_head(void); // 初始化房间头结点
 
-void init_facility_head(void);//初始化设施头结点
+void init_facility_head(void); // 初始化设施头结点
 
-void init_bus_head(void);//初始化班车头结点
+void init_bus_head(void); // 初始化班车头结点
 
-void read_all(void);//读取所有信息
+void read_all(void); // 读取所有信息
 
-void read_user(void);//录入用户信息
+void read_user(void); // 录入用户信息
 
-void read_house(void);//录入房间信息
+void read_house(void); // 录入房间信息
 
-void read_facility(void);//录入娱乐设施
+void read_facility(void); // 录入娱乐设施
 
-void read_bus(void);//录入班车
+void read_bus(void); // 录入班车
 
-void user_menu(void);//展示用户界面的目录
+void user_menu(void); // 展示用户界面的目录
 
-void users(void);//普通用户的所有操作
+void users(void); // 普通用户的所有操作
 
-struct User* sign_in_user(void);//登录用户,成功返回指向该用户的指针,失败返回NULL
+struct User* sign_in_user(void); // 登录用户,成功返回指向该用户的指针,失败返回NULL
 
-void buy_house(struct User* p);//买房
+void buy_house(struct User* p); // 买房
 
-void rent_house(struct User* p);//租房和住房
+void rent_house(struct User* p); // 租房和住房
 
-void modify_user(struct User* p);//修改用户信息
+void modify_user(struct User* p); // 修改用户信息
 
-int duplicate_user(char user_name[]);//用户名查重,有重复返回1
+int duplicate_user(char user_name[]); // 用户名查重,有重复返回1
 
-int delete_user(struct User* p);//注销用户,成功返回0(会让input==0,退出用户系统)
+int delete_user(struct User* p); // 注销用户,成功返回0(会让input==0,退出用户系统)
 
-void delete_house(void);//删除房屋
+void delete_house(void); // 删除房屋
 
-void delete_facility(void);//删除娱乐设施
+void delete_facility(void); // 删除娱乐设施
 
-void delete_bus(void);//删除班车
+void delete_bus(void); // 删除班车
 
-void sell_house(struct User* p);//买房,会让主人和租客名字都变成"无"
+void sell_house(struct User* p); // 买房,会让主人和租客名字都变成"无"
 
-void stop_rent_house(struct User* p);//停止入住
+void stop_rent_house(struct User* p); // 停止入住
 
-void print_user_house(struct User* p);//打印此用户持有的所有房屋
+void print_user_house(struct User* p); // 打印此用户持有的所有房屋
 
-void new_user(void);//用户采用头插法
+void new_user(void); // 用户采用头插法
 
-void new_house(void);//房间采用尾插法
+void new_house(void); // 房间采用尾插法
 
-void new_facility(void);//娱乐设施采用尾插法
+void new_facility(void); // 娱乐设施采用尾插法
 
-void new_bus(void);//班车采用尾插法
+void new_bus(void); // 班车采用尾插法
 
-struct User* search_user(char user_name[]);//查找用户名,成功返回指向该用户的指针,失败返回NULL
+struct User* search_user(char user_name[]); // 查找用户名,成功返回指向该用户的指针,失败返回NULL
 
-struct House* search_house(char house_addr[]);//查找房屋,成功返回指向该房屋的指针,失败返回NULL
+struct House* search_house(char house_addr[]); // 查找房屋,成功返回指向该房屋的指针,失败返回NULL
 
-struct Facility* search_facility(char facility_name[]);//查找娱乐设施,成功返回指向该娱乐设施的指针,失败返回NULL
+struct Facility* search_facility(char facility_name[]); // 查找娱乐设施,成功返回指向该娱乐设施的指针,失败返回NULL
 
-struct Bus* search_bus(char bus_name[]);//查找班车,成功返回指向该班车的指针,失败返回NULL
+struct Bus* search_bus(char bus_name[]); // 查找班车,成功返回指向该班车的指针,失败返回NULL
 
-void book_facility(struct User* p);//预订娱乐设施
+void book_facility(struct User* p); // 预订娱乐设施
 
-void book_bus(struct User* p);//预订班车
+void book_bus(struct User* p); // 预订班车
 
-void use_facility(struct User* p);//使用娱乐设施
+void use_facility(struct User* p); // 使用娱乐设施
 
-void use_bus(struct User* p);//使用班车
+void use_bus(struct User* p); // 使用班车
 
-int use_facility_duplicate(struct User* p);//查询用户是否已经在使用一个设施,是返回1
+int use_facility_duplicate(struct User* p); // 查询用户是否已经在使用一个设施,是返回1
 
-void stop_book_facility(struct User* p);//停止预订设施
+void stop_book_facility(struct User* p); // 停止预订设施
 
-void stop_use_facility(struct User* p);//停止使用设施
+void stop_use_facility(struct User* p); // 停止使用设施
 
-void administrator(void);//管理员用户所有操作
+void administrator(void); // 管理员用户所有操作
 
-int sign_in_administrator(void);//登录管理员用户,成功返回1
+int sign_in_administrator(void); // 登录管理员用户,成功返回1
 
-void print_user(void);//打印所有用户
+void print_user(void); // 打印所有用户
 
-void print_house(void);//打印所有房屋
+void print_house(void); // 打印所有房屋
 
-void print_facility(void);//打印所有设施
+void print_facility(void); // 打印所有设施
 
-void print_bus(void);//打印所有班车
+void print_bus(void); // 打印所有班车
 
-void save_all(void);//保存所有信息
+void save_all(void); // 保存所有信息
 
-void save_user(void);//保存用户信息
+void save_user(void); // 保存用户信息
 
-void save_house(void);//保存房屋信息
+void save_house(void); // 保存房屋信息
 
-void save_facility(void);//保存设施信息
+void save_facility(void); // 保存设施信息
 
-void save_bus(void);//保存班车信息
+void save_bus(void); // 保存班车信息
 
 int main(void)
 {
     system("color E");
     change_command_size(120, 30);
-    begin_menu();//开始菜单
+    begin_menu(); // 开始菜单
     init_head_all();
     read_all();
     int input;
@@ -266,7 +266,6 @@ void begin_menu(void)
     puts("\t\t\t\t\t\t2.创建新的账户");
     puts("\t\t\t\t\t\t3.登录管理员用户");
     line_star();
-
 }
 
 void init_head_all(void)
@@ -279,8 +278,8 @@ void init_head_all(void)
 
 void init_user_head(void)
 {
-    user_head = (struct User*)malloc(sizeof(struct User));//给用户头结点声明一块内存
-    user_head->next = NULL;//头结点下一个指向空
+    user_head = (struct User*)malloc(sizeof(struct User)); // 给用户头结点声明一块内存
+    user_head->next = NULL;                                // 头结点下一个指向空
 }
 
 void init_house_head(void)
@@ -327,7 +326,7 @@ void init_bus_head(void)
 //             tmp->code,
 //             tmp->oner_name,
 //             tmp->tele);
-//         //这里ret接收读取成功的个数,该结构体共有四个有读取的内容,全成功则返回4                    
+//         //这里ret接收读取成功的个数,该结构体共有四个有读取的内容,全成功则返回4
 //         if (ret == 4)
 //         {
 //             //读取成功
@@ -376,7 +375,6 @@ void init_bus_head(void)
 //             break;
 //         }
 
-
 //     }
 
 //     p->next = NULL;
@@ -411,7 +409,6 @@ void init_bus_head(void)
 //             free(tmp);
 //             break;
 //         }
-
 
 //     }
 
@@ -456,9 +453,9 @@ void init_bus_head(void)
 void read_all(void)
 {
     read_house();
-    //read_user();
-    //read_facility();
-    //read_bus();
+    // read_user();
+    // read_facility();
+    // read_bus();
 }
 
 void read_house(void)
@@ -491,11 +488,11 @@ void read_house(void)
     ifs.close();
 }
 
-//头插法
+// 头插法
 void new_user(void)
 {
-    system("cls");//清屏
-    struct User* p = (struct User*)malloc(sizeof(struct User));//申请一块空间读取用户信息
+    system("cls");                                              // 清屏
+    struct User* p = (struct User*)malloc(sizeof(struct User)); // 申请一块空间读取用户信息
     if (p == NULL)
     {
         perror("new_user");
@@ -503,7 +500,7 @@ void new_user(void)
     }
 
     puts("请输入不多于16位的用户名");
-    p->user_name[MAX_USER_NAME - 1] = 'h';//这里的替换是为了查最后一位是否为\0(即用户名超过16位)
+    p->user_name[MAX_USER_NAME - 1] = 'h'; // 这里的替换是为了查最后一位是否为\0(即用户名超过16位)
     s_gets(p->user_name, MAX_USER_NAME);
     while (1)
     {
@@ -514,7 +511,7 @@ void new_user(void)
             s_gets(p->user_name, MAX_USER_NAME);
         }
 
-        int ret = duplicate_user(p->user_name);//用户名查重
+        int ret = duplicate_user(p->user_name); // 用户名查重
         if (ret == 1)
         {
             puts("用户名有重复,请重新输入");
@@ -527,7 +524,7 @@ void new_user(void)
     }
 
     puts("请输入不多于16位的密码");
-    p->code[MAX_CODE - 1] = 'h';//同上
+    p->code[MAX_CODE - 1] = 'h'; // 同上
     s_gets(p->code, MAX_CODE);
     while (p->code[MAX_CODE - 1] == '\0')
     {
@@ -551,19 +548,19 @@ void new_user(void)
     begin_menu();
 }
 
-//尾插法
+// 尾插法
 void new_house(void)
 {
     system("cls");
     struct House* p = house_head;
 
-    //找到最后一个节点
+    // 找到最后一个节点
     while (p->next != NULL)
     {
         p = p->next;
     }
 
-    int size = sizeof(struct House);//算出结构体大小,避免重复计算
+    int size = sizeof(struct House); // 算出结构体大小,避免重复计算
     while (1)
     {
         struct House* tmp = (struct House*)malloc(size);
@@ -583,11 +580,10 @@ void new_house(void)
         p->next = tmp;
         p = p->next;
         p->next = NULL;
-
     }
 }
 
-//尾插法
+// 尾插法
 void new_facility(void)
 {
     system("cls");
@@ -621,7 +617,7 @@ void new_facility(void)
     }
 }
 
-//尾插法
+// 尾插法
 void new_bus(void)
 {
     system("cls");
@@ -661,7 +657,7 @@ void new_bus(void)
 void users(void)
 {
     system("cls");
-    struct User* p = sign_in_user();//登录
+    struct User* p = sign_in_user(); // 登录
     if (p == NULL)
     {
         return;
@@ -764,13 +760,13 @@ void user_menu(void)
 struct User* sign_in_user(void)
 {
     puts("请输入你的用户名\n如果要退出则直接按回车");
-    char user_name[MAX_USER_NAME];//存放用户输入的用户名
-    char user_code[MAX_CODE];//存放用户输入的密码
+    char user_name[MAX_USER_NAME]; // 存放用户输入的用户名
+    char user_code[MAX_CODE];      // 存放用户输入的密码
     s_gets(user_name, MAX_USER_NAME);
     struct User* p;
     while (1)
     {
-        p = search_user(user_name);//查找用户名
+        p = search_user(user_name); // 查找用户名
         if (p == NULL)
         {
             puts("没有该用户名,请重新输入");
@@ -888,7 +884,7 @@ void book_facility(struct User* p)
     puts("请输入你要预约的项目名称");
     char facility_name[MAX_FACILITY_NAME];
     s_gets(facility_name, MAX_FACILITY_NAME);
-    struct Facility* ptr = search_facility(facility_name);//这里用ptr避免与传来的p重复
+    struct Facility* ptr = search_facility(facility_name); // 这里用ptr避免与传来的p重复
     if (ptr == NULL)
     {
         puts("没有该设施");
@@ -985,8 +981,7 @@ void use_facility(struct User* p)
         system("cls");
         return;
     }
-    else if (strcmp(ptr->user_name, p->oner_name) == 0 &&
-        strcmp(ptr->facility_condition, "预约中") == 0)
+    else if (strcmp(ptr->user_name, p->oner_name) == 0 && strcmp(ptr->facility_condition, "预约中") == 0)
     {
         puts("使用成功!");
         strcpy(ptr->facility_condition, "使用中");
@@ -994,8 +989,7 @@ void use_facility(struct User* p)
         system("cls");
         return;
     }
-    else if (strcmp(ptr->user_name, p->oner_name) == 0 &&
-        strcmp(ptr->facility_condition, "使用中") == 0)
+    else if (strcmp(ptr->user_name, p->oner_name) == 0 && strcmp(ptr->facility_condition, "使用中") == 0)
     {
         puts("您已经在使用该设施");
         system("pause");
@@ -1070,8 +1064,7 @@ void stop_book_facility(struct User* p)
         return;
     }
 
-    if (strcmp(ptr->facility_condition, "预约中") == 0 &&
-        strcmp(ptr->user_name, p->oner_name) == 0)
+    if (strcmp(ptr->facility_condition, "预约中") == 0 && strcmp(ptr->user_name, p->oner_name) == 0)
     {
         puts("取消预约成功!");
         strcpy(ptr->facility_condition, "可用");
@@ -1104,8 +1097,7 @@ void stop_use_facility(struct User* p)
         return;
     }
 
-    if (strcmp(ptr->facility_condition, "使用中") == 0 &&
-        strcmp(ptr->user_name, p->oner_name) == 0)
+    if (strcmp(ptr->facility_condition, "使用中") == 0 && strcmp(ptr->user_name, p->oner_name) == 0)
     {
         puts("取消使用成功!");
         strcpy(ptr->facility_condition, "可用");
@@ -1231,7 +1223,7 @@ void modify_user(struct User* p)
             return;
         case 1:
             puts("请输入修改后的用户名,不多于16位");
-            p->user_name[MAX_USER_NAME - 1] = 'h';//这里的替换是为了查最后一位是否为\0(即用户名超过16位)
+            p->user_name[MAX_USER_NAME - 1] = 'h'; // 这里的替换是为了查最后一位是否为\0(即用户名超过16位)
             s_gets(p->user_name, MAX_USER_NAME);
             while (1)
             {
@@ -1259,7 +1251,7 @@ void modify_user(struct User* p)
             return;
         case 2:
             puts("请输入修改后的密码,不多于16位");
-            p->code[MAX_CODE - 1] = 'h';//同上
+            p->code[MAX_CODE - 1] = 'h'; // 同上
             s_gets(p->code, MAX_CODE);
             while (p->code[MAX_CODE - 1] == '\0')
             {
@@ -1393,7 +1385,6 @@ void print_user_house(struct User* p)
 
         ptr = ptr->next;
     }
-
 }
 
 int delete_user(struct User* p)
@@ -1409,8 +1400,8 @@ int delete_user(struct User* p)
         {
             if (user_head->next == p)
             {
-                //去除关于此用户其他方面的信息
-                //房屋
+                // 去除关于此用户其他方面的信息
+                // 房屋
                 struct House* tmp = house_head->next;
                 {
                     while (tmp != NULL)
@@ -1418,7 +1409,7 @@ int delete_user(struct User* p)
                         if (strcmp(tmp->oner_name, p->oner_name) == 0)
                         {
                             strcpy(tmp->oner_name, "无");
-                            strcpy(tmp->lodger, "无");//租客被强制赶出
+                            strcpy(tmp->lodger, "无"); // 租客被强制赶出
                         }
                         else if (strcmp(tmp->lodger, p->oner_name) == 0)
                         {
@@ -1429,7 +1420,7 @@ int delete_user(struct User* p)
                     }
                 }
 
-                //娱乐设施
+                // 娱乐设施
                 struct Facility* ret = facility_head->next;
                 while (ret != NULL)
                 {
@@ -1448,13 +1439,13 @@ int delete_user(struct User* p)
             else
             {
                 struct User* ptr = user_head->next;
-                //使ptr为p的前一个
+                // 使ptr为p的前一个
                 while (ptr->next != p)
                 {
                     ptr = ptr->next;
                 }
-                //去除关于此用户其他方面的信息
-                //房屋
+                // 去除关于此用户其他方面的信息
+                // 房屋
                 struct House* tmp = house_head->next;
                 {
                     while (tmp != NULL)
@@ -1462,7 +1453,7 @@ int delete_user(struct User* p)
                         if (strcmp(tmp->oner_name, p->oner_name) == 0)
                         {
                             strcpy(tmp->oner_name, "无");
-                            strcpy(tmp->lodger, "无");//租客被强制赶出
+                            strcpy(tmp->lodger, "无"); // 租客被强制赶出
                         }
                         else if (strcmp(tmp->lodger, p->oner_name) == 0)
                         {
@@ -1473,7 +1464,7 @@ int delete_user(struct User* p)
                     }
                 }
 
-                //娱乐设施
+                // 娱乐设施
                 struct Facility* ret = facility_head->next;
                 while (ret != NULL)
                 {
@@ -1492,7 +1483,7 @@ int delete_user(struct User* p)
             puts("注销成功!");
             Sleep(1000);
             system("cls");
-            return 0;//这里返回值为0会让用户界面input = 0,直接退出
+            return 0; // 这里返回值为0会让用户界面input = 0,直接退出
         }
         else
         {
@@ -1535,7 +1526,7 @@ void delete_house(void)
 void delete_facility(void)
 {
     print_facility();
-    struct Facility* previous = facility_head;//previous为p的前一个
+    struct Facility* previous = facility_head; // previous为p的前一个
     struct Facility* p = facility_head->next;
     puts("请输入你要删除的设施名称");
     char facility_name[MAX_FACILITY_NAME];
@@ -1590,7 +1581,6 @@ void delete_bus(void)
     puts("未找到该班车");
     system("pause");
     system("cls");
-
 }
 
 void print_user(void)
@@ -1937,12 +1927,11 @@ int sign_in_administrator(void)
 //     fclose(fp);
 // }
 
-
 void save_all(void)
 {
-    //save_user();
-    //save_bus();
-    //save_facility();
+    // save_user();
+    // save_bus();
+    // save_facility();
     save_house();
 }
 

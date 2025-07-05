@@ -20,20 +20,25 @@ const int INF = 0x3f3f3f3f;
 const ll MOD = (ll)(1e9 + 7);
 const int N = 100005;
 
-class Noncopyable {
+class Noncopyable
+{
 public:
-    Noncopyable(int i_) : i(i_) {
+    Noncopyable(int i_) :
+        i(i_)
+    {
         cout << "构造" << endl;
     }
     Noncopyable(const Noncopyable&) = delete;
-    Noncopyable& operator= (const Noncopyable&) = delete;
+    Noncopyable& operator=(const Noncopyable&) = delete;
     int i;
 };
 
-Noncopyable func() {
-    return { 10 };
+Noncopyable func()
+{
+    return {10};
 }
 
-int main() {
+int main()
+{
     auto a = func();
 }

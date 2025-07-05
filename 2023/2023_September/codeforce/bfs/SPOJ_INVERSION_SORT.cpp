@@ -27,7 +27,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     unordered_map<string, int> dis;
     string tmp = "abcdefghij";
     dis[tmp] = 1;
@@ -35,7 +35,8 @@ int main()
     que.emplace(tmp);
     while (!que.empty())
     {
-        string u = que.front(); que.pop();
+        string u = que.front();
+        que.pop();
         for (int i = 0; i < 10; i++)
         {
             for (int j = i + 1; j < 10; j++)

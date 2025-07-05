@@ -37,7 +37,6 @@ void build(int l, int r, int p)
         return;
     }
 
-
     int mid = l + (r - l) / 2;
     build(l, mid, p * 2);
     build(mid + 1, r, p * 2 + 1);
@@ -136,7 +135,6 @@ void dfs2(int u, int tp)
     }
 }
 
-
 void change(int x, int y, int add_val)
 {
     while (top[x] != top[y])
@@ -229,7 +227,6 @@ signed main()
             cout << query(1, x) << '\n';
         }
     }
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

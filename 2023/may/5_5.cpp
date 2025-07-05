@@ -26,15 +26,12 @@ using ::std::greater;
 using ::std::max;
 using ::std::min;
 
-
-
 int main()
 {
     int a;
     cin >> a;
     cout << a << endl;
 
-    
     cout << endl;
     return 0;
 }

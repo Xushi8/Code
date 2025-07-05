@@ -28,25 +28,25 @@ constexpr int N = 200005;
 int bit[N];
 int query(int i)
 {
-	int ans = 0;
-	for (; i; i -= i & -i)
-	{
-		ans += bit[i];
+    int ans = 0;
+    for (; i; i -= i & -i)
+    {
+        ans += bit[i];
     }
-	return ans;
+    return ans;
 }
 
 void add(int i, int x)
 {
-	for (; i < N; i += i & -i)
-	{
-		bit[i] += x;
+    for (; i < N; i += i & -i)
+    {
+        bit[i] += x;
     }
 }
 
 void clear()
 {
-	memset(bit, 0, sizeof(bit));
+    memset(bit, 0, sizeof(bit));
 }
 
 int main()
@@ -54,55 +54,54 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<int> a(n + 1);
-	for (int i = 1; i <= n; i++)
-		cin >> a[i];
+    int n;
+    cin >> n;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
 
-	vector<i64> left(n + 1), right(n + 1);
-	clear();
-	for (int i = 1; i <= n; i++)
-	{
-		left[i] = (i - 1) - query(a[i] - 1);
-		add(a[i], 1);
-	}
-	clear();
-	for (int i = n; i >= 1; i--)
-	{
-		right[i] = (n - i) - query(a[i] - 1);
+    vector<i64> left(n + 1), right(n + 1);
+    clear();
+    for (int i = 1; i <= n; i++)
+    {
+        left[i] = (i - 1) - query(a[i] - 1);
+        add(a[i], 1);
+    }
+    clear();
+    for (int i = n; i >= 1; i--)
+    {
+        right[i] = (n - i) - query(a[i] - 1);
         add(a[i], 1);
     }
 
-	i64 ans = 0;
-	for (int i = 1; i <= n; i++)
-	{
-		ans += left[i] * right[i];
-	}
-	cout << ans << ' ';
+    i64 ans = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        ans += left[i] * right[i];
+    }
+    cout << ans << ' ';
 
-
-	clear();
-	for (int i = 1; i <= n; i++)
-	{
-		left[i] = query(a[i] - 1);
+    clear();
+    for (int i = 1; i <= n; i++)
+    {
+        left[i] = query(a[i] - 1);
         add(a[i], 1);
-	}
+    }
 
-	clear();
-	for (int i = n; i >= 1; i--)
-	{
-		right[i] = query(a[i] - 1);
+    clear();
+    for (int i = n; i >= 1; i--)
+    {
+        right[i] = query(a[i] - 1);
         add(a[i], 1);
-	}
+    }
 
-	ans = 0;
-	for (int i = 1; i <= n; i++)
-	{
-		ans += left[i] * right[i];
-	}
-	cout << ans << '\n';
-    
+    ans = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        ans += left[i] * right[i];
+    }
+    cout << ans << '\n';
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

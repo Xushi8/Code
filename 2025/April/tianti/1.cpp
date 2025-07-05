@@ -3,7 +3,8 @@ using namespace std;
 using i64 = int64_t;
 using pii = pair<int, int>;
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 

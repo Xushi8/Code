@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-	int x = INT_MAX;
-	x++;
-	fmt::print("{}\n", x);
-	return x;
+    int x = INT_MAX;
+    x++;
+    fmt::print("{}\n", x);
+    return x;
 }

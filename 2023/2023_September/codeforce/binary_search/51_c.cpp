@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -40,40 +40,40 @@ int main()
     cout << setprecision(6) << fixed;
 
     auto check = [&](double val) -> tuple<double, double, double>
+    {
+        double a = 0.0, b = 0.0, c = 0.0, lst;
+        a = arr[0] + val;
+        lst = a + val;
+        int i;
+        for (i = 1; i < n; i++)
         {
-            double a = 0.0, b = 0.0, c = 0.0, lst;
-            a = arr[0] + val;
-            lst = a + val;
-            int i;
-            for (i = 1; i < n; i++)
+            if (arr[i] > lst)
             {
-                if (arr[i] > lst)
-                {
-                    break;
-                }
+                break;
             }
-            if (i == n)
-                return { a, b, c };
-            
-            b = arr[i] + val;
-            lst = b + val;
-            for (; i < n; i++)
-            {
-                if (arr[i] > lst)
-                    break;
-            }
-            if (i == n)
-                return { a, b, c };
+        }
+        if (i == n)
+            return {a, b, c};
 
-            c = arr[i] + val;
-            lst = c + val;
-            for (; i < n; i++)
-            {
-                if (arr[i] > lst)
-                    return { -1.0, 0.0, 0.0 };
-            }
-            return { a, b, c };
-        };
+        b = arr[i] + val;
+        lst = b + val;
+        for (; i < n; i++)
+        {
+            if (arr[i] > lst)
+                break;
+        }
+        if (i == n)
+            return {a, b, c};
+
+        c = arr[i] + val;
+        lst = c + val;
+        for (; i < n; i++)
+        {
+            if (arr[i] > lst)
+                return {-1.0, 0.0, 0.0};
+        }
+        return {a, b, c};
+    };
 
     double l = 0.0, r = 2e9;
     for (int i = 0; i < 100; i++)

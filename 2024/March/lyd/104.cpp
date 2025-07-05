@@ -30,22 +30,22 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	sort(a.begin(), a.end());
-	int tar = a[n / 2];
-	ll ans = 0;
-	for (int i = 0; i < n; i++)
-	{
-		ans += abs(tar - a[i]);
-	}
-	cout << ans << '\n';
-    
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    int tar = a[n / 2];
+    ll ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        ans += abs(tar - a[i]);
+    }
+    cout << ans << '\n';
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

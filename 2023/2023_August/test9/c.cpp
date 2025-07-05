@@ -57,7 +57,8 @@ int main()
     que.emplace(1);
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         if (u == n)
         {
             cout << dis[u] << endl;
@@ -75,7 +76,6 @@ int main()
     }
 
     cout << -1 << '\n';
-
 
     // for (int j = 0; j < m; j++)
     // {
@@ -111,8 +111,6 @@ int main()
     //         }
     //     }
     // }
-
-    
 
     // int minn = INF;
     // for (int j = 0; j < m; j++)

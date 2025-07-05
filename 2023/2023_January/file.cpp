@@ -1,14 +1,14 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<fstream>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <fstream>
 using namespace std;
 
 int main()
 {
     cout << "Hello world" << endl;
-    int a  = 19;
-    const char* str  = "1243534221";
+    int a = 19;
+    const char* str = "1243534221";
     a = atoi(str);
     cout << a << endl;
     a = 10;

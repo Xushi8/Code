@@ -30,23 +30,23 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	size_t n;
-	cin >> n;
-	vector<string> a(n);
-	for (auto& x : a)
-		cin >> x;
+    size_t n;
+    cin >> n;
+    vector<string> a(n);
+    for (auto& x : a)
+        cin >> x;
 
-	array<int, 10> dp;
-	dp.fill(0);
+    array<int, 10> dp;
+    dp.fill(0);
 
-	for (auto const& s : a)
-	{
-		int x = s.front() - '0', y = s.back() - '0';
-		dp[y] = max(dp[y], dp[x] + 1);
-	}
+    for (auto const& s : a)
+    {
+        int x = s.front() - '0', y = s.back() - '0';
+        dp[y] = max(dp[y], dp[x] + 1);
+    }
 
-	cout << n - *max_element(dp.begin(), dp.end()) << endl;
-    
+    cout << n - *max_element(dp.begin(), dp.end()) << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

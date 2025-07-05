@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     map<int, int> m;
     m[1]++;
     m[1]++;

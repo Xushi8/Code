@@ -20,7 +20,7 @@ inline int read()
 {
     int x = 0, f = 1;
     int ch = getchar();
-    while (ch < '0' || ch>'9')
+    while (ch < '0' || ch > '9')
     {
         if (ch == '-')
             f = -1;
@@ -35,8 +35,8 @@ typedef long long ll;
 typedef pair<int, int> pii;
 const int N = 25;
 
-int dx[] = { 0,1,0,-1 };
-int dy[] = { 1,0,-1,0 };
+int dx[] = {0, 1, 0, -1};
+int dy[] = {1, 0, -1, 0};
 
 int a[N][N];
 int dis[N][N];
@@ -72,9 +72,8 @@ int solve(int m, int n)
         }
     }
     queue<pii> que;
-    que.push({ bx, by });
+    que.push({bx, by});
     vis[bx][by] = 1;
-    
 
     return -1;
 }

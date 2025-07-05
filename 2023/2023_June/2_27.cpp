@@ -22,7 +22,6 @@ int func()
             return i;
     }
 
-
     return 0; // 避免警告
 }
 
@@ -37,14 +36,15 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cout << sizeof(size_t) << '\n';
     cout << sizeof(::std::size_t) << '\n';
     cout << sizeof(void*) << '\n';
     cout << sizeof(ll) << '\n';
     cout << sizeof(ull) << '\n';
     cout << (1LL << 22) << '\n';
-    cout << sizeof(1 + 1 == 2) << '\n' << '\n';
+    cout << sizeof(1 + 1 == 2) << '\n'
+         << '\n';
 
     // int sum = 0;
     // for (int i = 1; i <= 1000; i++)

@@ -29,11 +29,13 @@ ll solve()
         int p = val;
         for (int i = val; i < val * k; i++)
         {
-            while(p < n && arr[p] < tmp[i - val] * 2) {
+            while (p < n && arr[p] < tmp[i - val] * 2)
+            {
                 p++;
             }
 
-            if(p == n) {
+            if (p == n)
+            {
                 return false;
             }
 

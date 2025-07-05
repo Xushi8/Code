@@ -48,10 +48,12 @@ int main()
         {
             int u, v;
             cin >> u >> v;
-            u--; v--;
+            u--;
+            v--;
             G[u].emplace_back(v);
             G[v].emplace_back(u);
-            in[v]++; in[u]++;
+            in[v]++;
+            in[u]++;
         }
 
         queue<int> que;
@@ -67,7 +69,8 @@ int main()
 
         while (!que.empty())
         {
-            int u = que.front(); que.pop();
+            int u = que.front();
+            que.pop();
             for (int v : G[u])
             {
                 in[v]--;
@@ -78,7 +81,6 @@ int main()
                 }
             }
         }
-
 
         int ans = 0;
         for (int i = 0; i < n; i++)

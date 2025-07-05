@@ -23,58 +23,58 @@ typedef pair<double, double> pdd;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int t = 1;
-	int n, d;
-	// while (cin >> n >> d && n != 0 && d != 0)
-	while(scanf("%d%d", &n, &d) == 2 && n && d)
-	{
-		cout << "Case " << t++ << ": ";
-		vector<pdd> a(n);
-		bool flag = 0;
-		for (int i = 0; i < n; i++)
-		{
-			double x, y;
-			// cin >> x >> y;
-			scanf("%lf%lf", &x, &y);
-			if (y > d)
-			{
-				flag = 1;
-			}
+    int t = 1;
+    int n, d;
+    // while (cin >> n >> d && n != 0 && d != 0)
+    while (scanf("%d%d", &n, &d) == 2 && n && d)
+    {
+        cout << "Case " << t++ << ": ";
+        vector<pdd> a(n);
+        bool flag = 0;
+        for (int i = 0; i < n; i++)
+        {
+            double x, y;
+            // cin >> x >> y;
+            scanf("%lf%lf", &x, &y);
+            if (y > d)
+            {
+                flag = 1;
+            }
 
-			a[i] = {(x - sqrt(d * d - y * y)), (x + sqrt(d * d - y * y))};
-		}
-	nex:
-		if (flag)
-		{
-			cout << -1 << '\n';
-			continue;
-		}
+            a[i] = {(x - sqrt(d * d - y * y)), (x + sqrt(d * d - y * y))};
+        }
+    nex:
+        if (flag)
+        {
+            cout << -1 << '\n';
+            continue;
+        }
 
-		sort(a.begin(), a.end());
+        sort(a.begin(), a.end());
 
-		double now = -1e18;
-		size_t ans = 0;
-		for (int i = 0; i < n; i++)
-		{
-			double l = a[i].first;
-			double r = a[i].second;
-			if (l > now)
-			{
-				ans++;
-				now = r;
-			}
-			else
-			{
-				now = min(now, r);
-			}
-		}
-		cout << ans << '\n';
-	}
+        double now = -1e18;
+        size_t ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            double l = a[i].first;
+            double r = a[i].second;
+            if (l > now)
+            {
+                ans++;
+                now = r;
+            }
+            else
+            {
+                now = min(now, r);
+            }
+        }
+        cout << ans << '\n';
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
 }

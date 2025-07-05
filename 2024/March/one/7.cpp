@@ -27,7 +27,7 @@ constexpr int N = 1000005;
 
 double func(double x)
 {
-	return ((x - 100) * 0.9 * 2);
+    return ((x - 100) * 0.9 * 2);
 }
 
 int main()
@@ -35,21 +35,21 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		double x, y;
-		cin >> x >> y;
-		double t = func(x);
-		if (abs(y - t) < t * 0.1)
-			cout << "You are wan mei!\n";
-		else if (y > t)
-			cout << "You are tai pang le!\n";
-		else
-			cout << "You are tai shou le!\n";
-	}
-    
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        double x, y;
+        cin >> x >> y;
+        double t = func(x);
+        if (abs(y - t) < t * 0.1)
+            cout << "You are wan mei!\n";
+        else if (y > t)
+            cout << "You are tai pang le!\n";
+        else
+            cout << "You are tai shou le!\n";
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -30,30 +30,30 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int a, b;
-	cin >> a >> b;
-	int x, y, z;
-	cin >> x >> y >> z;
-	int tot = x + y + z;
-	if (a > b && tot < 3)
-		cout << "The winner is a: " << a << " + " << 3 - tot;
-	else if (a < b && tot > 0)
-		cout << "The winner is b: " << b << " + " << tot;
-	else
-	{
-		if (tot == 0)
-		{
-			cout << "The winner is a: " << a << " + " << 3 - tot;
-		}
-		else
-		{
-			cout << "The winner is b: " << b << " + " << tot;
-		}
+    int a, b;
+    cin >> a >> b;
+    int x, y, z;
+    cin >> x >> y >> z;
+    int tot = x + y + z;
+    if (a > b && tot < 3)
+        cout << "The winner is a: " << a << " + " << 3 - tot;
+    else if (a < b && tot > 0)
+        cout << "The winner is b: " << b << " + " << tot;
+    else
+    {
+        if (tot == 0)
+        {
+            cout << "The winner is a: " << a << " + " << 3 - tot;
+        }
+        else
+        {
+            cout << "The winner is b: " << b << " + " << tot;
+        }
     }
 
 #ifdef LOCAL
-			cerr
-			 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

@@ -73,14 +73,14 @@ int32_t main()
         cout << zheng << ' ' << zi % mu << '/' << mu << endl;
     else if (zheng == 0 && zi % mu != 0)
         cout << zi % mu << '/' << mu << endl;
-    else if(zheng != 0 && zi % mu == 0)
+    else if (zheng != 0 && zi % mu == 0)
         cout << zheng << endl;
     else
         cout << 0 << endl;
 
 #ifdef LOCAL
-                cerr
-             << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

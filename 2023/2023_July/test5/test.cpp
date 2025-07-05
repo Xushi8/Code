@@ -61,19 +61,17 @@ int main()
     // // cout << *p1 << endl; // p1已经被释放了，没有了
     // cout << *p2 << endl;
 
-
-//     shared_ptr<int> p(new int(42));
-//     int* q = p.get();
-//     {
-//         // 两个独立的shared_ptr指向相同的内存
-//         shared_ptr<int>(q);
-//         // 离开作用域就会释放
-// }
-//     int foo = *q; // 最后未定义
+    //     shared_ptr<int> p(new int(42));
+    //     int* q = p.get();
+    //     {
+    //         // 两个独立的shared_ptr指向相同的内存
+    //         shared_ptr<int>(q);
+    //         // 离开作用域就会释放
+    // }
+    //     int foo = *q; // 最后未定义
 
     auto p = new int(3);
     cout << *p << endl;
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

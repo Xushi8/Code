@@ -69,7 +69,8 @@ void add_fail()
 
     while (!que.empty())
     {
-        int now = que.front(); que.pop();
+        int now = que.front();
+        que.pop();
         for (int i = 0; i < 26; i++)
         {
             if (trie[now][i] != 0)

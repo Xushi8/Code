@@ -30,15 +30,15 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	string s = "Wang!";
-	int a, b;
-	cin >> a >> b;
-	a += b;
-	while (a--)
-	{
-		cout << s;
+    string s = "Wang!";
+    int a, b;
+    cin >> a >> b;
+    a += b;
+    while (a--)
+    {
+        cout << s;
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

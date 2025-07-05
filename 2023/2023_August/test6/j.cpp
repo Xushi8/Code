@@ -33,7 +33,7 @@ struct A
 
 struct B
 {
-    friend bool operator > (const B& a, const B& b)
+    friend bool operator>(const B& a, const B& b)
     {
         return a.add > b.add;
     }
@@ -51,7 +51,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     cin >> n >> m;
     vector<A> arr(n);
@@ -101,7 +101,7 @@ int main()
             break;
         }
     }
-    
+
     ll ans = 0;
     for (int i = 0; i < n; i++)
     {

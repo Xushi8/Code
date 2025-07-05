@@ -28,9 +28,9 @@ constexpr int N = 1000005;
 
 struct A
 {
-	~A()
-	{
-		cout << "A destroyed!" << endl;
+    ~A()
+    {
+        cout << "A destroyed!" << endl;
     }
 };
 
@@ -39,9 +39,9 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	vector<A> a(5);
-	a.clear();
-	cout << "a cleared!" << endl;
+    vector<A> a(5);
+    a.clear();
+    cout << "a cleared!" << endl;
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

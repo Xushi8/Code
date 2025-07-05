@@ -29,75 +29,75 @@ int par[N];
 
 void init(int n)
 {
-	iota(par, par + n, 0);
+    iota(par, par + n, 0);
 }
 
 int find(int x)
 {
-	if (par[x] == x)
-		return x;
-	else
-		return par[x] = find(par[x]);
+    if (par[x] == x)
+        return x;
+    else
+        return par[x] = find(par[x]);
 }
 
 void unite(int x, int y)
 {
-	x = find(x);
-	y = find(y);
-	par[x] = y;
+    x = find(x);
+    y = find(y);
+    par[x] = y;
 }
 
 bool same(int x, int y)
 {
-	return find(x) == find(y);
+    return find(x) == find(y);
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, k;
-	cin >> n >> k;
-	init(n * 3);
-	int ans = 0;
-	while (k--)
-	{
-		int op, x, y;
-		cin >> op >> x >> y;
-		if (!(1 <= x && x <= n && 1 <= y && y <= n))
-		{
-			ans++;
-			continue;
-		}
-		if (op == 1)
-		{
-			if (same(x, y + n) || same(x + n, y + 2 * n) || same(x + 2 * n, y) || same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x))
-			{
-				ans++;
-				continue;
-			}
-			unite(x, y);
-			unite(x + n, y + n);
-			unite(x + 2 * n, y + 2 * n);
-		}
-		else
-		{
-			if (same(x, y) || same(x + n, y + n) || same(x + 2 * n, y + 2 * n) || same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x))
-			{
-				ans++;
-				continue;
-			}
-			unite(x, y + n);
-			unite(x + n, y + 2 * n);
-			unite(x + 2 * n, y);
-		}
-	}
+    int n, k;
+    cin >> n >> k;
+    init(n * 3);
+    int ans = 0;
+    while (k--)
+    {
+        int op, x, y;
+        cin >> op >> x >> y;
+        if (!(1 <= x && x <= n && 1 <= y && y <= n))
+        {
+            ans++;
+            continue;
+        }
+        if (op == 1)
+        {
+            if (same(x, y + n) || same(x + n, y + 2 * n) || same(x + 2 * n, y) || same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x))
+            {
+                ans++;
+                continue;
+            }
+            unite(x, y);
+            unite(x + n, y + n);
+            unite(x + 2 * n, y + 2 * n);
+        }
+        else
+        {
+            if (same(x, y) || same(x + n, y + n) || same(x + 2 * n, y + 2 * n) || same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x))
+            {
+                ans++;
+                continue;
+            }
+            unite(x, y + n);
+            unite(x + n, y + 2 * n);
+            unite(x + 2 * n, y);
+        }
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

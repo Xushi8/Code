@@ -30,14 +30,20 @@ int main()
 
     double a[3];
     double ans = 1.0;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         cin >> a[0] >> a[1] >> a[2];
         double* p = max_element(a, a + 3);
-        if(p - a == 0) {
+        if (p - a == 0)
+        {
             cout << 'W';
-        } else if(p - a == 1) {
+        }
+        else if (p - a == 1)
+        {
             cout << 'T';
-        } else {
+        }
+        else
+        {
             cout << 'L';
         }
         cout << ' ';

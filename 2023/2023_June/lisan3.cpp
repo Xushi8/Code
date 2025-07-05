@@ -3,8 +3,6 @@
 #include <cstring>
 #include <vector>
 
-
-
 inline void solve();
 
 // 核心函数, S是当前经过的点的集合, cur为当前位置
@@ -16,7 +14,8 @@ inline void get_path(int S, int cur);
 // 打印路径
 inline void print_path();
 
-int main() {
+int main()
+{
     ::std::ios::sync_with_stdio(false);
     ::std::cin.tie(0);
 
@@ -26,19 +25,22 @@ int main() {
     return 0;
 }
 
-inline void solve() {
+inline void solve()
+{
     memset(dp, -1, sizeof(dp));
     memset(dis, 0x3f, sizeof(dis));
 
     ::std::cout << "请输入顶点数, 边数, 各个边的两端, 权重:" << ::std::endl;
 
     ::std::cin >> n; // 顶点数
-    int e; // 边数
+    int e;           // 边数
     ::std::cin >> e;
-    for (int i = 0; i < e; i++) {
+    for (int i = 0; i < e; i++)
+    {
         int u, v, cost;
         ::std::cin >> u >> v >> cost;
-        u--; v--;
+        u--;
+        v--;
         dis[u][v] = dis[v][u] = cost;
     }
     int ans = func(0, 0);
@@ -65,7 +67,7 @@ int func(int S, int cur)
     int ret = INF;
     for (int i = 0; i < n; i++)
     {
-        if (((S >> i) & 1) == 0) // 如果这个点没有在本集合中
+        if (((S >> i) & 1) == 0)                                          // 如果这个点没有在本集合中
             ret = ::std::min(ret, func((S | (1 << i)), i) + dis[cur][i]); // 寻找到状态的最小值
     }
 
@@ -89,7 +91,8 @@ inline void get_path(int S, int cur)
     }
 }
 
-inline void print_path(){
+inline void print_path()
+{
     ::std::reverse(path.begin(), path.end());
     ::std::cout << "路径如下: \n";
     for (const int& x : path)

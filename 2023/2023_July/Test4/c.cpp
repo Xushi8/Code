@@ -52,7 +52,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     get_primes();
     int n;
     while (cin >> n && n)
@@ -62,7 +62,7 @@ int main()
             cout << 0 << '\n';
             continue;
         }
-        
+
         ull ans = 0;
 
         // 起始位置
@@ -72,7 +72,7 @@ int main()
             int sum = 0;
             for (size_t j = i; j < primes.size(); j++)
             {
-                p = primes[j];                
+                p = primes[j];
                 sum += p;
                 if (sum == n)
                 {

@@ -13,39 +13,39 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, x;
-	cin >> n >> x;
-	vector<int> a(n);
-	for (auto& val : a)
-		cin >> val;
-	bitset<N> vis;
+    int n, x;
+    cin >> n >> x;
+    vector<int> a(n);
+    for (auto& val : a)
+        cin >> val;
+    bitset<N> vis;
 
-	int ans = 0;
-	vector<int> cnt(N);
+    int ans = 0;
+    vector<int> cnt(N);
 
-	for (auto val : a)
-	{
-		val %= x;
-		if (val + cnt[val] * x < N)
-		{
-			vis[val + cnt[val] * x] = 1;
-			cnt[val]++;
-		}
+    for (auto val : a)
+    {
+        val %= x;
+        if (val + cnt[val] * x < N)
+        {
+            vis[val + cnt[val] * x] = 1;
+            cnt[val]++;
+        }
 
-		for (; ans < N; ans++)
-		{
-			if (!vis[ans])
-				break;
-		}
+        for (; ans < N; ans++)
+        {
+            if (!vis[ans])
+                break;
+        }
 
-		cout << ans << '\n';
+        cout << ans << '\n';
     }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

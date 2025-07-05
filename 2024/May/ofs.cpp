@@ -31,12 +31,12 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	auto fout = fmt::output_file("/home/tom/Documents/Code/test.txt");
-	for (i64 i = 0; i < 10000000; i++)
-	{
-		fout.print("adskj");
+    auto fout = fmt::output_file("/home/tom/Documents/Code/test.txt");
+    for (i64 i = 0; i < 10000000; i++)
+    {
+        fout.print("adskj");
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -30,48 +30,48 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	while (n--)
-	{
-		int sex, h, w;
-		cin >> sex >> h >> w;
-		if (sex == 0)
-		{
-			if (h < 129)
-				cout << "duo chi yu!";
-			else if (h == 129)
-				cout << "wan mei!";
-			else
-				cout << "ni li hai!";
-			cout << ' ';
-			if (w < 25)
-				cout << "duo chi rou!";
-			else if (w == 25)
-				cout << "wan mei!";
-			else
-				cout << "shao chi rou!";
-			cout << '\n';
-		}
-		else
-		{
-			if (h < 130)
-				cout << "duo chi yu!";
-			else if (h == 130)
-				cout << "wan mei!";
-			else
-				cout << "ni li hai!";
-			cout << ' ';
-			if (w < 27)
-				cout << "duo chi rou!";
-			else if (w == 27)
-				cout << "wan mei!";
-			else
-				cout << "shao chi rou!";
-			cout << '\n';
-		}
+    int n;
+    cin >> n;
+    while (n--)
+    {
+        int sex, h, w;
+        cin >> sex >> h >> w;
+        if (sex == 0)
+        {
+            if (h < 129)
+                cout << "duo chi yu!";
+            else if (h == 129)
+                cout << "wan mei!";
+            else
+                cout << "ni li hai!";
+            cout << ' ';
+            if (w < 25)
+                cout << "duo chi rou!";
+            else if (w == 25)
+                cout << "wan mei!";
+            else
+                cout << "shao chi rou!";
+            cout << '\n';
+        }
+        else
+        {
+            if (h < 130)
+                cout << "duo chi yu!";
+            else if (h == 130)
+                cout << "wan mei!";
+            else
+                cout << "ni li hai!";
+            cout << ' ';
+            if (w < 27)
+                cout << "duo chi rou!";
+            else if (w == 27)
+                cout << "wan mei!";
+            else
+                cout << "shao chi rou!";
+            cout << '\n';
+        }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

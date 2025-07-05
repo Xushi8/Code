@@ -7,7 +7,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cout << LLONG_MAX << '\n';
     cout << log10(12.23L) << '\n';
     cout << log(2.71828L * 2.71828) << '\n';

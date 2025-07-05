@@ -27,7 +27,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> k;
 //     for (int i = 0; i < n; i++) cin >> arr[i];
 //     merge_sort(arr, 0, n, tmp);
@@ -36,7 +36,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int n, k;
 
@@ -85,7 +84,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> k;
 //     for (int i = 0; i < n; i++) cin >> arr[i];
 //     quick_sort(arr, 0, n - 1);
@@ -101,7 +100,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     cin >> a1[0];
@@ -128,13 +127,12 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int arr[200005];
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, b;
 //     cin >> n >> b;
 //     for (int i = 0;i < n; i++) cin >> arr[i];
@@ -172,7 +170,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 0; i < n; i++)
@@ -207,7 +205,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n >> m;
 //     for (int i = 0; i < n; i++)
@@ -248,7 +246,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 0; i < n; i++)
@@ -287,7 +285,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 0; i < n; i++)
@@ -305,8 +303,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // int main()
 // {
@@ -341,13 +337,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int ch, tmp;
 //     int N = 0;
 //     bool flag = 1;
@@ -395,9 +389,6 @@ using namespace std;
 
 //     ans.emplace_back(tot);
 
-
-
-    
 //     cout << N << ' ';
 //     for (int& p : ans)
 //     {
@@ -408,8 +399,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // int main()
 // {
@@ -454,7 +443,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m, l;
 //     cin >> n >> m >> l;
 //     for (int k = 0; k < m; k++)
@@ -464,7 +453,7 @@ using namespace std;
 //         int j = 1;
 //         for (int i = x - 2; i <= x + 2; i++)
 //         {
-            
+
 //         }
 //     }
 //     for (int k = 0; k < l; k++)
@@ -498,12 +487,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[10][10] = { 0 };
 //     int n;
 //     cin >> n;
@@ -552,12 +540,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     char s[27] = { 1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4 };
 //     int ch;
 //     int ans = 0;
@@ -573,12 +560,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     string s;
@@ -601,7 +587,7 @@ using namespace std;
 //             break;
 //         }
 //     }
-    
+
 //     cout << ans;
 
 //     cout << flush;
@@ -632,7 +618,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     int m = (int)pow(2, n);
@@ -670,8 +656,6 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
-    
 
 //     for (int i = 2; i < 100000002; i++)
 //     {
@@ -721,12 +705,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n = 0;
 //     long long arr[40];
 //     while (cin >> arr[n])
@@ -775,7 +758,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> k;
 //     for (int i = 0; i < n; i++)
 //     {
@@ -789,12 +772,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     vector<int> a, b;
     a.emplace_back(3);
     b.reserve(999);
@@ -805,7 +787,7 @@ int main()
     }
 
     int tmp = 6;
-    cout << tmp / 3 + (tmp % 3);// 向上取整
+    cout << tmp / 3 + (tmp % 3); // 向上取整
 
     cout << flush;
     system("pause");

@@ -30,17 +30,17 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		string s;
-		int x, y;
-		cin >> s >> x >> y;
-		if (!(15 <= x && x <= 20) || !(50 <= y && y <= 70))
-			cout << s << '\n';
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        string s;
+        int x, y;
+        cin >> s >> x >> y;
+        if (!(15 <= x && x <= 20) || !(50 <= y && y <= 70))
+            cout << s << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

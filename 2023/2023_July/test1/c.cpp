@@ -80,15 +80,12 @@
 //     return 0;
 // }
 
-
 // 2023/07/17 20:18:19
 #include <iostream>
 #include <cstring>
 #include <stack>
 #include <cmath>
 using namespace std;
-
-
 
 int main()
 {
@@ -134,9 +131,12 @@ int main()
                 {
                     while (!s.empty() && (s.top() == '/' || s.top() == '*'))
                     {
-                        char tmp = s.top(); s.pop();
-                        double b = num.top(); num.pop();
-                        double a = num.top(); num.pop();
+                        char tmp = s.top();
+                        s.pop();
+                        double b = num.top();
+                        num.pop();
+                        double a = num.top();
+                        num.pop();
                         double ans;
                         if (tmp == '*')
                             ans = a * b;
@@ -157,9 +157,12 @@ int main()
                 {
                     while (!s.empty())
                     {
-                        char tmp = s.top(); s.pop();
-                        double b = num.top(); num.pop();
-                        double a = num.top(); num.pop();
+                        char tmp = s.top();
+                        s.pop();
+                        double b = num.top();
+                        num.pop();
+                        double a = num.top();
+                        num.pop();
                         double ans;
                         if (tmp == '*')
                             ans = a * b;
@@ -174,14 +177,16 @@ int main()
                     s.emplace(ch);
                 }
             }
-
         }
 
         while (!s.empty())
         {
-            char tmp = s.top(); s.pop();
-            double b = num.top(); num.pop();
-            double a = num.top(); num.pop();
+            char tmp = s.top();
+            s.pop();
+            double b = num.top();
+            num.pop();
+            double a = num.top();
+            num.pop();
             double ans;
             if (tmp == '+')
                 ans = a + b;
@@ -199,4 +204,3 @@ int main()
 
     return 0;
 }
-

@@ -61,7 +61,8 @@ void solve()
     {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         edges[i] = {u, v};
     }
     reverse(edges.begin(), edges.end());
@@ -75,7 +76,6 @@ void solve()
         //     cerr << siz[i] << ' ' ;
         // }
         // cerr << '\n';
-
 
         auto [sizx, sizy] = unite(u, v);
         ans.emplace_back(ans.back() - i64(sizx) * sizy);

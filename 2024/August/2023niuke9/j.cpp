@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -45,6 +44,4 @@ void solve()
             cin >> a[i][j];
         }
     }
-
-    
 }

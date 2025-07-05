@@ -1,13 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     unordered_set<int> uset;
 //     int begin = clock();
 //     for (int i = 0; i < 100000; i++)
@@ -21,7 +19,7 @@ using namespace std;
 //     // {
 //     //     cout << *it << '\n';
 //     // }
-//     // cout << endl; 
+//     // cout << endl;
 
 //     auto it = uset.find(567);
 //     cout << *it << endl;
@@ -38,7 +36,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // for (int i = 0; i < 10; i++)
     // {
     //     cout << i << '\n';
@@ -54,10 +52,13 @@ int main()
     {
         v.push_back(rand());
     }
-    
+
     for_each(v.begin(), v.end(), print);
     sort(v.begin(), v.end(), greater<int>());
-    cout << '\n' << '\n' << '\n' << '\n';
+    cout << '\n'
+         << '\n'
+         << '\n'
+         << '\n';
     for_each(v.begin(), v.end(), print);
     cout << endl;
 

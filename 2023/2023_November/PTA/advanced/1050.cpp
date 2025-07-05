@@ -32,12 +32,15 @@ int main()
     getline(cin, a);
     getline(cin, b);
     set<char> st;
-    for(char ch : b) {
+    for (char ch : b)
+    {
         st.emplace(ch);
     }
 
-    for(char ch : a) {
-        if(st.count(ch) == 0) {
+    for (char ch : a)
+    {
+        if (st.count(ch) == 0)
+        {
             cout << ch;
         }
     }

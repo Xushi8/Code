@@ -30,59 +30,59 @@ int cnt;
 
 void insert(ll x)
 {
-	int u = 0;
-	for (ll i = 32; i >= 0; i--)
-	{
-		int bit = (x >> i) & 1;
-		int& v = trie[u][bit];
-		if (v == 0)
-		{
-			v = ++cnt;
-		}
-		u = v;
-	}
+    int u = 0;
+    for (ll i = 32; i >= 0; i--)
+    {
+        int bit = (x >> i) & 1;
+        int& v = trie[u][bit];
+        if (v == 0)
+        {
+            v = ++cnt;
+        }
+        u = v;
+    }
 }
 
 ll find(ll x)
 {
-	int u = 0;
-	ll res = 0;
-	for (ll i = 32; i >= 0; i--)
-	{
-		int bit = (x >> i) & 1;
-		if (trie[u][bit ^ 1] != 0)
-		{
-			res += (1 << i);
-			u = trie[u][bit ^ 1];
-		}
-		else
-		{
-			u = trie[u][bit];
-		}
-	}
-	return res;
+    int u = 0;
+    ll res = 0;
+    for (ll i = 32; i >= 0; i--)
+    {
+        int bit = (x >> i) & 1;
+        if (trie[u][bit ^ 1] != 0)
+        {
+            res += (1 << i);
+            u = trie[u][bit ^ 1];
+        }
+        else
+        {
+            u = trie[u][bit];
+        }
+    }
+    return res;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	ll ans = 0;
-	while (n--)
-	{
-		ll x;
-		cin >> x;
-		insert(x);
-		ans = max(ans, find(x));
-	}
+    int n;
+    cin >> n;
+    ll ans = 0;
+    while (n--)
+    {
+        ll x;
+        cin >> x;
+        insert(x);
+        ans = max(ans, find(x));
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

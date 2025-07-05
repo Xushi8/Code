@@ -71,7 +71,8 @@ int main()
         int k = 0;
         for (auto [x, y, z] : a)
         {
-            if(k == cnt) {
+            if (k == cnt)
+            {
                 break;
             }
             if (l <= y && y <= r)
@@ -81,7 +82,8 @@ int main()
             }
         }
 
-        if(k == 0) {
+        if (k == 0)
+        {
             cout << "None" << '\n';
         }
     }

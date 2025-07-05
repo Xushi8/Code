@@ -30,19 +30,19 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int a[10] = {0};
-	for (int i = 1; i <= 2020; i++)
-	{
-		int j = i;
-		while (j)
-		{
-			a[j % 10]++;
-			j /= 10;
+    int a[10] = {0};
+    for (int i = 1; i <= 2020; i++)
+    {
+        int j = i;
+        while (j)
+        {
+            a[j % 10]++;
+            j /= 10;
         }
-	}
+    }
 
-	cout << a[2] << endl;
-    
+    cout << a[2] << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -23,8 +23,8 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-int dx[] = { -2, -1, 1, 2, 2, 1, -1, -2 };
-int dy[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+int dx[] = {-2, -1, 1, 2, 2, 1, -1, -2};
+int dy[] = {1, 2, 2, 1, -1, -2, -2, -1};
 
 constexpr int n = 1000, m = 1000;
 int dis[n][m];
@@ -37,7 +37,8 @@ void solve()
     dis[0][0] = 0;
     while (!que.empty())
     {
-        pii p = que.front(); que.pop();
+        pii p = que.front();
+        que.pop();
         int x = p.first, y = p.second;
         for (int i = 0; i < 8; i++)
         {
@@ -57,7 +58,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-
     solve();
     int tt;
     cin >> tt;
@@ -65,7 +65,8 @@ int main()
     {
         int a, b;
         cin >> a >> b;
-        a--; b--;
+        a--;
+        b--;
         cout << dis[a][b] << '\n';
     }
 
@@ -75,7 +76,6 @@ int main()
     cout << flush;
     return 0;
 }
-
 
 // // 2023/09/26 22:55:34
 // #include <iostream>
@@ -111,7 +111,7 @@ int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     queue<pii> que;
 //     que.emplace(1, 1);
 //     dis[1][1] = 0;
@@ -149,8 +149,6 @@ int main()
 //     return 0;
 // }
 
-
-
 // // 2023/09/29 16:45:20
 // #include <iostream>
 // #include <algorithm>
@@ -182,7 +180,7 @@ int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     vector<vector<int>> ans(1005, vector<int>(1005, INT32_MAX));
 //     queue<pii> que;
 //     que.emplace(1, 1);

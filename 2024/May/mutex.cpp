@@ -8,20 +8,20 @@ using fmt::print;
 
 struct free_deleter
 {
-	constexpr void operator()(void* p) noexcept
-	{
-		free(p);
-	}
+    constexpr void operator()(void* p) noexcept
+    {
+        free(p);
+    }
 };
 
 int main()
 {
-	mutex mtx;
-	// scoped_lock lock(mtx);
-	lock_guard lock(mtx, adopt_lock);
-	unique_ptr<int, free_deleter> ptr((int*)malloc(sizeof(int)));
-	print("{}\n", sizeof(ptr));
-	print("{}\n", fmt::ptr(ptr.get()));
-	ptr.reset();
-	print("{}\n", fmt::ptr(ptr.get()));
+    mutex mtx;
+    // scoped_lock lock(mtx);
+    lock_guard lock(mtx, adopt_lock);
+    unique_ptr<int, free_deleter> ptr((int*)malloc(sizeof(int)));
+    print("{}\n", sizeof(ptr));
+    print("{}\n", fmt::ptr(ptr.get()));
+    ptr.reset();
+    print("{}\n", fmt::ptr(ptr.get()));
 }

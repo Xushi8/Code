@@ -30,7 +30,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -78,7 +78,6 @@ int main()
         ans -= 1LL * k * (k - 1) / 2;
         ans = max(0LL, ans);
         cout << ans << '\n';
-
     }
 
 #ifdef LOCAL

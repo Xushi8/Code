@@ -14,21 +14,21 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, k;
-	cin >> n >> k;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	int cnt = 0;
-	for (int j = k; j < n; j++, cnt++)
-	{
-		cout << a[j] << ' ';
-	}
-	for (; cnt < n; cnt++)
-	{
-		cout << 0 << ' ';
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    int cnt = 0;
+    for (int j = k; j < n; j++, cnt++)
+    {
+        cout << a[j] << ' ';
+    }
+    for (; cnt < n; cnt++)
+    {
+        cout << 0 << ' ';
     }
 }
 

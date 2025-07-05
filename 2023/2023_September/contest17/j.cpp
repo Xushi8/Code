@@ -49,7 +49,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     get_primes();
     int n;
     cin >> n;
@@ -62,7 +62,7 @@ int main()
         {
             if (p * p > x)
                 break;
-            
+
             while (x % p == 0)
             {
                 mp[p]++;

@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve() {
+void solve()
+{
     vector<int> a(32);
-    for (int i = 0; i < 32; i++) {
+    for (int i = 0; i < 32; i++)
+    {
         cin >> a[i];
     }
 
@@ -25,13 +27,15 @@ void solve() {
         cout << "1\n";
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(0);
 
     int tt = 1;
     cin >> tt;
-    while (tt--) {
+    while (tt--)
+    {
         solve();
     }
 

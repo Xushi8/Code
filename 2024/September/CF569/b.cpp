@@ -22,7 +22,7 @@ void solve()
     {
         cin >> a[i];
         a[i]--;
-        if(a[i] < n)
+        if (a[i] < n)
             cnt[a[i]]++;
         else
             erase.emplace(a[i]);

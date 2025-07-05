@@ -30,43 +30,43 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (auto& x: a)
-		cin >> x;
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto& x : a)
+        cin >> x;
 
-	int m;
-	cin >> m;
-	while (m--)
-	{
-		vector<int> b(n);
-		for (auto& x : b)
-			cin >> x;
-		int cnt = 0;
-		bool flag = 1;
-		for (int i = 0; i < n; i++)
-		{
-			if (b[i] != 0)
-			{
-				if (b[i] == a[i])
-					cnt++;
-				else
-				{
-					flag = 0;
+    int m;
+    cin >> m;
+    while (m--)
+    {
+        vector<int> b(n);
+        for (auto& x : b)
+            cin >> x;
+        int cnt = 0;
+        bool flag = 1;
+        for (int i = 0; i < n; i++)
+        {
+            if (b[i] != 0)
+            {
+                if (b[i] == a[i])
+                    cnt++;
+                else
+                {
+                    flag = 0;
                 }
             }
-		}
-		if (flag && cnt > 0)
-		{
-			cout << "Da Jiang!!!" << endl;
-		}
-		else
-		{
-			cout << "Ai Ya" << endl;
-		}
+        }
+        if (flag && cnt > 0)
+        {
+            cout << "Da Jiang!!!" << endl;
+        }
+        else
+        {
+            cout << "Ai Ya" << endl;
+        }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

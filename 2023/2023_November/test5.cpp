@@ -18,7 +18,6 @@ node* cloneTree(node* root)
     }
 
     node* res = new node{root->val, nullptr, nullptr};
-    
 
     // 使用栈进行深度优先遍历
     std::stack<node*> s;

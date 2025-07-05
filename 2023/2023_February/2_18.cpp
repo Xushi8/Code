@@ -63,7 +63,7 @@ int main()
     // show_vector_person(person);
     // sort(person.begin(), person.end(), cmp_person);
     // show_vector_person(person);
-    
+
     // list<Person> tmp;
     // tmp.push_back(p1);
     // tmp.push_back(p2);
@@ -83,7 +83,7 @@ int main()
     //     perror("ofs");
     //     return 1;
     // }
-    
+
     // cout << sizeof(size_t) << endl;
     // for (size_t i = 0; i < LLONG_MAX; i+=100000000000000)
     // {

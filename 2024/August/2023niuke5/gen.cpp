@@ -18,9 +18,7 @@ int main()
 
     vector<int> a(m);
     generate_n(a.begin(), m, [&]()
-        {
-            return unia(rng);
-        });
+        { return unia(rng); });
     sort(a.begin(), a.end());
     for (auto x : a)
     {

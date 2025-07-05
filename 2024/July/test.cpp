@@ -12,17 +12,17 @@ recursive_mutex mtx3;
 
 void func1(const size_t n) noexcept
 {
-	for (size_t i = 0; i < n; i++)
-	{
-		val1++;
-	}
+    for (size_t i = 0; i < n; i++)
+    {
+        val1++;
+    }
 }
 
 void func2(const size_t n)
 {
-	for (size_t i = 0; i < n; i++)
-	{
-		scoped_lock lock(mtx1);
-		val2++;
-	}
+    for (size_t i = 0; i < n; i++)
+    {
+        scoped_lock lock(mtx1);
+        val2++;
+    }
 }

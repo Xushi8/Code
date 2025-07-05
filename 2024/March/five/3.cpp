@@ -30,31 +30,31 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	double x, z;
-	int y;
-	cin >> x >> y >> z;
+    double x, z;
+    int y;
+    cin >> x >> y >> z;
 
-	double val;
-	if (y == 0)
-	{
-		val = x * 2.455;
-	}
-	else
-	{
-		val = x * 1.26;
-	}
+    double val;
+    if (y == 0)
+    {
+        val = x * 2.455;
+    }
+    else
+    {
+        val = x * 1.26;
+    }
 
-	cout << setprecision(2) << fixed;
+    cout << setprecision(2) << fixed;
 
-	cout << val << ' ';
-	if (z > val)
-		cout << "^_^";
-	else
-		cout << "T_T";
+    cout << val << ' ';
+    if (z > val)
+        cout << "^_^";
+    else
+        cout << "T_T";
 
 #ifdef LOCAL
-			cerr
-			 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

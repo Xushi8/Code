@@ -18,7 +18,7 @@ vector<string> arr(4);
 
 bool check()
 {
-    char target = arr[0][0];    
+    char target = arr[0][0];
     for (int i = 0; i < 4; i++)
         for (int j = 0; j < 4; j++)
             if (arr[i][j] != target)
@@ -66,8 +66,6 @@ void dfs(int x, int y, int cnt)
         dfs(x + 1, 0, cnt);
     else
         dfs(x, y + 1, cnt);
-
-
 }
 
 int main()

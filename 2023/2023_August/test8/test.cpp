@@ -27,11 +27,10 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string s = "ABRCD";
     cout << s.find_first_of("BD") << '\n';
 
-    
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -1,6 +1,6 @@
-#include<iostream>
-#include<algorithm>
-#include<stack>
+#include <iostream>
+#include <algorithm>
+#include <stack>
 using namespace std;
 
 // int n;
@@ -32,10 +32,10 @@ using namespace std;
 //     return max(func(arr, i + 1, j), func(arr, i + 1, j + 1)) + arr[i][j];
 // }
 
-//改进版
-// int n;
-// int func(int arr[][100], int i, int j);
-// int rec[100][100];
+// 改进版
+//  int n;
+//  int func(int arr[][100], int i, int j);
+//  int rec[100][100];
 
 // int main()
 // {
@@ -71,7 +71,6 @@ using namespace std;
 //         return rec[i][j];
 //     }
 // }
-
 
 // int price[100];
 // int love[100];
@@ -115,11 +114,12 @@ using namespace std;
 //     return 0;
 // }
 
-
 int youxian(int i)
 {
-    if (i == '+' || i == '-') return 1;
-    else if (i == '*' || i == '/') return 2;
+    if (i == '+' || i == '-')
+        return 1;
+    else if (i == '*' || i == '/')
+        return 2;
 }
 
 int func(int a, int b, char c)
@@ -135,8 +135,8 @@ int func(int a, int b, char c)
     case '/':
         return a / b;
     }
-    
-    return 0;//避免警告的无奈之举,可忽略
+
+    return 0; // 避免警告的无奈之举,可忽略
 }
 
 int main()

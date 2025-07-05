@@ -9,7 +9,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     int ans = 0;
@@ -20,9 +20,11 @@ int main()
 
         for (int p : prime)
         {
-            if (p * i > 100003) break;
+            if (p * i > 100003)
+                break;
             isnp[p * i] = 1;
-            if (i % p == 0) break;
+            if (i % p == 0)
+                break;
         }
     }
     int tmp = 0;

@@ -11,7 +11,6 @@ using pii = pair<int, int>;
 using pll = pair<i64, i64>;
 constexpr int N = 1e6 + 6;
 
-
 int main()
 {
     ios::sync_with_stdio(false);

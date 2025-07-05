@@ -7,13 +7,13 @@ struct node
 {
     int x;
     int16_t l, r;
-    node(int xx, int ll, int rr) : x(xx), l(ll), r(rr) {}
-    friend constexpr bool operator>(node const &lhs, node const &rhs)
+    node(int xx, int ll, int rr) :
+        x(xx), l(ll), r(rr) {}
+    friend constexpr bool operator>(node const& lhs, node const& rhs)
     {
         return lhs.x > rhs.x;
     }
 };
-
 
 void solve()
 {

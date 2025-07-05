@@ -14,26 +14,25 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<vector<int>> G(n + 1);
-	for (int u = 2; u <= n; u++)
-	{
-		int v;
-		cin >> v;
-		G[u].emplace_back(v);
-		G[v].emplace_back(u);
-	}
-	vector<int> k(n + 1);
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> k[i];
-	}
+    int n;
+    cin >> n;
+    vector<vector<int>> G(n + 1);
+    for (int u = 2; u <= n; u++)
+    {
+        int v;
+        cin >> v;
+        G[u].emplace_back(v);
+        G[v].emplace_back(u);
+    }
+    vector<int> k(n + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> k[i];
+    }
 
-	int ans = 0;
-	
+    int ans = 0;
 
-	cout << ans << '\n';
+    cout << ans << '\n';
 }
 
 int main()

@@ -73,7 +73,6 @@ using namespace std;
 //         }
 //     }
 
-
 //     cout << flush;
 //     system("pause");
 //     return 0;
@@ -122,7 +121,6 @@ using namespace std;
 // int arr[25];
 // bool flag;
 
-
 // void dfs(int i, int target)
 // {
 //     if (arr[i] == target) flag = 1 return;
@@ -161,7 +159,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // const long double pi = 3.1415926535897932384626433832795L;
 
@@ -214,7 +211,7 @@ using namespace std;
 // {
 //     // ios::sync_with_stdio(false);
 //     // cin.tie(0);
-    
+
 //     cin >> n;
 //     Point a(0.0L, 0.0L);
 //     Point b(100.0L, 0.0L);
@@ -232,7 +229,7 @@ using namespace std;
 // uint64_t ans;
 // void select_sort(int* arr, int n)
 // {
-    
+
 // }
 
 // int arr[1005];
@@ -240,11 +237,10 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     for (int i = 0; i < n; i++)
 //         cin >> arr[i];
-    
 
 //     cout << flush;
 //     system("pause");
@@ -322,7 +318,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 0; i < n; i++)
@@ -368,19 +364,16 @@ using namespace std;
 //         cout << str[i] << ' ' << arr[i] << '\n';
 //     }
 
-
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m, l;
 //     cin >> n >> m >> l;
 //     vector < vector<unsigned long long> > a1(n, vector<unsigned long long>(m)), a2(m, vector<unsigned long long>(l)), ans(n, vector<unsigned long long>(l, 0));
@@ -415,19 +408,17 @@ using namespace std;
 //         }
 //         cout << '\n';
 //     }
-        
 
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int ch;
 //     while ((ch = cin.get()) != EOF)
 //     {
@@ -442,12 +433,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     string str;
 //     while (cin >> str && str[0] - '0')
 //     {
@@ -462,12 +452,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int ch;
 //     int arr[27] = {0};
 //     while ((ch = cin.get()) != EOF)
@@ -494,12 +483,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     string s1, s2;
 //     cin >> s1 >> s2;
 //     s1 += s1;
@@ -511,20 +499,18 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     string word;
 //     cin >> word;
 //     for (size_t i = 0; i < word.size(); i++)
 //     {
 //         word[i] = tolower(word[i]);
 //     }
-    
+
 //     string text;
 //     int ans = 0;
 //     string tmp;
@@ -534,7 +520,7 @@ using namespace std;
 //         {
 //             text[i] = tolower(text[i]);
 //         }
-        
+
 //         istringstream is(text);
 //         while (is >> tmp)
 //         {
@@ -548,12 +534,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     string str;
 //     cin >> str;
 //     int tt;
@@ -591,13 +576,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     uint64_t n;
 //     string str = "23266666666666666666664112";
 //     stringstream ss;
@@ -611,7 +594,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int primes[N], cnt;
 // bool st[N];
@@ -644,8 +626,6 @@ using namespace std;
 //     return l;
 // }
 
-
-
 // int main(void) {
 //     scanf("%d", &n);
 //     get_primes(1e6 + 5);
@@ -661,12 +641,8 @@ using namespace std;
 //         else puts("NO");
 //     }
 
-
 //     return 0;
 // }
-
-
-
 
 // int main()
 // {
@@ -695,13 +671,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     vector<int> arr;
 //     arr.push_back(3);
 //     arr.push_back(3);
@@ -713,12 +687,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     int tmp = n;
@@ -741,14 +714,13 @@ using namespace std;
 //     return 0;
 // }
 
-
 // const long long MOD = 1000000007;
 
 // long long quick_pow(long long a, long long n)
 // {
 //     if (n == 0) return 1;
 //     else if (n % 2 == 1) return quick_pow(a, n - 1) * a % MOD;
-//     else 
+//     else
 //     {
 //         long long tmp = quick_pow(a, n / 2) % MOD;
 //         return (tmp * (tmp % MOD)) % MOD;
@@ -759,7 +731,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     long long a, b;
 //     cin >> a >> b;
 //     cout << quick_pow(a, b);
@@ -786,7 +758,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[15];
 //     int n;
 //     cin >> n;
@@ -799,13 +771,10 @@ using namespace std;
 //     }
 //     cout << ans;
 
-    
-
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int exgcd(int a, int b, int& x, int& y)
 // {
@@ -825,7 +794,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     int x, y;
@@ -837,13 +806,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     int ans = n;
@@ -870,15 +837,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
     cout << flush;
     system("pause");
     return 0;

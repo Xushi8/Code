@@ -57,16 +57,11 @@ void solve()
     auto vec1 = qujian, vec2 = qujian;
 
     sort(vec1.begin(), vec1.end(), [](pii lhs, pii rhs)
-        {
-            return lhs.first < rhs.first;
-        });
+        { return lhs.first < rhs.first; });
     sort(vec2.begin(), vec2.end(), [](pii lhs, pii rhs)
-        {
-            return lhs.second < rhs.second;
-        });
+        { return lhs.second < rhs.second; });
 
     i64 ans = 0;
-    
 
     cout << ans << '\n';
 }

@@ -36,7 +36,7 @@ bool dfs(int u)
     used[u] = 1;
     for (auto v : G[u])
     {
-        if(arr[u] > arr[v])
+        if (arr[u] > arr[v])
             if (!dfs(v))
             {
                 is_true[u] = 1;
@@ -61,7 +61,8 @@ int main()
     int a, b;
     while (cin >> a >> b)
     {
-        a--; b--;
+        a--;
+        b--;
         G[a].emplace_back(b);
         G[b].emplace_back(a);
     }
@@ -70,7 +71,7 @@ int main()
     {
         if (dfs(i))
             cout << i + 1 << ' ';
-        
+
         memset(used, 0, sizeof(used));
     }
 

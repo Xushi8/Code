@@ -7,7 +7,6 @@ using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 // constexpr size_t N = 2e5 + 5;
 
-
 // void insert(vector<int> const& a) {
 //     int u = 0;
 //     for (auto x : a) {
@@ -38,8 +37,10 @@ vector<int> GA[N], GB[N];
 int va[N], vb[N];
 int n, m;
 
-void dfs(int u, int vau, int par) {
-    for (int v : GA[u]) {
+void dfs(int u, int vau, int par)
+{
+    for (int v : GA[u])
+    {
         if (v == par)
             continue;
         int vav = va[v];
@@ -48,13 +49,16 @@ void dfs(int u, int vau, int par) {
     }
 }
 
-int check(int u, int vbu, int par) {
+int check(int u, int vbu, int par)
+{
     int res = 0;
-    for (int v : GB[u]) {
+    for (int v : GB[u])
+    {
         if (v == par)
             continue;
         int vbv = vb[v];
-        if (trie[vbu][vbv] != 0) {
+        if (trie[vbu][vbv] != 0)
+        {
             res = max(res, check(v, trie[vbu][vbv], u));
         }
     }
@@ -67,30 +71,37 @@ int main()
     std::cin.tie(0);
 
     cin >> n >> m;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> va[i];
     }
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < m; i++)
+    {
         cin >> vb[i];
     }
 
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n - 1; i++)
+    {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         GA[u].emplace_back(v);
         GA[v].emplace_back(u);
     }
 
-    for (int i = 0; i < m - 1; i++) {
+    for (int i = 0; i < m - 1; i++)
+    {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         GB[u].emplace_back(v);
         GB[v].emplace_back(u);
     }
 
-    if (va[0] != vb[0]) {
+    if (va[0] != vb[0])
+    {
         cout << 0 << endl;
         return 0;
     }

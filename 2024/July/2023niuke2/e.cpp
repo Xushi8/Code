@@ -14,45 +14,45 @@ constexpr int N = 1000005;
 
 void biao()
 {
-	for (int i = 0; i <= 1000; i++)
-	{
-		cout << i * i << ' ' << i << '\n';
-	}
-	constexpr i64 x = 998244353;
-	cout << x * x << '\n';
+    for (int i = 0; i <= 1000; i++)
+    {
+        cout << i * i << ' ' << i << '\n';
+    }
+    constexpr i64 x = 998244353;
+    cout << x * x << '\n';
 }
 
 void solve()
 {
-	i64 x;
-	cin >> x;
-	i64 ans = 0;
-	while (x != 1)
-	{
-		i64 y = sqrt(x);
-		x -= y * y;
-		ans = stoll(to_string(ans) + to_string(y));
-	}
-	cout << ans << endl;
+    i64 x;
+    cin >> x;
+    i64 ans = 0;
+    while (x != 1)
+    {
+        i64 y = sqrt(x);
+        x -= y * y;
+        ans = stoll(to_string(ans) + to_string(y));
+    }
+    cout << ans << endl;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	biao();
+    biao();
 
-	int tt;
-	tt = 1;
-	cin >> tt;
-	while (tt--)
-	{
-		// solve();
-	}
+    int tt;
+    tt = 1;
+    cin >> tt;
+    while (tt--)
+    {
+        // solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

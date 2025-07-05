@@ -32,7 +32,5 @@ int main()
     auto f = fmt::output_file("guide");
     f.print("The answer is {}.", 42);
 
-
-
     return 0;
 }

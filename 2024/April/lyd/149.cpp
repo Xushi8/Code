@@ -137,45 +137,45 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	size_t n, k;
-	cin >> n >> k;
-	priority_queue<pll, vector<pll>, greater<>> que;
-	for (size_t i = 0; i < n; i++)
-	{
-		ll x;
-		cin >> x;
-		que.emplace(x, 0);
-	}
+    size_t n, k;
+    cin >> n >> k;
+    priority_queue<pll, vector<pll>, greater<>> que;
+    for (size_t i = 0; i < n; i++)
+    {
+        ll x;
+        cin >> x;
+        que.emplace(x, 0);
+    }
 
-	while (k - 1 != 0 && k - 1 != 1 && que.size() % (k - 1) != 1)
-	{
-		que.emplace(0, 0);
-	}
+    while (k - 1 != 0 && k - 1 != 1 && que.size() % (k - 1) != 1)
+    {
+        que.emplace(0, 0);
+    }
 
-	ll ans = 0;
-	while (que.size() >= 2)
-	{
-		ll sum = 0;
-		ll maxn = 0;
-		for (size_t i = 0; i < k; i++)
-		{
-			auto [val, deep] = que.top();
-			que.pop();
-			sum += val;
-			maxn = max(maxn, deep);
-		}
-		ans += sum;
-		que.emplace(sum, maxn + 1);
-	}
+    ll ans = 0;
+    while (que.size() >= 2)
+    {
+        ll sum = 0;
+        ll maxn = 0;
+        for (size_t i = 0; i < k; i++)
+        {
+            auto [val, deep] = que.top();
+            que.pop();
+            sum += val;
+            maxn = max(maxn, deep);
+        }
+        ans += sum;
+        que.emplace(sum, maxn + 1);
+    }
 
-	cout << ans << endl;
-	cout << que.top().second << endl;
+    cout << ans << endl;
+    cout << que.top().second << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

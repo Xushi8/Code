@@ -99,7 +99,6 @@
 //     return 0;
 // }
 
-
 // 2023/08/15 14:57:13
 #include <iostream>
 #include <algorithm>
@@ -129,9 +128,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -26,7 +26,6 @@ const int N = 10005;
 vector<int> G[N];
 int in[N];
 
-
 int par[N], rk[N];
 void init(int n)
 {
@@ -165,8 +164,9 @@ int main()
             {
                 conflict = 1;
             }
-            
-            int u = que.front(); que.pop();
+
+            int u = que.front();
+            que.pop();
             ans.emplace_back(find(u));
             for (int v : G[find(u)])
             {
@@ -183,7 +183,7 @@ int main()
         {
             st.emplace(find(i));
         }
-        
+
         if (ans.size() != st.size())
         {
             cout << "CONFLICT\n";

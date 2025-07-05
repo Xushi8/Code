@@ -63,11 +63,12 @@ int main()
         }
 
         priority_queue<array<int, 4>> que;
-        que.push({ 1, 1, 1, 1 });
-        que.push({ 1, 2, 3, 4 });
+        que.push({1, 1, 1, 1});
+        que.push({1, 2, 3, 4});
         while (!que.empty())
         {
-            array<int, 4> p = que.top(); que.pop();
+            array<int, 4> p = que.top();
+            que.pop();
             cout << ' ' << p[0] << ' ' << p[1] << ' ' << p[2] << ' ' << p[3] << '\n';
         }
     }

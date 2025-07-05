@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, k;
     while (cin >> n >> k)
     {
@@ -76,7 +76,6 @@ int main()
             else
                 cout << "Alice\n";
         }
-
     }
 
     cout << endl;

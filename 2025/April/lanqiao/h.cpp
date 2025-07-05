@@ -19,45 +19,51 @@ using pii = pair<int, int>;
 
 */
 
-void solve() {
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for(int i = 0; i < n; i++) {
-		cin >> a[i];
-	}
-	vector<int> deg(n);
-	vector<vector<int>> G(n);
-	for(int i = 0; i < n; i++) {
-		int u, v;
-		cin >> u >> v;
-		u--; v--;
-		deg[u]++;
-		deg[v]++;
-		G[u].emplace_back(v);
-		G[v].emplace_back(u);
-	}
-	
-	int cnt1 = count(a.begin(), a.end(), 1);
-	if(cnt1 == 0) {
-		cout << 0 << '\n';
-		return;
-	}
-	mt19937 rng(random_device{}());
-	uniform_int_distribution<i64> uni(1, cnt1);
-	cout << uni(rng) << '\n';
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    vector<int> deg(n);
+    vector<vector<int>> G(n);
+    for (int i = 0; i < n; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        u--;
+        v--;
+        deg[u]++;
+        deg[v]++;
+        G[u].emplace_back(v);
+        G[v].emplace_back(u);
+    }
+
+    int cnt1 = count(a.begin(), a.end(), 1);
+    if (cnt1 == 0)
+    {
+        cout << 0 << '\n';
+        return;
+    }
+    mt19937 rng(random_device{}());
+    uniform_int_distribution<i64> uni(1, cnt1);
+    cout << uni(rng) << '\n';
 }
 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	
-	int tt = 1;
-//	cin >> tt;
-	while(tt--) {
-		solve();
-	}
-	
-	
-	return 0;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int tt = 1;
+    //	cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
+
+    return 0;
 }

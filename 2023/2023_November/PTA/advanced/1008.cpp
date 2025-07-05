@@ -31,7 +31,8 @@ int main()
     int n;
     cin >> n;
     vector<int> a(n);
-    for (int i = 0; i < n; i ++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
     }
 
@@ -40,9 +41,12 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int tmp = a[i] - now;
-        if(tmp > 0) {
+        if (tmp > 0)
+        {
             ans += tmp * 6;
-        } else {
+        }
+        else
+        {
             ans += -tmp * 4;
         }
         now = a[i];

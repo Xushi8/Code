@@ -51,7 +51,8 @@ vector<vector<ll>> fast_pow(vector<vector<ll>> a, size_t n)
 
     while (n)
     {
-        if (n & 1) b = b * a;
+        if (n & 1)
+            b = b * a;
         a = a * a;
         n /= 2;
     }

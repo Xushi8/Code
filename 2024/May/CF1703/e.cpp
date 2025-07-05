@@ -27,48 +27,48 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		int n;
-		cin >> n;
-		vector<vector<char>> a(n, vector<char>(n));
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < n; j++)
-			{
-				cin >> a[i][j];
-			}
-		}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        int n;
+        cin >> n;
+        vector<vector<char>> a(n, vector<char>(n));
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                cin >> a[i][j];
+            }
+        }
 
-		int ans = 0;
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < n; j++)
-			{
-				int x = i, y = j;
-				int cnt = 0;
-				for (int k = 0; k < 4; k++)
-				{
-					cnt += a[x][y] - '0';
-					int tx, ty;
-					tx = y;
-					ty = n - 1 - x;
-					x = tx;
-					y = ty;
-				}
-				ans += min(cnt, 4 - cnt);
-			}
-		}
-		cout << ans / 4 << '\n';
-	}
+        int ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                int x = i, y = j;
+                int cnt = 0;
+                for (int k = 0; k < 4; k++)
+                {
+                    cnt += a[x][y] - '0';
+                    int tx, ty;
+                    tx = y;
+                    ty = n - 1 - x;
+                    x = tx;
+                    y = ty;
+                }
+                ans += min(cnt, 4 - cnt);
+            }
+        }
+        cout << ans / 4 << '\n';
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

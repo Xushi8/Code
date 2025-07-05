@@ -125,7 +125,6 @@
 //     return 0;
 // }
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -145,20 +144,25 @@ int main()
     for (auto& x : a)
         cin >> x;
     ll ans = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            for (int k = 0; k < n; k++) {
-                for (int l = 0; l < n; l++) {
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            for (int k = 0; k < n; k++)
+            {
+                for (int l = 0; l < n; l++)
+                {
                     set<int> st;
                     st.emplace(i);
                     st.emplace(j);
                     st.emplace(k);
                     st.emplace(l);
-                    if (st.size() == 4) {
+                    if (st.size() == 4)
+                    {
                         int gcd1 = __gcd(a[i], a[k]);
                         int gcd2 = __gcd(a[j], a[l]);
-                        if (((gcd1 != 1 && a[i] <= a[k]) || a[i] == 1) &&
-                            ((gcd2 != 1 && a[j] <= a[l]) || a[j] == 1)) {
+                        if (((gcd1 != 1 && a[i] <= a[k]) || a[i] == 1) && ((gcd2 != 1 && a[j] <= a[l]) || a[j] == 1))
+                        {
                             ans++;
                         }
                     }

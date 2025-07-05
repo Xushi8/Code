@@ -3,11 +3,13 @@ using namespace std;
 using i64 = int64_t;
 using pii = pair<int, int>;
 
-void solve() {
+void solve()
+{
     int n;
     cin >> n;
     vector<pii> a(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         int h, m, s;
         char ch;
         cin >> h >> ch >> m >> ch >> s;
@@ -31,13 +33,17 @@ void solve() {
     que.emplace(0);
     size_t ans = 1;
 
-    for(auto [l, r] : a) {
+    for (auto [l, r] : a)
+    {
         ans = max(ans, que.size());
         int lst = que.top();
         que.pop();
-        if(l > lst) {
+        if (l > lst)
+        {
             que.emplace(r);
-        } else {
+        }
+        else
+        {
             que.emplace(r);
             que.emplace(lst);
         }

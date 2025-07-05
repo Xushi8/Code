@@ -6,9 +6,7 @@ using fmt::print;
 
 int main()
 {
-	vector<int> a{1, -3, -7, 8, 12, -14};
-	print("{}\n", *max_element(a.begin(), a.end(), [](auto const& l, auto const& r)
-					  {
-						  return l < r;
-					  }));
+    vector<int> a{1, -3, -7, 8, 12, -14};
+    print("{}\n", *max_element(a.begin(), a.end(), [](auto const& l, auto const& r)
+                      { return l < r; }));
 }

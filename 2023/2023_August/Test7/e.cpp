@@ -23,7 +23,6 @@
 // const int MOD = (int)(1e9 + 7);
 // const int N = 100005;
 
-
 // int n;
 // int maxn[N], arr[N];
 
@@ -72,8 +71,6 @@
 //     dfs1(1, 0, 0);
 //     dfs2(1, 1);
 
-    
-
 //     build(1, n, 1);
 
 //     string s;
@@ -100,9 +97,6 @@
 //     return 0;
 // }
 
-
-
-
 // void dfs1(int u, int from, int cost)
 // {
 //     deep[u] = deep[from] + 1;
@@ -120,7 +114,6 @@
 //             son[u] = v.v;
 //     }
 // }
-
 
 // void dfs2(int u, int tp)
 // {
@@ -140,7 +133,6 @@
 //     }
 // }
 
-
 // void build(int l, int r, int p)
 // {
 //     if (l == r)
@@ -155,7 +147,6 @@
 
 //     maxn[p] = max(maxn[p * 2], maxn[p * 2 + 1]);
 // }
-
 
 // int query(int l, int r, int nl, int nr, int p)
 // {
@@ -174,7 +165,6 @@
 //     return res;
 // }
 
-
 // void modify(int l, int r, int nl, int nr, int val, int p)
 // {
 //     if (l <= nl && nr <= r)
@@ -191,7 +181,6 @@
 
 //     maxn[p] = max(maxn[p * 2], maxn[p * 2 + 1]);
 // }
-
 
 // int query(int x, int y)
 // {
@@ -211,7 +200,6 @@
 //     return res = max(res, query(dfn[x] + 1, dfn[y], 1, n, 1));
 // }
 
-
 // void change(int x, int y, int val)
 // {
 //     while (top[x] != top[y])
@@ -228,12 +216,6 @@
 
 //     modify(dfn[x] + 1, dfn[y], 1, n, val, 1);
 // }
-
-
-
-
-
-
 
 // 2023/08/09 16:47:01
 #include <iostream>
@@ -267,10 +249,9 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -16,7 +15,7 @@ int main()
 
     int tt;
     tt = 1;
-        while (tt--)
+    while (tt--)
     {
         solve();
     }
@@ -51,7 +50,7 @@ void solve()
         }
         return res;
     };
-    
+
     while (q--)
     {
         int k, c, n;

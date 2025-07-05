@@ -36,7 +36,6 @@ void solve()
     {
         for (int j = 0; j < m; j++)
         {
-            
         }
     }
 }
@@ -45,16 +44,13 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
     {
-
-
         solve();
 
-        
         // int n, m;
         // cin >> n >> m;
         // vector<pii> swap_index;
@@ -188,7 +184,7 @@ int main()
         // int cnt = count(arr, arr + m, arr[0]);
         // if (cnt == m)
         // {
-            
+
         // }
         // else
         // {

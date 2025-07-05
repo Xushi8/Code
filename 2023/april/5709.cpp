@@ -2,13 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int a, b, c;
     cin >> a >> b >> c;
     if (b == 0)
@@ -17,8 +15,9 @@ int main()
     }
     else
     {
-        int ans =  a - c / b - (c % b != 0);
-        if (ans < 0) ans = 0;
+        int ans = a - c / b - (c % b != 0);
+        if (ans < 0)
+            ans = 0;
         cout << ans;
     }
 

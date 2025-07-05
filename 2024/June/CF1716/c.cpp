@@ -14,18 +14,17 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int m;
-	cin >> m;
-	constexpr int n = 2;
-	vector<vector<int>> a(n, vector<int>(m));
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			cin >> a[i][j];
+    int m;
+    cin >> m;
+    constexpr int n = 2;
+    vector<vector<int>> a(n, vector<int>(m));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cin >> a[i][j];
         }
-	}
-
+    }
 }
 
 int main()

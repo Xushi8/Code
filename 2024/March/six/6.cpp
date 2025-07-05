@@ -27,38 +27,37 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	cin.ignore(111, '\n');
-	vector<string> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		getline(cin, a[i]);
-	}
+    int n, m;
+    cin >> n >> m;
+    cin.ignore(111, '\n');
+    vector<string> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        getline(cin, a[i]);
+    }
 
-	string ans = "Wo AK le";
-	for (int i = 0; i < n; i++)
-	{
-		auto s = a[i];
-		if (s.find("easy") != -1 || s.find("qiandao") != -1)
-		{
-			continue;
-		}
-		if (m == 0)
-		{
-			ans = s;
-		}
-		m--;
-	}
+    string ans = "Wo AK le";
+    for (int i = 0; i < n; i++)
+    {
+        auto s = a[i];
+        if (s.find("easy") != -1 || s.find("qiandao") != -1)
+        {
+            continue;
+        }
+        if (m == 0)
+        {
+            ans = s;
+        }
+        m--;
+    }
 
-	cout << ans << endl;
-
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

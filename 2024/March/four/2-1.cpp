@@ -30,78 +30,78 @@ bool single[N];
 
 bool is_prime(int x)
 {
-	if (x == 1)
-		return false;
-	for (int i = 2; i * i <= x; i++)
-	{
-		if (x % i == 0)
-			return false;
-	}
-	return true;
+    if (x == 1)
+        return false;
+    for (int i = 2; i * i <= x; i++)
+    {
+        if (x % i == 0)
+            return false;
+    }
+    return true;
 }
 
 bool bfs(int u)
 {
-	int x = u;
-	set<int> st;
-	while (u != 1)
-	{
-		deg[x]++;
-		if (st.count(u))
-		{
-			return false;
-		}
-		st.emplace(u);
-		int tmp = u;
-		int v = 0;
-		while (tmp)
-		{
-			int last = tmp % 10;
-			tmp /= 10;
-			v += last * last;
-		}
-		single[v] = 0;
-		u = v;
-	}
-	return true;
+    int x = u;
+    set<int> st;
+    while (u != 1)
+    {
+        deg[x]++;
+        if (st.count(u))
+        {
+            return false;
+        }
+        st.emplace(u);
+        int tmp = u;
+        int v = 0;
+        while (tmp)
+        {
+            int last = tmp % 10;
+            tmp /= 10;
+            v += last * last;
+        }
+        single[v] = 0;
+        u = v;
+    }
+    return true;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int l, r;
-	cin >> l >> r;
+    int l, r;
+    cin >> l >> r;
 
-	fill(single, single + N, true);
+    fill(single, single + N, true);
 
-	vector<int> ans;
-	for (int i = l; i <= r; i++)
-	{
-		if (bfs(i))
-			ans.emplace_back(i);
-	}
+    vector<int> ans;
+    for (int i = l; i <= r; i++)
+    {
+        if (bfs(i))
+            ans.emplace_back(i);
+    }
 
-	int num = 0;
-	for (auto x : ans)
-	{
-		if (is_prime(x))
-			deg[x] *= 2;
-		if (single[x])
-		{
-			cout << x << ' ' << deg[x] << '\n';
-			num++;
-		}
-	}
+    int num = 0;
+    for (auto x : ans)
+    {
+        if (is_prime(x))
+            deg[x] *= 2;
+        if (single[x])
+        {
+            cout << x << ' ' << deg[x] << '\n';
+            num++;
+        }
+    }
 
-	if (num == 0)
-	{
-		cout << "SAD" << '\n';
-	}
+    if (num == 0)
+    {
+        cout << "SAD" << '\n';
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

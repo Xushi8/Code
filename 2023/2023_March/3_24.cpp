@@ -22,7 +22,6 @@ using namespace std;
 //         *lower_bound(dp, dp + n, arr[i]) = arr[i];
 //     }
 //     cout << lower_bound(dp, dp + n, inf) - dp;
-    
 
 //     cout << flush;
 //     system("pause");
@@ -55,7 +54,8 @@ void unite(int x, int y)
 {
     x = find(x);
     y = find(y);
-    if (x == y) return;
+    if (x == y)
+        return;
 
     if (::rank[x] < ::rank[y])
     {
@@ -64,7 +64,8 @@ void unite(int x, int y)
     else
     {
         par[y] = x;
-        if (::rank[x] == ::rank[y]) ::rank[x]++;
+        if (::rank[x] == ::rank[y])
+            ::rank[x]++;
     }
 }
 
@@ -103,7 +104,6 @@ int main()
         }
     }
 
-    
     cout << flush;
     system("pause");
     return 0;

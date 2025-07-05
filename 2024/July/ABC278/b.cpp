@@ -14,20 +14,20 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int h, m;
-	cin >> h >> m;
-	for (int tim = h * 60 + m;; tim++)
-	{
-		if (tim == 24 * 60)
-			tim = 0;
-		int h1 = tim / 60;
-		int m1 = tim % 60;
-		int h2 = h1 / 10 * 10 + m1 / 10;
-		int m2 = h1 % 10 * 10 + m1 % 10;
-		if (0 <= h2 && h2 < 24 && 0 <= m2 && m2 < 60)
-		{
-			cout << h1 << ' ' << m1 << '\n';
-			break;
+    int h, m;
+    cin >> h >> m;
+    for (int tim = h * 60 + m;; tim++)
+    {
+        if (tim == 24 * 60)
+            tim = 0;
+        int h1 = tim / 60;
+        int m1 = tim % 60;
+        int h2 = h1 / 10 * 10 + m1 / 10;
+        int m2 = h1 % 10 * 10 + m1 % 10;
+        if (0 <= h2 && h2 < 24 && 0 <= m2 && m2 < 60)
+        {
+            cout << h1 << ' ' << m1 << '\n';
+            break;
         }
     }
 }

@@ -37,14 +37,14 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string s;
     cin >> s;
     string a = "9223372036854775807";
     string b = "-9223372036854775808";
     if (s.front() == '-')
     {
-        if (s.substr(1).size()  > b.substr(1).size() || check(s.substr(1), b.substr(1)))
+        if (s.substr(1).size() > b.substr(1).size() || check(s.substr(1), b.substr(1)))
         {
             // cerr << s << '\n' << s.substr(1) << '\n' << b.substr(1) << '\n';
             cout << "BigInteger\n";

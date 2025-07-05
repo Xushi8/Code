@@ -43,7 +43,8 @@ int main()
     {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         G[u].emplace_back(v, i + 1);
         G[v].emplace_back(u, i + 1);
     }
@@ -58,7 +59,8 @@ int main()
 
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         for (auto [v, index] : G[u])
         {
             if (dis[v] != -1)

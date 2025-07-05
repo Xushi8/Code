@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -95,5 +94,6 @@ void solve()
     {
         cout << x << ' ';
     }
-    cout << '\n' << '\n';
+    cout << '\n'
+         << '\n';
 }

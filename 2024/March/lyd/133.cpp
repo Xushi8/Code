@@ -298,68 +298,68 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m, adds, u, v, t;
-	cin >> n >> m >> adds >> u >> v >> t;
-	double p = 1.0 * u / v;
+    int n, m, adds, u, v, t;
+    cin >> n >> m >> adds >> u >> v >> t;
+    double p = 1.0 * u / v;
 
-	vector<int> arr(n);
-	for (auto& x : arr)
-		cin >> x;
+    vector<int> arr(n);
+    for (auto& x : arr)
+        cin >> x;
 
-	sort(arr.begin(), arr.end(), greater<>());
-	queue<int> a, b, c;
-	for (auto x : arr)
-		a.emplace(x);
+    sort(arr.begin(), arr.end(), greater<>());
+    queue<int> a, b, c;
+    for (auto x : arr)
+        a.emplace(x);
 
-	auto get = [&]() -> int
-	{
-		int x, y, z;
-		x = y = z = -2e9;
-		if (!a.empty())
-			x = a.front();
-		if (!b.empty())
-			y = b.front();
-		if (!c.empty())
-			z = c.front();
-		int val = max({x, y, z});
-		if (val == x)
-			a.pop();
-		else if (val == y)
-			b.pop();
-		else
-			c.pop();
-		return val;
-	};
+    auto get = [&]() -> int
+    {
+        int x, y, z;
+        x = y = z = -2e9;
+        if (!a.empty())
+            x = a.front();
+        if (!b.empty())
+            y = b.front();
+        if (!c.empty())
+            z = c.front();
+        int val = max({x, y, z});
+        if (val == x)
+            a.pop();
+        else if (val == y)
+            b.pop();
+        else
+            c.pop();
+        return val;
+    };
 
-	for (int i = 1; i <= m; i++)
-	{
-		int val = get() + (i - 1) * adds;
-		int x = val * p;
-		int y = val - x;
-		b.emplace(x - i * adds);
-		c.emplace(y - i * adds);
-		if (i % t == 0)
-		{
-			cout << val << ' ';
-		}
-	}
-	cout << '\n';
+    for (int i = 1; i <= m; i++)
+    {
+        int val = get() + (i - 1) * adds;
+        int x = val * p;
+        int y = val - x;
+        b.emplace(x - i * adds);
+        c.emplace(y - i * adds);
+        if (i % t == 0)
+        {
+            cout << val << ' ';
+        }
+    }
+    cout << '\n';
 
-	for (int i = 1; i <= (n + m); i++)
-	{
-		int val = get() + m * adds;
-		if (i % t == 0)
-		{
-			cout << val << ' ';
-		}
-	}
-	cout << '\n';
+    for (int i = 1; i <= (n + m); i++)
+    {
+        int val = get() + m * adds;
+        if (i % t == 0)
+        {
+            cout << val << ' ';
+        }
+    }
+    cout << '\n';
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

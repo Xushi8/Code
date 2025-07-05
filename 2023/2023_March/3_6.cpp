@@ -1,7 +1,7 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-template<typename T>
+template <typename T>
 inline void my_swap(T& a, T& b)
 {
     T tmp(a);
@@ -14,9 +14,9 @@ typedef struct User
     int age;
     string name;
     User* next;
-}User;
+} User;
 
-ostream& operator << (ostream& out, User& u)
+ostream& operator<<(ostream& out, User& u)
 {
     cout << u.age << ' ' << u.name;
     return out;
@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // int ch;
     // ch = 1;
     // switch (ch)
@@ -38,7 +38,7 @@ int main()
     //     ch = 3;
     //     continue;
     // case 3:
-        
+
     // }
 
     // auto i = 10;
@@ -51,7 +51,8 @@ int main()
 
     User a;
     a.age = 10;
-    cout << a << endl;;
+    cout << a << endl;
+    ;
 
     system("pause");
     return 0;

@@ -21,7 +21,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 class Point
 {
 public:
@@ -37,8 +36,8 @@ public:
 
 int n, m, maxn;
 bool flag;
-int dx[] = { 0,1,0,-1 };
-int dy[] = { 1,0,-1,0 };
+int dx[] = {0, 1, 0, -1};
+int dy[] = {1, 0, -1, 0};
 
 char arr[25][25];
 int beginx, beginy, endx, endy;
@@ -47,7 +46,7 @@ void dfs(Point p, int dis, set<char>& have)
 {
     bool update = 0;
 AGAIN:
-    
+
     for (int i = 0; i < 4; i++)
     {
         int tx = p.x + dx[i];
@@ -166,12 +165,10 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-
     while (cin >> n >> m >> maxn)
     {
         solve();
     }
-
 
     cout << endl;
     return 0;

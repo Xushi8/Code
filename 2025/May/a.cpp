@@ -4,24 +4,23 @@
 using namespace std;
 
 /**
- * @brief 
- * 
+ * @brief
+ *
  */
 class calculator
 {
-
 private:
     stack<int> num;
     stack<char> sign;
 };
 
 /**
- * @brief 
- * 
- * @param a 
- * @param ch 
- * @param b 
- * @return int 
+ * @brief
+ *
+ * @param a
+ * @param ch
+ * @param b
+ * @return int
  */
 int func(int a, char ch, int b)
 {

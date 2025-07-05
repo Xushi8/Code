@@ -23,7 +23,6 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -34,7 +33,7 @@ int main()
     cin >> s >> n;
     vector<pair<char, int>> arr;
     map<int, set<pair<char, int>>, greater<>> mp;
-    
+
     for (size_t i = 0; i < s.size(); i++)
     {
         size_t j = i;
@@ -85,12 +84,12 @@ int main()
 
             arr[i].second += arr[j].second;
             arr.erase(arr.begin() + j);
-            i--; j--;
+            i--;
+            j--;
         }
     }
 
     cout << (mp.empty() ? "Yes\n" : "No\n");
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -32,8 +31,6 @@ using u64 = uint64_t;
 using pii = pair<int, int>;
 using pll = pair<i64, i64>;
 constexpr int N = 1000005;
-
-
 
 void solve()
 {

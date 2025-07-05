@@ -27,7 +27,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ll a, b, c, d, ans;
     cin >> a >> b >> c >> d;
     ans = 0;

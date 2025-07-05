@@ -2,16 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     cin >> m >> n;
-    int arr[10] = { 0 };
+    int arr[10] = {0};
     for (int i = m; i <= n; i++)
     {
         int j = i;
@@ -25,7 +23,6 @@ int main()
     {
         cout << arr[i] << ' ';
     }
-    
 
     cout << endl;
     return 0;

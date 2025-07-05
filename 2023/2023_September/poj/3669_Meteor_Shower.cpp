@@ -20,7 +20,7 @@ inline int read()
 {
     int x = 0, f = 1;
     int ch = getchar();
-    while (ch < '0' || ch>'9')
+    while (ch < '0' || ch > '9')
     {
         if (ch == '-')
             f = -1;
@@ -40,7 +40,9 @@ class point
 public:
     point(int a, int b, int c)
     {
-        x = a; y = b; tim = c;
+        x = a;
+        y = b;
+        tim = c;
     }
     point() {}
 
@@ -62,15 +64,16 @@ int bfs()
 {
     if (arr[0][0] == 0)
         return -1;
-    
+
     queue<pii> que;
-    que.push({ 0, 0 });
+    que.push({0, 0});
     vis[0][0] = 1;
-    int dx[] = { 0, 1, 0, -1 };
-    int dy[] = { 1, 0, -1, 0 };
+    int dx[] = {0, 1, 0, -1};
+    int dy[] = {1, 0, -1, 0};
     while (!que.empty())
     {
-        pii p = que.front(); que.pop();
+        pii p = que.front();
+        que.pop();
         int x = p.first, y = p.second;
         if (arr[x][y] == 0x3f3f3f3f)
             return dis[x][y];
@@ -81,12 +84,11 @@ int bfs()
             int ty = y + dy[i];
             if (tx >= 0 && ty >= 0 && !vis[tx][ty] && arr[tx][ty] > dis[x][y] + 1)
             {
-                que.push({ tx, ty });
+                que.push({tx, ty});
                 vis[tx][ty] = 1;
                 dis[tx][ty] = dis[x][y] + 1;
             }
         }
-
     }
 
     return -1;
@@ -96,7 +98,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     vector<point> points;
@@ -104,14 +106,14 @@ int main()
     {
         int a, b, c;
         cin >> a >> b >> c;
-        points.push_back({ a, b, c });
+        points.push_back({a, b, c});
     }
 
     sort(points.begin(), points.end(), cmp);
 
     memset(arr, 0x3f, sizeof(arr));
-    int dx[] = { 0, 1, 0, -1 };
-    int dy[] = { 1, 0, -1, 0 };
+    int dx[] = {0, 1, 0, -1};
+    int dy[] = {1, 0, -1, 0};
     for (int i = 0; i < n; i++)
     {
         arr[points[i].x][points[i].y] = points[i].tim;

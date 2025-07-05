@@ -18,16 +18,14 @@ int main()
 
     tbb::task_arena arena{8};
     arena.execute([&]
-        {
-            tbb::parallel_for(tbb::blocked_range<size_t>(0, iterations),
-                [&counter](tbb::blocked_range<size_t> const& r)
-                {
-                    for (size_t i = r.begin(); i != r.end(); i++)
-                    {
-                        counter++;
-                    }
-                });
-        });
+        { tbb::parallel_for(tbb::blocked_range<size_t>(0, iterations),
+              [&counter](tbb::blocked_range<size_t> const& r)
+              {
+                  for (size_t i = r.begin(); i != r.end(); i++)
+                  {
+                      counter++;
+                  }
+              }); });
 
     auto end = std::chrono::high_resolution_clock::now();
     double duration = std::chrono::duration<double, std::nano>(end - start).count() / iterations;

@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     int a;
@@ -28,14 +26,10 @@ using namespace std;
 //         cout << endl;
 //     }
 
-
-
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // int main()
 // {
@@ -66,13 +60,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -83,7 +75,9 @@ int main()
         b = a * 0.1 + 0.99;
         c = a * 0.3 + 0.99 - b;
         d = a * 0.6 + 0.99 - b - c;
-        cout << b << '\n' << c << '\n' << d << '\n';
+        cout << b << '\n'
+             << c << '\n'
+             << d << '\n';
     }
 
     cout << flush;

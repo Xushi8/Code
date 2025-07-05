@@ -74,15 +74,13 @@ void solve()
         }
 
         sort(ver.begin(), ver.end(), [&](int const& l, int const& r)
-            {
-                return deg[l] < deg[r];
-            });
+            { return deg[l] < deg[r]; });
 
         for (auto v : ver)
         {
             if (u == v || vis[v])
                 continue;
-            
+
             if (G[u][v])
             {
                 int cnt = 2;
@@ -128,7 +126,7 @@ void solve()
         int res = dfs(u, 1);
         ans = max(ans, res);
     }
-    
+
     // for (int i = 1; i <= n; i++)
     // {
     //     int res = dfs(i, 1);

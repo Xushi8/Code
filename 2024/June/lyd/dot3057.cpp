@@ -14,44 +14,44 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int W;
-	cin >> W;
-	if (W == 0)
-	{
-		cout << 0 << '\n';
-		return;
-	}
-	vector<int> v = {0, 10, 20, 50, 100};
+    int W;
+    cin >> W;
+    if (W == 0)
+    {
+        cout << 0 << '\n';
+        return;
+    }
+    vector<int> v = {0, 10, 20, 50, 100};
 
-	vector<i64> dp(W + 1);
-	dp[0] = 1;
-	for (size_t i = 1; i < v.size(); i++)
-	{
-		auto ndp = dp;
-		for (int j = v[i]; j <= W; j++)
-		{
-			ndp[j] += ndp[j - v[i]];
-		}
-		dp = std::move(ndp);
-	}
+    vector<i64> dp(W + 1);
+    dp[0] = 1;
+    for (size_t i = 1; i < v.size(); i++)
+    {
+        auto ndp = dp;
+        for (int j = v[i]; j <= W; j++)
+        {
+            ndp[j] += ndp[j - v[i]];
+        }
+        dp = std::move(ndp);
+    }
 
-	cout << dp.back() << '\n';
+    cout << dp.back() << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -14,27 +14,27 @@ constexpr int N = 1000005;
 
 void print(vector<int> const& a)
 {
-	for (auto x : a)
-	{
-		cout << x << ' ';
-	}
-	cout << '\n';
+    for (auto x : a)
+    {
+        cout << x << ' ';
+    }
+    cout << '\n';
 }
 
 void solve()
 {
-	int n;
-	cin >> n;
-	cout << n << '\n';
-	vector<int> a(n);
-	iota(a.begin(), a.end(), 1);
+    int n;
+    cin >> n;
+    cout << n << '\n';
+    vector<int> a(n);
+    iota(a.begin(), a.end(), 1);
 
-	for (int i = 0; i < n - 1; i++)
-	{
-		print(a);
-		swap(a[i], a[i + 1]);
-	}
-	print(a);
+    for (int i = 0; i < n - 1; i++)
+    {
+        print(a);
+        swap(a[i], a[i + 1]);
+    }
+    print(a);
 }
 
 int main()

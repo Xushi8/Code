@@ -30,28 +30,28 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	priority_queue<int, vector<int>, greater<>> que;
-	while (n--)
-	{
-		int x;
-		cin >> x;
-		que.emplace(x);
-	}
+    int n;
+    cin >> n;
+    priority_queue<int, vector<int>, greater<>> que;
+    while (n--)
+    {
+        int x;
+        cin >> x;
+        que.emplace(x);
+    }
 
-	int ans = 0;
-	while (que.size() >= 2)
-	{
-		auto x = que.top();
-		que.pop();
-		auto y = que.top();
-		que.pop();
-		ans += x + y;
-		que.emplace(x + y);
-	}
-	cout << ans << endl;
-    
+    int ans = 0;
+    while (que.size() >= 2)
+    {
+        auto x = que.top();
+        que.pop();
+        auto y = que.top();
+        que.pop();
+        ans += x + y;
+        que.emplace(x + y);
+    }
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

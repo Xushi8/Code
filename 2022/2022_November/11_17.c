@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 #include <windows.h>
 
 void begin_menu(void);
@@ -18,15 +18,15 @@ void new_user(void);
 typedef struct HOUSE
 {
     char user_name[MAX_USER_NAME];
-    char addr[MAX_ADDRESS];//地址
-    char condition[MAX_CONDITION];//记录房屋出租,入住等状态
-}HOUSE;
+    char addr[MAX_ADDRESS];        // 地址
+    char condition[MAX_CONDITION]; // 记录房屋出租,入住等状态
+} HOUSE;
 typedef struct House
 {
     HOUSE* house_data;
     int index;
     int capacity;
-}House;
+} House;
 
 int main(void)
 {
@@ -35,22 +35,22 @@ int main(void)
     do
     {
         scanf("%d", &input);
-        switch(input)
+        switch (input)
         {
-            case 1:
-                user();
-                break;
-            case 2:
-                new_user();
-                break;
-            case 0:
-                break;
-            default:
-                puts("输入错误,请重新输入");
-                break;
+        case 1:
+            user();
+            break;
+        case 2:
+            new_user();
+            break;
+        case 0:
+            break;
+        default:
+            puts("输入错误,请重新输入");
+            break;
         }
-    }while(input);    
-    
+    } while (input);
+
     return 0;
 }
 
@@ -64,7 +64,6 @@ void begin_menu(void)
 
 void new_user(void)
 {
-
 }
 
 void user(void)
@@ -77,7 +76,6 @@ void user(void)
 
 void sign_in_user(void)
 {
-
     system("cls");
     Sleep(500);
     begin_menu();
@@ -162,7 +160,3 @@ void sign_in_user(void)
 //         }
 //     }
 // }
-
-
-
-

@@ -51,7 +51,6 @@ void solve()
         }
     }
 
-
     cout << "! 1 " << ans << ' ' << n << endl;
 }
 

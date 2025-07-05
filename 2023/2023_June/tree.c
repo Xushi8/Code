@@ -189,13 +189,13 @@ struct tree* delete_tree(int n, struct tree* p)
     {
         p->right = delete_tree(n, p->right);
     }
-    else if (p->left != NULL && p->right != NULL)//两个儿子
+    else if (p->left != NULL && p->right != NULL) // 两个儿子
     {
         tmp = find_min(p->right);
         p->element = tmp->element;
         p->right = delete_tree(p->element, p->right);
     }
-    else//一个或没有儿子
+    else // 一个或没有儿子
     {
         tmp = p;
         if (p->left == NULL)
@@ -235,7 +235,7 @@ void print_tree_mid(struct tree* p)
 void print_tree_pre(struct tree* p)
 {
     printf(" %d", p->element);
-    
+
     if (p->left != NULL)
     {
         print_tree_pre(p->left);

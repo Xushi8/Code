@@ -41,7 +41,8 @@ kmp(const char* a, const char* b)
     {
         if (a[i] == b[i])
         {
-            i++; j++;
+            i++;
+            j++;
         }
         else if (j > 0)
         {
@@ -63,7 +64,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     char a[100], b[100];
     cin >> a >> b;
     cout << kmp(a, b);

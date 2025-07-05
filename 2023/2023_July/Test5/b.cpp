@@ -56,7 +56,6 @@ int main()
         cout << *max_element(dp.begin(), dp.end()) << '\n';
     }
 
-
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

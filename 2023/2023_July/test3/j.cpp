@@ -26,7 +26,6 @@ bool vis[N];
 class Node
 {
 public:
-
     string num;
     int cnt;
 };
@@ -43,7 +42,8 @@ int bfs()
     que.emplace(n1);
     while (!que.empty())
     {
-        n1 = que.front(); que.pop();
+        n1 = que.front();
+        que.pop();
         if (n1.num == b)
             return n1.cnt;
 
@@ -88,7 +88,6 @@ int bfs()
         }
     }
 
-
     return 0;
 }
 
@@ -96,7 +95,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

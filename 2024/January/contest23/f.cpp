@@ -55,7 +55,7 @@ int main()
             can_use[i] = 0;
         }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

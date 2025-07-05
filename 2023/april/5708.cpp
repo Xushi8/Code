@@ -2,8 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     // ios::sync_with_stdio(false);
@@ -13,7 +11,6 @@ int main()
     double p = (a + b + c) / 2;
     printf("%.1lf", sqrt(p * (p - a) * (p - b) * (p - c)));
 
-    
     cout << endl;
     return 0;
 }

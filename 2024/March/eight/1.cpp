@@ -30,11 +30,11 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cout << "Good code is its own best documentation." << endl;
+    cout << "Good code is its own best documentation." << endl;
 
 #ifdef LOCAL
-		cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

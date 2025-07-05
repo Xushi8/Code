@@ -33,7 +33,7 @@ void solve()
         int a, b;
         cin >> a >> b;
         ans += a;
-        arr[i] = { b - a, a, b };
+        arr[i] = {b - a, a, b};
     }
     sort(arr.begin(), arr.end(), greater<>());
 
@@ -42,7 +42,7 @@ void solve()
         cout << arr[0][2] << '\n';
         return;
     }
-    
+
     int available = m - n;
     int cnt = 0; // 独居的人
     for (int i = 0; i < n && i < available; i++)

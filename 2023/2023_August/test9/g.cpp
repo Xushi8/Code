@@ -23,7 +23,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 int par[N], rk[N];
 void init(int n)
 {
@@ -32,7 +31,7 @@ void init(int n)
         par[i] = i;
         rk[i] = 0;
     }
-    }
+}
 
 int find(int x)
 {
@@ -70,7 +69,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     while (cin >> n >> m)
     {
@@ -79,7 +78,8 @@ int main()
         {
             int u, v;
             cin >> u >> v;
-            u--; v--;
+            u--;
+            v--;
             if (!same(u, v))
                 unite(u, v);
         }

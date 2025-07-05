@@ -48,7 +48,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string s;
     cin >> s;
     if ((islower(s[0]) && check(s)) || check1(s))

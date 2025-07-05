@@ -31,7 +31,7 @@ int main()
     int n;
     cin >> n;
     set<int> st;
-    while(1)
+    while (1)
     {
         if (st.count(n) == 1)
         {
@@ -53,8 +53,6 @@ int main()
         n = tmp;
     }
 
-
-    
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

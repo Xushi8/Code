@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 // int main()
 // {
@@ -52,7 +52,7 @@
 // 		}
 // 	}
 // 	return 0;
-// } 
+// }
 
 // int main()
 // {
@@ -79,7 +79,7 @@
 // 			arr[1][j] += data[i][j];
 // 		}
 // 	}
-	
+
 // 	int max = -1;
 // 	int judge = 0;
 // 	for(i = 0; i<n; i++)
@@ -96,7 +96,7 @@
 // 				}
 // 			}
 // 		}
-// 	}	
+// 	}
 // 	if(judge == 0)
 // 	{
 // 		puts("Bad Game!");
@@ -105,7 +105,6 @@
 // 	{
 // 		printf("%d", max);
 // 	}
-	
 
 // 	return 0;
 // }
@@ -129,4 +128,3 @@
 // 	printf("%.8Lf", a*100000000/23/100000000);
 // 	return 0;
 // }
-

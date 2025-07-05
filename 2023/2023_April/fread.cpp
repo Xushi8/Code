@@ -11,7 +11,7 @@ void analyse(char* buf, int len = MAXS)
 {
     int i;
     numbers[i = 0] = 0;
-    for (char* p = buf;*p && p - buf < len;p++)
+    for (char* p = buf; *p && p - buf < len; p++)
         if (*p == ' ')
             numbers[++i] = 0;
         else
@@ -32,7 +32,8 @@ inline int read()
     int ch;
     while ((ch = cin.get()) > '9' || ch < '0')
     {
-        if (ch == '-') f = -1;
+        if (ch == '-')
+            f = -1;
     }
     if (ch >= '0' && ch <= '9')
     {
@@ -54,18 +55,16 @@ void my_read()
     }
 }
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int begin = clock();
     fread_analyse();
     // my_read();
     int end = clock();
     cout << (double)(end - begin) / 1000.0 << '\n';
-
 
     cout << flush;
     system("pause");

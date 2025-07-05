@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -36,21 +35,21 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	string s;
-	cin >> n >> s;
-	string ans = s + string(n, '0') + s;
+    int n;
+    string s;
+    cin >> n >> s;
+    string ans = s + string(n, '0') + s;
 
-	auto t = ans.substr(1);
-	auto pos = t.find(s);
-	if (pos != t.size() - s.size())
-	{
-		// ans = s + string(n, '1') + s;
-		ans = string(n, '1');
-	}
-	else
-	{
-		ans = string(n, '0');
+    auto t = ans.substr(1);
+    auto pos = t.find(s);
+    if (pos != t.size() - s.size())
+    {
+        // ans = s + string(n, '1') + s;
+        ans = string(n, '1');
     }
-	cout << ans << '\n';
+    else
+    {
+        ans = string(n, '0');
+    }
+    cout << ans << '\n';
 }

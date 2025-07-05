@@ -28,7 +28,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     // cout << format("{:.8f}\n", 3.1415);
 
     // array<int, 5> tmp = { 1,1,2,8,4 };

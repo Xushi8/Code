@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // // 前缀和
@@ -46,7 +46,6 @@ using namespace std;
 //         }
 //     }
 
-
 //     system("pause");
 //     return 0;
 // }
@@ -66,7 +65,6 @@ using namespace std;
 //     c = n;
 //     printf("%d:%d:%d", a, b, c);
 
-
 //     system("pause");
 //     return 0;
 // }
@@ -75,7 +73,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     cout << n * n * n << endl;
@@ -88,7 +86,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     cout << a * b << ' ' << 2 * a + 2 * b << endl;
@@ -101,14 +99,14 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cout << "#include<stdio.h>" << endl;
 //     cout << "int main()" << endl;
 //     cout << "{" << endl;
 //     cout << "printf(\"Hello World!\\n\");" << endl;
 //     cout << "return 0;" << endl;
 //     cout << "}" << endl;
-    
+
 //     system("pause");
 //     return 0;
 // }
@@ -117,7 +115,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[3];
 //     cin >> arr[0] >> arr[1] >> arr[2];
 //     sort(arr, arr + 3);
@@ -127,30 +125,27 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[3];
 //     while (cin >> arr[0] >> arr[1] >> arr[2])
 //     {
 //         sort(arr, arr + 3);
 //         cout << arr[0] << "->" << arr[1] << "->" << arr[2] << endl;
 //     }
-    
 
 //     system("pause");
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     vector<int> arr;
 //     int tt;
 //     cin >> tt;
@@ -167,12 +162,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     deque<int> d;
 //     int tt;
 //     cin >> tt;
@@ -202,7 +196,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 int main()
 {
@@ -259,12 +252,11 @@ int main()
     return 0;
 }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     list<int> L;
 //     list<int>::iterator it = L.begin();
 //     L.emplace(it, 5);
@@ -281,12 +273,9 @@ int main()
 //     it--;
 //     cout << *it << endl;
 
-
-
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main(void) {
 //     list<int> l = { 3, 4, 5 };

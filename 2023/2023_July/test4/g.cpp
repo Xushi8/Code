@@ -26,7 +26,6 @@ const int N = 1000005;
 bool isnp[N];
 vector<int> primes;
 
-
 void get_primes()
 {
     for (int i = 2; i < N; i++)
@@ -47,7 +46,6 @@ void get_primes()
         }
     }
 }
-
 
 ull func(ll n, ll k)
 {
@@ -82,12 +80,10 @@ ull func(ll n, ll k)
     {
         if (n % i == 0)
             res--;
-
     }
 
     return res;
 
-    
     // int target = (int)sqrt(n);
     // int res = 0;
     // for (ll i = target; i >= k; i--)

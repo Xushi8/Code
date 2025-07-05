@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -35,5 +34,5 @@ constexpr int N = 1000005;
 
 void solve()
 {
-    constexpr int x =  std::gcd(0x80000000, -14);
+    constexpr int x = std::gcd(0x80000000, -14);
 }

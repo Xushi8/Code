@@ -29,14 +29,15 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, k;
     cin >> n >> m >> k;
     for (int i = 0; i < m; i++)
     {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         G[u].emplace_back(v);
         G[v].emplace_back(u);
     }
@@ -46,19 +47,22 @@ int main()
     {
         int a, b, c;
         cin >> a >> b >> c;
-        a--; b--; c--;
-        jin.insert({ a, b, c });
+        a--;
+        b--;
+        c--;
+        jin.insert({a, b, c});
     }
     queue<pii> que;
     que.emplace(0, 0);
-    pii ans = { -1, -1 };
+    pii ans = {-1, -1};
     memset(par, -1, sizeof(par));
     while (!que.empty())
     {
-        auto [u, v] = que.front(); que.pop();
+        auto [u, v] = que.front();
+        que.pop();
         if (v == n - 1)
         {
-            ans = { u, v };
+            ans = {u, v};
             break;
         }
 
@@ -84,7 +88,7 @@ int main()
         while (ans.second != 0)
         {
             path.emplace_back(ans.second);
-            ans = { par[ans.first][ans.second], ans.first };
+            ans = {par[ans.first][ans.second], ans.first};
         }
 
         cout << path.size() << '\n';

@@ -85,7 +85,7 @@ void solve()
             dfs(dfs, i, -1);
         }
     }
-        
+
     cout << ans.size() << '\n';
     for (auto x : ans)
     {

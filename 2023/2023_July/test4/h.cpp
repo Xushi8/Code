@@ -52,7 +52,8 @@ ll pow(ll a, int n)
     ll res = 1;
     while (n > 0)
     {
-        if (n & 1) res = res * a;
+        if (n & 1)
+            res = res * a;
         a *= a;
         n /= 2;
     }
@@ -81,7 +82,6 @@ void func()
     sort(arr.begin(), arr.end());
     arr.erase(unique(arr.begin(), arr.end()), arr.end());
 }
-
 
 // 2 4 8 9 16 18 25 32 36 49 64 72 81 98
 // 2 的幂次， 平方数  18 32 72 98    平方数 * 2
@@ -155,7 +155,6 @@ int main()
     cout << flush;
     return 0;
 }
-
 
 /*
 1 1

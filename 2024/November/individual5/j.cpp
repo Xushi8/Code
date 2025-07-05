@@ -45,7 +45,7 @@ void solve()
                 que.push({r1 + 1, r2, w2 - w1});
             }
         }
-        
+
         que.push({l2, r2, w2});
     }
 

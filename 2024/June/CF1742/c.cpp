@@ -14,45 +14,45 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	string s[8];
-	for (int i = 0; i < 8; i++)
-	{
-		cin >> s[i];
-	}
+    string s[8];
+    for (int i = 0; i < 8; i++)
+    {
+        cin >> s[i];
+    }
 
-	for (int i = 0; i < 8; i++)
-	{
-		int cnt1 = 0;
-		for (int j = 0; j < 8; j++)
-		{
-			if (s[i][j] == 'R')
-				cnt1++;
-		}
-		if (cnt1 == 8)
-		{
-			cout << "R\n";
-			return;
-		}
-	}
+    for (int i = 0; i < 8; i++)
+    {
+        int cnt1 = 0;
+        for (int j = 0; j < 8; j++)
+        {
+            if (s[i][j] == 'R')
+                cnt1++;
+        }
+        if (cnt1 == 8)
+        {
+            cout << "R\n";
+            return;
+        }
+    }
 
-	cout << "B\n";
+    cout << "B\n";
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

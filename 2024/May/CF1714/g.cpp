@@ -13,18 +13,18 @@ constexpr int N = 1000005;
 
 void dfs(int u, i64 now_sum, vector<i64>& prefix, map<int, int>& ans, vector<vector<array<int, 3>>> const& G)
 {
-	if (u != 0)
-	{
-		auto it = upper_bound(prefix.begin(), prefix.end(), now_sum);
-		ans[u] = it - prefix.begin() - 1;
-	}
+    if (u != 0)
+    {
+        auto it = upper_bound(prefix.begin(), prefix.end(), now_sum);
+        ans[u] = it - prefix.begin() - 1;
+    }
 
-	for (auto [v, w0, w1] : G[u])
-	{
-		prefix.emplace_back(w1 + prefix.back());
-		dfs(v, now_sum + w0, prefix, ans, G);
-		prefix.pop_back();
-	}
+    for (auto [v, w0, w1] : G[u])
+    {
+        prefix.emplace_back(w1 + prefix.back());
+        dfs(v, now_sum + w0, prefix, ans, G);
+        prefix.pop_back();
+    }
 }
 
 // void solve()
@@ -54,73 +54,73 @@ void dfs(int u, i64 now_sum, vector<i64>& prefix, map<int, int>& ans, vector<vec
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<vector<array<int, 3>>> G(n);
-	for (int i = 1; i < n; i++)
-	{
-		int par, w0, w1;
-		cin >> par >> w0 >> w1;
-		par--;
-		G[par].push_back({i, w0, w1});
-	}
+    int n;
+    cin >> n;
+    vector<vector<array<int, 3>>> G(n);
+    for (int i = 1; i < n; i++)
+    {
+        int par, w0, w1;
+        cin >> par >> w0 >> w1;
+        par--;
+        G[par].push_back({i, w0, w1});
+    }
 
-	vector<i64> prefix{0};
-	prefix.reserve(n + 1);
-	vector<int> ans(n);
+    vector<i64> prefix{0};
+    prefix.reserve(n + 1);
+    vector<int> ans(n);
 
-	const function<void(int u, i64 now_sum)> dfs = [&](int u, i64 now_sum)
-	{
-		// if (u != 0)
-		{
-			auto it = upper_bound(prefix.begin(), prefix.end(), now_sum);
-			ans[u] = it - prefix.begin() - 1;
-		}
+    const function<void(int u, i64 now_sum)> dfs = [&](int u, i64 now_sum)
+    {
+        // if (u != 0)
+        {
+            auto it = upper_bound(prefix.begin(), prefix.end(), now_sum);
+            ans[u] = it - prefix.begin() - 1;
+        }
 
-		for (auto [v, w0, w1] : G[u])
-		{
-			prefix.emplace_back(prefix.back() + w1);
-			dfs(v, now_sum + w0);
-			prefix.pop_back();
-		}
-	};
+        for (auto [v, w0, w1] : G[u])
+        {
+            prefix.emplace_back(prefix.back() + w1);
+            dfs(v, now_sum + w0);
+            prefix.pop_back();
+        }
+    };
 
-	// auto dfs = [&](int u, i64 now_sum)
-	// {
-	// 	auto it = upper_bound(prefix.begin(), prefix.end(), now_sum);
-	// 	ans[u] = it - prefix.begin() - 1;
+    // auto dfs = [&](int u, i64 now_sum)
+    // {
+    // 	auto it = upper_bound(prefix.begin(), prefix.end(), now_sum);
+    // 	ans[u] = it - prefix.begin() - 1;
 
-	// 	for (auto [v, w0, w1] : G[u])
-	// 	{
-	// 		prefix.emplace_back(prefix.back() + w1);
-	// 		dfs(), v, now_sum + w0);
-	// 		prefix.pop_back();
-	// 	}
-	// }
+    // 	for (auto [v, w0, w1] : G[u])
+    // 	{
+    // 		prefix.emplace_back(prefix.back() + w1);
+    // 		dfs(), v, now_sum + w0);
+    // 		prefix.pop_back();
+    // 	}
+    // }
 
-	dfs(0, 0);
+    dfs(0, 0);
 
-	for (int i = 1; i < n; i++)
-	{
-		cout << ans[i] << ' ';
-	}
-	cout << '\n';
+    for (int i = 1; i < n; i++)
+    {
+        cout << ans[i] << ' ';
+    }
+    cout << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	cin >> tt;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    cin >> tt;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -108,7 +108,7 @@ void solve()
 
     auto vec1 = get_vec(true);
     auto vec2 = get_vec(false);
-    
+
     while (q--)
     {
         int l, r, k;
@@ -127,13 +127,9 @@ void solve()
         auto get_cnt = [&](vector<pii> const& vec) -> int
         {
             auto it1 = lower_bound(vec.begin(), vec.end(), pii{l, 0}, [](pii lhs, pii rhs)
-                {
-                    return lhs.first < rhs.first;
-                });
+                { return lhs.first < rhs.first; });
             auto it2 = lower_bound(vec.begin(), vec.end(), pii{0, r}, [](pii lhs, pii rhs)
-                {
-                    return lhs.second < rhs.second;
-                });
+                { return lhs.second < rhs.second; });
             if (it1 != vec.end() && it1->first == l && it2 != vec.end() && it2->second == r)
             {
                 return (it2 - it1 + 1);

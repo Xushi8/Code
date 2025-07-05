@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 // func(int a, int b)
 // {
@@ -134,7 +134,7 @@
 //     {
 //         sum = sum + (s1[i] - '0') * (i - 1);
 //     }
-    
+
 //     int ret = sum % 11;
 //     if ((ret == (s1[12] - '0')) || (ret == 10 && s1[12] == 'X'))
 //     {
@@ -192,7 +192,7 @@
 //         {
 //             printf(" ");
 //         }
-        
+
 //         for (j = 1; j < 26; j++)
 //         {
 //             if (i + arr[j] >= max_num)
@@ -211,7 +211,6 @@
 //     {
 //         printf(" %c", i + 65);
 //     }
-
 
 //     return 0;
 // }
@@ -247,7 +246,6 @@ char* reverse(char* str)
             right--;
         }
     }
-    
 
     return str;
 }
@@ -263,7 +261,7 @@ void swap_xiaoshu(char* str)
     int left = 0;
     char ret1[20] = {0};
     char ret2[20] = {0};
-    char ret[2] = { 0 };
+    char ret[2] = {0};
     int i, j;
     for (i = 0; i < 199; i++)
     {
@@ -310,7 +308,6 @@ void swap_xiaoshu(char* str)
         right--;
     }
 
-    
     if (ret2[0] != '0')
     {
         for (i = 0; i < 398; i++)
@@ -338,16 +335,14 @@ void swap_xiaoshu(char* str)
     }
 
     printf("%s.%s", ret1, ret2);
-
-    
 }
 void swap_fenshu(char* str)
 {
     int right;
     int left = 0;
-    char ret1[20] = { 0 };
-    char ret2[20] = { 0 };
-    char ret[2] = { 0 };
+    char ret1[20] = {0};
+    char ret2[20] = {0};
+    char ret[2] = {0};
     int i, j;
     for (i = 0; i < 199; i++)
     {
@@ -376,7 +371,6 @@ void swap_fenshu(char* str)
     reverse(ret2);
 
     printf("%s/%s", ret1, ret2);
-
 }
 void swap_baifenshu(char* str)
 {
@@ -391,7 +385,7 @@ void swap_baifenshu(char* str)
 
         ret1[i] = str[i];
     }
-    char ret[2] = { 0 };
+    char ret[2] = {0};
     strcat(ret1, ret);
     reverse(ret1);
     printf("%s", ret1);
@@ -401,7 +395,7 @@ int main()
 {
     char str[23];
     gets(str);
-    int arr[4] = { 0 };
+    int arr[4] = {0};
     int i;
     for (i = 0; i < 23; i++)
     {
@@ -443,7 +437,6 @@ int main()
     {
         swap_baifenshu(str);
     }
-
 
     return 0;
 }

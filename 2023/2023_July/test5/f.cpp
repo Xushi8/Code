@@ -32,7 +32,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, b, mod;
     cin >> n >> m >> b >> mod;
     for (int i = 1; i <= n; i++)

@@ -32,44 +32,44 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	while (cin >> n && n)
-	{
-		for (int i = 1; i <= n; i++)
-		{
-			cin >> a[i];
-		}
+    int n;
+    while (cin >> n && n)
+    {
+        for (int i = 1; i <= n; i++)
+        {
+            cin >> a[i];
+        }
 
-		stack<ll> stk;
+        stack<ll> stk;
 
-		for (int i = 1; i <= n; i++)
-		{
-			while (!stk.empty() && a[stk.top()] >= a[i])
-				stk.pop();
+        for (int i = 1; i <= n; i++)
+        {
+            while (!stk.empty() && a[stk.top()] >= a[i])
+                stk.pop();
 
-			L[i] = stk.empty() ? 0 : stk.top();
+            L[i] = stk.empty() ? 0 : stk.top();
             stk.emplace(i);
-		}
+        }
 
-		stack<ll>().swap(stk);
+        stack<ll>().swap(stk);
 
-		for (int i = n; i >= 1; i--)
-		{
-			while (!stk.empty() && a[stk.top()] >= a[i])
-				stk.pop();
+        for (int i = n; i >= 1; i--)
+        {
+            while (!stk.empty() && a[stk.top()] >= a[i])
+                stk.pop();
 
-			R[i] = stk.empty() ? n + 1 : stk.top();
+            R[i] = stk.empty() ? n + 1 : stk.top();
             stk.emplace(i);
-		}
+        }
 
-		ll ans = 0;
-		for (int i = 1; i <= n; i++)
-		{
-			ans = max(ans, a[i] * (R[i] - L[i] - 1));
-		}
-		cout << ans << '\n';
+        ll ans = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            ans = max(ans, a[i] * (R[i] - L[i] - 1));
+        }
+        cout << ans << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

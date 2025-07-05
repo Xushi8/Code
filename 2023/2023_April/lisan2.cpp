@@ -2,14 +2,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-const int inf = 0x3f3f3f3f;// 无穷, 表示不可知
+const int inf = 0x3f3f3f3f; // 无穷, 表示不可知
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int flag[4] = { 0 };
+    int flag[4] = {0};
     int p, q, r, s;
     r = 0;
     p = q = s = inf;
@@ -47,7 +46,7 @@ int main()
             }
             cout << "公式:  s |  q. \ts -> q, q: " << q << '\n';
         }
-        
+
         if (r != inf && s == inf && flag[3] == 0)
         {
             flag[3] = 1;

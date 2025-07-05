@@ -14,46 +14,46 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	int m = n;
-	vector<int> a(n + 1), b(m + 1);
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> a[i];
-	}
-	for (int j = 1; j <= m; j++)
-	{
-		cin >> b[j];
-	}
+    int n;
+    cin >> n;
+    int m = n;
+    vector<int> a(n + 1), b(m + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+    }
+    for (int j = 1; j <= m; j++)
+    {
+        cin >> b[j];
+    }
 
-	vector<vector<int>> dp(n + 1, vector<int>(m + 1));
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1));
 
-	for (int i = 1; i <= n; i++)
-	{
-		int val = 0;
-		for (int j = 1; j <= m; j++)
-		{
-			if (a[i] == b[j])
-			{
-				dp[i][j] = max(dp[i][j] , val + 1);
-			}
-			else
-			{
-				dp[i][j] = dp[i - 1][j];
-			}
+    for (int i = 1; i <= n; i++)
+    {
+        int val = 0;
+        for (int j = 1; j <= m; j++)
+        {
+            if (a[i] == b[j])
+            {
+                dp[i][j] = max(dp[i][j], val + 1);
+            }
+            else
+            {
+                dp[i][j] = dp[i - 1][j];
+            }
 
-			if (b[j] < a[i])
-				val = max(val, dp[i - 1][j]);
+            if (b[j] < a[i])
+                val = max(val, dp[i - 1][j]);
         }
-	}
+    }
 
-	int ans = 0;
-	for (int j = 0; j <= m; j++)
-	{
-		ans = max(ans, dp[n][j]);
-	}
-	cout << ans << '\n';
+    int ans = 0;
+    for (int j = 0; j <= m; j++)
+    {
+        ans = max(ans, dp[n][j]);
+    }
+    cout << ans << '\n';
 }
 
 int main()

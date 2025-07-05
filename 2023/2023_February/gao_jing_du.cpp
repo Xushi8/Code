@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int max_Num_length = 1000;
@@ -10,18 +10,17 @@ public:
         this->length = 0;
         memset(this->data, 0, sizeof(this->data));
     }
-    
+
     Num(const Num& a)
     {
         strcpy(this->data, a.data);
         this->length = a.length;
     }
-    
+
     ~Num()
     {
-        
     }
-    
+
     void print()
     {
         reverse(this->data, this->data + this->length);
@@ -83,7 +82,7 @@ public:
                 }
             }
         }
-        
+
         ans.length = ++max_len;
         ans.add_48();
         return ans;

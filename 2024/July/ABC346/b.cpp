@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -35,25 +34,25 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	string s = "wbwbwwbwbwbw";
-	int n, m;
-	cin >> n >> m;
-	for (int i = 0; i < s.size(); i++)
-	{
-		int c[2] = {};
-		for (int j = i; c[0] <= n && c[1] <= m; j = (j + 1) % s.size())
-		{
-			if (s[j] == 'w')
-				c[0]++;
-			else
-				c[1]++;
-			if (c[0] == n && c[1] == m)
-			{
-				cout << "Yes\n";
-				return;
+    string s = "wbwbwwbwbwbw";
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < s.size(); i++)
+    {
+        int c[2] = {};
+        for (int j = i; c[0] <= n && c[1] <= m; j = (j + 1) % s.size())
+        {
+            if (s[j] == 'w')
+                c[0]++;
+            else
+                c[1]++;
+            if (c[0] == n && c[1] == m)
+            {
+                cout << "Yes\n";
+                return;
             }
         }
     }
 
-	cout << "No\n";
+    cout << "No\n";
 }

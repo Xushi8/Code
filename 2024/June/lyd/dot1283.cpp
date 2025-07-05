@@ -14,29 +14,29 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int W;
-	cin >> W;
-	int n;
-	cin >> n;
-	vector<int> v(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> v[i];
-	}
-	auto w = v;
+    int W;
+    cin >> W;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+    }
+    auto w = v;
 
-	vector<int> dp(W + 1);
-	for (int i = 0; i < n; i++)
-	{
-		auto ndp = dp;
-		for (int j = v[i]; j <= W; j++)
-		{
-			ndp[j] = max(dp[j], dp[j - v[i]] + w[i]);
-		}
-		dp = std::move(ndp);
-	}
+    vector<int> dp(W + 1);
+    for (int i = 0; i < n; i++)
+    {
+        auto ndp = dp;
+        for (int j = v[i]; j <= W; j++)
+        {
+            ndp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+        }
+        dp = std::move(ndp);
+    }
 
-	cout << W - dp[W] << '\n';
+    cout << W - dp[W] << '\n';
 }
 
 int main()

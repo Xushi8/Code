@@ -14,49 +14,49 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	vector<int> a;
-	{
-		int x;
-		while (cin >> x)
-		{
-			a.push_back(x);
-		}
-	}
-	reverse(a.begin(), a.end());
+    vector<int> a;
+    {
+        int x;
+        while (cin >> x)
+        {
+            a.push_back(x);
+        }
+    }
+    reverse(a.begin(), a.end());
 
-	constexpr int INF = 1e9;
-	vector<int> t(a.size() + 1, INF);
-	for (auto x : a)
-	{
-		*upper_bound(t.begin(), t.end(), x) = x;
-	}
+    constexpr int INF = 1e9;
+    vector<int> t(a.size() + 1, INF);
+    for (auto x : a)
+    {
+        *upper_bound(t.begin(), t.end(), x) = x;
+    }
 
-	cout << lower_bound(t.begin(), t.end(), INF) - t.begin() << '\n';
+    cout << lower_bound(t.begin(), t.end(), INF) - t.begin() << '\n';
 
-	t.assign(a.size() + 1, INF);
-	reverse(a.begin(), a.end());
-	for (auto x : a)
-	{
-		*lower_bound(t.begin(), t.end(), x) = x;
-	}
+    t.assign(a.size() + 1, INF);
+    reverse(a.begin(), a.end());
+    for (auto x : a)
+    {
+        *lower_bound(t.begin(), t.end(), x) = x;
+    }
 
-	cout << lower_bound(t.begin(), t.end(), INF) - t.begin() << '\n';
+    cout << lower_bound(t.begin(), t.end(), INF) - t.begin() << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

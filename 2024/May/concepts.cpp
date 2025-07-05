@@ -9,26 +9,26 @@ using fmt::print;
 
 template <typename T>
 concept has_iterator = requires(T&& v) {
-	v.begin();
-	v.end();
+    v.begin();
+    v.end();
 };
 
 template <typename T>
-requires has_iterator<T>
+    requires has_iterator<T>
 void func(T&& val)
 {
-	for (auto const& x : val)
-	{
-		print("{} ", x);
-	}
-	print("\n");
+    for (auto const& x : val)
+    {
+        print("{} ", x);
+    }
+    print("\n");
 }
 
 int main()
 {
-	vector<int> a(4, 8);
-	func(a);
+    vector<int> a(4, 8);
+    func(a);
 
-	auto it = a.begin();
-	advance(it, 5);
+    auto it = a.begin();
+    advance(it, 5);
 }

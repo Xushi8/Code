@@ -28,11 +28,12 @@ int nex[N];
 void get_next(const string& s)
 {
     nex[0] = -1;
-    for (int i = 0, j = -1; i < (int)s.size(); )
+    for (int i = 0, j = -1; i < (int)s.size();)
     {
         if (j == -1 || s[i] == s[j])
         {
-            i++; j++;
+            i++;
+            j++;
             nex[i] = j;
         }
         else
@@ -41,7 +42,6 @@ void get_next(const string& s)
         }
     }
 }
-
 
 int main()
 {
@@ -71,7 +71,7 @@ int main()
         // {
         //     if (x == 1)
         //         continue;
-            
+
         //     cout << x << ' ' << s.size() / x << '\n';
         // }
 

@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -31,7 +29,7 @@ using namespace std;
 //                 }
 //             }
 //         }
-        
+
 //         if (sum == 0)
 //         {
 //             cout << 0 << '\n';
@@ -65,7 +63,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -93,7 +90,7 @@ using namespace std;
 //             for (int k = 0; k < size; k++)
 //                 if (arr[i] * arr[j] * arr[k] == n)
 //                     ans++;
-    
+
 //     cout << ans;
 
 //     cout << flush;
@@ -124,9 +121,11 @@ void dijkstra(int s)
     que.emplace(0, s);
     while (!que.empty())
     {
-        P p = que.top(); que.pop();
+        P p = que.top();
+        que.pop();
         int v = p.second;
-        if (dis[v] < p.first) continue;
+        if (dis[v] < p.first)
+            continue;
 
         for (int i = 0; i < (int)G[v].size(); i++)
         {
@@ -144,7 +143,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, e;
     cin >> n >> e;
     for (int i = 0; i < e; i++)

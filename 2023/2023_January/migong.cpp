@@ -1,7 +1,7 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<queue>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <queue>
 using namespace std;
 
 // //BFS
@@ -78,13 +78,13 @@ using namespace std;
 //     return 0;
 // }
 
-//DFS
+// DFS
 
 int min_step = 2147483647;
-int endx, endy, beginx,beginy;
+int endx, endy, beginx, beginy;
 int arr[100][100], v[100][100];
-int dx[4] = { 0,1,0,-1 };
-int dy[4] = { 1,0,-1,0 };
+int dx[4] = {0, 1, 0, -1};
+int dy[4] = {1, 0, -1, 0};
 /*
 5 4
 1 1 2 1
@@ -129,7 +129,6 @@ int main()
     cin >> beginx >> beginy >> endx >> endy;
     dfs(beginx, beginy, 0);
     cout << min_step << endl;
-
 
     return 0;
 }

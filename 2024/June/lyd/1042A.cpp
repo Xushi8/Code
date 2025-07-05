@@ -14,29 +14,29 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, m;
-	cin >> n >> m;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
-	vector<i64> dp(m + 1);
-	dp[0] = 1;
+    vector<i64> dp(m + 1);
+    dp[0] = 1;
 
-	for (auto val : a)
-	{
-		auto ndp = dp;
-		for (int j = val; j <= m; j++)
-		{
-			ndp[j] += dp[j - val];
-		}
+    for (auto val : a)
+    {
+        auto ndp = dp;
+        for (int j = val; j <= m; j++)
+        {
+            ndp[j] += dp[j - val];
+        }
 
-		dp = std::move(ndp);
-	}
+        dp = std::move(ndp);
+    }
 
-	cout << dp[m] << '\n';
+    cout << dp[m] << '\n';
 }
 
 int main()

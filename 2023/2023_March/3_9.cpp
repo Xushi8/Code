@@ -1,7 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 // int main()
 // {
@@ -38,7 +36,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -115,7 +112,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -195,7 +191,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[3];
 //     int tt = 3;
 //     while (--tt)
@@ -208,12 +204,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -251,7 +246,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -327,7 +321,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -358,7 +352,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> W;
 //     int tot = 1;
 //     while (n--)
@@ -388,13 +382,12 @@ using namespace std;
 //     return 0;
 // }
 
-
 // uint64_t dp[50005];
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n >> m;
 //     int mon[25];
@@ -402,7 +395,7 @@ using namespace std;
 //     {
 //         cin >> mon[i];
 //     }
-    
+
 //     for (int i = 1; i <= n; i++)
 //     {
 //         uint64_t tmp = UINT64_MAX;
@@ -418,20 +411,19 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int n, W, v[1005], w[1005];
 // uint64_t f[10005];
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> W;
 //     for (int i = 1; i <= n; i++)
 //     {
 //         cin >> v[i] >> w[i];
 //     }
-    
+
 //     for (int i = 1; i <= n; i++)
 //         for (int j = W; j >= w[i]; j--)
 //             f[j] = max(f[j], f[j - w[i]] + v[i]);
@@ -471,7 +463,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 1; i <= n; i++)
@@ -496,12 +488,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b, c, d, e;
 //     cin >> a >> b >> c >> d >> e;
 //     if (c + e <= a && c - e >= 0 && d + e <= b && d - e >= 0)
@@ -513,12 +504,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -528,7 +518,7 @@ using namespace std;
 //     {
 //         cin >> arr[i];
 //     }
-    
+
 //     int tt;
 //     cin >> tt;
 //     while (tt--)
@@ -565,12 +555,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -619,12 +608,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     if (a > b) cout << "a > b";
@@ -640,7 +628,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b, c;
 //     cin >> a >> b >> c;
 //     if (a < b && b < c)
@@ -656,7 +644,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int tt = 1000;
 //     while (tt--)
 //         cout << "Hello World" << '\n';
@@ -666,12 +654,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int i = 1;
 //     int num;
 //     while (cin >> num && num)
@@ -684,12 +671,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int arr[2];
 //     while (cin >> arr[0] >> arr[1] && (arr[0] || arr[1]))
 //     {
@@ -704,12 +690,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b, c;
 //     cin >> a >> b >> c;
 //     int cnt = 0;
@@ -723,12 +708,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     char ch;
 //     while (cin >> a >> ch >> b && ch != '?')
@@ -756,12 +740,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     printf("%d %d %.5lf", a / b, a % b, (double)a / b);
@@ -775,7 +758,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     long double r;
 //     cin >> r;
 //     printf("%.6Lf %.6Lf", PI * r * r, 2. * PI * r);
@@ -788,7 +771,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, tmp;
 //     cin >> n;
 //     int min_n = 999999999, max_n = -999999999;
@@ -805,7 +788,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // void call(int n)
 // {
@@ -828,7 +810,6 @@ using namespace std;
 
 //     cout << endl;
 // }
-
 
 // void call(int n)
 // {
@@ -858,7 +839,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     call(n);
@@ -867,13 +848,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     while (cin >> a >> b && (a || b))
 //     {
@@ -891,8 +870,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // int main()
 // {
@@ -921,7 +898,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -957,7 +933,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     char ch;
 //     int n;
 //     cin >> n;
@@ -984,7 +960,6 @@ using namespace std;
 //         }
 //     }
 
-    
 //     for (int i = 0; i < 4; i++)
 //     {
 //         for (int j = 1; j <= 13; j++)
@@ -1004,12 +979,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -1024,13 +998,12 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int arr[5][4][11];
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int tt;
 //     cin >> tt;
 //     while (tt--)
@@ -1059,12 +1032,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n >> m;
 //     vector<vector<int>> arr(n, vector<int>(m));
@@ -1091,12 +1063,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b, c;
 //     while (cin >> a >> b >> c && (a != -1 || b != -1 || c != -1))
 //     {
@@ -1120,7 +1091,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int ans;
 //     int a, b;
 //     while (cin >> a >> b && (a || b))
@@ -1139,12 +1110,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int a, b;
 //     cin >> a >> b;
 //     vector<vector<int>> arr(a, vector<int>(b));
@@ -1184,14 +1154,12 @@ using namespace std;
 //     return 0;
 // }
 
-
 // class Point
 // {
 // public:
 //     int x, y;
 
 // };
-
 
 // bool cmp(Point& a, Point& b)
 // {
@@ -1228,7 +1196,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 class object
 {
 public:
@@ -1239,18 +1206,23 @@ public:
 
 bool cmp(object& m, object& n)
 {
-    if (m.a != n.a) return m.a < n.a;
-    else if (m.b != n.b) return m.b < n.b;
-    else if (m.c != n.c) return m.c < n.c;
-    else if (m.d != n.d) return m.d < n.d;
-    else return m.e < n.e;
+    if (m.a != n.a)
+        return m.a < n.a;
+    else if (m.b != n.b)
+        return m.b < n.b;
+    else if (m.c != n.c)
+        return m.c < n.c;
+    else if (m.d != n.d)
+        return m.d < n.d;
+    else
+        return m.e < n.e;
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     vector<object> arr(n);

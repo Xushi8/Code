@@ -1,13 +1,14 @@
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 ofstream ofs;
 
-void move(int n, char a, char b, char c)//中间的是工具, 最后的是dest
+void move(int n, char a, char b, char c) // 中间的是工具, 最后的是dest
 {
-    if (n == 0) return;
-    
+    if (n == 0)
+        return;
+
     move(n - 1, a, c, b);
     ofs << a << "->" << c << '\n';
     move(n - 1, b, a, c);

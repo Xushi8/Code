@@ -27,15 +27,15 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int x, y;
-	cin >> x >> y;
-	cout << 100 * 100 / 2 - 100 * y / 2 - 100 * (100 - x) / 2 << endl;
+    int x, y;
+    cin >> x >> y;
+    cout << 100 * 100 / 2 - 100 * y / 2 - 100 * (100 - x) / 2 << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

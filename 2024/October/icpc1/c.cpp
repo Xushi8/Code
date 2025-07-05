@@ -1,18 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve() {
+void solve()
+{
     int n;
     cin >> n;
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(0);
 
     int tt = 1;
     cin >> tt;
-    while (tt--) {
+    while (tt--)
+    {
         solve();
     }
 

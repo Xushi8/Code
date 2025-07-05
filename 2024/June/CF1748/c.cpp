@@ -14,49 +14,49 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	vector<i64> sum(n + 1);
-	for (int i = 0; i < n; i++)
-	{
-		sum[i + 1] = sum[i] + a[i];
-	}
-	vector<int> zero;
-	for (int i = 0; i < n; i++)
-	{
-		if (a[i] == 0)
-		{
-			zero.emplace_back(i + 1);
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    vector<i64> sum(n + 1);
+    for (int i = 0; i < n; i++)
+    {
+        sum[i + 1] = sum[i] + a[i];
+    }
+    vector<int> zero;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == 0)
+        {
+            zero.emplace_back(i + 1);
         }
-	}
-	zero.emplace_back(n + 1);
-	int ans = 0;
-	for (int i = 1; i < zero.front(); i++)
-	{
-		ans += sum[i] == 0;
-	}
+    }
+    zero.emplace_back(n + 1);
+    int ans = 0;
+    for (int i = 1; i < zero.front(); i++)
+    {
+        ans += sum[i] == 0;
+    }
 
-	for (int i = 0; i + 1 < zero.size(); i++)
-	{
-		map<i64, int> mp;
-		for (int j = zero[i]; j < zero[i + 1]; j++)
-		{
-			mp[sum[j]]++;
-		}
-		int maxx = 0;
-		for (auto [x, y] : mp)
-		{
-			maxx = max(maxx, y);
-		}
-		ans += maxx;
-	}
+    for (int i = 0; i + 1 < zero.size(); i++)
+    {
+        map<i64, int> mp;
+        for (int j = zero[i]; j < zero[i + 1]; j++)
+        {
+            mp[sum[j]]++;
+        }
+        int maxx = 0;
+        for (auto [x, y] : mp)
+        {
+            maxx = max(maxx, y);
+        }
+        ans += maxx;
+    }
 
-	cout << ans << '\n';
+    cout << ans << '\n';
 }
 
 int main()

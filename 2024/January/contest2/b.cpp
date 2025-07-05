@@ -36,7 +36,7 @@ int main()
         else
             cout << "Jiang\n";
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

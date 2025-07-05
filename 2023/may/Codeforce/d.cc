@@ -8,7 +8,7 @@ bool check(int a, int b)
     {
         return true;
     }
-    
+
     if (a / 3 * 2 < b)
     {
         return false;
@@ -17,7 +17,7 @@ bool check(int a, int b)
     {
         return false;
     }
-    
+
     if (a / 3 == b)
     {
         return true;
@@ -33,7 +33,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -52,8 +52,7 @@ int main()
             }
             continue;
         }
-        
-        
+
         if (check(a, b))
             cout << "YES\n";
         else

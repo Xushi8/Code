@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -51,6 +50,4 @@ void solve()
             swap(r1, r2);
         }
     }
-
-    
 }

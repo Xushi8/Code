@@ -38,8 +38,8 @@ void solve()
         cin >> (s[i] + 1);
     }
 
-    int dx[] = { -1,-1,-1,0,1,1,1,0 };
-    int dy[] = { -1,0,1,1,1,0,-1,-1 };
+    int dx[] = {-1, -1, -1, 0, 1, 1, 1, 0};
+    int dy[] = {-1, 0, 1, 1, 1, 0, -1, -1};
     int ans = 0;
     for (int i = 1; i <= n - 1; i++)
     {
@@ -64,7 +64,6 @@ void solve()
                     {
                         if (s[i + a][j + b] == '*')
                         {
-                            
                             for (int k = 0; k < 8; k++)
                             {
                                 int tx = i + a + dx[k];
@@ -81,7 +80,7 @@ void solve()
                         }
                     }
                 }
-                
+
                 if (flag)
                 {
                     ans++;
@@ -99,14 +98,13 @@ void solve()
         cout << "YES\n";
     else
         cout << "NO\n";
-
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

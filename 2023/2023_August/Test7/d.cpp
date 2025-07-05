@@ -66,14 +66,13 @@ void unite(int x, int y)
             rk[x]++;
         }
     }
-
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, tt;
     cin >> n >> tt;
     init(n * 3);
@@ -82,35 +81,37 @@ int main()
     {
         int op, x, y;
         cin >> op >> x >> y;
-        x--; y--;
+        x--;
+        y--;
         if (x >= n || y >= n)
         {
             ans++;
             continue;
         }
-        
+
         if (op == 1)
         {
-            if (same(x, y + n) || same(x + n, y + 2 * n) || same(x + 2 * n, y) ||
-                same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x))
+            if (same(x, y + n) || same(x + n, y + 2 * n) || same(x + 2 * n, y) || same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x))
             {
                 ans++;
                 continue;
             }
 
-            unite(x, y); unite(x + n, y + n); unite(x + 2 * n, y + 2 * n);
+            unite(x, y);
+            unite(x + n, y + n);
+            unite(x + 2 * n, y + 2 * n);
         }
         else
         {
-            if (same(x, y) || same(x + n, y + n) || same(x + 2 * n, y + 2 * n) ||
-                same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x) ||
-                x == y)
+            if (same(x, y) || same(x + n, y + n) || same(x + 2 * n, y + 2 * n) || same(y, x + n) || same(y + n, x + 2 * n) || same(y + 2 * n, x) || x == y)
             {
                 ans++;
                 continue;
             }
 
-            unite(x, y + n); unite(x + n, y + 2 * n); unite(x + 2 * n, y);
+            unite(x, y + n);
+            unite(x + n, y + 2 * n);
+            unite(x + 2 * n, y);
         }
     }
 

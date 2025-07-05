@@ -30,49 +30,49 @@ bool flag;
 
 int dfs(int u, vector<vector<int>> const& G)
 {
-	if (cnt[u] != 0)
-		return cnt[u];
-	for (int v : G[u])
-	{
-		dfs(v, G);
-		cnt[u] += cnt[v];
-	}
-	if (cnt[u] == 0)
-	{
-		flag = 0;
-	}
-	return cnt[u];
+    if (cnt[u] != 0)
+        return cnt[u];
+    for (int v : G[u])
+    {
+        dfs(v, G);
+        cnt[u] += cnt[v];
+    }
+    if (cnt[u] == 0)
+    {
+        flag = 0;
+    }
+    return cnt[u];
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	vector<vector<int>> G(n);
-	for (int i = 0; i < m; i++)
-	{
-		int u, v;
-		cin >> u >> v;
-		u--;
-		v--;
-		G[u].emplace_back(v);
-	}
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> G(n);
+    for (int i = 0; i < m; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        u--;
+        v--;
+        G[u].emplace_back(v);
+    }
 
-	int be, ed;
-	cin >> be >> ed;
-	be--;
-	ed--;
-	cnt[ed] = 1;
-	flag = 1;
-	dfs(be, G);
+    int be, ed;
+    cin >> be >> ed;
+    be--;
+    ed--;
+    cnt[ed] = 1;
+    flag = 1;
+    dfs(be, G);
 
-	cout << cnt[be] << ' ' << (flag ? "Yes" : "No") << '\n';
+    cout << cnt[be] << ' ' << (flag ? "Yes" : "No") << '\n';
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

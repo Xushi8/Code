@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 
 const int SIZE = 10000;
 int ar[SIZE];
@@ -16,7 +15,6 @@ int main()
     ofs << endl;
     ofs.close();
 
-    
     system("pause");
     return 0;
 }

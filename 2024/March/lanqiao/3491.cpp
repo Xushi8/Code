@@ -27,39 +27,41 @@ constexpr int N = 100000000;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int ans = 0;
-	for (int i = 1; i <= N; i++)
-	{
-		stack<int> stk;
-		int j = i;
-		while (j)
-		{
-			stk.emplace(j % 10);
-			j /= 10;
-		}
-		if (stk.size() % 2 == 0)
-		{
-			int cnt = stk.size() / 2;
-            int a = 0, b = 0;
-			while (cnt--)
-			{
-				a += stk.top(); stk.pop();
-			}
-			while (!stk.empty())
-			{
-				b += stk.top(); stk.pop();
-			}
-			if (a == b)
-				ans++;
+    int ans = 0;
+    for (int i = 1; i <= N; i++)
+    {
+        stack<int> stk;
+        int j = i;
+        while (j)
+        {
+            stk.emplace(j % 10);
+            j /= 10;
         }
-	}
-	cout << ans << endl;
+        if (stk.size() % 2 == 0)
+        {
+            int cnt = stk.size() / 2;
+            int a = 0, b = 0;
+            while (cnt--)
+            {
+                a += stk.top();
+                stk.pop();
+            }
+            while (!stk.empty())
+            {
+                b += stk.top();
+                stk.pop();
+            }
+            if (a == b)
+                ans++;
+        }
+    }
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -152,8 +152,6 @@
 // //     return 0;
 // // }
 
-
-
 // // 2023/07/24 19:23:09
 // #include <iostream>
 // #include <algorithm>
@@ -317,8 +315,6 @@
 //     return 0;
 // }
 
-
-
 // 2023/07/24 20:05:30
 #include <iostream>
 #include <algorithm>
@@ -444,10 +440,10 @@ int main()
                 }
                 else
                 {
-                    pow_num += stk.top(); stk.pop();
+                    pow_num += stk.top();
+                    stk.pop();
                     used.pop_back();
                 }
-
 
                 if (stk.empty())
                 {

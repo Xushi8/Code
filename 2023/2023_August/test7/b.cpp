@@ -74,7 +74,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, tt;
     cin >> n >> tt;
     init(n);
@@ -82,7 +82,8 @@ int main()
     {
         int op, a, b;
         cin >> op >> a >> b;
-        a--; b--;
+        a--;
+        b--;
         if (op == 1)
         {
             unite(a, b);

@@ -28,7 +28,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     double sum = 0.0;
     for (int i = 1; i <= 100000000; i++)
     {

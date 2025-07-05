@@ -21,8 +21,8 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-int tx[] = { -1,-2,-2,-1,1,2,2,1 };
-int ty[] = { -2,-1,1,2,2,1,-1,-2 };
+int tx[] = {-1, -2, -2, -1, 1, 2, 2, 1};
+int ty[] = {-2, -1, 1, 2, 2, 1, -1, -2};
 
 int endx, endy, cx, cy;
 bool check(pii p)
@@ -54,7 +54,10 @@ int main()
     cin.tie(0);
 
     cin >> endx >> endy >> cx >> cy;
-    endx++; endy++; cx++; cy++;
+    endx++;
+    endy++;
+    cx++;
+    cy++;
     dp[2][1] = 1;
     dp[1][2] = 1;
     for (int i = 1; i <= endx; i++)

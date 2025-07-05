@@ -26,9 +26,9 @@ constexpr int INF = 0x3f3f3f3f;
 char s[N][N][N];
 int dis[N][N][N];
 
-int dx[] = { 0, 1, 0, -1, 0, 0 };
-int dy[] = { 1, 0, -1, 0, 0, 0 };
-int dz[] = { 0, 0, 0, 0, 1, -1 };
+int dx[] = {0, 1, 0, -1, 0, 0};
+int dy[] = {1, 0, -1, 0, 0, 0};
+int dz[] = {0, 0, 0, 0, 1, -1};
 
 void solve(int n, int m, int h)
 {
@@ -44,7 +44,7 @@ void solve(int n, int m, int h)
             {
                 if (s[k][i][j] == 'S')
                 {
-                    que.push({ k, i, j });
+                    que.push({k, i, j});
                     dis[k][i][j] = 0;
                 }
                 else if (s[k][i][j] == 'E')
@@ -57,7 +57,8 @@ void solve(int n, int m, int h)
 
     while (!que.empty())
     {
-        auto [z, x, y] = que.front(); que.pop();
+        auto [z, x, y] = que.front();
+        que.pop();
         for (int i = 0; i < 4; i++)
         {
             int tx = x + dx[i];
@@ -65,7 +66,7 @@ void solve(int n, int m, int h)
             if (0 <= tx && tx < n && 0 <= ty && ty < m && s[z][tx][ty] != '#' && dis[z][tx][ty] > dis[z][x][y])
             {
                 dis[z][tx][ty] = dis[z][x][y] + 1;
-                que.push({ z, tx, ty });
+                que.push({z, tx, ty});
             }
         }
 
@@ -77,7 +78,7 @@ void solve(int n, int m, int h)
                 if (0 <= tz && tz < h && s[tz][x][y] == '-' && dis[tz][x][y] > dis[z][x][y])
                 {
                     dis[tz][x][y] = dis[z][x][y] + 1;
-                    que.push({ tz, x, y });
+                    que.push({tz, x, y});
                 }
             }
         }
@@ -90,13 +91,12 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m, h;
     while (cin >> n >> m >> h && (n || m || h))
     {
         solve(n, m, h);
     }
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

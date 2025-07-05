@@ -55,7 +55,7 @@ ll query(int l, int r, int nl, int nr, int p)
         b[p * 2 + 1] += b[p];
         b[p] = 0;
     }
-    
+
     ll sum = 0;
     if (l <= mid)
         sum += query(l, r, nl, mid, p * 2);
@@ -74,7 +74,7 @@ void add(int l, int r, int nl, int nr, int add_val, int p)
     }
 
     int mid = nl + (nr - nl) / 2;
-    
+
     if (b[p] != 0)
     {
         d[p * 2] += (mid - nl + 1) * b[p];
@@ -83,7 +83,7 @@ void add(int l, int r, int nl, int nr, int add_val, int p)
         b[p * 2 + 1] += b[p];
         b[p] = 0;
     }
-    
+
     if (l <= mid)
         add(l, r, nl, mid, add_val, p * 2);
     if (mid + 1 <= r)
@@ -96,7 +96,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; i++)

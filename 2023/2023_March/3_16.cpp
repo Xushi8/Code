@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -40,9 +38,7 @@ int main()
     //     }
     // }
 
-
     uint64_t a = 100618342136696320;
-
 
     cout << flush;
     system("pause");

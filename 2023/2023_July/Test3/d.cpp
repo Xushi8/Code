@@ -61,15 +61,13 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
     {
         solve();
-        
 
-        
         // stack<int> l, r, u, d;
         // pair<size_t, size_t> cnt[4]; // 右， 下， 左， 上
         // for (int i = 0; i < 4; i++)
@@ -77,7 +75,7 @@ int main()
         //     cnt[i].first = 0;
         //     cnt[i].second = INT32_MAX;
         // }
-        
+
         // size_t n, m;
         // cin >> n >> m;
         // string s;
@@ -87,7 +85,7 @@ int main()
         // for (size_t i = 0; i < s.size(); i++)
         // {
         //     time++;
-            
+
         //     if (s[i] == 'L')
         //     {
         //         if (cnt[0].first != 0)
@@ -218,7 +216,6 @@ int main()
 
         // cout << x << ' ' << y << '\n';
     }
-
 
     cout << endl;
     return 0;

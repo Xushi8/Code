@@ -30,11 +30,11 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cout << "Talk is cheap. Show me the code." << '\n';
+    cout << "Talk is cheap. Show me the code." << '\n';
 
 #ifdef LOCAL
-		cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

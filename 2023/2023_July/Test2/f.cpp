@@ -18,7 +18,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     set<int> s, tmp;
@@ -30,9 +30,8 @@ int main()
         s.emplace(x);
     }
 
-    
     bool flag = 0;
-    
+
     while (1)
     {
         bool update = 0;
@@ -40,8 +39,7 @@ int main()
         {
             for (it2 = it1, it2++; it2 != s.end(); it2++)
             {
-                if (s.count(abs(*it1 - *it2)) == 0 &&
-                    tmp.count(abs(*it1 - *it2)) == 0)
+                if (s.count(abs(*it1 - *it2)) == 0 && tmp.count(abs(*it1 - *it2)) == 0)
                 {
                     tmp.emplace(abs(*it1 - *it2));
                     flag = !flag;
@@ -64,7 +62,6 @@ int main()
             break;
         }
     }
-
 
     if (flag)
         cout << "Alice\n";

@@ -14,33 +14,33 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, m, k;
-	cin >> n >> m >> k;
-	int a, b, c, d;
-	cin >> a >> b >> c >> d;
-	vector<pll> yang;
-	for (int i = 0; i < k; i++)
-	{
-		int x, y;
+    int n, m, k;
+    cin >> n >> m >> k;
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    vector<pll> yang;
+    for (int i = 0; i < k; i++)
+    {
+        int x, y;
         cin >> x >> y;
         yang.emplace_back(x, y);
-	}
-	yang.emplace_back(a, b);
-	yang.emplace_back(c - 1, d - 1);
+    }
+    yang.emplace_back(a, b);
+    yang.emplace_back(c - 1, d - 1);
 
-	constexpr int INF = 2e9;
-	i64 minx = INF, miny = INF, maxx = -INF, maxy = -INF;
+    constexpr int INF = 2e9;
+    i64 minx = INF, miny = INF, maxx = -INF, maxy = -INF;
 
-	for (auto [x, y] : yang)
-	{
-		minx = min(minx, x);
-		maxx = max(maxx, x + 1);
-		miny = min(miny, y);
-		maxy = max(maxy, y + 1);
-	}
+    for (auto [x, y] : yang)
+    {
+        minx = min(minx, x);
+        maxx = max(maxx, x + 1);
+        miny = min(miny, y);
+        maxy = max(maxy, y + 1);
+    }
 
-	i64 ans = ((maxx - minx) + (maxy - miny)) * 2;
-	cout << ans << '\n';
+    i64 ans = ((maxx - minx) + (maxy - miny)) * 2;
+    cout << ans << '\n';
 }
 
 int main()

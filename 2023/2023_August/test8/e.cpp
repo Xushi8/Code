@@ -32,7 +32,7 @@ void insert(int num)
     for (int i = 30; i >= 0; i--)
     {
         int p = (num >> i) & 1;
-        if(trie[root][p] == 0)
+        if (trie[root][p] == 0)
         {
             trie[root][p] = ++cnt;
         }
@@ -78,7 +78,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
@@ -90,7 +90,6 @@ int main()
     }
     dfs(1, 0);
     cout << ans << '\n';
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

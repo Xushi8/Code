@@ -1,9 +1,9 @@
-#include<iostream>
-#include<algorithm>
-#include<cstring>
-#include<vector>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <vector>
 using namespace std;
-int ar[10] = { 1,3,5,32,4,6,2,5,7,3 };
+int ar[10] = {1, 3, 5, 32, 4, 6, 2, 5, 7, 3};
 
 void print_arr(int* arr, int num)
 {
@@ -51,9 +51,12 @@ void shell_sort(int* arr, int* end)
 int search_pivot(int* arr, int left, int right)
 {
     int middle = (right + left) / 2;
-    if (arr[left] > arr[middle]) swap(arr[left], arr[middle]);
-    if (arr[middle] > arr[right]) swap(arr[middle], arr[right]);
-    if (arr[left] > arr[middle]) swap(arr[left], arr[middle]);
+    if (arr[left] > arr[middle])
+        swap(arr[left], arr[middle]);
+    if (arr[middle] > arr[right])
+        swap(arr[middle], arr[right]);
+    if (arr[left] > arr[middle])
+        swap(arr[left], arr[middle]);
 
     swap(arr[middle], arr[right]);
     return arr[right];
@@ -95,7 +98,7 @@ void quick_sort(int* arr, int* end)
 {
     Qsort(arr, 0, (int)(end - arr) - 1);
 }
-#include<fstream>
+#include <fstream>
 void to_file(int* arr, int num)
 {
     ofstream ofs;
@@ -107,7 +110,7 @@ void to_file(int* arr, int num)
     ofs << endl;
     ofs.close();
 }
-#include<ctime>
+#include <ctime>
 const int max_arr = 1000000;
 int test[max_arr];
 void init_arr(int* arr, int num)
@@ -122,8 +125,8 @@ int main()
 {
     srand((unsigned)time(NULL));
     init_arr(test, max_arr);
-    //insert_sort(ar, ar + 10);
-    //shell_sort(ar, ar + 10);
+    // insert_sort(ar, ar + 10);
+    // shell_sort(ar, ar + 10);
     quick_sort(test, test + max_arr);
     to_file(test, max_arr);
 

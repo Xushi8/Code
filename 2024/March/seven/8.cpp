@@ -27,41 +27,41 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, k, s;
-	cin >> n >> k >> s;
-	map<int, vector<int>> mp;
-	for (int i = 0; i < n; i++)
-	{
-		int x, y;
-		cin >> x >> y;
-		mp[x].emplace_back(y);
-	}
+    int n, k, s;
+    cin >> n >> k >> s;
+    map<int, vector<int>> mp;
+    for (int i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        mp[x].emplace_back(y);
+    }
 
-	int ans = 0;
-	for (auto& [x, y] : mp)
-	{
-		if (x < 175)
-			continue;
-		sort(y.begin(), y.end());
+    int ans = 0;
+    for (auto& [x, y] : mp)
+    {
+        if (x < 175)
+            continue;
+        sort(y.begin(), y.end());
 
-		if (y.size() <= k)
-			ans += y.size();
-		else
-		{
-			ans += k;
-			y.erase(y.begin(), y.begin() + k);
-			auto it = lower_bound(y.begin(), y.end(), s);
-			ans += y.end() - it;
-		}
-	}
+        if (y.size() <= k)
+            ans += y.size();
+        else
+        {
+            ans += k;
+            y.erase(y.begin(), y.begin() + k);
+            auto it = lower_bound(y.begin(), y.end(), s);
+            ans += y.end() - it;
+        }
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

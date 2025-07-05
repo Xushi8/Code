@@ -14,7 +14,6 @@ constexpr int N = 1000005;
 
 void solve()
 {
-    
 }
 
 int main()

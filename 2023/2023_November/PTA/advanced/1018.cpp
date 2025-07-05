@@ -98,13 +98,14 @@ int main()
 
     cout << ans_send << ' ';
     cout << ans_path[0];
-    for (int i = 1; i < ans_path.size(); i++) {
+    for (int i = 1; i < ans_path.size(); i++)
+    {
         cout << "->" << ans_path[i];
     }
     cout << ' ' << ans_take_back;
 
 #ifdef LOCAL
-            cerr
+    cerr
         << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     cout << flush;

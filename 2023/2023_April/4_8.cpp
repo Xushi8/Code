@@ -8,7 +8,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     printf("%*d", tmp, n);
@@ -18,16 +18,12 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // 2023:04:08 17:27:46
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
-    
 
     cout << flush;
     system("pause");

@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -48,7 +47,7 @@ int find(int x)
         dep[x] = 0;
         return x;
     }
-    
+
     dep[x] = 1 + dep[par[x]];
     int t = find(par[x]);
     return par[x] = t;

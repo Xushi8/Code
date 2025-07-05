@@ -84,7 +84,7 @@ int main()
     {
         cout << (dis[i] == 0x3f3f3f3f ? INT32_MAX : dis[i]) << ' ';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

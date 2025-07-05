@@ -14,42 +14,42 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<vector<pii>> G(n + 1);
-	for (int i = 0; i < n - 1; i++)
-	{
-		int u, v, w;
-		cin >> u >> v >> w;
-		G[u].emplace_back(v, w);
-		G[v].emplace_back(u, w);
-	}
-	vector<int> siz(n + 1, 1);
-	i64 ans = 0;
+    int n;
+    cin >> n;
+    vector<vector<pii>> G(n + 1);
+    for (int i = 0; i < n - 1; i++)
+    {
+        int u, v, w;
+        cin >> u >> v >> w;
+        G[u].emplace_back(v, w);
+        G[v].emplace_back(u, w);
+    }
+    vector<int> siz(n + 1, 1);
+    i64 ans = 0;
 
-	auto dfs = [&](auto&& self, int u, int par) -> void
-	{
-		for (auto [v, w] : G[u])
-		{
-			if (v == par)
-				continue;
-			self(self, v, u);
-			siz[u] += siz[v];
-			if (siz[v] % 2 == 1)
-			{
-				ans += w;
+    auto dfs = [&](auto&& self, int u, int par) -> void
+    {
+        for (auto [v, w] : G[u])
+        {
+            if (v == par)
+                continue;
+            self(self, v, u);
+            siz[u] += siz[v];
+            if (siz[v] % 2 == 1)
+            {
+                ans += w;
             }
         }
-	};
+    };
 
-	dfs(dfs, 1, 0);
-	cout << ans << '\n';
+    dfs(dfs, 1, 0);
+    cout << ans << '\n';
 
-	// for (auto x : siz)
-	// {
-	// 	cout << x << ' ';
-	// }
-	// cout << '\n';
+    // for (auto x : siz)
+    // {
+    // 	cout << x << ' ';
+    // }
+    // cout << '\n';
 }
 
 int main()

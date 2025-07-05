@@ -30,18 +30,18 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	string s;
-	cin >> s;
-	array<int, 26> last;
-	last.fill(-1);
-	ll ans = 0;
-	for (size_t i = 0; i < s.size(); i++)
-	{
-		ans += (i - last[s[i] - 'a']) * (s.size() - i);
-		last[s[i] - 'a'] = i;
-	}
-	cout << ans << endl;
-    
+    string s;
+    cin >> s;
+    array<int, 26> last;
+    last.fill(-1);
+    ll ans = 0;
+    for (size_t i = 0; i < s.size(); i++)
+    {
+        ans += (i - last[s[i] - 'a']) * (s.size() - i);
+        last[s[i] - 'a'] = i;
+    }
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

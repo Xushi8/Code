@@ -23,7 +23,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 100005;
 
-
 int deep[N], top[N], siz[N], son[N], par[N], dfn[N], rev[N];
 int tmp[N];
 int tim;
@@ -106,7 +105,6 @@ void mul_num(int l, int r, int nl, int nr, ll mul_val, int p)
     d[p] = d[p * 2] + d[p * 2 + 1];
     d[p] %= mod;
 }
-
 
 void add_num(int l, int r, int nl, int nr, ll add_val, int p)
 {
@@ -206,7 +204,6 @@ ll query(int l, int r, int nl, int nr, int p)
         b[p] = 0;
     }
 
-
     ll sum = 0;
     if (l <= mid)
     {
@@ -221,7 +218,6 @@ ll query(int l, int r, int nl, int nr, int p)
 
     return sum;
 }
-
 
 void dfs1(int u, int from)
 {

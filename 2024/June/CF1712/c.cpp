@@ -14,48 +14,48 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
+    int n;
+    cin >> n;
     vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
-	int ans = 0;
-	set<int> erased;
-	while (!is_sorted(a.begin(), a.end()))
-	{
-		int minn = a.back();
-		for (int i = n - 2; i >= 0; i--)
-		{
-			if (erased.count(a[i]))
-			{
-				a[i] = 0;
-				minn = 0;
-				continue;
+    int ans = 0;
+    set<int> erased;
+    while (!is_sorted(a.begin(), a.end()))
+    {
+        int minn = a.back();
+        for (int i = n - 2; i >= 0; i--)
+        {
+            if (erased.count(a[i]))
+            {
+                a[i] = 0;
+                minn = 0;
+                continue;
             }
-			
-			if (a[i] > minn)
-			{
-				ans++;
-				erased.emplace(a[i]);
-			}
-			else
-			{
-				minn = min(minn, a[i]);
-            }
-        }   
 
-		for (auto& x : a)
-		{
-			if (erased.count(x))
-				x = 0;
+            if (a[i] > minn)
+            {
+                ans++;
+                erased.emplace(a[i]);
+            }
+            else
+            {
+                minn = min(minn, a[i]);
+            }
         }
-	}
 
-	cout << ans << '\n';
-	cout << flush;
+        for (auto& x : a)
+        {
+            if (erased.count(x))
+                x = 0;
+        }
+    }
+
+    cout << ans << '\n';
+    cout << flush;
 }
 
 int main()

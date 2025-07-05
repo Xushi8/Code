@@ -30,7 +30,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cin >> a >> b;
     int lena = (int)strlen(a);
     int lenb = (int)strlen(b);
@@ -72,14 +72,13 @@ int main()
             c[i + 1] += c[i] / 10;
             c[i] %= 10;
         }
-        
+
         int lenc;
         for (int i = 0; i < N; i++)
         {
             if (c[i] != 0)
                 lenc = i;
         }
-
 
         for (int i = lenc; i >= 0; i--)
         {

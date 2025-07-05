@@ -7,12 +7,12 @@ using ll = long long;
 ll ans;
 
 void func(const vector<ll>& a, const vector<ll>& b, const vector<ll>& c)
-{            
+{
     for (size_t i = 0; i < b.size(); i++)
     {
         ll target = b[i];
         auto it1 = upper_bound(a.begin(), a.end(), target);
-        if(it1 != a.begin())
+        if (it1 != a.begin())
             it1--;
         auto it2 = lower_bound(c.begin(), c.end(), target);
         if (it2 == c.end())

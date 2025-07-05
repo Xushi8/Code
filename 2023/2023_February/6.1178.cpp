@@ -1,12 +1,11 @@
-#include<iostream>
-#include<algorithm>
-#include<cstring>
-#include<vector>
-#include<cstdlib>
-#include<cmath>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <vector>
+#include <cstdlib>
+#include <cmath>
 using namespace std;
 int n, m;
-
 
 int main()
 {
@@ -20,7 +19,7 @@ int main()
         cin >> mon[i] >> sec[i];
     }
     int max_ = -1;
-    int arr[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
+    int arr[13] = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     for (int i = 0; i < tt - 1; i++)
     {
         int tmp = 0;
@@ -50,13 +49,12 @@ int main()
             }
         }
 
-        if (tmp > max_) max_ = tmp;
-        
+        if (tmp > max_)
+            max_ = tmp;
     }
     max_--;
     double tmp = (((double)max_ / 366.0) * 3600 * 24);
 
-    
     printf("%.0lf", tmp + 0.5);
 
     system("pause");

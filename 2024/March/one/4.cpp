@@ -27,15 +27,15 @@ constexpr int N = 1000005;
 
 bool is_prime(ll x)
 {
-	if (x == 1)
-		return false;
+    if (x == 1)
+        return false;
 
-	for (ll i = 2; i * i <= x; i++)
-	{
-		if (x % i == 0)
-			return false;
-	}
-	return true;
+    for (ll i = 2; i * i <= x; i++)
+    {
+        if (x % i == 0)
+            return false;
+    }
+    return true;
 }
 
 int main()
@@ -43,15 +43,15 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	while (n--)
-	{
-		ll x;
-		cin >> x;
-		cout << (is_prime(x) ? "Yes" : "No") << '\n';
+    int n;
+    cin >> n;
+    while (n--)
+    {
+        ll x;
+        cin >> x;
+        cout << (is_prime(x) ? "Yes" : "No") << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

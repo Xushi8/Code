@@ -76,10 +76,12 @@ int main()
     }
 
     sort(all.begin(), all.end(), cmp);
-    for (size_t j = 0; j < all.size(); j++) {
+    for (size_t j = 0; j < all.size(); j++)
+    {
         all[j].final_rank = j + 1;
         size_t k = j + 1;
-        while(k < all.size() && all[k].score == all[j].score) {
+        while (k < all.size() && all[k].score == all[j].score)
+        {
             all[k].final_rank = j + 1;
             k++;
         }
@@ -87,7 +89,8 @@ int main()
     }
 
     cout << all.size() << '\n';
-    for(auto& x : all) {
+    for (auto& x : all)
+    {
         cout << x.name << ' ' << x.final_rank << ' ' << x.location_number << ' ' << x.local_rank << '\n';
     }
 

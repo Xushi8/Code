@@ -22,45 +22,45 @@ typedef pair<ll, ll> pll;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<vector<int> > a(n, vector<int>(n));
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			cin >> a[i][j];
-		}
-	}
+    int n;
+    cin >> n;
+    vector<vector<int>> a(n, vector<int>(n));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
 
-	int ans = -1e9;
-	for (int i = 0; i < n; i++)
-	{
-		vector<int> tmp(n, 0);
-		for (int j = i; j < n; j++)
-		{
-			for (int k = 0; k < n; k++)
-			{
-				tmp[k] += a[j][k];
-			}
-			int now = 0;
-			for (int k = 0; k < n; k++)
-			{
-				if (now >= 0)
-					now += tmp[k];
-				else
-					now = tmp[k];
-				ans = max(ans, now);
-			}
-		}
-	}
+    int ans = -1e9;
+    for (int i = 0; i < n; i++)
+    {
+        vector<int> tmp(n, 0);
+        for (int j = i; j < n; j++)
+        {
+            for (int k = 0; k < n; k++)
+            {
+                tmp[k] += a[j][k];
+            }
+            int now = 0;
+            for (int k = 0; k < n; k++)
+            {
+                if (now >= 0)
+                    now += tmp[k];
+                else
+                    now = tmp[k];
+                ans = max(ans, now);
+            }
+        }
+    }
 
-	cout << ans << endl;
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
 }

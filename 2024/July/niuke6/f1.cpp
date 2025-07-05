@@ -52,7 +52,8 @@ inline void solve()
             return;
         }
         for (int y : to[cx])
-            if (!uz[y]) vs[y] = 0;
+            if (!uz[y])
+                vs[y] = 0;
     }
     for (int i = 1; i <= n; ++i)
         printf("%d ", tk[i]);

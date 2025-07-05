@@ -22,7 +22,6 @@ void solve()
     }
     sort(a.begin(), a.end());
 
-
     int ans = 0;
     array<int, 300> cnt{};
     for (auto [x, y] : a)

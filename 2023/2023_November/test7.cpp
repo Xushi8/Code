@@ -100,5 +100,4 @@ bool func_7_23(vector<vector<edge>> const& G, size_t u, size_t v)
     return bfs(G, u, v, vis);
 }
 
-
 // 7.24

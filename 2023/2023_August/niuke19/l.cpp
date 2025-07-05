@@ -29,12 +29,12 @@ public:
     int a, b, c;
 };
 
-bool operator == (const A& a, const A& b)
+bool operator==(const A& a, const A& b)
 {
     return a.a == b.a && a.b == b.b && a.c == b.c;
 }
 
-bool operator < (const A& a, const A& b)
+bool operator<(const A& a, const A& b)
 {
     return a.a < b.a && a.b < b.b && a.c < b.c;
 }
@@ -85,7 +85,8 @@ int main()
 
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         for (int v : G[u])
         {
             in[v]--;
@@ -127,7 +128,8 @@ int main()
     int maxn = 0;
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         maxn = max(maxn, ans[u]);
         for (int v : G[u])
         {

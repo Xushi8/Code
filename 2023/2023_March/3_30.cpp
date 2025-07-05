@@ -1,13 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 // typedef struct tree
 // {
 //     int element;
 //     tree* left;
 //     tree* right;
 // }tree;
-
 
 // tree* insert(int n, tree* p)
 // {
@@ -144,7 +143,7 @@
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     cin >> sum[0];
@@ -219,15 +218,11 @@
 //     return 0;
 // }
 
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
     cout << flush;
     system("pause");
     return 0;

@@ -76,6 +76,6 @@ void solve()
         ans++;
         it++;
     }
-    
+
     cout << ans << '\n';
 }

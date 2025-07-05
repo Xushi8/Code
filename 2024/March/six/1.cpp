@@ -30,11 +30,11 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cout << "To iterate is human, to recurse divine." << endl;
+    cout << "To iterate is human, to recurse divine." << endl;
 
 #ifdef LOCAL
-		cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

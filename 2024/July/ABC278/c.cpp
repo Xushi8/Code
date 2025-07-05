@@ -14,29 +14,30 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, q;
-	cin >> n >> q;
-	// vector<set<int>> G(n);
-	map<int, set<int>> G;
-	while (q--)
-	{
-		int t, a, b;
-		cin >> t >> a >> b;
-        a--; b--;
-		if (t == 1)
-		{
-			G[a].emplace(b);
-		}
-		else if (t == 2)
-		{
-			G[a].erase(b);
-		}
-		else
-		{
-			if (G[a].count(b) && G[b].count(a))
-				cout << "Yes\n";
-			else
-				cout << "No\n";
+    int n, q;
+    cin >> n >> q;
+    // vector<set<int>> G(n);
+    map<int, set<int>> G;
+    while (q--)
+    {
+        int t, a, b;
+        cin >> t >> a >> b;
+        a--;
+        b--;
+        if (t == 1)
+        {
+            G[a].emplace(b);
+        }
+        else if (t == 2)
+        {
+            G[a].erase(b);
+        }
+        else
+        {
+            if (G[a].count(b) && G[b].count(a))
+                cout << "Yes\n";
+            else
+                cout << "No\n";
         }
     }
 }

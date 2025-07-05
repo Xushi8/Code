@@ -7,7 +7,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, tt;
 //     cin >> n >> tt;
 //     init_unite_search(n);
@@ -69,7 +69,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     memset(cost, 0x3f, sizeof(cost));
 //     int E;
 //     cin >> V >> E;
@@ -100,15 +100,18 @@ void init_unite_search(int n)
 
 int find(int x)
 {
-    if (par[x] == x) return x;
-    else return par[x] = find(par[x]);
+    if (par[x] == x)
+        return x;
+    else
+        return par[x] = find(par[x]);
 }
 
 void unite(int x, int y)
 {
     x = find(x);
     y = find(y);
-    if (x == y) return;
+    if (x == y)
+        return;
 
     if (::rank[x] < ::rank[y])
     {
@@ -128,7 +131,6 @@ bool same(int x, int y)
 {
     return find(x) == find(y);
 }
-
 
 // class edge
 // {
@@ -173,7 +175,6 @@ bool same(int x, int y)
 //     return res;
 // }
 
-
 class edge
 {
 public:
@@ -214,13 +215,14 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cin >> V >> E;
     for (int i = 0; i < E; i++)
     {
         int a, b, c;
         cin >> a >> b >> c;
-        a--; b--;
+        a--;
+        b--;
         es.emplace_back(a, b, c);
     }
     int ans = kruskal();
@@ -234,8 +236,10 @@ int main()
             break;
         }
     }
-    if (flag) cout << "orz";
-    else cout << ans;
+    if (flag)
+        cout << "orz";
+    else
+        cout << ans;
 
     cout << flush;
     system("pause");

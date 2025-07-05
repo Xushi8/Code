@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 #include <time.h>
 
 // int main()
@@ -60,7 +60,7 @@
 char* my_strcpy(char* dest, const char* str)
 {
     char* ret = dest;
-    
+
     while (*dest++ = *str++)
     {
         continue;
@@ -125,12 +125,11 @@ char* my_strcpy(char* dest, const char* str)
 //     return 0;
 // }
 
-
 // void* my_memmove(void* dst, const void* str, int count)
 // {
 //     char* s1 = (char*)dst;
 //     const char* s2 = (char*)str;
-    
+
 //     if (s1 < s2)
 //     {
 //         while (count--)

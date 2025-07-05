@@ -27,14 +27,14 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
     {
         int n, tar;
         cin >> n >> tar;
-        int cnt[32] = { 0 };
+        int cnt[32] = {0};
         for (int i = 0, x; i < n; i++)
         {
             cin >> x;

@@ -51,7 +51,8 @@ pair<vector<u64>, vector<u64>> get_hash(string_view s)
 // [l, r]
 u64 hash_val(vector<u64> const& hash, vector<u64> const& p, size_t l, size_t r)
 {
-    l++; r++;
+    l++;
+    r++;
     return hash[r] - hash[l - 1] * p[r - l + 1];
 }
 

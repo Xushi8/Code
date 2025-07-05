@@ -115,111 +115,107 @@ int par[N];
 
 int find(int x)
 {
-	if (x == par[x])
-		return x;
-	else
-		return par[x] = find(par[x]);
+    if (x == par[x])
+        return x;
+    else
+        return par[x] = find(par[x]);
 }
 
 void unite(int x, int y)
 {
-	x = find(x);
-	y = find(y);
-	if (x != y)
-		par[x] = y;
+    x = find(x);
+    y = find(y);
+    if (x != y)
+        par[x] = y;
 }
 
 bool same(int x, int y)
 {
-	return find(x) == find(y);
+    return find(x) == find(y);
 }
 
 struct edge
 {
-	int u, v, w;
+    int u, v, w;
 };
 
 void solve()
 {
-	int V, E, q;
-	cin >> V >> E >> q;
-	vector<edge> all_edge(E);
-	vector<map<int, int>> mp(V);
-	for (int i = 0; i < E; i++)
-	{
-		int u, v, w;
-		cin >> u >> v >> w;
-		u--;
-		v--;
-		if (u > v)
-			swap(u, v);
-		all_edge[i] = {u, v, w};
-		mp[u].emplace(v, w);
-	}
+    int V, E, q;
+    cin >> V >> E >> q;
+    vector<edge> all_edge(E);
+    vector<map<int, int>> mp(V);
+    for (int i = 0; i < E; i++)
+    {
+        int u, v, w;
+        cin >> u >> v >> w;
+        u--;
+        v--;
+        if (u > v)
+            swap(u, v);
+        all_edge[i] = {u, v, w};
+        mp[u].emplace(v, w);
+    }
 
-	while (q--)
-	{
-		int n;
-		cin >> n;
-		set<int> ver;
-		vector<edge> edges;
-		edges.reserve(E);
-		for (int i = 0; i < n; i++)
-		{
-			int x;
-			cin >> x;
-			x--;
-			par[x] = x;
-			ver.emplace(x);
-		}
+    while (q--)
+    {
+        int n;
+        cin >> n;
+        set<int> ver;
+        vector<edge> edges;
+        edges.reserve(E);
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            x--;
+            par[x] = x;
+            ver.emplace(x);
+        }
 
-
-		if (n < 1000)
-		{
-			for (auto u : ver)
-			{
-				for (auto v : ver)
-				{
-					if (mp[u].count(v))
-					{
-						edges.push_back({u, v, mp[u][v]});
+        if (n < 1000)
+        {
+            for (auto u : ver)
+            {
+                for (auto v : ver)
+                {
+                    if (mp[u].count(v))
+                    {
+                        edges.push_back({u, v, mp[u][v]});
                     }
-                }
-			}
-		}
-		else
-		{
-			for (auto [u, v, w] : all_edge)
-			{
-				if (ver.count(u) && ver.count(v))
-				{
-					edges.push_back({u, v, w});
                 }
             }
         }
-		
-
-		// kruskal
-		sort(edges.begin(), edges.end(), [](edge const& l, edge const& r)
-			{
-				return l.w < r.w;
-			});
-
-		i64 val = 0, cnt = 0;
-		for (auto [u, v, w] : edges)
-		{
-			if (!same(u, v))
-			{
-				unite(u, v);
-				cnt++;
-				val += w;
+        else
+        {
+            for (auto [u, v, w] : all_edge)
+            {
+                if (ver.count(u) && ver.count(v))
+                {
+                    edges.push_back({u, v, w});
+                }
             }
-		}
-		if (cnt + 1 < i64(ver.size()))
-			cout << "-1\n";
-		else
-			cout << val << '\n';
-	}
+        }
+
+        // kruskal
+        sort(edges.begin(), edges.end(), [](edge const& l, edge const& r)
+            { return l.w < r.w; });
+
+        i64 val = 0, cnt = 0;
+        for (auto [u, v, w] : edges)
+        {
+            if (!same(u, v))
+            {
+                unite(u, v);
+                cnt++;
+                val += w;
+            }
+        }
+        if (cnt + 1 < i64(ver.size()))
+            cout << "-1\n";
+        else
+            cout << val << '\n';
+    }
 }
 
 // void solve()
@@ -284,18 +280,18 @@ void solve()
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

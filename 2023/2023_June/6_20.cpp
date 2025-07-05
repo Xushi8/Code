@@ -11,7 +11,7 @@ long long fib(size_t num)
     else if (dp[num] != 0)
         return dp[num];
     else
-        return dp[num] =  fib(num - 1) + fib(num - 2);
+        return dp[num] = fib(num - 1) + fib(num - 2);
 }
 
 int main()
@@ -20,7 +20,7 @@ int main()
     cin.tie(0);
 
     char32_t i = 4147483648;
-    
+
     const char str[] = "你好";
     cout << i << '\n';
     cout << str << '\n';

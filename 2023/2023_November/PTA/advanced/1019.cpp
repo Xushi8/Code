@@ -50,7 +50,8 @@ int main()
 
     for (size_t i = 0; i < rev.size(); i++)
     {
-        if (i != 0) cout << ' ';
+        if (i != 0)
+            cout << ' ';
         cout << rev[i];
     }
 

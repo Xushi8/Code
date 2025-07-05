@@ -1,7 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 // int main()
 // {
@@ -24,7 +22,6 @@ using namespace std;
 //         }
 //         cout << endl;
 //     }
-
 
 //     if(next_permutation(arr.begin(), arr.begin() + n))
 //     {
@@ -96,7 +93,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -129,7 +125,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -212,11 +207,9 @@ using namespace std;
 //         cout << 1 << endl;
 //     }
 
-
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -240,18 +233,15 @@ using namespace std;
 //     }
 //     cout << flush;
 
-
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> arr(n);
@@ -272,12 +262,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int tt;
 //     cin >> tt;
 //     set<int> s;
@@ -300,7 +289,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -343,9 +331,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
@@ -387,12 +372,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     map<string, int> m;
 //     int n;
 //     cin >> n;
@@ -409,7 +393,7 @@ using namespace std;
 //             {
 //                 m.erase(m.find(b));
 //             }
-            
+
 //             m.emplace(pair<string, int>(b, c));
 //         }
 //         else if(a == 1)
@@ -430,8 +414,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
 
 // int main()
 // {
@@ -484,9 +466,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
-
 
 // int main()
 // {
@@ -539,12 +518,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n;
 //     vector<int> a1(n);
@@ -583,7 +561,7 @@ using namespace std;
 //             }
 //         }
 //     }
-    
+
 //     if (i == n)
 //     {
 //         for (int tmp = j; tmp < m; tmp++)
@@ -608,12 +586,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n;
 //     vector<int> a1(n);
@@ -633,9 +610,6 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
-
 
 // int main()
 // {
@@ -699,7 +673,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     unsigned int n;
 //     cin >> n;
 //     char data[32] = { 0 };
@@ -712,13 +686,13 @@ using namespace std;
 //     }
 //     reverse(data, data + 32);
 //     cout << data << '\n';
-    
+
 //     for (int i = 0; i < 32; i++)
 //     {
 //         tmp[i] = !data[i];
 //     }
 //     cout << tmp << '\n';
-    
+
 //     for (int i = 0; i < 31; i++)
 //     {
 //         tmp[i] = data[i + 1];
@@ -747,12 +721,11 @@ using namespace std;
 //     return out;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     uint32_t a, b;
 //     cin >> a >> b;
 //     uint32_t data[32] = {0};
@@ -794,29 +767,26 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cout << "35的8进制:" << std::oct << 35 << endl;
 //     cout << "35的10进制" << std::dec << 35 << endl;
 //     cout << "35的16进制:" << std::hex << 35 << endl;
 //     cout << "35的2进制: " << bitset<32>(35) << endl;      //<8>：表示保留8位输出
-    
 
 //     cout << flush;
 //     system("pause");
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     // unsigned int a, b;
 //     // cin >> a >> b;
 //     // cout << bitset<32>(a & b) << '\n';
@@ -831,7 +801,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // 素数筛
 const int SIZE = 10000000;
 bool arr[SIZE];
@@ -840,7 +809,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     for (int i = 2; i <= SIZE - 1; i++)
     {
         if (!arr[i])
@@ -851,9 +820,9 @@ int main()
             {
                 break;
             }
-            
+
             arr[p * i] = 1;
-            
+
             if (i % p == 0)
             {
                 break;

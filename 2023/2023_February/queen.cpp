@@ -1,22 +1,22 @@
-#include<iostream>
-#include<ctime>
-#include<fstream>
+#include <iostream>
+#include <ctime>
+#include <fstream>
 using namespace std;
 
 int arr[20], n, cnt;
 ofstream ofs;
 
-
-
 void to_file(void)
 {
-    //这里画图
+    // 这里画图
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= n; j++)
         {
-            if (arr[i] == j) ofs << '+';
-            else ofs << '-';
+            if (arr[i] == j)
+                ofs << '+';
+            else
+                ofs << '-';
         }
         ofs << '\n';
     }
@@ -26,16 +26,20 @@ void to_file(void)
         ofs << arr[i] << ' ';
     }
 
-    ofs << '\n' << endl;
+    ofs << '\n'
+        << endl;
 }
 
 bool check(int x, int y)
 {
     for (int i = 1; i < x; i++)
     {
-        if (arr[i] == y) return false;
-        if (i + arr[i] == x + y) return false;
-        if (i - arr[i] == x - y) return false;
+        if (arr[i] == y)
+            return false;
+        if (i + arr[i] == x + y)
+            return false;
+        if (i - arr[i] == x - y)
+            return false;
     }
 
     return true;
@@ -120,8 +124,5 @@ int main()
         ofs.close();
     }
 
-    
-
-    
     return 0;
 }

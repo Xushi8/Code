@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -43,12 +42,12 @@ void solve()
     {
         int dec1 = n - (n / 2 + 10);
         int dec2 = 10;
-        if (n > 20 &&  cnt[0] > 0)
+        if (n > 20 && cnt[0] > 0)
         {
             cnt[0]--;
             n -= dec1;
         }
-        else if(cnt[1] > 0)
+        else if (cnt[1] > 0)
         {
             cnt[1]--;
             n -= dec2;

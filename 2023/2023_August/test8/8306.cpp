@@ -38,7 +38,7 @@ void init()
         }
         sum[i] = 0;
     }
-    
+
     cnt = 0;
 }
 

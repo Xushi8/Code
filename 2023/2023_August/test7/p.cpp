@@ -39,7 +39,6 @@ void build(int l, int r, int p)
         return;
     }
 
-
     int mid = l + (r - l) / 2;
     build(l, mid, p * 2);
     build(mid + 1, r, p * 2 + 1);
@@ -205,10 +204,8 @@ int main()
         tmp[dfn[i]] = arr[i];
     }
 
-
-    
     memset(maxn, -0x3f, sizeof(maxn));
-    
+
     build(1, n, 1);
 
     cin >> m;
@@ -235,8 +232,6 @@ int main()
             change(x, val);
         }
     }
-
-
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

@@ -6,7 +6,7 @@ using namespace std;
 // {
 //     if (n == 0 || n == 1)
 //         return false;
-    
+
 //     bool flag = 1;
 //     for (int i = 0; i < 64; i++)
 //     {
@@ -42,8 +42,6 @@ int main()
         ofs << is_power_of_two(i) << '\n';
     }
 
-
-    
     ofs.close();
     ofs.open("is_power_of_two");
     ofs.close();

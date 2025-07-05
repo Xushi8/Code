@@ -99,7 +99,6 @@
 //     return 0;
 // }
 
-
 // 2024/01/18 17:32:53
 #include <iostream>
 #include <algorithm>
@@ -189,7 +188,7 @@ int main()
     {
         cout << x << '\n';
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

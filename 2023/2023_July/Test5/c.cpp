@@ -59,7 +59,6 @@ void get_min()
 
     while (cnt--)
         cout << 9;
-
 }
 
 void get_max()
@@ -82,7 +81,6 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
 
     cin >> m >> s;
     // cout << m << ' ' << s << ' ';

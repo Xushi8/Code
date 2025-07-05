@@ -14,59 +14,59 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<vector<int>> G1(n);
+    int n;
+    cin >> n;
+    vector<vector<int>> G1(n);
     vector<int> deg1(n);
-	for (int i = 0; i < n; i++)
-	{
-		int u, v;
-		cin >> u >> v;
-		u--;
-		v--;
-		G1[u].emplace_back(v);
-		G1[v].emplace_back(u);
-		deg1[u]++;
-		deg1[v]++;
-	}
+    for (int i = 0; i < n; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        u--;
+        v--;
+        G1[u].emplace_back(v);
+        G1[v].emplace_back(u);
+        deg1[u]++;
+        deg1[v]++;
+    }
 
-	int m;
-	cin >> m;
-	vector<vector<int>> G2(m);
-	vector<int> deg2(m);
-	for (int i = 0; i < m; i++)
-	{
-		int u, v;
-		cin >> u >> v;
-        u--; v--;
-		G2[u].emplace_back(v);
-		G2[v].emplace_back(u);
-		deg2[u]++;
-		deg2[v]++;
-	}
+    int m;
+    cin >> m;
+    vector<vector<int>> G2(m);
+    vector<int> deg2(m);
+    for (int i = 0; i < m; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        u--;
+        v--;
+        G2[u].emplace_back(v);
+        G2[v].emplace_back(u);
+        deg2[u]++;
+        deg2[v]++;
+    }
 
-	auto dfs = [&](auto&& self, int u1, int u2, int par1, int par2) -> bool
-	{
-		if (deg1[u1] < deg2[u2])
-			return false;
+    auto dfs = [&](auto&& self, int u1, int u2, int par1, int par2) -> bool
+    {
+        if (deg1[u1] < deg2[u2])
+            return false;
 
-		for (auto v2 : G2[u2])
-		{
-			if (v2 == par2)
-				continue;
-			for (auto v1 : G1[u1])
-			{
-				
+        for (auto v2 : G2[u2])
+        {
+            if (v2 == par2)
+                continue;
+            for (auto v1 : G1[u1])
+            {
             }
-		}
+        }
 
-		return true;
+        return true;
     };
 
-	if (dfs(dfs, 0, 0, -1, -1))
-		cout << "Yes\n";
-	else
-		cout << "No\n";
+    if (dfs(dfs, 0, 0, -1, -1))
+        cout << "Yes\n";
+    else
+        cout << "No\n";
 }
 
 int main()

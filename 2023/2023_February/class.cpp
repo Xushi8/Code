@@ -1,13 +1,9 @@
 #include "class.h"
 using namespace std;
 
-
-
-
 Person::Person()
 {
     this->age = 0;
-    
 }
 
 Person::Person(const Person& p)
@@ -24,7 +20,6 @@ Person::Person(const int& age_, const string& name_)
 
 Person::~Person()
 {
-    
 }
 
 void Person::show_person()
@@ -47,7 +42,7 @@ void test01()
 int main()
 {
     test01();
-    
+
     system("pause");
     return 0;
 }

@@ -27,32 +27,32 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	size_t n;
-	char ch;
-	cin >> n >> ch;
-	cin.ignore(1024, '\n');
+    size_t n;
+    char ch;
+    cin >> n >> ch;
+    cin.ignore(1024, '\n');
 
-	string s;
-	getline(cin, s);
+    string s;
+    getline(cin, s);
 
-	string ans;
+    string ans;
 
-	if (s.size() <= n)
-	{
-		ans.append(n - s.size(), ch);
-		ans += s;
-	}
-	else
-	{
+    if (s.size() <= n)
+    {
+        ans.append(n - s.size(), ch);
+        ans += s;
+    }
+    else
+    {
         ans.append(s.end() - n, s.end());
-	}
-	cout << ans << endl;
+    }
+    cout << ans << endl;
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

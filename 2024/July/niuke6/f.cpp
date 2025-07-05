@@ -89,7 +89,7 @@ void solve()
             break;
         }
     }
-    
+
     if (ans.size() != n)
     {
         cout << -1 << '\n';

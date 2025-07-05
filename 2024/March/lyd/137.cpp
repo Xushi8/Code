@@ -36,7 +36,7 @@
 
 // 	string s;
 // 	cin >> s;
-// 	int n = s.size(); 
+// 	int n = s.size();
 // 	s.insert(s.begin(), '\0');
 // 	p[0] = 1;
 // 	for (int i = 1; i <= n; i++)
@@ -71,30 +71,29 @@ constexpr int BASE = 131;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-	string s;
-	cin >> s;
-	int n = s.size();
-	s.insert(s.begin(), '\0');
-	vector<uint64_t> f(n + 1), p(n + 1);
-	p[0] = 1;
-	for (int i = 1; i <= n; i++)
-	{
-		f[i] = f[i - 1] * BASE + s[i] - 'a' + 1;
-		p[i] = p[i - 1] * BASE;
-	}
-
-	int q;
-	cin >> q;
-	while (q--)
-	{
-		int l1, r1, l2, r2;
-		cin >> l1 >> r1 >> l2 >> r2;
-		cout << (f[r1] - f[l1 - 1] * p[r1 - l1 + 1] ==
-				 f[r2] - f[l2 - 1] * p[r2 - l2 + 1] ? "Yes" : "No") << '\n';
+    string s;
+    cin >> s;
+    int n = s.size();
+    s.insert(s.begin(), '\0');
+    vector<uint64_t> f(n + 1), p(n + 1);
+    p[0] = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        f[i] = f[i - 1] * BASE + s[i] - 'a' + 1;
+        p[i] = p[i - 1] * BASE;
     }
 
-	return 0;
+    int q;
+    cin >> q;
+    while (q--)
+    {
+        int l1, r1, l2, r2;
+        cin >> l1 >> r1 >> l2 >> r2;
+        cout << (f[r1] - f[l1 - 1] * p[r1 - l1 + 1] == f[r2] - f[l2 - 1] * p[r2 - l2 + 1] ? "Yes" : "No") << '\n';
+    }
+
+    return 0;
 }

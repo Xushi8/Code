@@ -1,9 +1,9 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 
-//01背包递推写法
+// 01背包递推写法
 
 // int p[3500];//价值
 // int w[3500];//重量
@@ -44,7 +44,6 @@ using namespace std;
 //     cout << f[W];
 //     return 0;
 // }
-
 
 // //完全背包
 // int p[10005];//价值
@@ -205,35 +204,35 @@ using namespace std;
 //     return 0;
 // }
 
-//分组背包,不是很懂
-// const int N = 10005;
-// int v[N], w[N];
-// int num[1005], team[1005][1005];
-// long long f[N];
-// int main()
-// {
-//     int n, W;
-//     cin >> W >> n;
-//     int x;
-//     int ts = -2147483648;
-//     for (int i = 1; i <= n; i++)
-//     {
-//         cin >> w[i] >> v[i] >> x;
-//         ts = max(ts, x);
-//         num[x]++;
-//         team[x][num[x]] = i;
-//     }
-//     for (int k = 1; k <= ts; k++)
-//     {
-//         for (int i = W; i >= 0; i--)
-//         {
-//             for (int j = 1; j <= num[k]; j++)
-//             {
-//                 int index = team[k][j];
-//                 if (i >= w[index]) f[i] = max(f[i], f[i - w[index]] + v[index]);
-//             }
-//         }
-//     }
+// 分组背包,不是很懂
+//  const int N = 10005;
+//  int v[N], w[N];
+//  int num[1005], team[1005][1005];
+//  long long f[N];
+//  int main()
+//  {
+//      int n, W;
+//      cin >> W >> n;
+//      int x;
+//      int ts = -2147483648;
+//      for (int i = 1; i <= n; i++)
+//      {
+//          cin >> w[i] >> v[i] >> x;
+//          ts = max(ts, x);
+//          num[x]++;
+//          team[x][num[x]] = i;
+//      }
+//      for (int k = 1; k <= ts; k++)
+//      {
+//          for (int i = W; i >= 0; i--)
+//          {
+//              for (int j = 1; j <= num[k]; j++)
+//              {
+//                  int index = team[k][j];
+//                  if (i >= w[index]) f[i] = max(f[i], f[i - w[index]] + v[index]);
+//              }
+//          }
+//      }
 
 //     cout << f[W];
 //     return 0;

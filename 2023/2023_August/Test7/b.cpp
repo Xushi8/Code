@@ -100,7 +100,6 @@ void mul_num(int l, int r, int nl, int nr, ll mul_val, int p)
     d[p] %= mod;
 }
 
-
 void add_num(int l, int r, int nl, int nr, ll add_val, int p)
 {
     if (l <= nl && nr <= r)
@@ -198,7 +197,6 @@ ll query(int l, int r, int nl, int nr, int p)
 
         b[p] = 0;
     }
-
 
     ll sum = 0;
     if (l <= mid)

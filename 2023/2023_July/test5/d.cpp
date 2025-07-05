@@ -40,7 +40,7 @@ ll func(int index)
     ll cnt = upper_bound(arr, arr + n, num) - lower_bound(arr, arr + n, num);
 
     return dp[index] = max(1LL * num * cnt + func(upper_bound(arr, arr + n, num + 1) - arr),
-        func(lower_bound(arr, arr + n, num + 1) - arr));
+               func(lower_bound(arr, arr + n, num + 1) - arr));
 }
 
 int main()

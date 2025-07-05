@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, k, len, tim;
     cin >> n >> k >> len >> tim;
     vector<pii> arr(n);
@@ -34,7 +34,7 @@ int main()
     {
         int a, b;
         cin >> a >> b;
-        arr[i] = { a, b };
+        arr[i] = {a, b};
     }
 
     vector<int> dis(k + 2);
@@ -47,22 +47,22 @@ int main()
     sort(dis.begin(), dis.end());
 
     auto check = [&](int ans) -> bool
+    {
+        int used_time = 0;
+        for (size_t i = 1; i < dis.size(); i++)
         {
-            int used_time = 0;
-            for (size_t i = 1; i < dis.size(); i++)
-            {
-                int this_dis = dis[i] - dis[i - 1];
-                int x = ans - this_dis;
-                int y = 2 * this_dis - ans;
-                if (x < 0)
-                    return false;
-                if (y < 0)
-                    used_time += this_dis;
-                else
-                    used_time += x + y * 2;
-            }
-            return used_time <= tim;
-        };
+            int this_dis = dis[i] - dis[i - 1];
+            int x = ans - this_dis;
+            int y = 2 * this_dis - ans;
+            if (x < 0)
+                return false;
+            if (y < 0)
+                used_time += this_dis;
+            else
+                used_time += x + y * 2;
+        }
+        return used_time <= tim;
+    };
 
     int l = 0, r = 2e9;
     while (l < r)

@@ -174,125 +174,125 @@ constexpr int N = 1000005;
 
 struct A
 {
-	string name, id;
-	int status, tim;
-	int seq;
-	A(string name_, string id_, int status_, int tim_, int seq_) :
-		name(name_), id(id_), status(status_), tim(tim_), seq(seq_) {}
+    string name, id;
+    int status, tim;
+    int seq;
+    A(string name_, string id_, int status_, int tim_, int seq_) :
+        name(name_), id(id_), status(status_), tim(tim_), seq(seq_) {}
 };
 
 bool operator<(A const& x, A const& y)
 {
-	return x.tim < y.tim;
+    return x.tim < y.tim;
 }
 
 bool cmp(A const& x, A const& y)
 {
-	return x.seq < y.seq;
+    return x.seq < y.seq;
 }
 
 bool check_id(string_view s)
 {
-	if (s.size() != 18)
-		return false;
-	for (int i = 0; i < 18; i++)
-	{
-		if (!isdigit(s[i]))
-			return false;
-	}
-	return true;
+    if (s.size() != 18)
+        return false;
+    for (int i = 0; i < 18; i++)
+    {
+        if (!isdigit(s[i]))
+            return false;
+    }
+    return true;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int D, P;
-	cin >> D >> P;
-	vector<vector<A>> a(D);
-	vector<int> num(D);
-	int tot = 0;
-	for (int i = 0; i < D; i++)
-	{
-		int k;
-		cin >> k >> num[i];
-		for (int j = 0; j < k; j++)
-		{
-			string name, id;
-			int status;
-			int h, m;
-			char ch;
-			cin >> name >> id >> status >> h >> ch >> m;
-			a[i].emplace_back(name, id, status, h * 60 + m, tot++);
-		}
-		stable_sort(a[i].begin(), a[i].end());
-	}
+    int D, P;
+    cin >> D >> P;
+    vector<vector<A>> a(D);
+    vector<int> num(D);
+    int tot = 0;
+    for (int i = 0; i < D; i++)
+    {
+        int k;
+        cin >> k >> num[i];
+        for (int j = 0; j < k; j++)
+        {
+            string name, id;
+            int status;
+            int h, m;
+            char ch;
+            cin >> name >> id >> status >> h >> ch >> m;
+            a[i].emplace_back(name, id, status, h * 60 + m, tot++);
+        }
+        stable_sort(a[i].begin(), a[i].end());
+    }
 
-	map<string, vector<int>> last;
-	set<A> st;
-	vector<A> ans;
-	set<string> bad_status;
-	set<string> true_output;
+    map<string, vector<int>> last;
+    set<A> st;
+    vector<A> ans;
+    set<string> bad_status;
+    set<string> true_output;
 
-	for (int i = 0; i < D; i++)
-	{
-		for (auto x : a[i])
-		{
-			if (x.status == 1)
-			{
-				bad_status.emplace(x.id);
-			}
+    for (int i = 0; i < D; i++)
+    {
+        for (auto x : a[i])
+        {
+            if (x.status == 1)
+            {
+                bad_status.emplace(x.id);
+            }
 
-			if (num[i] == 0)
-				break;
+            if (num[i] == 0)
+                break;
 
-			if (!check_id(x.id))
-			{
-				continue;
-			}
+            if (!check_id(x.id))
+            {
+                continue;
+            }
 
-			auto& vec = last[x.id];
-			if (vec.empty() || i - vec.back() >= P + 1)
-			{
-				num[i]--;
-				ans.emplace_back(x);
-				st.emplace(x);
-				vec.emplace_back(i);
-				true_output.emplace(x.id);
-			}
-		}
-	}
+            auto& vec = last[x.id];
+            if (vec.empty() || i - vec.back() >= P + 1)
+            {
+                num[i]--;
+                ans.emplace_back(x);
+                st.emplace(x);
+                vec.emplace_back(i);
+                true_output.emplace(x.id);
+            }
+        }
+    }
 
-	for (auto x : ans)
-	{
-		cout << x.name << ' ' << x.id << '\n';
-	}
-	ans.clear();
-	set<string> has_output;
-	for (int i = 0; i < D; i++)
-	{
-		for (auto x : a[i])
-		{
-			if (bad_status.count(x.id) && true_output.count(x.id))
-			{
-				if (!has_output.count(x.id))
-				{
-					has_output.emplace(x.id);
-					ans.emplace_back(x);
-				}
-			}
-		}
-	}
+    for (auto x : ans)
+    {
+        cout << x.name << ' ' << x.id << '\n';
+    }
+    ans.clear();
+    set<string> has_output;
+    for (int i = 0; i < D; i++)
+    {
+        for (auto x : a[i])
+        {
+            if (bad_status.count(x.id) && true_output.count(x.id))
+            {
+                if (!has_output.count(x.id))
+                {
+                    has_output.emplace(x.id);
+                    ans.emplace_back(x);
+                }
+            }
+        }
+    }
 
-	sort(ans.begin(), ans.end(), cmp);
-	for (auto x : ans)
-	{
-		cout << x.name << ' ' << x.id << '\n';
-	}
+    sort(ans.begin(), ans.end(), cmp);
+    for (auto x : ans)
+    {
+        cout << x.name << ' ' << x.id << '\n';
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

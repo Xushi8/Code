@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // const int N = 1005, INF = 0x3f3f3f3f;
 // int s = INF;
 // bool used[N];
@@ -10,7 +9,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     vector<int> A(n);
@@ -66,7 +65,7 @@ using namespace std;
 
 // Node find_node(int id, vector<Node> node)
 // {
-    
+
 // }
 
 // Node find_node(int id, Node node)
@@ -81,12 +80,11 @@ using namespace std;
 //     }
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     int flag1 = 1;
@@ -122,7 +120,7 @@ using namespace std;
 //                 }
 //                 else
 //                 {
-                    
+
 //                 }
 //                 num = 0;
 //             }
@@ -133,8 +131,6 @@ using namespace std;
 //     cout << endl;
 //     return 0;
 // }
-
-
 
 // 2023/05/13 19:06:42
 
@@ -147,7 +143,7 @@ using namespace std;
 //         to = a;
 //         cost = b;
 //     }
-    
+
 //     int to, cost;
 // };
 
@@ -158,7 +154,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -166,12 +162,13 @@ int main()
         int n, q;
         cin >> n >> q;
         vector<pair<int, int>> G;
-        
+
         while (q--)
         {
             int a, b;
             cin >> a >> b;
-            a--; b--;
+            a--;
+            b--;
             G.emplace_back(b, a);
         }
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que;
@@ -185,7 +182,8 @@ int main()
         int size = 0;
         while (!que.empty())
         {
-            pair<int, int> p = que.top(); que.pop();
+            pair<int, int> p = que.top();
+            que.pop();
             if (dis[p.first] == INF)
             {
                 que.emplace(p);

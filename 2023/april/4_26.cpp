@@ -2,13 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n >> m;
 //     vector<int> arr(n);
@@ -27,12 +25,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // // 2023/04/26 15:18:02
 // vector<vector<int>> arr;
 // int ans = 0;
 // int n, m;
-// // 
+// //
 // void dfs(int deep, int tmp_ans, int a, int b)
 // {
 //     if (deep == n)
@@ -62,7 +59,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> m;
 //     string tmp;
 //     for (int i = 0; i < n; i++)
@@ -87,7 +84,7 @@ using namespace std;
 //     //     {
 //     //         for (int k = j + 1; k < n; k++)
 //     //         {
-                
+
 //     //         }
 //     //     }
 //     // }
@@ -98,14 +95,13 @@ using namespace std;
 //     return 0;
 // }
 
-
 // 2023/04/26 15:58:50
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m, g;
 //     cin >> n >> m >> g;
 //     vector<string> str;
@@ -187,18 +183,14 @@ using namespace std;
 //             }
 //         }
 //     }
-    
+
 //     cout << ans;
 
 //     cout << endl;
 //     return 0;
 // }
 
-
-
-
 // 2023/04/26 16:18:29
-
 
 // long long C(int n, int m)
 // {
@@ -215,7 +207,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     for (int i = 0; i < n; i++)
@@ -224,7 +216,7 @@ using namespace std;
 //         cin >> a;
 //         arr[a]++;
 //     }
-    
+
 //     long long ans = 0;
 //     for (int i = 1; i < 5005; i++)
 //     {
@@ -241,19 +233,13 @@ using namespace std;
 //                     ans = (ans + C(arr[i], 2) * C(arr[j], 2)) % mod;
 //                 }
 //             }
-            
+
 //         }
 //     }
 
-
-    
 //     // while (l <= r)
 //     // {
 
-
-
-
-        
 //     //     // if (l == r)
 //     //     // {
 //     //     //     if (arr[l] >= 4)
@@ -270,11 +256,10 @@ using namespace std;
 //     //     // {
 //     //     //     for (int i = l + 1; i <= r; i++)
 //     //     //     {
-                
+
 //     //     //     }
 //     //     // }
 
-        
 //     //     // if (arr[r] > 1)
 //     //     // {
 //     //     //     d = r;
@@ -301,10 +286,10 @@ using namespace std;
 //     //     //             break;
 //     //     //         }
 //     //     //     }
-            
+
 //     //     //     continue;
 //     //     // }
-        
+
 //     //     // while (l + mid > r)
 //     //     // {
 //     //     //     if (mid == r)
@@ -336,8 +321,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // 2023/04/26 17:20:21
 
 vector<int> arr[4];
@@ -346,7 +329,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int a[4];
     for (int i = 0; i < 4; i++)
     {
@@ -386,18 +369,17 @@ int main()
     //     }
     // }
 
-
     int ans = 0;
     for (int k = 0; k < 4; k++)
     {
-        const vector<int> &tmp = arr[k];
+        const vector<int>& tmp = arr[k];
         memset(f, 0, sizeof(f));
         int W = 0;
         for (int p : tmp)
         {
             W += p;
         }
-        
+
         for (int i = 0; i < tmp.size(); i++)
         {
             for (int j = W / 2; j >= tmp[i]; j--)
@@ -407,7 +389,7 @@ int main()
         }
         ans += max(f[W / 2], W - f[W / 2]);
     }
-    
+
     cout << ans;
 
     cout << endl;

@@ -1,13 +1,11 @@
 // // // #include<bits/stdc++.h>
 // // // using namespace std;
 
-
-
 // // // int main()
 // // // {
 // // //     ios::sync_with_stdio(false);
 // // //     cin.tie(0);
-    
+
 // // //     vector<int> v;
 // // //     int tt = 1000000000;
 // // //     v.reserve(tt);
@@ -28,7 +26,6 @@
 // // //     return 0;
 // // // }
 
-
 // // // #include<bits/stdc++.h>
 // // // using namespace std;
 
@@ -45,7 +42,7 @@
 // // // {
 // // //     ios::sync_with_stdio(false);
 // // //     cin.tie(0);
-    
+
 // // //     ofstream ofs;
 // // //     ofs.open("unordered_set.out", ios::out);
 // // //     unordered_set<int> uset;
@@ -55,13 +52,10 @@
 // // //     }
 // // //     ofs << uset << endl;
 // // //     ofs.close();
-    
-    
 
 // // //     system("pause");
 // // //     return 0;
 // // // }
-
 
 // // #include<bits/stdc++.h>
 // // using namespace std;
@@ -108,11 +102,8 @@
 // //     return 0;
 // // }
 
-
 // #include<bits/stdc++.h>
 // using namespace std;
-
-
 
 // int main()
 // {
@@ -136,7 +127,6 @@
 //     }
 //     end = clock();
 //     ofs << "list后置" << (end - begin) / 1000.0 << endl;
-
 
 //     begin = clock();
 //     for (auto i = L.begin(); i != L.end(); ++i)
@@ -172,19 +162,14 @@
 //     return 0;
 // }
 
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    
+
     system("pause");
     return 0;
 }

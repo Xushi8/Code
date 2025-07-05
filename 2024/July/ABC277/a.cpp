@@ -14,16 +14,16 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, k;
-	cin >> n >> k;
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		if (x == k)
-		{
-			cout << i + 1 << endl;
-			break;
+    int n, k;
+    cin >> n >> k;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        if (x == k)
+        {
+            cout << i + 1 << endl;
+            break;
         }
     }
 }

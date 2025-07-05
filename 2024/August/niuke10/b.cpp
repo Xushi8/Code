@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -58,7 +57,8 @@ void solve()
             size_t pos1 = x.find('.', pos + 1);
             string tmp = x.substr(pos + 1, pos1 - pos - 1);
 
-            tar = tar.substr(4 + 1, tar.size() - 5 - 1);;
+            tar = tar.substr(4 + 1, tar.size() - 5 - 1);
+            ;
 
             stack<char> stk;
             size_t index = 0;

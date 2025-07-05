@@ -14,27 +14,27 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, m;
-	cin >> n >> m;
-	vector<vector<int>> a(n + 1, vector<int>(m + 1));
-	auto dp = a;
-	for (int i = 1; i <= n; i++)
-	{
-		for (int j = 1; j <= m; j++)
-		{
-			cin >> a[i][j];
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> a(n + 1, vector<int>(m + 1));
+    auto dp = a;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            cin >> a[i][j];
         }
-	}
+    }
 
-	for (int i = 1; i <= n; i++)
-	{
-		for (int j = 1; j <= m; j++)
-		{
-			dp[i][j] = max({dp[i][j], dp[i - 1][j] + a[i][j], dp[i][j - 1] + a[i][j]});
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            dp[i][j] = max({dp[i][j], dp[i - 1][j] + a[i][j], dp[i][j - 1] + a[i][j]});
         }
-	}
+    }
 
-	cout << dp[n][m] << '\n';
+    cout << dp[n][m] << '\n';
 }
 
 int main()

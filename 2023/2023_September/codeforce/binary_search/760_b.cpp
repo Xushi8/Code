@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ll n, m, k;
     cin >> n >> m >> k;
     if (n == 1)
@@ -36,25 +36,25 @@ int main()
     }
 
     auto check = [&](ll val) -> bool
+    {
+        ll nl = k, nr = n - k;
+        ll suml = nl * val + (nl * (nl - 1) / 2) * -1;
+        ll sumr = nr * (val - 1) + (nr * (nr - 1) / 2) * -1;
+        ll a1 = val - (nl - 1);
+        ll an = val - 1 - (nr - 1);
+        if (a1 <= 0)
         {
-            ll nl = k, nr = n - k;
-            ll suml = nl * val + (nl * (nl - 1) / 2) * -1;
-            ll sumr = nr * (val - 1) + (nr * (nr - 1) / 2) * -1;
-            ll a1 = val - (nl - 1);
-            ll an = val - 1 - (nr - 1);
-            if (a1 <= 0)
-            {
-                a1 = -a1;
-                suml += (a1 + 1) * (a1 + 0) / 2 + (a1 + 1);
-            }
-            if (an <= 0)
-            {
-                an = -an;
-                sumr += (an + 1) * (an + 0) / 2 + (an + 1);
-            }
+            a1 = -a1;
+            suml += (a1 + 1) * (a1 + 0) / 2 + (a1 + 1);
+        }
+        if (an <= 0)
+        {
+            an = -an;
+            sumr += (an + 1) * (an + 0) / 2 + (an + 1);
+        }
 
-            return suml + sumr <= m;
-        };
+        return suml + sumr <= m;
+    };
 
     ll l = 1, r = m;
     while (l < r)

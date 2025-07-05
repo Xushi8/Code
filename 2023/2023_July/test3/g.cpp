@@ -60,8 +60,8 @@ void solve()
                 fire.emplace_back(i, j);
         }
 
-    int dx[] = { 0, 1, 0, -1 };
-    int dy[] = { 1, 0, -1, 0 };
+    int dx[] = {0, 1, 0, -1};
+    int dy[] = {1, 0, -1, 0};
     queue<Point> que;
     for (size_t i = 0; i < fire.size(); i++)
     {
@@ -71,14 +71,14 @@ void solve()
 
     while (!que.empty())
     {
-        Point p = que.front(); que.pop();
+        Point p = que.front();
+        que.pop();
         for (int i = 0; i < 4; i++)
         {
             int tx = p.x + dx[i];
             int ty = p.y + dy[i];
             if (0 <= tx && tx < n && 0 <= ty && ty < m)
             {
-
                 if (s[tx][ty] == '#')
                     continue;
 
@@ -94,7 +94,8 @@ void solve()
     que.emplace(bx, by, 0);
     while (!que.empty())
     {
-        Point p = que.front(); que.pop();
+        Point p = que.front();
+        que.pop();
         for (int i = 0; i < 4; i++)
         {
             int tx = p.x + dx[i];

@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int n, m;
 
@@ -33,7 +33,7 @@ int main()
 {
     do
     {
-        //system("cls");
+        // system("cls");
         cout << "请操作的数字, 2为二进制, 10位十进制" << endl;
         cin >> n;
         switch (n)

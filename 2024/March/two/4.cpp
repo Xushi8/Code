@@ -30,28 +30,28 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	string s;
-	int t = 1;
-	while (cin >> s && s != "End")
-	{
-		if (t++ % (n + 1) == 0)
-		{
-			cout <<   s << '\n';
-		}
-		else
-		{
-			if (s == "ChuiZi")
-				cout << "Bu";
-			else if (s == "Bu")
-				cout << "JianDao";
-			else
-				cout << "ChuiZi";
-			cout << '\n';
-		}
+    int n;
+    cin >> n;
+    string s;
+    int t = 1;
+    while (cin >> s && s != "End")
+    {
+        if (t++ % (n + 1) == 0)
+        {
+            cout << s << '\n';
+        }
+        else
+        {
+            if (s == "ChuiZi")
+                cout << "Bu";
+            else if (s == "Bu")
+                cout << "JianDao";
+            else
+                cout << "ChuiZi";
+            cout << '\n';
+        }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -32,7 +32,6 @@ constexpr int N = 1000005;
 //         l(left),
 //         r(right) {}
 
-
 //     void insert(int x)
 //     {
 //         if (x > this->val)

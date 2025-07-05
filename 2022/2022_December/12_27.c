@@ -132,10 +132,9 @@
 //     return 0;
 // }
 
-
 // int main()
 // {
-//     int max = -1; 
+//     int max = -1;
 //     int judje;
 //     char ticket[1000];
 //     char ticket1[1000];
@@ -167,66 +166,64 @@
 //     return 0;
 // }
 
-
-
-union counter//定义new_res共同体存储波兰表达式
+union counter // 定义new_res共同体存储波兰表达式
 {
     char ch;
     float num;
-}new_res[100] = {0};
-char res[1000] = {0};//输入的中缀表达式
-int flag[100] = {0};//与new_res一一对应的判断数组元素类型的flag数组
-int n = 0;//flag下标
-int i = 1;//循环判断标志
+} new_res[100] = {0};
+char res[1000] = {0}; // 输入的中缀表达式
+int flag[100] = {0};  // 与new_res一一对应的判断数组元素类型的flag数组
+int n = 0;            // flag下标
+int i = 1;            // 循环判断标志
 
-int element();//将中缀表达式转换为后缀表达式存储与new_res中
-int count(union counter new_res[100], int flag[100]);//将波兰表达式计算并输出结果
+int element();                                        // 将中缀表达式转换为后缀表达式存储与new_res中
+int count(union counter new_res[100], int flag[100]); // 将波兰表达式计算并输出结果
 
 int main()
 {
-    while(i)
+    while (i)
     {
         element();
         count(new_res, flag);
         printf("您还要继续嘛？继续请输入1，退出请输入0:");
-        scanf("%d",&i);
+        scanf("%d", &i);
     }
     return 0;
 }
 
 int element()
 {
-    char stack_op[50] = {0};//运算符栈
+    char stack_op[50] = {0}; // 运算符栈
     char temp[100] = {0};
     int j = 0;
-    int m = 0;//运算符栈下标
+    int m = 0; // 运算符栈下标
 
-    n = 0;//循环后重置flag下标
+    n = 0; // 循环后重置flag下标
     printf("计算：");
     scanf("%s", res);
-    for (int i = 0; i < strlen(res)+1; i++)//strlen(res)+1确保最后一位数据被写入
+    for (int i = 0; i < strlen(res) + 1; i++) // strlen(res)+1确保最后一位数据被写入
     {
         if (isdigit(res[i]) || res[i] == '.')
         {
             temp[j++] = res[i];
         }
-        else if (!isdigit(res[i]) && (strcmp(temp,"")!=0))//将temp中存储的数据转换为float类型写给new_res
+        else if (!isdigit(res[i]) && (strcmp(temp, "") != 0)) // 将temp中存储的数据转换为float类型写给new_res
         {
             temp[j] = '\0';
             new_res[n].num = atof(temp);
             flag[n] = 0;
             n++;
-            memset(temp,'\0',sizeof(temp));
+            memset(temp, '\0', sizeof(temp));
             j = 0;
         }
-        switch (res[i])//判断运算符的优先级决定出栈入栈
+        switch (res[i]) // 判断运算符的优先级决定出栈入栈
         {
         case '(':
             stack_op[m++] = res[i];
             break;
         case '+':
         case '-':
-            if (m == 0 || stack_op[m-1] == '(')
+            if (m == 0 || stack_op[m - 1] == '(')
             {
                 stack_op[m++] = res[i];
             }
@@ -241,7 +238,7 @@ int element()
             break;
         case '*':
         case '/':
-            if (m == 0 || stack_op[m-1] !='*' || stack_op[m-1] != '/')
+            if (m == 0 || stack_op[m - 1] != '*' || stack_op[m - 1] != '/')
             {
                 stack_op[m++] = res[i];
             }
@@ -256,7 +253,7 @@ int element()
             break;
         case ')':
             m--;
-            while(stack_op[m] != '(')
+            while (stack_op[m] != '(')
             {
                 new_res[n].ch = stack_op[m];
                 flag[n] = 1;
@@ -269,48 +266,48 @@ int element()
             break;
         }
     }
-    for (int k = m-1; k >= 0; k--)//将栈中剩余的运算符全部写入new_res
+    for (int k = m - 1; k >= 0; k--) // 将栈中剩余的运算符全部写入new_res
     {
         new_res[n].ch = stack_op[k];
         flag[n] = 1;
         n++;
     }
-    
+
     return 0;
 }
 
 int count(union counter new_res[100], int flag[100])
 {
-    int x = 0;//数据栈下标
-    float stack_num[100] = {0};//数据栈
-    
+    int x = 0;                  // 数据栈下标
+    float stack_num[100] = {0}; // 数据栈
+
     for (int i = 0; i < n; i++)
     {
-        switch (flag[i])//判断new_res中的数据类型
+        switch (flag[i]) // 判断new_res中的数据类型
         {
-        case 0://将数据写入到栈中
+        case 0: // 将数据写入到栈中
             stack_num[x++] = new_res[i].num;
             break;
-        case 1://运算
+        case 1: // 运算
             switch (new_res[i].ch)
             {
             case '+':
-                x --;
-                stack_num[x-1] += stack_num[x];
+                x--;
+                stack_num[x - 1] += stack_num[x];
                 break;
             case '-':
-                x --;
-                stack_num[x-1] -= stack_num[x];
+                x--;
+                stack_num[x - 1] -= stack_num[x];
                 break;
             case '*':
-                x --;
-                stack_num[x-1] *= stack_num[x];
+                x--;
+                stack_num[x - 1] *= stack_num[x];
                 break;
             case '/':
-                x --;
+                x--;
                 if (stack_num[x] != 0)
                 {
-                    stack_num[x-1] /= stack_num[x];
+                    stack_num[x - 1] /= stack_num[x];
                 }
                 else
                 {

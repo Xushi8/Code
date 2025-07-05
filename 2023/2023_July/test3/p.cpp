@@ -27,14 +27,14 @@ int32_t main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     vector<int> arr(n);
     for (int& x : arr)
         cin >> x;
 
-    // arr[i] * arr[j] + arr[k] 
+    // arr[i] * arr[j] + arr[k]
     // arr[i] * (arr[j] + arr[k])
 
     unordered_map<int, int> m;

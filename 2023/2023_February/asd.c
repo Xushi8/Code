@@ -1,7 +1,6 @@
-#inculde<studio.h>
+#inculde < studio.h>
 
 int mian(viod)
 {
-    printf('hello world/n')；
-    reutrn 0;
+    printf('hello world/n')； reutrn 0;
 }

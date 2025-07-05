@@ -108,7 +108,6 @@ void solve()
         // ans2 = ans2 * 3 % mod;
         cout << ans1 << ' ' << ans2 << '\n';
     }
-
 }
 
 signed main()

@@ -27,8 +27,8 @@ int distance(int a, int b, int x, int y)
     return ((a - x) * (a - x) + (b - y) * (b - y));
 }
 
-int dx[] = { 0, 1, 0, -1 };
-int dy[] = { 1, 0, -1, 0 };
+int dx[] = {0, 1, 0, -1};
+int dy[] = {1, 0, -1, 0};
 
 void solve(int n, int m)
 {
@@ -40,7 +40,8 @@ void solve(int n, int m)
     {
         int a, b;
         cin >> a >> b;
-        a--; b--;
+        a--;
+        b--;
         arr[a][b] = 1;
     }
     cin >> k;
@@ -49,29 +50,31 @@ void solve(int n, int m)
     {
         int a, b, c;
         cin >> a >> b >> c;
-        a--; b--;
-        birang[i] = { a, b, c };
+        a--;
+        b--;
+        birang[i] = {a, b, c};
     }
 
     auto check = [&](int x, int y) -> bool
+    {
+        for (int i = 0; i < k; i++)
         {
-            for (int i = 0; i < k; i++)
+            if (distance(x, y, birang[i][0], birang[i][1]) <= birang[i][2] * birang[i][2])
             {
-                if (distance(x, y, birang[i][0], birang[i][1]) <= birang[i][2] * birang[i][2])
-                {
-                    arr[x][y] = 1;
-                    return false;
-                }
+                arr[x][y] = 1;
+                return false;
             }
-            return true;
-        };
+        }
+        return true;
+    };
 
     queue<pii> que;
     que.emplace(0, 0);
     dis[0][0] = 0;
     while (!que.empty())
     {
-        pii p = que.front(); que.pop();
+        pii p = que.front();
+        que.pop();
         int x = p.first, y = p.second;
         for (int i = 0; i < 4; i++)
         {

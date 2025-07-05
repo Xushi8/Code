@@ -19,7 +19,8 @@ void solve()
     for (auto& [x, y] : a)
     {
         cin >> x >> y;
-        x--; y--;
+        x--;
+        y--;
     }
 
     vector<int> L(m, -1);

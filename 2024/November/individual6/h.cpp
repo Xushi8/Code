@@ -69,7 +69,7 @@ void solve()
             win = !win;
             break;
         }
-        
+
         if (a.front() >= a.back())
         {
             // choose front game over

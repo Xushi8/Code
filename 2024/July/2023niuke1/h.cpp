@@ -14,51 +14,51 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	const int n = 2;
-	int m;
-	cin >> m;
-	vector<vector<int>> a(n, vector<int>(m));
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			cin >> a[i][j];
-		}
-	}
+    const int n = 2;
+    int m;
+    cin >> m;
+    vector<vector<int>> a(n, vector<int>(m));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
 
-	vector<pii> dec(m);
-	for (int j = 0; j < m; j++)
-	{
-		dec[j] = {a[0][j] - a[1][j], j};
-	}
+    vector<pii> dec(m);
+    for (int j = 0; j < m; j++)
+    {
+        dec[j] = {a[0][j] - a[1][j], j};
+    }
 
-	sort(dec.begin(), dec.end());
-	if (dec.front().first * dec.back().first < 0)
-	{
-		swap(a[0][dec.front().second], a[0][dec.back().second]);
-	}
-	i64 sum = 0;
-	for (int j = 0; j < m; j++)
-	{
-		sum += abs(a[0][j] - a[1][j]);
-	}
-	cout << sum << '\n';
+    sort(dec.begin(), dec.end());
+    if (dec.front().first * dec.back().first < 0)
+    {
+        swap(a[0][dec.front().second], a[0][dec.back().second]);
+    }
+    i64 sum = 0;
+    for (int j = 0; j < m; j++)
+    {
+        sum += abs(a[0][j] - a[1][j]);
+    }
+    cout << sum << '\n';
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

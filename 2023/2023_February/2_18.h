@@ -1,9 +1,9 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-#include<list>
-#include<fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <fstream>
 using std::string;
 
 class Person
@@ -22,5 +22,3 @@ public:
 };
 
 bool cmp_person(const Person& p1, const Person& p2);
-
-

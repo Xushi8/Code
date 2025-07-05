@@ -1,8 +1,8 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
 
 // int main()
 // {
@@ -106,7 +106,6 @@
 //         sum += 1.0 / i;
 //     }
 //     printf("%.2lf", sum);
-
 
 //     return 0;
 // }
@@ -648,7 +647,7 @@
 
 //     return 0;
 // }
-// 
+//
 // int main()
 // {
 //     int a, b, c;
@@ -726,7 +725,7 @@
 //         }
 //     }
 //     int tmp;
-    
+
 //     tmp = arr[0];
 //     arr[0] = arr[min_index];
 //     arr[min_index] = tmp;
@@ -734,7 +733,7 @@
 //     tmp = arr[9];
 //     arr[9] = arr[max_index];
 //     arr[max_index] = tmp;
-    
+
 //     for (i = 0; i < 10; i++)
 //     {
 //         printf("%d ", arr[i]);
@@ -781,7 +780,7 @@
 //     {
 //         arr[i] = 1;
 //     }
-    
+
 //     int alive = n;
 //     int count = 0;
 //     int index;
@@ -804,7 +803,7 @@
 //             index++;
 //         }
 //     }
-    
+
 //     for (i = 0; i < n; i++)
 //     {
 //         if (arr[i] == 1)
@@ -829,7 +828,6 @@
 
 //     return 0;
 // }
-
 
 // typedef struct shijian
 // {
@@ -895,7 +893,6 @@
 //         tmp++;
 //     }
 //     free(ret);
-
 
 //     return 0;
 // }
@@ -1020,7 +1017,6 @@ int main()
         printf("%d %d\n", p->num, p->codes);
         p = p->next;
     }
-
 
     return 0;
 }

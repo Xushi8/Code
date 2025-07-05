@@ -28,15 +28,19 @@ int b[] = {0, 1, 20, 300, 4000, 50000, 600000, 7000000, 80000000, 900000000};
 
 int func(int n)
 {
-    if(n == 0) {
+    if (n == 0)
+    {
         return 0;
     }
     int i;
     for (i = 0; n / a[i] > 9; i++) {}
     int j = n / a[i];
-    if(j == 1) {
+    if (j == 1)
+    {
         return b[i] + 1 + func(n - a[i]) + (n - a[i]);
-    } else {
+    }
+    else
+    {
         return b[i] * j + a[i] + func(n - j * a[i]);
     }
 }

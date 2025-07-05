@@ -59,7 +59,7 @@ int main()
 
     int tt;
     tt = 1;
-        while (tt--)
+    while (tt--)
     {
         solve();
     }

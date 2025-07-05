@@ -40,7 +40,7 @@ void solve()
             cout << (is_first ? "YES" : "NO") << '\n';
             return;
         }
-        
+
         auto x = *st.begin();
         st.erase(st.begin()); // is st.begin() O(1)
         auto y = *st.begin();

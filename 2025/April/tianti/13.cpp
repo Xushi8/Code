@@ -21,7 +21,7 @@ void solve()
     vector<int> vis(n);
     vector<int> maxx(n);
     set<int> ans;
-    auto dfs = [&](auto &&self, int u, int money, int sum) -> void
+    auto dfs = [&](auto&& self, int u, int money, int sum) -> void
     {
         for (auto [v, w, c] : G[u])
         {
@@ -50,11 +50,16 @@ void solve()
         dfs(dfs, root, all_money, 0);
 
         vector<int> can{ans.begin(), ans.end()};
-        if(can.empty()) {
-            cout << "T_T\n"; 
-        } else {
-            for (int i = 0; i < can.size(); i++) {
-                if(i != 0) {
+        if (can.empty())
+        {
+            cout << "T_T\n";
+        }
+        else
+        {
+            for (int i = 0; i < can.size(); i++)
+            {
+                if (i != 0)
+                {
                     cout << ' ';
                 }
                 cout << can[i] + 1;
@@ -62,13 +67,16 @@ void solve()
             cout << '\n';
 
             map<int, vector<int>, greater<>> mp;
-            for(auto u : can) {
+            for (auto u : can)
+            {
                 mp[maxx[u]].emplace_back(u);
             }
 
-            auto const &vec = mp.begin()->second;
-            for (int i = 0; i < vec.size(); i++){ 
-                if(i != 0) {
+            auto const& vec = mp.begin()->second;
+            for (int i = 0; i < vec.size(); i++)
+            {
+                if (i != 0)
+                {
                     cout << ' ';
                 }
                 cout << vec[i] + 1;

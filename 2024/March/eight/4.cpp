@@ -30,28 +30,28 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		int a, b, c;
-		cin >> a >> b >> c;
-		string s;
-		if (c == a + b)
-		{
-			s = "Tu Dou";
-		}
-		else if (c == a * b)
-		{
-			s = "Lv Yan";
-		}
-		else
-		{
-			s = "zhe du shi sha ya!";
-		}
-		cout << s << endl;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
+        string s;
+        if (c == a + b)
+        {
+            s = "Tu Dou";
+        }
+        else if (c == a * b)
+        {
+            s = "Lv Yan";
+        }
+        else
+        {
+            s = "zhe du shi sha ya!";
+        }
+        cout << s << endl;
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

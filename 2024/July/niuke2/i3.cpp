@@ -16,69 +16,69 @@ constexpr int N = 1000005;
 
 bool cmp(pii& a, pii& b)
 {
-	return a.y - a.x < b.y - b.x;
+    return a.y - a.x < b.y - b.x;
 }
 
 void solve()
 {
-	int n;
-	cin >> n;
-	int nn = 2 * n;
-	vector<int> arr(nn + 2);
-	vector<pii> pos(n + 1);
+    int n;
+    cin >> n;
+    int nn = 2 * n;
+    vector<int> arr(nn + 2);
+    vector<pii> pos(n + 1);
 
-	for (int i = 1; i <= nn; ++i)
-	{
-		cin >> arr[i];
-		if (pos[arr[i]].x)
-			pos[arr[i]].y = i;
-		else
-			pos[arr[i]].x = i;
-	}
+    for (int i = 1; i <= nn; ++i)
+    {
+        cin >> arr[i];
+        if (pos[arr[i]].x)
+            pos[arr[i]].y = i;
+        else
+            pos[arr[i]].x = i;
+    }
 
-	vector<pii> up(n + 1);
-	pos.push_back({0, nn + 1});
+    vector<pii> up(n + 1);
+    pos.push_back({0, nn + 1});
 
-	up = pos;
-	sort(up.begin(), up.end(), cmp);
+    up = pos;
+    sort(up.begin(), up.end(), cmp);
 
-	vector<int> tmp(nn + 2);
-	vector<int> dp(nn + 2);
+    vector<int> tmp(nn + 2);
+    vector<int> dp(nn + 2);
 
-	for (auto [l, r] : up)
-	{
-		tmp[l] = arr[l];
-		for (int i = l + 1; i <= r; ++i)
-		{
-			tmp[i] = tmp[i - 1] + arr[l];
+    for (auto [l, r] : up)
+    {
+        tmp[l] = arr[l];
+        for (int i = l + 1; i <= r; ++i)
+        {
+            tmp[i] = tmp[i - 1] + arr[l];
 
-			int left = pos[arr[i]].x;
+            int left = pos[arr[i]].x;
 
-			if (left != i && left > l)
-			{
-				tmp[i] = max(tmp[i], tmp[left - 1] + dp[i]);
-			}
-		}
-		dp[r] = tmp[r];
-	}
+            if (left != i && left > l)
+            {
+                tmp[i] = max(tmp[i], tmp[left - 1] + dp[i]);
+            }
+        }
+        dp[r] = tmp[r];
+    }
 
-	cout << dp[nn + 1] << endl;
+    cout << dp[nn + 1] << endl;
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int tt;
-	tt = 1;
-	while (tt--)
-	{
-		solve();
-	}
+    int tt;
+    tt = 1;
+    while (tt--)
+    {
+        solve();
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

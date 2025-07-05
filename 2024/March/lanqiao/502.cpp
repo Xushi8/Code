@@ -27,29 +27,30 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	int a = 0, b = 0;
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		if (x >= 60)
-			a++;
-		if (x >= 85)
-			b++;
-	}
+    int n;
+    cin >> n;
+    int a = 0, b = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        if (x >= 60)
+            a++;
+        if (x >= 85)
+            b++;
+    }
 
-	double ansa, ansb;
-	ansa = 100.0 * a / n;
-	ansb = 100.0 * b / n;
-	cout << setprecision(0) << fixed << ansa << '%' << endl << ansb << '%' << endl;
-	
+    double ansa, ansb;
+    ansa = 100.0 * a / n;
+    ansb = 100.0 * b / n;
+    cout << setprecision(0) << fixed << ansa << '%' << endl
+         << ansb << '%' << endl;
+
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

@@ -15,8 +15,6 @@ void solve()
 {
     int m, n;
     cin >> m >> n;
-
-    
 }
 
 int main()

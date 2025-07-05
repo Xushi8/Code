@@ -29,16 +29,16 @@ using big_int = mpz_class;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	big_int x = big_int::factorial(2 * n) / (big_int::factorial(n + 1) * big_int::factorial(n));
-	cout << x << '\n';
+    int n;
+    cin >> n;
+    big_int x = big_int::factorial(2 * n) / (big_int::factorial(n + 1) * big_int::factorial(n));
+    cout << x << '\n';
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

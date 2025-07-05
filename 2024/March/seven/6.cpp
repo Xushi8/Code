@@ -27,15 +27,15 @@ constexpr int N = 1000005;
 
 string func(string_view a)
 {
-	string s;
-	for (int i = 1; i < a.size(); i++)
-	{
-		if (a[i] % 2 == a[i - 1] % 2)
-		{
-			s += max(a[i], a[i - 1]);
-		}
-	}
-	return s;
+    string s;
+    for (int i = 1; i < a.size(); i++)
+    {
+        if (a[i] % 2 == a[i - 1] % 2)
+        {
+            s += max(a[i], a[i - 1]);
+        }
+    }
+    return s;
 }
 
 int main()
@@ -43,17 +43,18 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	string a, b;
-	cin >> a >> b;
-	a = func(a);
-	b = func(b);
-	if (a == b)
-		cout << a;
-	else
-	{
-		cout << a << endl << b << endl;
+    string a, b;
+    cin >> a >> b;
+    a = func(a);
+    b = func(b);
+    if (a == b)
+        cout << a;
+    else
+    {
+        cout << a << endl
+             << b << endl;
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

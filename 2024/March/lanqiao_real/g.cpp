@@ -19,19 +19,21 @@ int main()
 
     vector<int> ans(n, -1);
     map<int, deque<int>, greater<int>> maxx;
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
         maxx[a[i]].emplace_back(i);
     }
 
     ans[0] = maxx.begin()->first;
     k -= 1 + maxx.begin()->second.front();
     maxx.begin()->second.pop_front();
-    if (maxx.begin()->second.empty()) {
+    if (maxx.begin()->second.empty())
+    {
         maxx.erase(maxx.begin());
     }
 
-    for (int i = k; i < n; i++) {
-        
+    for (int i = k; i < n; i++)
+    {
     }
 
     return 0;

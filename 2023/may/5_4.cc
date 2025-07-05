@@ -18,7 +18,7 @@ void output()
         }
         ofs << arr;
     }
-    
+
     ofs.close();
 }
 
@@ -35,7 +35,6 @@ void input()
         else
             arr[i] = arr[i] * 10 + *p - '0';
     }
-    
 }
 
 int main()

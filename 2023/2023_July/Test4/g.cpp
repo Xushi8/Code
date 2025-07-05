@@ -65,11 +65,10 @@ void solve()
         }
         if (n > 1)
             cout << "Alice\n";
+        else if (cnt & 1)
+            cout << "Bob\n";
         else
-            if (cnt & 1)
-                cout << "Bob\n";
-            else
-                cout << "Alice\n";
+            cout << "Alice\n";
     }
 }
 

@@ -7,7 +7,6 @@
 #include <vector>
 using namespace std;
 
-
 const int INF = 0x3f3f3f3f;
 const int N = 100005;
 
@@ -42,9 +41,19 @@ int dfs(int u)
 
 inline int read()
 {
-    int f = 1, x = 0;char ch = getchar();
-    while (ch < '0' || ch>'9') { if (ch == '-')f = -1;ch = getchar(); }
-    while (ch >= '0' && ch <= '9') { x = x * 10 + ch - '0';ch = getchar(); }
+    int f = 1, x = 0;
+    char ch = getchar();
+    while (ch < '0' || ch > '9')
+    {
+        if (ch == '-')
+            f = -1;
+        ch = getchar();
+    }
+    while (ch >= '0' && ch <= '9')
+    {
+        x = x * 10 + ch - '0';
+        ch = getchar();
+    }
     return f * x;
 }
 
@@ -71,7 +80,8 @@ int main()
             // u = read(); v = read();
             // cin >> u >> v;
             scanf("%d%d", &u, &v);
-            u--; v--;
+            u--;
+            v--;
             G[u].push_back(v);
             in[v]++;
         }

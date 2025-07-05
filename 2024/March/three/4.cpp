@@ -30,12 +30,12 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cout << "2018\n";
-	cout << "wo3 men2 yao4 ying2 !\n";
+    cout << "2018\n";
+    cout << "wo3 men2 yao4 ying2 !\n";
 
 #ifdef LOCAL
-		cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

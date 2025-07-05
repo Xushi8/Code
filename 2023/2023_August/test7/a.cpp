@@ -140,7 +140,6 @@
 //     return 0;
 // }
 
-
 // // 2023/08/07 14:42:28
 // #ifndef LOCAL
 // // #pragma GCC optimize(2)
@@ -286,7 +285,6 @@
 //     return 0;
 // }
 
-
 // 2023/08/07 15:24:10
 #ifndef LOCAL
 // #pragma GCC optimize(2)
@@ -398,7 +396,6 @@ int main()
             {
                 ans += arr[i] == 1;
             }
-            
 
             if (l / len == r / len)
             {

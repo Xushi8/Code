@@ -30,52 +30,52 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	string s;
-	cin >> s;
-	int cnt[10] = {0};
-	for (auto ch : s)
-	{
-		cnt[ch - '0']++;
+    string s;
+    cin >> s;
+    int cnt[10] = {0};
+    for (auto ch : s)
+    {
+        cnt[ch - '0']++;
     }
 
-	vector<int> arr;
-	for (int i = 0; i < 10; i++)
-	{
-		if (cnt[i] != 0)
-			arr.emplace_back(i);
-	}
+    vector<int> arr;
+    for (int i = 0; i < 10; i++)
+    {
+        if (cnt[i] != 0)
+            arr.emplace_back(i);
+    }
 
-	sort(arr.begin(), arr.end(), greater<>());
+    sort(arr.begin(), arr.end(), greater<>());
 
-	vector<int> index;
-	for (auto ch : s)
-	{
-		ch -= '0';
-		for (int i = 0; i < arr.size(); i++)
-		{
-			if (ch == arr[i])
-			{
-				index.emplace_back(i);
-				break;
+    vector<int> index;
+    for (auto ch : s)
+    {
+        ch -= '0';
+        for (int i = 0; i < arr.size(); i++)
+        {
+            if (ch == arr[i])
+            {
+                index.emplace_back(i);
+                break;
             }
         }
     }
 
-	cout << "int[] arr = new int[]{";
-	cout << arr.front();
-	for (int i = 1; i < arr.size(); i++)
-	{
-		cout << ',' << arr[i];
-	}
-	cout << "};\n";
-	cout << "int[] index = new int[]{";
-	cout << index.front();
-	for (int i = 1; i < index.size(); i++)
-	{
-		cout << ',' << index[i];
-	}
-	cout << "};\n";
-	
+    cout << "int[] arr = new int[]{";
+    cout << arr.front();
+    for (int i = 1; i < arr.size(); i++)
+    {
+        cout << ',' << arr[i];
+    }
+    cout << "};\n";
+    cout << "int[] index = new int[]{";
+    cout << index.front();
+    for (int i = 1; i < index.size(); i++)
+    {
+        cout << ',' << index[i];
+    }
+    cout << "};\n";
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

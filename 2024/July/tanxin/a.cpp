@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -35,18 +34,18 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n, k;
-	cin >> n >> k;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	sort(a.begin(), a.end(), greater<>());
-	i64 ans = 0;
-	for (int i = 0; i < k; i++)
-	{
-		ans += a[i];
-	}
-	cout << ans << '\n';
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end(), greater<>());
+    i64 ans = 0;
+    for (int i = 0; i < k; i++)
+    {
+        ans += a[i];
+    }
+    cout << ans << '\n';
 }

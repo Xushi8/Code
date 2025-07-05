@@ -1,7 +1,7 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 int n;
@@ -31,8 +31,8 @@ void dfs(int deep)
 }
 int main()
 {
-    //ios::sync_with_stdio(false);
-    //cin.tie(0);
+    // ios::sync_with_stdio(false);
+    // cin.tie(0);
     cin >> n;
     dfs(1);
 

@@ -15,7 +15,7 @@ struct Point
     {
         return sqrt(norm());
     }
-    
+
     double norm()
     {
         return x * x + y * y;
@@ -35,7 +35,7 @@ double cross(Point a, Point b)
 double getDistancePP(Point a, Point b)
 {
     Point c(b.x - a.x, b.y - a.y);
-    return  c.abs();
+    return c.abs();
 }
 
 double getDistancePL(Point a, Point b, Point c)
@@ -53,17 +53,18 @@ double getDistancePS(Point a, Point b, Point c)
     Point ac(c.x - a.x, c.y - a.y);
     Point bc(c.x - b.x, c.y - b.y);
 
-    if (dot(ab, ac) < 0.0) return getDistancePP(a, c);
-    if (dot(ba, bc) < 0.0) return getDistancePP(b, c);
+    if (dot(ab, ac) < 0.0)
+        return getDistancePP(a, c);
+    if (dot(ba, bc) < 0.0)
+        return getDistancePP(b, c);
 
     return getDistancePL(a, b, c);
 }
 
 double getDistanceSS(Point a, Point b, Point c, Point d)
 {
-    return min({ getDistancePS(c, d, a), getDistancePS(c, d, b), getDistancePS(a, b, c), getDistancePS(a, b, d) });
+    return min({getDistancePS(c, d, a), getDistancePS(c, d, b), getDistancePS(a, b, c), getDistancePS(a, b, d)});
 }
-
 
 struct line
 {
@@ -74,38 +75,34 @@ struct line
         x2 = _x2;
         y2 = _y2;
     }
-    
+
     double x1, y1, x2, y2;
 };
 
-bool RapidRejExper(line& l1, line& l2) {
-    if ((l1.x1 > l1.x2 ? l1.x1 : l1.x2) < (l2.x1 < l2.x2 ? l2.x1 : l2.x2) ||
-        (l1.y1 > l1.y2 ? l1.y1 : l1.y2) < (l2.y1 < l2.y2 ? l2.y1 : l2.y2) ||
-        (l2.x1 > l2.x2 ? l2.x1 : l2.x2) < (l1.x1 < l1.x2 ? l1.x1 : l1.x2) ||
-        (l2.y1 > l2.y2 ? l2.y1 : l2.y2) < (l1.y1 < l1.y2 ? l1.y1 : l1.y2)) {
-        return false;
-    }
-    return true;
-}
-
-// 跨立实验
-bool Cross(line& l1, line& l2) {
-    if ((((l1.x1 - l2.x1) * (l2.y2 - l2.y1) - (l1.y1 - l2.y1) * (l2.x2 - l2.x1)) *
-        ((l1.x2 - l2.x1) * (l2.y2 - l2.y1) - (l1.y2 - l2.y1) * (l2.x2 - l2.x1))) > 0 ||
-        (((l2.x1 - l1.x1) * (l1.y2 - l1.y1) - (l2.y1 - l1.y1) * (l1.x2 - l1.x1)) *
-            ((l2.x2 - l1.x1) * (l1.y2 - l1.y1) - (l2.y2 - l1.y1) * (l1.x2 - l1.x1))) > 0)
+bool RapidRejExper(line& l1, line& l2)
+{
+    if ((l1.x1 > l1.x2 ? l1.x1 : l1.x2) < (l2.x1 < l2.x2 ? l2.x1 : l2.x2) || (l1.y1 > l1.y2 ? l1.y1 : l1.y2) < (l2.y1 < l2.y2 ? l2.y1 : l2.y2) || (l2.x1 > l2.x2 ? l2.x1 : l2.x2) < (l1.x1 < l1.x2 ? l1.x1 : l1.x2) || (l2.y1 > l2.y2 ? l2.y1 : l2.y2) < (l1.y1 < l1.y2 ? l1.y1 : l1.y2))
     {
         return false;
     }
     return true;
 }
 
+// 跨立实验
+bool Cross(line& l1, line& l2)
+{
+    if ((((l1.x1 - l2.x1) * (l2.y2 - l2.y1) - (l1.y1 - l2.y1) * (l2.x2 - l2.x1)) * ((l1.x2 - l2.x1) * (l2.y2 - l2.y1) - (l1.y2 - l2.y1) * (l2.x2 - l2.x1))) > 0 || (((l2.x1 - l1.x1) * (l1.y2 - l1.y1) - (l2.y1 - l1.y1) * (l1.x2 - l1.x1)) * ((l2.x2 - l1.x1) * (l1.y2 - l1.y1) - (l2.y2 - l1.y1) * (l1.x2 - l1.x1))) > 0)
+    {
+        return false;
+    }
+    return true;
+}
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     cout << setprecision(8) << fixed;

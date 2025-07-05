@@ -30,12 +30,12 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	cout << "I'm gonna win! Today!\n";
-	cout << "2022-04-23" << endl;
+    cout << "I'm gonna win! Today!\n";
+    cout << "2022-04-23" << endl;
 
 #ifdef LOCAL
-		cerr
-		 << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr
+        << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

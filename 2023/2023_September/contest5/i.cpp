@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -34,8 +34,6 @@ int main()
         cin >> m >> n;
         cout << (1LL << m) - 1LL << '\n';
     }
-
-    
 
     for (ll m = 1; m < 10; m++)
     {

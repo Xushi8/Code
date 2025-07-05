@@ -11,19 +11,23 @@ int main()
     string s;
     cin >> s;
     array<int, 26> val;
-    for (int i = 0; i < 26; i++) {
+    for (int i = 0; i < 26; i++)
+    {
         cin >> val[i];
     }
 
     array<int, 26> cnt{};
     int ans = 0;
-    for(auto ch : s) {
+    for (auto ch : s)
+    {
         cnt[ch - 'a']++;
         ans += val[ch - 'a'];
     }
 
-    for (int i = 0; i < 26; i++){
-        if(i != 0) {
+    for (int i = 0; i < 26; i++)
+    {
+        if (i != 0)
+        {
             cout << ' ';
         }
         cout << cnt[i];

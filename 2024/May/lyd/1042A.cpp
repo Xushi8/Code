@@ -16,26 +16,26 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	vector<int> a(n + 1);
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> a[i];
-	}
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+    }
 
-	vector<vector<i64>> dp(2, vector<i64>(m + 1));
-	dp[0][0] = 1;
+    vector<vector<i64>> dp(2, vector<i64>(m + 1));
+    dp[0][0] = 1;
 
-	for (int i = 1; i <= n; i++)
-	{
-		dp[i & 1] = dp[(i - 1) & 1];
-		for (int j = a[i]; j <= m; j++)
-		{
-			dp[i & 1][j] += dp[(i - 1) & 1][j - a[i]];
-	    }
-	}
-	cout << dp[n & 1][m] << '\n';
+    for (int i = 1; i <= n; i++)
+    {
+        dp[i & 1] = dp[(i - 1) & 1];
+        for (int j = a[i]; j <= m; j++)
+        {
+            dp[i & 1][j] += dp[(i - 1) & 1][j - a[i]];
+        }
+    }
+    cout << dp[n & 1][m] << '\n';
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

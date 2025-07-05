@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)
@@ -38,8 +38,7 @@ int main()
         for (int i = 0; i < n; i++)
             cin >> b[i];
 
-        if (a.back().back() == '1' || a.back().back() == '2' ||
-            b.back().back() == '3' || b.back().back() == '4')
+        if (a.back().back() == '1' || a.back().back() == '2' || b.back().back() == '3' || b.back().back() == '4')
             cout << "NO\n";
         else
         {

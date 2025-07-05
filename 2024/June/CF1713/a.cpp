@@ -14,23 +14,23 @@ constexpr int N = 1000005;
 
 void solve()
 {
-	int n;
-	cin >> n;
-	vector<int> a(n + 1), b(n + 1);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i] >> b[i];
-	}
-	a.back() = b.back() = 0;
+    int n;
+    cin >> n;
+    vector<int> a(n + 1), b(n + 1);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i] >> b[i];
+    }
+    a.back() = b.back() = 0;
 
-	int max1 = *max_element(a.begin(), a.end());
-	int max2 = *max_element(b.begin(), b.end());
+    int max1 = *max_element(a.begin(), a.end());
+    int max2 = *max_element(b.begin(), b.end());
 
-	int min1 = *min_element(a.begin(), a.end());
-	int min2 = *min_element(b.begin(), b.end());
+    int min1 = *min_element(a.begin(), a.end());
+    int min2 = *min_element(b.begin(), b.end());
 
-	int ans = ((max1 - min1) + (max2 - min2)) * 2;
-	cout << ans << '\n';
+    int ans = ((max1 - min1) + (max2 - min2)) * 2;
+    cout << ans << '\n';
 }
 
 int main()

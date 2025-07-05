@@ -30,60 +30,60 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	stack<int> a;
-	stack<char> b;
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		cin >> x;
-		a.emplace(x);
-	}
-	for (int i = 0; i < n - 1; i++)
-	{
-		char ch;
-		cin >> ch;
-		b.emplace(ch);
-	}
+    int n;
+    cin >> n;
+    stack<int> a;
+    stack<char> b;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        a.emplace(x);
+    }
+    for (int i = 0; i < n - 1; i++)
+    {
+        char ch;
+        cin >> ch;
+        b.emplace(ch);
+    }
 
-	while (!b.empty())
-	{
-		auto ch = b.top();
-		b.pop();
+    while (!b.empty())
+    {
+        auto ch = b.top();
+        b.pop();
 
-		auto x = a.top();
-		a.pop();
-		auto y = a.top();
-		a.pop();
-		swap(x, y);
+        auto x = a.top();
+        a.pop();
+        auto y = a.top();
+        a.pop();
+        swap(x, y);
 
-		if (ch == '+')
-		{
-			a.emplace(x + y);
-		}
-		else if (ch == '-')
-		{
-			a.emplace(x - y);
-		}
-		else if (ch == '*')
-		{
-			a.emplace(x * y);
-		}
-		else
-		{
-			if (y == 0)
-			{
-				cout << "ERROR: " << x << ch << y << endl;
-				return 0;
-			}
-
-			a.emplace(x / y);
+        if (ch == '+')
+        {
+            a.emplace(x + y);
         }
-	}
+        else if (ch == '-')
+        {
+            a.emplace(x - y);
+        }
+        else if (ch == '*')
+        {
+            a.emplace(x * y);
+        }
+        else
+        {
+            if (y == 0)
+            {
+                cout << "ERROR: " << x << ch << y << endl;
+                return 0;
+            }
 
-	cout << a.top() << endl;
-    
+            a.emplace(x / y);
+        }
+    }
+
+    cout << a.top() << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

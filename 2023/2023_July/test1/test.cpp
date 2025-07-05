@@ -88,7 +88,7 @@
 // // {
 // //     ios::sync_with_stdio(false);
 // //     cin.tie(0);
-    
+
 // //     vector<int> arr(10);
 // //     auto it1 = arr.begin();
 // //     auto it2 = arr.end();
@@ -98,7 +98,6 @@
 // //     cout << endl;
 // //     return 0;
 // // }
-
 
 // //=========================
 // //  author:tyqs
@@ -152,46 +151,6 @@
 //     return 0;
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 2023/07/19 21:57:49
 #include <iostream>
 #include <algorithm>
@@ -224,9 +183,9 @@ inline void func(int n, char a, char b, char c)
     if (n == 0)
         return;
 
-    func(n - 1, a, c, b); // 把 n - 1 个挪到B
+    func(n - 1, a, c, b);          // 把 n - 1 个挪到B
     ofs << a << "->" << c << '\n'; // 把 最下面的挪到C
-    func(n - 1, b, a, c); // 把B中的n - 1个挪到C
+    func(n - 1, b, a, c);          // 把B中的n - 1个挪到C
 }
 
 int main()
@@ -236,7 +195,7 @@ int main()
 
     ofs.open("test.data");
     func(15, 'A', 'B', 'C');
-    
+
     cout << endl;
     return 0;
 }

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 char str[1000005], tmp[1005];
 int ne[1005];
 int main()
@@ -26,12 +25,12 @@ int main()
     int tt;
     scanf("%s %d", str + 1, &tt);
     size_t str_len = strlen(str + 1);
-    
+
     while (tt--)
     {
         // cin >> tmp + 1;
         scanf("%s", tmp + 1);
-        
+
         // size_t len = strlen(tmp + 1);
         // for (size_t i = 2, j = 0; i <= len; i++)
         // {
@@ -57,8 +56,10 @@ int main()
         // cout << flag << '\n';
 
         char* p = strstr(str + 1, tmp + 1);
-        if (p == nullptr) puts("0");
-        else puts("1");
+        if (p == nullptr)
+            puts("0");
+        else
+            puts("1");
 
         // memset(ne, 0, len * 4 + 4);
     }

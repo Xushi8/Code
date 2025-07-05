@@ -10,19 +10,22 @@ int main()
 
     int maxx, op, minn;
     cin >> maxx >> op >> minn;
-    if(op && maxx > 35 && minn >= 33) {
+    if (op && maxx > 35 && minn >= 33)
+    {
         cout << "Bu Tie\n";
         cout << maxx << '\n';
         return 0;
-    } 
+    }
 
-    if(!op && maxx > 35 && minn >= 33) {
+    if (!op && maxx > 35 && minn >= 33)
+    {
         cout << "Shi Nei\n";
         cout << maxx << '\n';
         return 0;
     }
 
-    if(op && (maxx <= 35 || minn < 33)) {
+    if (op && (maxx <= 35 || minn < 33))
+    {
         cout << "Bu Re\n";
         cout << minn << '\n';
         return 0;

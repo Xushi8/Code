@@ -320,11 +320,11 @@ int findRoot()
     {
         if (inDegree[i] == 0)
         {
-            return i; 
+            return i;
         }
     }
 
-    return -1; 
+    return -1;
 }
 
 void findCriticalPath()

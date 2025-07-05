@@ -63,7 +63,8 @@ void solve()
     int tot = 0;
     while (!que.empty())
     {
-        auto [cnt, u] = que.top(); que.pop();
+        auto [cnt, u] = que.top();
+        que.pop();
         tot++;
         ans = max(ans, cnt);
         for (int v : G[u])
@@ -88,7 +89,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

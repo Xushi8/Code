@@ -29,7 +29,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
     vector<vector<int>> arr(n, vector<int>(n));
@@ -44,30 +44,31 @@ int main()
             }
         }
     }
-    
+
     constexpr int INF = 0x3f3f3f3f;
 
     auto bfs = [&](int begin) -> int
+    {
+        queue<pii> que;
+        que.emplace(0, begin);
+        while (!que.empty())
         {
-            queue<pii> que;
-            que.emplace(0, begin);
-            while (!que.empty())
+            auto [dis, u] = que.front();
+            que.pop();
+            for (int v : G[u])
             {
-                auto [dis, u] = que.front(); que.pop();
-                for (int v : G[u])
+                if (!vis[v])
                 {
-                    if(!vis[v])
-                    {
-                        vis[v] = 1;
-                        if (v == begin)
-                            return dis + 1;
-                        que.emplace(dis + 1, v);
-                    }
+                    vis[v] = 1;
+                    if (v == begin)
+                        return dis + 1;
+                    que.emplace(dis + 1, v);
                 }
             }
+        }
 
-            return INF;
-        };
+        return INF;
+    };
 
     for (int i = 0; i < n; i++)
     {
@@ -83,8 +84,6 @@ int main()
         else
             cout << ans << '\n';
     }
-
-    
 
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;

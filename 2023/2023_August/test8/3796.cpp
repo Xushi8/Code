@@ -70,7 +70,7 @@
 //     while (!que.empty())
 //     {
 //         int now = que.front(); que.pop();
-//         cout << now << '\n';    
+//         cout << now << '\n';
 //         for (int i = 0; i < 26; i++)
 //         {
 //             if (trie[now][i] != 0)
@@ -85,7 +85,6 @@
 //         }
 //     }
 // }
-
 
 // // void build() {
 // //     queue<int> q;
@@ -133,7 +132,7 @@
 //         {
 //             cin >> s;
 //             add(s);
-//         }   
+//         }
 //         cin >> s;
 //         add_fail();
 //         cout << check(s) << '\n';
@@ -203,13 +202,17 @@ void insert(const string& s)
     e[root]++;
 }
 
-void build() {
+void build()
+{
     for (int i = 0; i < 26; i++)
-        if (trie[0][i]) q.push(trie[0][i]);
-    while (q.size()) {
+        if (trie[0][i])
+            q.push(trie[0][i]);
+    while (q.size())
+    {
         int u = q.front();
         q.pop();
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < 26; i++)
+        {
             if (trie[u][i])
                 fail[trie[u][i]] = trie[fail[u]][i], q.push(trie[u][i]);
             else
@@ -218,12 +221,14 @@ void build() {
     }
 }
 
-
-int query(const char* t) {
+int query(const char* t)
+{
     int u = 0, res = 0;
-    for (int i = 1; t[i]; i++) {
-        u = trie[u][t[i] - 'a'];  // 转移
-        for (int j = u; j && e[j] != -1; j = fail[j]) {
+    for (int i = 1; t[i]; i++)
+    {
+        u = trie[u][t[i] - 'a']; // 转移
+        for (int j = u; j && e[j] != -1; j = fail[j])
+        {
             res += e[j], e[j] = -1;
         }
     }

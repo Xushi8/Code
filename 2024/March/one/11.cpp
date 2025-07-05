@@ -30,40 +30,38 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, k, m;
-	cin >> n >> k >> m;
-	vector<int> now(k);
-	vector<double> ans;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < k; j++)
-		{
-			cin >> now[j];
-		}
-		sort(now.begin(), now.end());
-		double sum = reduce(now.begin() + 1, now.end() - 1, 0.0);
+    int n, k, m;
+    cin >> n >> k >> m;
+    vector<int> now(k);
+    vector<double> ans;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < k; j++)
+        {
+            cin >> now[j];
+        }
+        sort(now.begin(), now.end());
+        double sum = reduce(now.begin() + 1, now.end() - 1, 0.0);
         ans.emplace_back(sum / (k - 2));
-	}
-
-	sort(ans.begin(), ans.end(), greater<>());
-	vector<double> final_ans;
-	for (int i = 0; i < min(m, n); i++)
-	{
-		final_ans.emplace_back(ans[i]);
-	}
-
-	reverse(final_ans.begin(), final_ans.end());
-
-	cout << setprecision(3) << fixed;
-	for (int i = 0; i < final_ans.size(); i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << final_ans[i];
     }
 
-	
-    
+    sort(ans.begin(), ans.end(), greater<>());
+    vector<double> final_ans;
+    for (int i = 0; i < min(m, n); i++)
+    {
+        final_ans.emplace_back(ans[i]);
+    }
+
+    reverse(final_ans.begin(), final_ans.end());
+
+    cout << setprecision(3) << fixed;
+    for (int i = 0; i < final_ans.size(); i++)
+    {
+        if (i != 0)
+            cout << ' ';
+        cout << final_ans[i];
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

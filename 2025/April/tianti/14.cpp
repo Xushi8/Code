@@ -3,7 +3,8 @@ using namespace std;
 using i64 = int64_t;
 using pii = pair<int, int>;
 
-void solve() {
+void solve()
+{
     int n, m;
     cin >> n >> m;
     vector<vector<int>> a(n, vector<int>(m));
@@ -14,11 +15,16 @@ void solve() {
     // }
 
     vector<vector<int>> dis(n, vector<int>(m));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            for (int ii = 0; ii < n; ii++) {
-                for (int jj = 0; jj < m; jj++) {
-                    if(i == ii && j == jj) {
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            for (int ii = 0; ii < n; ii++)
+            {
+                for (int jj = 0; jj < m; jj++)
+                {
+                    if (i == ii && j == jj)
+                    {
                         continue;
                     }
 
@@ -28,9 +34,12 @@ void solve() {
         }
     }
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if(j != 0) {
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (j != 0)
+            {
                 cout << ' ';
             }
             cout << dis[i][j];

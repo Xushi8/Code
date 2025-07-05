@@ -29,7 +29,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     for (ll i = 1; i < N; i++)
     {
         sum[i] = sum[i - 1] + i;

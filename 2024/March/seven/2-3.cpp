@@ -128,69 +128,69 @@ constexpr int N = 1000005;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n, q;
-	cin >> n >> q;
-	vector<vector<int>> G(n + 1);
-	vector<int> par(n + 1);
-	int root;
-	for (int i = 1; i <= n; i++)
-	{
-		int tmp;
-		cin >> tmp;
-		if (tmp == -1)
-		{
-			root = i;
-			continue;
-		}
-		par[i] = tmp;
-		G[i].emplace_back(tmp);
-		G[tmp].emplace_back(i);
-	}
+    int n, q;
+    cin >> n >> q;
+    vector<vector<int>> G(n + 1);
+    vector<int> par(n + 1);
+    int root;
+    for (int i = 1; i <= n; i++)
+    {
+        int tmp;
+        cin >> tmp;
+        if (tmp == -1)
+        {
+            root = i;
+            continue;
+        }
+        par[i] = tmp;
+        G[i].emplace_back(tmp);
+        G[tmp].emplace_back(i);
+    }
 
-	constexpr int INF = 0x3f3f3f3f;
-	vector<int> dis(n + 1, INF);
+    constexpr int INF = 0x3f3f3f3f;
+    vector<int> dis(n + 1, INF);
 
-	queue<int> que;
-	que.emplace(root);
-	dis[root] = 0;
-	while (!que.empty())
-	{
-		auto u = que.front();
-		que.pop();
-		for (int v : G[u])
-		{
-			if (dis[v] > dis[u] + 1)
-			{
-				dis[v] = dis[u] + 1;
-				que.emplace(v);
-			}
-		}
-	}
+    queue<int> que;
+    que.emplace(root);
+    dis[root] = 0;
+    while (!que.empty())
+    {
+        auto u = que.front();
+        que.pop();
+        for (int v : G[u])
+        {
+            if (dis[v] > dis[u] + 1)
+            {
+                dis[v] = dis[u] + 1;
+                que.emplace(v);
+            }
+        }
+    }
 
-	int num = 0, maxx = 0;
-	vector<int> vis(n + 1, 0);
-	vis[root] = 1;
-	while (q--)
-	{
-		int u;
-		cin >> u;
-		int chalu = u;
-		while (!vis[chalu])
-		{
-			vis[chalu] = 1;
-			chalu = par[chalu];
-		}
+    int num = 0, maxx = 0;
+    vector<int> vis(n + 1, 0);
+    vis[root] = 1;
+    while (q--)
+    {
+        int u;
+        cin >> u;
+        int chalu = u;
+        while (!vis[chalu])
+        {
+            vis[chalu] = 1;
+            chalu = par[chalu];
+        }
 
-		num += dis[u] - dis[chalu];
-		maxx = max(maxx, dis[u]);
-		cout << num * 2 - maxx << '\n';
-	}
+        num += dis[u] - dis[chalu];
+        maxx = max(maxx, dis[u]);
+        cout << num * 2 - maxx << '\n';
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

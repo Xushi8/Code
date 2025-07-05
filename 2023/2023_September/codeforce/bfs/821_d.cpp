@@ -111,7 +111,6 @@
 //     }
 //     cout << endl;
 
-
 //     // for (int i = 0; i < 10; i++)
 //     // {
 //     //     if (G[i].size() != 0)
@@ -123,14 +122,12 @@
 //     //     }
 //     // }
 
-
 // #ifdef LOCAL
 //     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 // #endif
 //     cout << endl;
 //     return 0;
 // }
-
 
 // 2023/09/23 15:09:09
 #include <iostream>
@@ -172,7 +169,8 @@ void spfa(int start)
     vis[start] = 1;
     while (!que.empty())
     {
-        int u = que.front(); que.pop();
+        int u = que.front();
+        que.pop();
         vis[u] = 0;
         for (int i = 1; i <= k; i++)
         {

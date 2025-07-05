@@ -2,13 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // char s[200];
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     stringstream ss;
 //     double a, b, c;
 //     cin >> a >> b >> c;
@@ -17,7 +16,7 @@ using namespace std;
 //         ::cout << "No!!!" << '\n';
 //         return 0;
 //     }
-    
+
 //     string str;
 //     bool ok = 1;
 //     for (int i = 100; i < 1000; i++)
@@ -29,7 +28,7 @@ using namespace std;
 //         k = (int)(c * i / a + 0.5);
 //         if (j >= 1000 || k >= 1000)
 //             continue;
-        
+
 //         ss << i << j << k;
 //         ss >> str;
 //         for (char ch : str)
@@ -56,8 +55,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // 2023/04/25 13:48:55
 
 // vector<int> arr(10);
@@ -69,7 +66,7 @@ using namespace std;
 // {
 //     if (all > n)
 //         return;
-    
+
 //     if (deep == 10)
 //     {
 //         if (all == n)
@@ -96,7 +93,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n;
 //     if (n < 10 || n > 30)
 //     {
@@ -117,8 +114,6 @@ using namespace std;
 //     cout << flush;
 //     return 0;
 // }
-
-
 
 // 2023/04/25 14:13:28
 // int arr[22];
@@ -149,7 +144,7 @@ using namespace std;
 //                 used[i] = false;
 //                 ans.pop_back();
 //             }
-            
+
 //         }
 //     }
 // }
@@ -157,7 +152,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     cin >> n >> r;
 //     for (int i = 0; i < 22; i++)
 //     {
@@ -476,14 +471,13 @@ using namespace std;
 //     return nums.size() == 1 && nums.back() == 0;
 // }
 
-
 // // 2023/04/25 14:25:23
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     BigInteger a(1), ans(1);
 //     int n;
 //     cin >> n;
@@ -498,9 +492,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
-
 // 2023/04/25 15:02:47
 // void print(__int128 num)
 // {
@@ -514,7 +505,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n;
 //     cin >> n;
 //     __int128 a = 1;
@@ -530,14 +521,13 @@ using namespace std;
 //     return 0;
 // }
 
-
 // 2023/04/25 15:39:06
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int a, b;
     cout << 54465 << endl;
 

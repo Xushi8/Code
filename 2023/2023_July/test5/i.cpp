@@ -26,9 +26,9 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N =
 #ifdef DEBUG
-1000005;
+    1000005;
 #else
-1000005;
+    1000005;
 #endif
 
 int t[N], w[N];

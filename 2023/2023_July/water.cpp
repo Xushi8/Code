@@ -28,7 +28,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     for (int i = 2; i < N; i++)
     {
         if (!isnp[i])

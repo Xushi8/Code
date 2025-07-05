@@ -27,81 +27,79 @@ constexpr int N = 1000005;
 
 struct A
 {
-	int val, pre, next;
-	int index, id;
+    int val, pre, next;
+    int index, id;
 };
 
 A a[N];
 
 int main()
 {
-	int id, val, next;
-	// cin >> id;
-	scanf("%d", &id);
+    int id, val, next;
+    // cin >> id;
+    scanf("%d", &id);
 
-	memset(a, 0, sizeof(a));
-	a[id].index = 1;
+    memset(a, 0, sizeof(a));
+    a[id].index = 1;
 
-	int be = id;
-	
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		scanf("%d%d%d", &id, &val, &next);
-		a[id].val = val;
-		a[id].next = next;
-		a[id].id = id;
-		a[next].pre = id;
-	}
+    int be = id;
 
-	int now = be, tot = 1;
-	while (a[now].next != -1)
-	{
-		a[now].index = tot++;
-		now = a[now].next;
-	}
-
-	int ed = now;
-	int maxn = tot;
-	vector<A> ans;
-	ans.reserve(n);
-
-	for(int t = 0; t < n / 2; t++)
-	{
-		ans.emplace_back(a[ed]);
-		ans.emplace_back(a[be]);
-		be = a[be].next;
-		ed = a[ed].pre;
-	}
-	if (n & 1)
-	{
-		ans.emplace_back(a[be]);
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d%d%d", &id, &val, &next);
+        a[id].val = val;
+        a[id].next = next;
+        a[id].id = id;
+        a[next].pre = id;
     }
 
-	
-	for (int i = 0; i < ans.size(); i++)
-	{
-		printf("%05d %d ", ans[i].id, ans[i].val);
-		if (i + 1 == maxn)
-		{
-			printf("-1\n");
-		}
-		else
-		{
-			printf("%05d\n", ans[i + 1].id);
+    int now = be, tot = 1;
+    while (a[now].next != -1)
+    {
+        a[now].index = tot++;
+        now = a[now].next;
+    }
+
+    int ed = now;
+    int maxn = tot;
+    vector<A> ans;
+    ans.reserve(n);
+
+    for (int t = 0; t < n / 2; t++)
+    {
+        ans.emplace_back(a[ed]);
+        ans.emplace_back(a[be]);
+        be = a[be].next;
+        ed = a[ed].pre;
+    }
+    if (n & 1)
+    {
+        ans.emplace_back(a[be]);
+    }
+
+    for (int i = 0; i < ans.size(); i++)
+    {
+        printf("%05d %d ", ans[i].id, ans[i].val);
+        if (i + 1 == maxn)
+        {
+            printf("-1\n");
+        }
+        else
+        {
+            printf("%05d\n", ans[i + 1].id);
         }
     }
 
-	for (int i = 0; i < N; i++)
-	{
-		if (a[i].index != 0 && a[i].pre == 0 && a[i].next == 0)
-		{
-			printf("%05d %d -1\n", a[i].id, a[i].val);
-		}
-	}
-	
-    
+    for (int i = 0; i < N; i++)
+    {
+        if (a[i].index != 0 && a[i].pre == 0 && a[i].next == 0)
+        {
+            printf("%05d %d -1\n", a[i].id, a[i].val);
+        }
+    }
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -22,12 +22,11 @@
 // using pii = pair<int, int>;
 // constexpr int N = 1000005;
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> n >> m;
 //     string s;
@@ -36,7 +35,7 @@
 //     {
 //         ch -= 'a';
 //     }
-    
+
 //     int len = n - n / 2;
 //     vector<int> adds;
 //     int cnt = 0;
@@ -57,7 +56,6 @@
 //             s[i] = (s[i] + 1) % 26;
 //         }
 //     }
-
 
 //     for (int k = 0; k < 26; k++)
 //     {
@@ -107,7 +105,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n, m;
     cin >> n >> m;
     string s;

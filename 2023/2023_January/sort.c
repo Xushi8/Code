@@ -1,11 +1,11 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
-#include<math.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+#include <time.h>
 
-#define SIZE 10000//数据大小
+#define SIZE 10000 // 数据大小
 
 void print(int arr[])
 {
@@ -43,7 +43,7 @@ int search_pivot(int* arr, int left, int right)
     return arr[right];
 }
 
-//插入排序
+// 插入排序
 void sort1(int* arr, int* end)
 {
     int n = end - arr;
@@ -61,7 +61,7 @@ void sort1(int* arr, int* end)
     }
 }
 
-//希尔排序
+// 希尔排序
 void sort2(int* arr, int* end)
 {
     int n = end - arr;
@@ -114,16 +114,16 @@ void quick_sort(int* arr, int left, int right)
     }
     else
     {
-        sort1(arr + left, arr + right +1);
+        sort1(arr + left, arr + right + 1);
     }
 }
 
 void sort3(int* arr, int* end)
 {
-    quick_sort(arr, 0, end - arr - 1);//第三个传的是右侧下标
+    quick_sort(arr, 0, end - arr - 1); // 第三个传的是右侧下标
 }
 
-int arr[SIZE] = { 1,3,5,32,4,6,2,5,7,3 };
+int arr[SIZE] = {1, 3, 5, 32, 4, 6, 2, 5, 7, 3};
 int main()
 {
     srand((unsigned)time(NULL));
@@ -132,12 +132,12 @@ int main()
     // {
     //     arr[i] = rand() % 1000;
     // }
-    //print(arr);
+    // print(arr);
     puts("计时开始");
     begin = clock();
-    //sort1(arr, arr + SIZE);//插入排序
-    //sort2(arr, arr + SIZE);//希尔排序
-    sort3(arr, arr + SIZE);//快速排序
+    // sort1(arr, arr + SIZE);//插入排序
+    // sort2(arr, arr + SIZE);//希尔排序
+    sort3(arr, arr + SIZE); // 快速排序
     end = clock();
     print(arr);
     printf("用时: %dms\n", end - begin);

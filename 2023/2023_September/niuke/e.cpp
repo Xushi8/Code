@@ -31,8 +31,10 @@ void init()
     {
         for (int j = 0; j <= i; j++)
         {
-            if (!j) c[i][j] = 1;
-            else c[i][j] = c[i - 1][j] + c[i - 1][j - 1];
+            if (!j)
+                c[i][j] = 1;
+            else
+                c[i][j] = c[i - 1][j] + c[i - 1][j - 1];
         }
     }
 }
@@ -41,7 +43,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     ll n, m, t;
     cin >> n >> m >> t;
     init();

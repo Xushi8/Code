@@ -56,7 +56,6 @@ void solve()
         g = std::gcd(g, x);
     }
 
-
     // 0, 0 + g, 0 + 2 * g, 0 + 3 * g ...
     i64 maxx = i64(n - 1) * g;
     i64 contain = maxx - (n - 1);

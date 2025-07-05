@@ -8,7 +8,7 @@ struct fenshu
 {
     i64 x = 0, y = 1;
 
-    fenshu &operator+=(fenshu const &that)
+    fenshu& operator+=(fenshu const& that)
     {
         i64 lcm = std::lcm(this->y, that.y);
         this->x *= lcm / this->y;
@@ -18,7 +18,7 @@ struct fenshu
         return *this;
     }
 
-    fenshu &operator-=(fenshu const &that)
+    fenshu& operator-=(fenshu const& that)
     {
         i64 lcm = std::lcm(this->y, that.y);
         this->x *= lcm / this->y;
@@ -28,7 +28,7 @@ struct fenshu
         return *this;
     }
 
-    fenshu &operator*=(fenshu const &that)
+    fenshu& operator*=(fenshu const& that)
     {
         this->x *= that.x;
         this->y *= that.y;
@@ -36,21 +36,21 @@ struct fenshu
         return *this;
     }
 
-    friend fenshu operator+(fenshu const &lhs, fenshu const &rhs)
+    friend fenshu operator+(fenshu const& lhs, fenshu const& rhs)
     {
         fenshu t = lhs;
         t += rhs;
         return t;
     }
 
-    friend fenshu operator-(fenshu const &lhs, fenshu const &rhs)
+    friend fenshu operator-(fenshu const& lhs, fenshu const& rhs)
     {
         fenshu t = lhs;
         t -= rhs;
         return t;
     }
 
-    friend fenshu operator*(fenshu const &lhs, fenshu const &rhs)
+    friend fenshu operator*(fenshu const& lhs, fenshu const& rhs)
     {
         fenshu t = lhs;
         t *= rhs;
@@ -64,7 +64,7 @@ struct fenshu
         this->y /= gcd;
     }
 
-    friend ostream &operator<<(ostream &os, fenshu const &val)
+    friend ostream& operator<<(ostream& os, fenshu const& val)
     {
         os << val.x << ' ' << val.y;
         return os;

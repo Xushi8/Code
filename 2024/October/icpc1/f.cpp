@@ -23,18 +23,24 @@ int n;
 //     dfs(index2 + 1, r, a, ans);
 // }
 
-void dfs(int l, int r, vector<int> const& a, i64& ans) {
-    if (r - l <= 1) {
+void dfs(int l, int r, vector<int> const& a, i64& ans)
+{
+    if (r - l <= 1)
+    {
         return;
     }
 
     int maxx = *max_element(a.begin() + l, a.begin() + r);
     vector<pii> qujian;
-    for (int i = l; i < r; i++) {
-        if (a[i] == maxx) {
+    for (int i = l; i < r; i++)
+    {
+        if (a[i] == maxx)
+        {
             int j;
-            for (j = i + 1; j < r; j++) {
-                if (a[j] != maxx) {
+            for (j = i + 1; j < r; j++)
+            {
+                if (a[j] != maxx)
+                {
                     break;
                 }
             }
@@ -45,7 +51,8 @@ void dfs(int l, int r, vector<int> const& a, i64& ans) {
     }
 
     int now = l;
-    for (auto [x, y] : qujian) {
+    for (auto [x, y] : qujian)
+    {
         dfs(now, x, a, ans);
         ans += x - now;
         now = y + 1;
@@ -54,10 +61,12 @@ void dfs(int l, int r, vector<int> const& a, i64& ans) {
     ans += r - now;
 }
 
-void solve() {
+void solve()
+{
     cin >> n;
     vector<int> a(n);
-    for (int i = 0; i < n;i++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
     }
 
@@ -68,13 +77,15 @@ void solve() {
     cout << ans << '\n';
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(0);
 
     int tt = 1;
     cin >> tt;
-    while (tt--) {
+    while (tt--)
+    {
         solve();
     }
 

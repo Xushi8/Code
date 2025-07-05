@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 
 int main()
 {
@@ -38,11 +37,11 @@ int main()
     int ans = 0;
     for (int c : C)
         for (int d : D)
-            if (umap.find(0 - (c + d)) != umap.end()) ans += umap[0 - (c + d)];
+            if (umap.find(0 - (c + d)) != umap.end())
+                ans += umap[0 - (c + d)];
     cout << ans << endl;
 
-
-    int my_array[5] = { 1, 2, 3, 4, 5 };
+    int my_array[5] = {1, 2, 3, 4, 5};
 
     // 不会改变 my_array 数组中元素的值
     // x 将使用 my_array 数组的副本
@@ -76,13 +75,12 @@ int main()
     cout << endl;
 
     // 还可直接使用初始化列表
-    for (int x : { 1, 2, 3, 4, 5 })
+    for (int x : {1, 2, 3, 4, 5})
     {
         x *= 2;
         cout << x << ' ';
     }
     cout << endl;
-    
 
     system("pause");
     return 0;

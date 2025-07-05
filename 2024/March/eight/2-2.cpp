@@ -30,50 +30,48 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, c;
-	cin >> n >> c;
-	priority_queue<int> que;
-	for (int i = 0; i < n; i++)
-	{
-		string s;
-		int x;
-		cin >> s >> x;
-		que.emplace(x);
+    int n, c;
+    cin >> n >> c;
+    priority_queue<int> que;
+    for (int i = 0; i < n; i++)
+    {
+        string s;
+        int x;
+        cin >> s >> x;
+        que.emplace(x);
         cout << s << ' ' << (x + c - 1) / c << '\n';
-	}
+    }
 
-	multiset<int> st;
-	while (!que.empty())
-	{
-		auto x = que.top();
-		que.pop();
-		if (x >= c)
-		{
-			st.emplace(c);
-			x -= c;
-			que.emplace(x);
-		}
-		else
-		{
-			auto it = st.upper_bound(c - x);
-			if (it != st.begin())
-			{
-				it--;
-				auto y = *it;
-				st.erase(it);
-				st.emplace(y + x);
-			}
-			else
-			{
-				st.emplace(x);
+    multiset<int> st;
+    while (!que.empty())
+    {
+        auto x = que.top();
+        que.pop();
+        if (x >= c)
+        {
+            st.emplace(c);
+            x -= c;
+            que.emplace(x);
+        }
+        else
+        {
+            auto it = st.upper_bound(c - x);
+            if (it != st.begin())
+            {
+                it--;
+                auto y = *it;
+                st.erase(it);
+                st.emplace(y + x);
+            }
+            else
+            {
+                st.emplace(x);
             }
         }
-	}
+    }
 
-	cout << st.size() << endl;
+    cout << st.size() << endl;
 
-	
-    
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

@@ -22,12 +22,11 @@ using ll = long long;
 using pii = pair<int, int>;
 constexpr int N = 1000005;
 
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string s;
     cin >> s;
     vector<int> arr[26];

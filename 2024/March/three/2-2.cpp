@@ -31,56 +31,56 @@ int maxn;
 
 void dfs(int u, int now, vector<vector<int>> const& G)
 {
-	deep[u] = now;
-	maxn = max(maxn, now);
-	for (int v : G[u])
-	{
-		dfs(v, now + 1, G);
-	}
+    deep[u] = now;
+    maxn = max(maxn, now);
+    for (int v : G[u])
+    {
+        dfs(v, now + 1, G);
+    }
 }
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<vector<int>> G(n + 1);
-	int root;
-	for (int i = 1; i <= n; i++)
-	{
-		int x;
-		cin >> x;
-		if (x == -1)
-		{
-			root = i;
-		}
-		else
-		{
-			G[x].emplace_back(i);
-		}
-	}
+    int n;
+    cin >> n;
+    vector<vector<int>> G(n + 1);
+    int root;
+    for (int i = 1; i <= n; i++)
+    {
+        int x;
+        cin >> x;
+        if (x == -1)
+        {
+            root = i;
+        }
+        else
+        {
+            G[x].emplace_back(i);
+        }
+    }
 
-	dfs(root, 0, G);
+    dfs(root, 0, G);
 
-	cout << maxn + 1 << '\n';
-	vector<int> ans;
-	for (int i = 1; i <= n; i++)
-	{
-		if (deep[i] == maxn)
-			ans.emplace_back(i);
-	}
+    cout << maxn + 1 << '\n';
+    vector<int> ans;
+    for (int i = 1; i <= n; i++)
+    {
+        if (deep[i] == maxn)
+            ans.emplace_back(i);
+    }
 
-	for (int i = 0; i < ans.size(); i++)
-	{
-		if (i != 0)
-			cout << ' ';
-		cout << ans[i];
-	}
+    for (int i = 0; i < ans.size(); i++)
+    {
+        if (i != 0)
+            cout << ' ';
+        cout << ans[i];
+    }
 
 #ifdef LOCAL
-	cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
-	return 0;
+    return 0;
 }

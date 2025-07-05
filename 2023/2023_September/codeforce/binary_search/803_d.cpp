@@ -26,7 +26,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     size_t k;
     string s;
     cin >> k;
@@ -34,38 +34,38 @@ int main()
     getline(cin, s);
 
     auto check = [&](size_t val) -> bool
+    {
+        size_t rows = 0;
+        size_t now = 0;
+        for (size_t i = 0, j; i < s.size(); i++)
         {
-            size_t rows = 0;
-            size_t now = 0;
-            for (size_t i = 0, j; i < s.size(); i++)
+            for (j = i; j < s.size(); j++)
             {
-                for (j = i; j < s.size(); j++)
-                {
-                    if (s[j] == ' ' || s[j] == '-')
-                        break;
-                }
-
-                if (j != s.size())
-                    j++;
-
-                now += j - i;
-                if (now > val)
-                {
-                    now -= j - i;
-                    rows++;
-                    if (now == 0 || j - i > val)
-                        return false;
-                    now = j - i;
-                }
-
-                i = j - 1;
+                if (s[j] == ' ' || s[j] == '-')
+                    break;
             }
 
-            if (now != 0)
-                rows++;
+            if (j != s.size())
+                j++;
 
-            return rows <= k;
-        };
+            now += j - i;
+            if (now > val)
+            {
+                now -= j - i;
+                rows++;
+                if (now == 0 || j - i > val)
+                    return false;
+                now = j - i;
+            }
+
+            i = j - 1;
+        }
+
+        if (now != 0)
+            rows++;
+
+        return rows <= k;
+    };
 
     int l = 1, r = int(s.size());
     int ans = 1;

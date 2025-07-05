@@ -25,7 +25,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     string ans = "314159265358979323846264338327";
     int tt;
     cin >> tt;
@@ -37,7 +37,7 @@ int main()
         bool flag = 0;
         for (size_t i = 0; i < str.size(); i++)
         {
-            if (str[i] == ans[i] && !flag) 
+            if (str[i] == ans[i] && !flag)
                 cnt++;
             else
                 flag = 1;

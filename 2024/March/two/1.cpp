@@ -30,17 +30,17 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	for (int i = 1; i <= 1e9; i++)
-	{
-		int x;
-		cin >> x;
-		if (x == 250)
-		{
-			cout << i << '\n';
-			break;
+    for (int i = 1; i <= 1e9; i++)
+    {
+        int x;
+        cin >> x;
+        if (x == 250)
+        {
+            cout << i << '\n';
+            break;
         }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

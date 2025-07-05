@@ -60,7 +60,6 @@ void solve()
     {
         int a1, a2, c1, c2;
         cin >> a1 >> a2 >> c1 >> c2;
-        
     }
 }
 

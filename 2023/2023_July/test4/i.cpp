@@ -26,7 +26,6 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 bool isnp[N];
 int phi[N];
 vector<int> primes;
@@ -91,7 +90,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     get_primes();
     int tt = 1;
     cin >> tt;

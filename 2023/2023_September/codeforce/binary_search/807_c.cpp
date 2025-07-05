@@ -28,9 +28,9 @@ void solve()
     cin >> x >> y >> p >> q;
 
     auto check = [&](ll k) -> bool
-        {
-            return 0 <= k * p - x && k * p - x <= k * q - y;
-        };
+    {
+        return 0 <= k * p - x && k * p - x <= k * q - y;
+    };
 
     ll l = 0, r = 2e9, ans = -1;
     while (l <= r)
@@ -42,14 +42,14 @@ void solve()
             l = mid + 1;
     }
 
-    cout << (ans == - 1 ? -1 : ans * q - y) << '\n';
+    cout << (ans == -1 ? -1 : ans * q - y) << '\n';
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int tt;
     cin >> tt;
     while (tt--)

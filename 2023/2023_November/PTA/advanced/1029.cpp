@@ -49,7 +49,7 @@ void dfs(int u, int now_dis, int now_cost)
             ans_path = path;
             ans_cost = now_cost;
         }
-        
+
         path.pop_back();
         vis[u] = 0;
         return;
@@ -82,7 +82,8 @@ int main()
     ans_cost = 0x3f3f3f3f;
     dfs(bg, 0, 0);
 
-    for(auto x : ans_path) {
+    for (auto x : ans_path)
+    {
         cout << x << ' ';
     }
 

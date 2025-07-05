@@ -30,35 +30,35 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n;
-	cin >> n;
-	vector<pair<int, string>> a(n);
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		string y;
-		cin >> x >> y;
-		a[i] = {x, y};
-	}
+    int n;
+    cin >> n;
+    vector<pair<int, string>> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        string y;
+        cin >> x >> y;
+        a[i] = {x, y};
+    }
 
-	set<int> st;
+    set<int> st;
 
-	for (int i = 0; i < n / 2; i++)
-	{
-		st.emplace(i);
-		int x = a[i].first;
-		cout << a[i].second << ' ';
-		for (int j = n - 1; j >= 0; j--)
-		{
-			if (a[j].first == !x && st.count(j) == 0)
-			{
-				st.emplace(j);
-				cout << a[j].second << '\n';
-				break;
+    for (int i = 0; i < n / 2; i++)
+    {
+        st.emplace(i);
+        int x = a[i].first;
+        cout << a[i].second << ' ';
+        for (int j = n - 1; j >= 0; j--)
+        {
+            if (a[j].first == !x && st.count(j) == 0)
+            {
+                st.emplace(j);
+                cout << a[j].second << '\n';
+                break;
             }
         }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

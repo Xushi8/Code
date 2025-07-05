@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 char* s_gets(char* const src, int num)
 {
@@ -10,7 +10,7 @@ char* s_gets(char* const src, int num)
         perror("s_gets");
         return NULL;
     }
-    
+
     int i = 0;
     while (src[i] != '\0')
     {
@@ -27,7 +27,7 @@ int main()
 {
     char str[10];
     char* tmp = s_gets(str, 10);
-    
+
     puts(str);
 
     system("pause");

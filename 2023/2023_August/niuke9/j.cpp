@@ -30,10 +30,10 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int n;
     cin >> n;
-    int cnt[5] = { 0 };
+    int cnt[5] = {0};
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= n; j++)
         {
@@ -42,10 +42,10 @@ int main()
         }
 
     vector<pii> ans;
-    for(int )
+    for (int)
 
 #ifdef LOCAL
-    cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
+        cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif
     cout << flush;
     return 0;

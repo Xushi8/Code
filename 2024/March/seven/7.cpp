@@ -30,22 +30,22 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	ll n, m, q;
-	cin >> n >> m >> q;
-	set<int> a, b;
-	while (q--)
-	{
-		int op, x;
-		cin >> op >> x;
-		if (op == 0)
-			a.emplace(x);
-		else
-			b.emplace(x);
-	}
+    ll n, m, q;
+    cin >> n >> m >> q;
+    set<int> a, b;
+    while (q--)
+    {
+        int op, x;
+        cin >> op >> x;
+        if (op == 0)
+            a.emplace(x);
+        else
+            b.emplace(x);
+    }
 
-	ll ans = n * m - m * a.size() - n * b.size() + a.size() * b.size();
-	cout << ans << endl;
-    
+    ll ans = n * m - m * a.size() - n * b.size() + a.size() * b.size();
+    cout << ans << endl;
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

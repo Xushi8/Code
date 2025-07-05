@@ -93,9 +93,12 @@ int main()
         int x;
         cin >> x;
         x--;
-        if(arr[x].ed == 0) {
+        if (arr[x].ed == 0)
+        {
             cout << "Sorry\n";
-        } else {
+        }
+        else
+        {
             int j = arr[x].ed;
             int h = j / 60;
             int m = j % 60;

@@ -37,7 +37,6 @@ void build(int l, int r, int p)
         return;
     }
 
-
     int mid = l + (r - l) / 2;
     build(l, mid, p * 2);
     build(mid + 1, r, p * 2 + 1);

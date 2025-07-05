@@ -6,6 +6,6 @@ void no_use(vector<int> const& a) noexcept;
 
 void funcccc(size_t n, const int val)
 {
-	vector<int> a(n, val);
-	no_use(a);
+    vector<int> a(n, val);
+    no_use(a);
 }

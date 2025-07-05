@@ -1,13 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     // int tmp;
 //     // while (cin >> tmp)
 //     // {
@@ -30,12 +28,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-//长度最小的子数组
-// int main()
-// {
-//     ios::sync_with_stdio(false);
-//     cin.tie(0);
+// 长度最小的子数组
+//  int main()
+//  {
+//      ios::sync_with_stdio(false);
+//      cin.tie(0);
 
 //     int ans = INT32_MAX;
 //     int sum = 0;
@@ -64,7 +61,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cout << "dfsfds" << ' ';
     int a;
     cin >> a;
@@ -73,6 +70,3 @@ int main()
     system("pause");
     return 0;
 }
-
-
-

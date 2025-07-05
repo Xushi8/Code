@@ -25,7 +25,6 @@
 
 // ofstream ofs;
 
-
 // bool is_power_of_two1(uint64_t n)
 // {
 //     if (n == 0)
@@ -88,11 +87,9 @@
 
 //     cout << (double)(end - begin) / CLOCKS_PER_SEC << '\n';
 
-
 //     cout << endl;
 //     return 0;
 // }
-
 
 // 2023/07/30 22:13:10
 #ifndef DEBUG
@@ -122,22 +119,22 @@ const int INF = 0x3f3f3f3f;
 const int MOD = (int)(1e9 + 7);
 const int N = 1000005;
 
-
 constexpr ll fibonacci(const ll n)
 {
-    if (n == 1) return 1;
-    if (n == 2) return 1;
+    if (n == 1)
+        return 1;
+    if (n == 2)
+        return 1;
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
-
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     cout << fibonacci(50) << '\n';
-    
+
     cout << endl;
     return 0;
 }

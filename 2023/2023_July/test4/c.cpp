@@ -32,7 +32,7 @@ const int N = 1000005;
 //     cout.put((char)(num % 10 + '0'));
 //     if (num % 10 == 0)
 //         cnt++;
-    
+
 //     return out;
 // }
 
@@ -97,7 +97,6 @@ int main()
             cout << "Case " << Case++ << ": " << ans << '\n';
         }
     }
-
 
     cout << flush;
     return 0;

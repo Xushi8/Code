@@ -85,7 +85,7 @@ void solve()
     {
         if (i != 0)
         {
-            cout << ' ' ;
+            cout << ' ';
         }
         cout << ans1[i] + 1;
     }

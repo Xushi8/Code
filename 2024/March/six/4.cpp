@@ -30,19 +30,19 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
-	cout << setprecision(1) << fixed;
-	while (n--)
-	{
-		double x;
-		cin >> x;
-		if (x < m)
-		{
-			cout << "On Sale! " << x << '\n';
-		}
+    int n, m;
+    cin >> n >> m;
+    cout << setprecision(1) << fixed;
+    while (n--)
+    {
+        double x;
+        cin >> x;
+        if (x < m)
+        {
+            cout << "On Sale! " << x << '\n';
+        }
     }
-    
+
 #ifdef LOCAL
     cerr << "Time elapsed: " << clock() / 1000 << " ms" << endl;
 #endif

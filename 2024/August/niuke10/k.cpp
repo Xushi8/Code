@@ -6,7 +6,6 @@
 #endif
 using namespace std;
 
-
 void solve();
 
 int main()
@@ -46,6 +45,4 @@ void solve()
     sort(a.begin(), a.end());
     int cntL = lower_bound(a.begin(), a.end(), 0) - a.begin();
     int cntR = a.end() - upper_bound(a.begin(), a.end(), 0);
-
-    
 }

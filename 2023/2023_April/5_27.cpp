@@ -83,7 +83,6 @@
 //     return 0;
 // }
 
-
 // 2023/05/27 12:25:34
 #include <bits/stdc++.h>
 using namespace std;
@@ -97,7 +96,8 @@ long long kuaisu(long long k, long long n, long long mod)
     long long res = 1;
     while (n)
     {
-        if (n & 1) res = res * k % mod;
+        if (n & 1)
+            res = res * k % mod;
         k = k * k % mod;
         n /= 2;
     }
@@ -129,7 +129,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     fact[0] = infact[0] = 1;
     for (int i = 1; i < N; i++)
     {

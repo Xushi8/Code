@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, jiange;
 //     cin >> n >> jiange;
 //     queue<string> name;
@@ -47,7 +45,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // bool solve() {
 //     int W1, D1, W2, D2;
 //     bool b1 = true, b2 = true;
@@ -83,7 +80,7 @@ using namespace std;
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     stack<int> s;
 //     int sum = 0;
 //     string str;
@@ -122,12 +119,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     int n, m;
 //     cin >> m;
 //     vector<int> a1(m);
@@ -160,12 +156,11 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main()
 // {
 //     ios::sync_with_stdio(false);
 //     cin.tie(0);
-    
+
 //     unordered_set<string> str;
 //     int tt;
 //     cin >> tt;
@@ -188,6 +183,3 @@ using namespace std;
 //     system("pause");
 //     return 0;
 // }
-
-
-

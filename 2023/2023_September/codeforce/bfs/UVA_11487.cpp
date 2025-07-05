@@ -25,8 +25,8 @@ constexpr int MOD = 20437;
 constexpr int INF = 0x3f3f3f3f;
 
 int Case;
-int dx[] = { 0, 1, 0, -1 };
-int dy[] = { 1, 0, -1, 0 };
+int dx[] = {0, 1, 0, -1};
+int dy[] = {1, 0, -1, 0};
 int n;
 
 void solve()
@@ -55,34 +55,35 @@ void solve()
     }
 
     auto bfs = [&](int nx, int ny) -> pii
+    {
+        vector<vector<int>> dis(n, vector<int>(n, INF));
+        queue<pii> que;
+        que.emplace(nx, ny);
+        dis[nx][ny] = 0;
+        int now = 0, shortest = -1;
+        char end_food = s[nx][ny] + 1;
+        while (!que.empty())
         {
-            vector<vector<int>> dis(n, vector<int>(n, INF));
-            queue<pii> que;
-            que.emplace(nx, ny);
-            dis[nx][ny] = 0;
-            int now = 0, shortest = -1;
-            char end_food = s[nx][ny] + 1;
-            while (!que.empty())
+            auto [x, y] = que.front();
+            que.pop();
+            if (end_food == s[x][y])
             {
-                auto [x, y] = que.front(); que.pop();
-                if (end_food == s[x][y])
+                now++;
+                shortest = dis[x][y];
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int tx = x + dx[i];
+                int ty = y + dy[i];
+                if (0 <= tx && tx < n && 0 <= ty && ty < n && s[tx][ty] != '#' && dis[tx][ty] > dis[x][y] && (s[tx][ty] == '.' || s[tx][ty] <= end_food))
                 {
-                    now++;
-                    shortest = dis[x][y];
-                }
-                for (int i = 0; i < 4; i++)
-                {
-                    int tx = x + dx[i];
-                    int ty = y + dy[i];
-                    if (0 <= tx && tx < n && 0 <= ty && ty < n && s[tx][ty] != '#' && dis[tx][ty] > dis[x][y] && (s[tx][ty] == '.' || s[tx][ty] <= end_food))
-                    {
-                        dis[tx][ty] = dis[x][y] + 1;
-                        que.emplace(tx, ty);
-                    }
+                    dis[tx][ty] = dis[x][y] + 1;
+                    que.emplace(tx, ty);
                 }
             }
-            return { shortest, now };
-        };
+        }
+        return {shortest, now};
+    };
 
     int shortest = 0;
     ll now = 1;
